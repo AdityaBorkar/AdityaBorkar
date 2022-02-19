@@ -1,5 +1,14 @@
 ### Hi there 👋
 
+
+🔭 I’m currently working on Frontend React-based applications
+- 🌱 I’m currently learning Rust
+- 👯 I’m looking to collaborate on Frontend
+- 🤔 I’m looking for help with Rust
+- 💬 Ask me about React
+- 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com>
+- 😄 Pronouns: he / him / his
+ 
 <!--
 **AdityaBorkar/AdityaBorkar** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
