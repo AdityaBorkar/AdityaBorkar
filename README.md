@@ -1,12 +1,12 @@
 ### Hi there 👋
 
 
-🔭 I’m currently working on Frontend React-based applications
-- 🌱 I’m currently learning Rust
+🔭 I’m currently working on Frontend React-based applications (List out techs and tools)
+- 🌱 I’m currently learning Rust and AWS
 - 👯 I’m looking to collaborate on Frontend
 - 🤔 I’m looking for help with Rust
 - 💬 Ask me about React
-- 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com>
+- 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com> and LinkedIn
 - 😄 Pronouns: he / him / his
  
 <!--
