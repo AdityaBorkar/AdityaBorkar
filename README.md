@@ -8,7 +8,7 @@
 - 💬 Ask me about React
 - 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com> and LinkedIn
 - 😄 Pronouns: he / him / his
- 
+ ![](https://komarev.com/ghpvc/?username=your-github-username&color=dc143c)
 <!--
 **AdityaBorkar/AdityaBorkar** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
