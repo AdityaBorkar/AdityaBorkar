@@ -1,25 +1,10 @@
-### Hi there 👋
+### 👋 Hello World, _Aditya_ here
 
 
-🔭 I’m currently working on Frontend React-based applications (List out techs and tools)
-- 🌱 I’m currently learning Rust and AWS
-- 👯 I’m looking to collaborate on Frontend
-- 🤔 I’m looking for help with Rust
-- 💬 Ask me about React
-- 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com> and LinkedIn
-- 😄 Pronouns: he / him / his
- ![](https://komarev.com/ghpvc/?username=your-github-username&color=dc143c)
-<!--
-**AdityaBorkar/AdityaBorkar** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 🔭 I’m currently working on `Frontend React-based applications` (List out techs and tools)
+- 🌱 I’m currently learning **Rust and AWS**
+- 👯 I’m looking to collaborate on **Frontend**
+- 💬 Ask me about **Frontend**
+- 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com> and [LinkedIn](https://www.linkedin.com/in/mr-aditya-borkar/)
+- 😄 Pronouns: he/him/his
+<!-- - ⚡ Fun fact: ... -->
