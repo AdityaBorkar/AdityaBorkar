@@ -3,7 +3,7 @@
 
 - 😄 Pronouns: he/him/his
 - 🔭 I’m work on `Full Stack Web Applications`
-- Stack: Next.js, MongoDB, PostgreSQL, Firebase, Google Cloud
+- Experienced in: Next.js, Astro, AWS, MongoDB, PostgreSQL, Firebase
 - 🌱 I’m currently learning **LLMs and AI**
 - 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com> and [LinkedIn](https://www.linkedin.com/in/mr-aditya-borkar/)
 <!-- 💬 Ask me about -->
