@@ -1,0 +1,209 @@
+/*
+
+@import "tailwindcss";
+
+@theme {
+  --font-family-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 1920px;
+  --color-neon-pink: oklch(71.7% 0.25 360);
+  --color-neon-lime: oklch(91.5% 0.258 129);
+  --color-neon-cyan: oklch(91.3% 0.139 195.8);
+}
+  
+*/
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
+  /* --- */
+
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  @keyframes apple-wobble {
+    0% {
+      transform: rotate(1deg);
+      animation-timing-function: ease-in;
+    }
+
+    50% {
+      transform: rotate(-1.5deg);
+      animation-timing-function: ease-out;
+    }
+  }
+
+  a:focus,
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
+  :root {
+    --bg: 240 6% 90%;
+    --bg-primary: 240 5% 65%;
+    --bg-secondary: 240 5% 84%;
+    --text: 240 6% 10%;
+    --text-primary: 240 4% 16%;
+    --text-secondary: 240 4% 46%;
+    --border: 240 4% 16%;
+  }
+
+  .dark {
+    --bg: 240 6% 10%;
+    --bg-primary: 240 5% 34%;
+    --bg-secondary: 240 4% 16%;
+    --text: 240 5% 96%;
+    --text-primary: 240 6% 90%;
+    --text-secondary: 240 5% 65%;
+    --border: 240 5% 96%;
+  }
+
+  .section {
+    @apply mx-auto max-w-[64rem];
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  @apply transition-all;
+}
+
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a:focus,
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid lightgray;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::marker {
+  content: ""
+}
+
+body
+
+/* #root,
+#__next */
+  {
+  /* TODO: REVIEW THIS AFTER REACT 19 (RSC) */
+  isolation: isolate;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+/* TODO: USE @starting-style FOR BETTER TRANSITIONS  */
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* TODO: try out in real simulation */
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+    transition-delay: 1ms !important;
+  }
+}
+
+
+
+@keyframes shine {
+  0% {
+    @apply left-[-150px]
+  }
+
+  30% {
+    @apply left-[100%]
+  }
+
+  100% {
+    @apply left-[100%]
+  }
+}
+
+.shine-effect {
+  clip-path: border-box;
+}
+
+.shine-effect:before {
+  @apply top-0 -left-[150px] absolute w-[150px] h-full;
+  content: '';
+  background-image: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, .5),
+      rgba(255, 255, 255, 0) 70%);
+  animation: shine 5s infinite ease-in-out;
+}

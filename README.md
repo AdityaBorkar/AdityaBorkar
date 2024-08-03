@@ -1,50 +1,32 @@
-### 👋 Hello World, _Aditya_ here
-**Available for Freelancing and Contract Work**
+full stack product engineer ✦ web developer ✦ ai engineer
 
-- 😄 Pronouns: he/him/his
-- 🔭 I’m work on `Full Stack Web Applications`
-- Experienced in: Next.js, Astro, AWS, MongoDB, PostgreSQL, Firebase
-- 🌱 I’m currently learning **LLMs and AI**
-- 📫 You can e-mail me at - <aditya.borkar.programs@gmail.com> and [LinkedIn](https://www.linkedin.com/in/mr-aditya-borkar/)
-<!-- 💬 Ask me about -->
-<!-- 👨‍💻 All of my projects are available at -->
-<!-- 📝 I regularly write articles on -->
-<!-- - ⚡ Fun fact: ... -->
+---
 
-<!-- PROJECTS -->
+- i work on `full stack web products`, `ai products` and `webflow apps`
+- i offer various freelancing services related to product engineering: [adityab.tech/services](adityab.tech/services)
+- schedule a meeting: [adityab.tech/contact](adityab.tech/contact)
+- i make indie products and open-source contributions:
 
-<!-- BLOGS -->
+---
 
-<!--
-Programming Languages:
-- Typescript JavaScript Python Rust GoLang Java PHP C++ Arduino
+- open source projects
 
-Frontend Development
-- React, Svelte, Vue, Redux
-- Next.js, Nuxt.js, Sapper
-- Styling: Sass, TailwindCSS, CSS3
-- Bundling: Webpack, Babel
+  - [project name]() - more info about the project
+  -   
+  - read more: [adityab.tech/projects](https://adityab.projects/blog)
 
-Backend Development:
-- Node.js, Express, GraphQL, RabbitMQ
+- indie projects
 
-Database:
-- MongoDB, PostgreSQL, Redis, ElasticSearch, Neo4j
+  - 
+  - 
+  - 
+  - read more: [adityab.tech/projects](https://adityab.tech/projects)
 
-Testing:
-- Jest, Cypress, Puppeteer, Selenium
+- featured articles
 
-DevOps:
-- Google Cloud, Docker, Amazon Web Services, Firebase
+  - 
+  - 
+  - 
+  - read more: [adityab.tech/blog](https://adityab.tech/blog)
 
-Automation:
-- Zappier, IFTTT
-
-Designing:
-- Figma
--->
-
-<!-- CONTACT ME -->
-<!-- Email, Hashnode, Medium, Instagram, LinkedIn, Github, Twitter -->
-
-<!-- Pin repositories to homepage from GitHub Settings -->
+> if my open-source contributions / projects make a difference to you, please consider sponsoring, to help support my daily cup of coffee.
