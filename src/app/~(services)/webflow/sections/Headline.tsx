@@ -1,4 +1,4 @@
-import ScheduleMeetBtn from '../ScheduleMeetBtn'
+import ScheduleMeetBtn from '../../../../components/ScheduleMeetBtn'
 
 export default function Headline() {
   // TODO: Add Video Sales Letter
@@ -55,7 +55,7 @@ export default function Headline() {
 
 function NocodeBlocks() {
   return (
-    <div className="absolute left-0 top-0 -z-10 !m-0 h-full w-full opacity-10 child:absolute child:h-20 child:w-20 child:rounded-lg child:bg-white">
+    <div className="child:absolute child:h-20 child:w-20 child:rounded-lg child:bg-white absolute left-0 top-0 -z-10 !m-0 h-full w-full opacity-10">
       <img
         src="/img/zapier.svg"
         alt=""

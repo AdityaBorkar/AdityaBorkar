@@ -2,7 +2,7 @@ import type { IconType } from 'react-icons'
 import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa6'
 import { HiCalendar } from 'react-icons/hi2'
 
-import ScheduleMeetBtn from '@/app/(services)/webflow/ScheduleMeetBtn'
+import ScheduleMeetBtn from '@/components/ScheduleMeetBtn'
 
 export default function ContactPage() {
   //   I'm available for projects, podcasts, talks, consultations, & collabs. Looking to start a new project or just want to say hi? Email me, and I’ll do my best to reply within 24 hrs.

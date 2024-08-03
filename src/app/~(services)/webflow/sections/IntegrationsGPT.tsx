@@ -9,12 +9,12 @@ import {
 import ReactFlow, { Background, BackgroundVariant, Controls } from 'reactflow'
 import 'reactflow/dist/style.css'
 
-import ScheduleMeetBtn from '../ScheduleMeetBtn'
+import ScheduleMeetBtn from '../../../../components/ScheduleMeetBtn'
 
 export default function IntegrationsGPT() {
   return (
     <section className="py-[50px]">
-      <div className="mx-auto grid h-[60vh] w-[70vw] grid-cols-[60%_40%] gap-12 child:h-full child:bg-neutral-900">
+      <div className="child:h-full child:bg-neutral-900 mx-auto grid h-[60vh] w-[70vw] grid-cols-[60%_40%] gap-12">
         <Input />
         <Output />
       </div>
@@ -74,7 +74,7 @@ function Output() {
         </div>
       ) : (
         <>
-          <div className="mt-10 leading-relaxed text-neutral-200 child:mb-4">
+          <div className="child:mb-4 mt-10 leading-relaxed text-neutral-200">
             <p>
               If you have a Content Creation Business, you can integrate hubspot
               to manage your content and webflow to create an amazing website.
