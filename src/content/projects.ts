@@ -84,6 +84,54 @@ export const PROJECTS_LIST: ProjectType[] = [
     heroImage: '',
   },
   {
+    title: 'Fork Watch',
+    description:
+      'Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.',
+    categories: [
+      // 'Library',
+      'Software Development',
+      'Platform Engineering',
+    ],
+    tags: [
+      'Open Source',
+      'SaaS: Software-as-a-Service',
+      'Developer Tool',
+      'Platform',
+      'TypeScript',
+      'MQTT',
+      'SST',
+      'Pulumi',
+      'IaaC',
+    ],
+    website: 'replocal.app',
+    github: '',
+    heroImage: '',
+  },
+  {
+    title: 'Webflow Design System (community)',
+    description:
+      'Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.',
+    categories: [
+      // 'Library',
+      'Software Development',
+      'Platform Engineering',
+    ],
+    tags: [
+      'Open Source',
+      'SaaS: Software-as-a-Service',
+      'Developer Tool',
+      'Platform',
+      'TypeScript',
+      'MQTT',
+      'SST',
+      'Pulumi',
+      'IaaC',
+    ],
+    website: 'replocal.app',
+    github: '',
+    heroImage: '',
+  },
+  {
     title: 'Hooop Cloud',
     description:
       'Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.',

@@ -1,6 +1,7 @@
-import AdityaBorkarPerson from '@/schema/person'
-import type { ProjectType } from '../types'
 import type { SoftwareApplication, WithContext } from 'schema-dts'
+
+import AdityaBorkarPerson from '@/schema/person'
+import type { ProjectType } from '@/types/projectInfo'
 
 export default function generateProjectSchema(project: ProjectType) {
   // https://schema.org/WebApplication

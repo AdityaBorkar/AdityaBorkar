@@ -1,10 +1,12 @@
-import type { ReactNode } from 'react'
-
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import { HiArrowLeft, HiArrowUpRight, HiOutlineGlobeAlt } from 'react-icons/hi2'
 import { VscGithub } from 'react-icons/vsc'
 import { twMerge } from 'tailwind-merge'
+
 import SchemaMarkup from '@/components/SchemaMarkup'
+import { ProjectType } from '@/types/projectInfo'
+
 import generateProjectSchema from './schema'
 
 export default function ProjectPage(props: { params: { id: string } }) {
@@ -16,7 +18,7 @@ export default function ProjectPage(props: { params: { id: string } }) {
     title: 'GeM Finder',
     description:
       'Google Chrome Extension to navigate the GeM website and get personalized bids.',
-    category: 'Web Development',
+    categories: ['Software Development', 'Plugins & Extensions'],
     tags: [
       'Google Chrome Extension',
       'Web Scraping',
@@ -42,27 +44,27 @@ export default function ProjectPage(props: { params: { id: string } }) {
   } as ProjectType
 
   return (
-    <div className='max-w-[64rem] mx-auto text-neutral-300'>
-      <div className='relative grid grid-cols-[42rem_18rem] gap-16'>
+    <div className="mx-auto max-w-[64rem] text-neutral-300">
+      <div className="relative grid grid-cols-[42rem_18rem] gap-16">
         <main>
           <Link
-            href='/projects'
-            className='block mt-16 text-neutral-400 font-medium hover:text-neutral-200'
+            href="/projects"
+            className="mt-16 block font-medium text-neutral-400 hover:text-neutral-200"
           >
-            <HiArrowLeft className='inline-block size-5 mr-4 -mt-1' />
+            <HiArrowLeft className="-mt-1 mr-4 inline-block size-5" />
             Back to "Projects"
           </Link>
 
-          <h2 className='font-bold text-white text-4xl mt-12'>
+          <h2 className="mt-12 text-4xl font-bold text-white">
             {project.title}
           </h2>
-          <div className='mt-4 text-neutral-400'>{project.description}</div>
+          <div className="mt-4 text-neutral-400">{project.description}</div>
 
           {/* TODO: Make this a GIF. With Screen Recordings and kickass animations. */}
-          <div className='w-[90%] h-96 my-16 mx-auto bg-neutral-800 rounded-2xl' />
+          <div className="mx-auto my-16 h-96 w-[90%] rounded-2xl bg-neutral-800" />
 
           <H4>Problem Statement</H4>
-          <p className='mt-4'>
+          <p className="mt-4">
             Government of India and it's various agencies (350k+ registered
             buyers) advertise the 11k+ products and 300+ services required for
             them on an open e-marketplace called as "Government e-Marketplace"
@@ -70,7 +72,7 @@ export default function ProjectPage(props: { params: { id: string } }) {
             sellers competing to win. To track these bids, a full-time employee
             is required per 50 bids.
           </p>
-          <p className='mt-4'>
+          <p className="mt-4">
             The solution was to automate the process of finding the bid
             according to the business' capabilities, capacity and eligibility
             criterion.
@@ -80,49 +82,49 @@ export default function ProjectPage(props: { params: { id: string } }) {
           <div>Add Images/Screens and explain</div>
         </main>
 
-        <aside className='relative'>
-          <div className='py-36' />
-          <div className='sticky top-32 w-full text-sm flex flex-col gap-4'>
+        <aside className="relative">
+          <div className="py-36" />
+          <div className="sticky top-32 flex w-full flex-col gap-4 text-sm">
             <ExternalLink href={'https://github.com/'}>
-              <HiOutlineGlobeAlt className='inline-block size-5 mr-2' />
+              <HiOutlineGlobeAlt className="mr-2 inline-block size-5" />
               gem.adityaborkar.com
-              <HiArrowUpRight className='absolute top-4 right-4 size-4' />
+              <HiArrowUpRight className="absolute right-4 top-4 size-4" />
             </ExternalLink>
 
             <ExternalLink href={'https://github.com/'}>
-              <VscGithub className='inline-block size-5 mr-2' />
+              <VscGithub className="mr-2 inline-block size-5" />
               adityaborkar/gem-finder
-              <HiArrowUpRight className='absolute top-4 right-4 size-4' />
+              <HiArrowUpRight className="absolute right-4 top-4 size-4" />
             </ExternalLink>
 
-            <div className='border border-neutral-700 p-4 rounded-lg'>
-              <div className=' text-base font-semibold text-neutral-100 mb-2'>
+            <div className="rounded-lg border border-neutral-700 p-4">
+              <div className="mb-2 text-base font-semibold text-neutral-100">
                 Business Outcome
               </div>
-              <ul className='list-disc list-inside ml-1'>
-                {project.highlights.map(highlight => (
+              <ul className="ml-1 list-inside list-disc">
+                {/* {project.highlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>
-                ))}
+                ))} */}
               </ul>
             </div>
 
-            <div className='border border-neutral-700 p-4 rounded-lg'>
-              <div className='text-base  font-semibold text-neutral-100 mb-2'>
+            <div className="rounded-lg border border-neutral-700 p-4">
+              <div className="mb-2 text-base font-semibold text-neutral-100">
                 Tech Stack
               </div>
-              <ul className='list-disc flex flex-col gap-1 list-inside ml-1'>
-                {project.tech.map(tech => (
+              <ul className="ml-1 flex list-inside list-disc flex-col gap-1">
+                {/* {project.tech.map((tech) => (
                   <li key={tech.name}>
-                    {/* {tech.img} */}
+                    {tech.img}
                     {tech.name}
                   </li>
-                ))}
+                ))} */}
               </ul>
             </div>
           </div>
         </aside>
       </div>
-      <div className='text-center my-48'>
+      <div className="my-48 text-center">
         CALL TO ACTION:
         {/* VIEW MORE PROJECTS/BLOGS */}
         {/* CONTACT / SCHEDULE MEET */}
@@ -133,12 +135,9 @@ export default function ProjectPage(props: { params: { id: string } }) {
   )
 }
 
-function H4(props: {
-  children: string
-  className?: string
-}) {
+function H4(props: { children: string; className?: string }) {
   return (
-    <h4 className='font-semibold text-white text-2xl mt-16 mb-4'>
+    <h4 className="mb-4 mt-16 text-2xl font-semibold text-white">
       {props.children}
     </h4>
   )
@@ -152,10 +151,10 @@ function ExternalLink(props: {
   return (
     <a
       href={'https://github.com/'}
-      target='_blank'
-      rel='noreferrer'
+      target="_blank"
+      rel="noreferrer"
       className={twMerge(
-        'block relative w-full py-3 px-4 bg-neutral-200 text-neutral-800 font-medium rounded-md',
+        'relative block w-full rounded-md bg-neutral-200 px-4 py-3 font-medium text-neutral-800',
         props.className,
       )}
     >

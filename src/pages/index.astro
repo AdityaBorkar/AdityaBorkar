@@ -1,0 +1,367 @@
+---
+import { Image } from "astro:assets";
+import ProfileImage from "../assets/profile.png";
+
+import LandingLayout from "../layouts/LandingLayout/index.astro";
+import TESTIMONIALS from "../content/testimonials";
+
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading";
+import BentoDiv from "../components copy/BentoDiv";
+import BookCallFooter from "../components copy/BookCallFooter";
+
+import { LuMail } from "react-icons/lu";
+import { BiLogoGithub, BiLogoTwitter, BiLogoLinkedin } from "react-icons/bi";
+
+import type { Thing, WithContext } from "schema-dts";
+import Marquee from "@/components/Marquee.astro";
+
+const SchemaMarkup = {} as WithContext<Thing>;
+
+// TODO: Add accessiblity
+
+// const date = new Date().toLocaleString('en-US', {
+//   month: 'long',
+//   day: 'numeric',
+//   year: 'numeric',
+// })
+
+const Mockups1 = [
+  {
+    img: "/res/mockup1.png",
+    link: "https://example.com",
+  },
+  {
+    img: "/res/mockup2.png",
+    link: "https://example.com",
+  },
+];
+const Mockups2 = [
+  {
+    img: "/res/mockup1.png",
+    link: "https://example.com",
+  },
+  {
+    img: "/res/mockup2.png",
+    link: "https://example.com",
+  },
+];
+---
+
+<style>
+  h3 {
+    @apply mb-16 mt-48 text-left text-4xl font-bold;
+  }
+
+  section {
+    @apply mb-16 mt-48;
+  }
+</style>
+<!-- h3 apply section -->
+
+<LandingLayout
+  title="Aditya Borkar - Product Engineer"
+  description="Some catching ranking text"
+  keywords={["Aditya Borkar", "Product Engineer", "Software Engineer"]}
+  schemaMarkup={SchemaMarkup}
+>
+  <div>
+    <section
+      class="mx-auto mb-36 mt-48 grid max-w-[64rem] grid-cols-[1fr_2fr] gap-16"
+    >
+      <div class="mx-auto size-80 overflow-hidden rounded-full bg-neutral-900">
+        {
+          /* Mountains in Background, Well-defined body, Authorative Face, More Formal */
+        }
+        <Image
+          class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover"
+          src={ProfileImage}
+          alt=""
+        />
+      </div>
+      <div class="-mt-4 w-[100%]">
+        <div class="text-3xl font-bold leading-[1.5]">
+          Full Stack Product Engineer.
+          <br /> AI Developer. OSS Maintainer.
+        </div>
+
+        <div class="mt-6 flex flex-row gap-4 text-text-secondary">
+          <a href="https://github.com/AdityaBorkar">
+            <BiLogoGithub className="size-6 hover:text-foreground" />
+          </a>
+          <a href="https://twitter.com/adityab_tech">
+            <BiLogoTwitter className="size-6 hover:text-foreground" />
+          </a>
+          <a href="https://linkedin.com/in/aditya-borkar">
+            <BiLogoLinkedin className="size-6 hover:text-foreground" />
+          </a>
+          <a href="mailto:hi@adityab.tech" class="mt-0.5">
+            <LuMail className="size-5 hover:text-foreground" />
+          </a>
+        </div>
+
+        <p
+          class="my-12 text-balance text-base text-text-primary [&>em]:font-semibold [&>em]:text-neutral-900"
+        >
+          {"I'm Aditya Borkar, as a "}
+          <em>software engineer</em>
+          {", I specialize in creating "}
+          <em>high-quality products</em>
+          {" with"}
+          <em>humanizing user experience</em>
+          {
+            ", leveraging integration with APIs and libraries. My aim is to help businesses in"
+          }
+          <em>optimizing</em>
+          {" their processes for "}
+          <em>improved efficiency</em>
+          {
+            "and ease of use. I have strong opinions to deliver clean, maintainable, scalable, production-ready world-class code."
+          }
+          {
+            /* TODO: Attract attention and convey how your skills can help deveopers/businesses */
+          }
+          {
+            /* <p class="mt-4">
+				As a software engineer, I specialize in creating high-quality
+				products with humanizing user experience, leveraging integration
+				with APIs and libraries. My aim is to aid businesses in optimizing
+				their processes for improved efficiency and ease of use.
+			  </p> */
+          }
+          With a results-driven approach and a dedication to innovation, I strive
+          to deliver cutting-edge solutions that propel businesses to new heights
+        </p>
+
+        <div class="w-fit">
+          <a
+            href="/contact"
+            class="rounded-xl bg-amber-700 px-6 py-3 font-semibold text-background"
+          >
+            Enquire / Contact
+          </a>
+
+          <div class="my-8 text-center text-sm text-text-secondary">
+            <div class="relative mr-2 inline-block">
+              <div class="size-3 rounded-full bg-green-500"></div>
+              <div
+                class="absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full bg-green-500 [animation-delay:0.4s] [animation-duration:2s]"
+              >
+              </div>
+            </div>
+            Available now
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <!-- TODO - Repeat 1 more line -->
+    <!-- TODO: opacity-100 on scroll down -->
+    <!-- Blur on both ends -->
+    <!-- Auto scroll with low speed, increase the speed with speed of the mouse. Keep scrolling for a long time. -->
+    <section class="opacity-25 *:mx-8">
+      <!-- <Marquee>
+        {
+          Mockups1.map(({ img, link }) => (
+            <a href={link}>
+              <img src={img} alt="" class="h-72 border border-border" />
+            </a>
+          ))
+        }
+      </Marquee>
+      <Marquee>
+        {
+          Mockups2.map(({ img, link }) => (
+            <a href={link}>
+              <img src={img} alt="" class="h-72 border border-border" />
+            </a>
+          ))
+        }
+      </Marquee> -->
+    </section>
+
+    <SectionHeading>About ↓</SectionHeading>
+
+    <section class="grid grid-cols-8 gap-8">
+      <BentoDiv label="Motivation" className="col-span-4 row-span-3">
+        <p class="text-base">
+          I became a programmer and product engineer because I'm passionate
+          about harnessing the power of technology to solve real-world problems
+          and make a meaningful impact on people's lives. I enjoy the creative
+          challenge of designing innovative solutions and the satisfaction of
+          seeing my ideas come to life. Through programming and product
+          engineering, I aim to continually learn, grow, and push the boundaries
+          of what's possible.
+          {/* Passion, Problem-solving, Learning mindset */}
+        </p>
+      </BentoDiv>
+
+      <BentoDiv label="Peerlist" className=""> . </BentoDiv>
+
+      <BentoDiv label="IndieHackers" className=""> . </BentoDiv>
+
+      <BentoDiv label="Read.cv" className=""> . </BentoDiv>
+
+      <BentoDiv label="Medium" className=""> . </BentoDiv>
+
+      <BentoDiv label="GitHub" className="col-span-4 row-span-2">
+        Heatmap
+      </BentoDiv>
+
+      <BentoDiv label="Stats" className="col-span-6 row-span-2">
+        <div class="flex flex-row justify-evenly py-4 text-center text-sm">
+          <div>
+            <div class="mb-2 text-2xl font-semibold">3+</div>
+            Years of Expertise
+          </div>
+          <div>
+            <div class="mb-2 text-2xl font-semibold">10+</div>
+            Total Projects
+          </div>
+          <div>
+            <div class="mb-2 text-2xl font-semibold">4+</div>
+            Happy Clients
+          </div>
+          <div>
+            <div class="mb-2 text-2xl font-semibold">10+</div>
+            GitHub Stars
+          </div>
+          {
+            /* <div>
+				<div class="text-2xl font-semibold">600+</div>
+				Commits
+			  </div> */
+          }
+          <div>
+            <div class="mb-2 text-2xl font-semibold">3000+</div>
+            Coding Hours
+          </div>
+        </div>
+        {
+          /* I am comfortable to work in many programming languages and
+			  cross-platforms. I love to solve problems using tech, for that, I am
+			  flexible to learn any language/library/frameworks/tools */
+        }
+      </BentoDiv>
+
+      <BentoDiv label="Photo" className="col-span-2 row-span-5">
+        Desk Setup
+        {
+          /* OR Timelapse of me working on my desk with coffee from a picturesque place */
+        }
+      </BentoDiv>
+
+      <BentoDiv label="Tech Stack" className="col-span-4 row-span-4">
+        Tech Stack
+      </BentoDiv>
+
+      <BentoDiv label="Location" className="col-span-2 row-span-4">
+        Maps + Timezones comfortable
+      </BentoDiv>
+
+      {
+        /* <BentoBox label="Spotify" class="col-span-2">
+			Playlist
+		  </BentoBox> */
+      }
+
+      <BentoDiv label="Read More" className="col-span-2"> /about </BentoDiv>
+    </section>
+
+    <SectionHeading>Services ↓</SectionHeading>
+
+    <section>
+      <div class="grid grid-cols-5 gap-12">
+        {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
+        <div
+          class="col-span-2 row-span-2 rounded-2xl border border-neutral-800 p-4"
+        >
+          Full Stack Product Engineer
+        </div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        {/* --- */}
+
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div
+          class="col-span-2 row-span-2 rounded-2xl border border-neutral-800 p-4"
+        >
+          AI Engineer [SPECIALIZED]
+        </div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+      </div>
+    </section>
+
+    {/* <SectionHeading>Selected Work</SectionHeading> */}
+
+    <SectionHeading>What people speak ?</SectionHeading>
+
+    {/* TODO: Carousal */}
+    <section class="flex flex-row justify-center gap-12 overflow-auto">
+      {
+        TESTIMONIALS.map((testimonial) => (
+          //   key={testimonial.author}
+          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-neutral-300">
+            <p class="text-sm">{testimonial.text}</p>
+            <div class="mt-1 text-base">
+              <div class="font-medium">{testimonial.author}</div>
+              <div class="text-sm">{testimonial.role}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <SectionHeading>Writings ↓</SectionHeading>
+
+    {/* TODO: Featured Only (2 Most Viewed and 1 Recent) */}
+    <section class="flex flex-row justify-center gap-12 overflow-auto">
+      {
+        TESTIMONIALS.map((testimonial) => (
+          //   key={testimonial.author}
+          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-neutral-300">
+            <p class="text-sm">{testimonial.text}</p>
+            <div class="mt-1 text-base">
+              <div class="font-medium">{testimonial.author}</div>
+              <div class="text-sm">{testimonial.role}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <BookCallFooter />
+
+    {
+      /* <div class='mt-64 '>
+		  <h3 class='font-semibold text-3xl text-center'>Reach Out</h3>
+		  <form class='mt-16 text-center w-[20%] mx-auto'>
+			<input
+			  name=''
+			  type='text'
+			  class='mb-8 border border-neutral-800 w-full rounded-md py-2 px-4 bg-neutral-900'
+			/>
+			<textarea
+			  name=''
+			  class='mb-8 border border-neutral-800 w-full rounded-md py-2 px-4 bg-neutral-900'
+			/>
+			<button
+			  type='submit'
+			  class='mt-8 px-4 py-2 bg-white mx-auto text-black rounded-md font-medium text-sm'
+			>
+			  Send Inquiry
+			</button>
+		  </form>
+		</div> */
+    }
+  </div>
+</LandingLayout>

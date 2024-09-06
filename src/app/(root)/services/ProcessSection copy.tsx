@@ -14,21 +14,18 @@ export default function ProcessSection() {
   const TotalAccordianItems = 8
 
   useLenis((lenis) => {
-    if (!SectionRef.current || !AccordianListRef.current) return
-
-    const offsetTop = SectionRef.current?.previousSibling?.clientHeight
-    const scrollHeight = SectionRef.current.scrollHeight
-
-    // if (lenis.direction) {
-    const scrolled = lenis.actualScroll - offsetTop
-    if (scrolled > 0 && scrolled < scrollHeight) {
-      const activeIndex = Math.floor(
-        scrolled / (scrollHeight / TotalAccordianItems),
-      )
-      AccordianListRef.current.childNodes[activeIndex].open = true
-    }
+    // if (!SectionRef.current || !AccordianListRef.current) return
+    // const offsetTop = SectionRef.current?.previousSibling?.clientHeight
+    // const scrollHeight = SectionRef.current.scrollHeight
+    // // if (lenis.direction) {
+    // const scrolled = lenis.actualScroll - offsetTop
+    // if (scrolled > 0 && scrolled < scrollHeight) {
+    //   const activeIndex = Math.floor(
+    //     scrolled / (scrollHeight / TotalAccordianItems),
+    //   )
+    //   AccordianListRef.current.childNodes[activeIndex].open = true
     // }
-
+    // }
     // else {
     //   if (lenis.actualScroll > SectionRef.current.offsetTop) {
     //     lenis.start()

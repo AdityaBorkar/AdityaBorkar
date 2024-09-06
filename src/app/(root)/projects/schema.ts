@@ -1,8 +1,9 @@
-import type { WithContext } from "schema-dts"
+import type { ItemList, WithContext } from 'schema-dts'
 
-const ProjectListSchema: WithContext<> = {
-    "@type": "ItemList",
-    // TODO: LIST OF PROJECTS
+const ProjectListSchema: WithContext<ItemList> = {
+  '@type': 'ItemList',
+  '@context': 'https://schema.org',
+  // TODO: LIST OF PROJECTS
 }
 
 export default ProjectListSchema

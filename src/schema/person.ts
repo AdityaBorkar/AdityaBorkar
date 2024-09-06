@@ -93,8 +93,8 @@ const Person_AdityaBorkar: WithContext<Person> = {
 
   interactionStatistic: {
     '@type': 'InteractionCounter',
-    interactionType: '',
-    userInteractionCount: '',
+    // interactionType: '',
+    // userInteractionCount: '',
     interactionService: {
       '@type': 'WebSite',
       name: 'Aditya Borkar',

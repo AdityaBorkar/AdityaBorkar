@@ -1,0 +1,55 @@
+---
+interface MarqueeItem {
+  img: string;
+  link: string;
+}
+
+interface Props {
+  items: MarqueeItem[];
+  direction?: "left" | "right";
+}
+
+const { items, direction = "left" } = Astro.props;
+---
+
+<div class="marquee-container">
+  <div class="marquee" data-direction={direction}>
+    {
+      items.map(({ img, link }) => (
+        <a href={link} class="marquee-item">
+          <img src={img} alt="" />
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    overflow: hidden;
+    width: 100%;
+  }
+  .marquee {
+    display: flex;
+    animation: scroll 40s linear infinite;
+  }
+  .marquee[data-direction="right"] {
+    animation-direction: reverse;
+  }
+  .marquee-item {
+    flex: 0 0 auto;
+    margin: 0 2rem;
+  }
+  .marquee-item img {
+    height: 18rem;
+    border: 1px solid var(--border-color);
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+</style>

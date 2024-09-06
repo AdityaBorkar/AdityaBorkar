@@ -1,0 +1,78 @@
+---
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import "./base.css";
+
+import { twMerge } from "tailwind-merge";
+import ReactLenis from "lenis/react";
+import Analytics from "../Analytics";
+import { JsonLd } from "../../lib/jsonLd";
+
+import type { Thing, WithContext } from "schema-dts";
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string[];
+  schemaMarkup?: WithContext<Thing>;
+}
+
+const { title, description, keywords, schemaMarkup } = Astro.props;
+
+// TODO: Colors on this website makes use of the wide P3 color space to produce rich, deep amazing color when viewed in a web browser that supports the color(display-p3 R G B) CSS function, like for example Safari, in combination with a wide-gamut display.
+// TODO: Theme selection on Preflight Basis and persist local storage
+const theme = ""; // 'dark'
+
+// TODO: Add Squircle CSS Worklet
+// import 'css-paint-polyfill'
+// import workletURL from "url-loader!<package-name>/worklet.js";
+// const workletURL = ''
+// CSS.paintWorklet.addModule(workletURL)
+
+Analytics();
+---
+
+<html lang="en">
+  <head>
+    <!-- Defaults -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- themeColor	false	"#000000"	Browser theme color.
+    colorScheme	false	"light"	Preferred color scheme. -->
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords?.join(", ")} />
+    <!-- Open Graph -->
+    <!-- facebook.image	false	"/facebook.png"	Facebook share image.
+    facebook.url	false	"https://astro.build"	Page URL.
+    facebook.type	false	"website"	Type of resource. See all types here.
+    twitter.image	false	"/twitter.png"	Twitter share image.
+    twitter.site	false	"@astrodotbuild"	Twitter handle of publishing site.
+    twitter.card	false	"summary"	Format of Twitter share card. See all types here. -->
+    <!-- Schema Markup -->
+    <script
+      type="application/ld+json"
+      set:html={schemaMarkup ? JsonLd(schemaMarkup) : ""}
+    />
+  </head>
+  <body
+    class={twMerge(
+      theme,
+      "relative min-h-screen cursor-default bg-background text-foreground selection:bg-amber-400 selection:text-black dark:selection:bg-amber-500",
+      "font-sans text-sm leading-normal antialiased"
+      // 'before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full',
+      // 'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',
+    )}
+  >
+    <!-- <div className="fixed left-0 top-0 h-full w-[calc((100vw-72rem)/3)] bg-gradient-to-r from-white dark:from-black" /> -->
+    <!-- <div className="fixed right-0 top-0 h-full w-[calc((100vw-72rem)/3)] bg-gradient-to-l from-white dark:from-black" /> -->
+    <ReactLenis root>
+      <Header />
+      <slot />
+      <Footer />
+    </ReactLenis>
+  </body>
+</html>

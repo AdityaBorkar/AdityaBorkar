@@ -1,3 +1,13 @@
+## Dev Tooling
+
+- Biome.json -> core web vitals
+- Biome.json -> configure with editorconfig
+- Million.js
+
+## Optimization:
+
+- Instantaneous Page Load and Transition. Load the site as soon as enter key is pressed.
+
 ## Page Experience:
 
 - Customize Scrollbar
