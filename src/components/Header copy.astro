@@ -1,0 +1,85 @@
+---
+// import { useRef } from "react";
+
+const navItems = [
+  { label: 'Home', link: '/' },
+  { label: 'About', link: '/about' },
+  { label: 'Services', link: '/services' },
+  { label: 'Projects', link: '/projects' },
+  { label: 'Blog', link: '/blog' },
+  { label: 'Contact', link: '/contact' },
+]
+
+const path = Astro.url.pathname
+---
+
+<header
+  class="sticky top-0 z-50 mx-auto mr-[15%] w-full max-w-[70%] select-none border-b border-neutral-800 py-2 backdrop-blur-xl"
+>
+  <div class="mx-auto flex w-full max-w-[64rem] flex-row justify-between">
+    <a href="/" class="my-2 font-bold text-neutral-100">
+      <div
+        class="inline-block border-2 border-white px-1 py-0 text-xl tracking-wider"
+      >
+        AB
+      </div>
+      <div class="ml-3 inline-block align-bottom text-2xl tracking-tighter">
+        Adi.
+      </div>
+    </a>
+
+    <nav
+      class="relative z-20 mt-2 flex h-fit flex-row gap-4"
+      id="nav-container"
+    >
+      <div
+        id="shadow-element"
+        class="absolute -right-20 top-0 z-10 hidden h-8 w-20 rounded-full bg-neutral-800 duration-300"
+      >
+      </div>
+      {
+        navItems.map((item) => (
+          <a
+            href={item.link}
+            class={`relative z-20 h-fit cursor-pointer rounded-full px-4 py-0.5 text-sm font-medium leading-loose ${
+              path === item.link
+                ? 'bg-neutral-200 text-neutral-950'
+                : 'text-neutral-400 hover:text-neutral-200'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+
+  {/* TODO: Use Preflight Hints */}
+  {
+    /* <div class="absolute right-12 top-7">
+    <PiMoonFill class="h-8 w-8 cursor-pointer rounded-full p-1.5 text-neutral-500 hover:bg-neutral-800 hover:text-neutral-200" />
+    <PiSunFill class="h-8 w-8 cursor-pointer rounded-full p-1.5 text-neutral-300 hover:bg-neutral-900" />
+  </div> */
+  }
+</header>
+
+<script>
+  const navContainer = document.getElementById('nav-container')
+  const shadowElement = document.getElementById('shadow-element')
+
+  if (navContainer && shadowElement) {
+    navContainer.addEventListener('mouseleave', () => {
+      shadowElement.style.right = '-20rem'
+      shadowElement.style.display = 'none'
+    })
+
+    const navItems = navContainer.querySelectorAll('a')
+    navItems.forEach((item) => {
+      item.addEventListener('mouseover', (e) => {
+        shadowElement.style.display = 'block'
+        shadowElement.style.left = `${(e.target as HTMLElement).offsetLeft}px`
+        shadowElement.style.width = `${(e.target as HTMLElement).offsetWidth}px`
+      })
+    })
+  }
+</script>

@@ -1,0 +1,42 @@
+---
+import { twMerge } from 'tailwind-merge'
+
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  className?: string
+}
+
+const { className, ...props } = Astro.props
+---
+
+<a
+  {...props}
+  class={twMerge(
+    '-mt-2 h-fit relative text-neutral-300 border border-neutral-500 py-2 text-sm px-4 rounded-lg group font-medium hover:text-black transition-colors',
+    className,
+  )}
+>
+  <slot />
+  <div
+    class="absolute -z-10 pointer-events-none bg-neutral-200 group-hover:size-64 size-10 top-0 left-0 rounded-full duration-400"
+  >
+  </div>
+</a>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const buttons = document.querySelectorAll('a.-mt-2.h-fit.relative')
+    buttons.forEach((button) => {
+      const shadow = button.querySelector('div')
+      if (!shadow) return
+
+      button.addEventListener('mouseenter', (e) => {
+        const parentOffset = button.getBoundingClientRect()
+        const shadowOffset = shadow.getBoundingClientRect()
+        const relY = e.clientY - parentOffset.y - shadowOffset.height / 2
+        const relX = e.clientX - parentOffset.x - shadowOffset.width / 2
+        shadow.style.top = `${relY}px`
+        shadow.style.left = `${relX}px`
+      })
+    })
+  })
+</script>

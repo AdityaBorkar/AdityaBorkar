@@ -1,0 +1,31 @@
+const TECHNOLOGIES = [
+  { name: 'JavaScript', type: 'png' },
+  { name: 'TypeScript', type: 'png' },
+  // { name: "Python", type: "" },
+  // { name: "Java", type: "" },
+  // { name: "PHP", type: "" },
+  // { name: "Next.JS", type: "" },
+  // { name: "Remix", type: "" },
+  // { name: "Astro", type: "" },
+  { name: 'React.js', type: 'png' },
+  // { name: "Solid.js", type: "" },
+  // { name: "TailwindCSS", type: "" },
+  // { name: "Three.js", type: "" },
+  // { name: "D3", type: "" },
+  // { name: "Framer Motion", type: "" },
+  // { name: "GASP", type: "" },T
+  { name: 'Million.js', type: 'jpg' },
+  { name: 'SolidStart', type: 'svg' },
+  // { name: "Langchain.js", type: "" },
+  // { name: "OpenAI", type: "" },
+  // { name: "Mixtral", type: "" },
+  // { name: "SST", type: "" },
+  // { name: "Pulumi", type: "" },
+  { name: 'AWS', type: 'png' },
+  { name: 'CloudFlare', type: 'png' },
+  { name: 'Vercel', type: 'svg' },
+  { name: 'Google Cloud', type: 'svg' },
+  // { name: "SupaBase", type: "" },
+]
+
+export default TECHNOLOGIES

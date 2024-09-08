@@ -9,7 +9,7 @@ export default function Benefits() {
     <section>
       <H2>My Tools & Caffeine</H2>
 
-      <div className=" mx-auto my-24 flex w-[50vw] flex-row justify-between">
+      <div className="mx-auto my-24 flex w-[50vw] flex-row justify-between">
         <div>Vite</div>
         <div>NextJS</div>
         <div>React</div>

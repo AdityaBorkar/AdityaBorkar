@@ -24,11 +24,11 @@ export default function Header() {
         open ? 'bg-neutral-950' : 'backdrop-blur-md'
       }`}
     >
-      <div className='cursor-default pt-1 font-bold text-neutral-100'>
-        <div className='inline-block border-2 border-white px-1 py-0 text-2xl tracking-wider'>
+      <div className="cursor-default pt-1 font-bold text-neutral-100">
+        <div className="inline-block border-2 border-white px-1 py-0 text-2xl tracking-wider">
           AB
         </div>
-        <div className='ml-3 inline-block align-bottom text-3xl tracking-tighter'>
+        <div className="ml-3 inline-block align-bottom text-3xl tracking-tighter">
           Adi.
         </div>
       </div>
@@ -36,13 +36,13 @@ export default function Header() {
       <PageNavigation />
 
       <div
-        onClick={() => setOpen(open => !open)}
-        className='peer ml-12 cursor-pointer rounded-full border-2 border-neutral-200 bg-neutral-200 p-1.5 text-neutral-950 transition-all hover:bg-neutral-950 hover:text-neutral-200'
+        onClick={() => setOpen((open) => !open)}
+        className="peer ml-12 cursor-pointer rounded-full border-2 border-neutral-200 bg-neutral-200 p-1.5 text-neutral-950 transition-all hover:bg-neutral-950 hover:text-neutral-200"
       >
         {open ? (
-          <HiOutlineXMark className='h-6 w-6' />
+          <HiOutlineXMark className="h-6 w-6" />
         ) : (
-          <HiOutlineBars3BottomRight className='h-6 w-6' />
+          <HiOutlineBars3BottomRight className="h-6 w-6" />
         )}
       </div>
 
@@ -51,34 +51,34 @@ export default function Header() {
           open ? 'block h-screen' : 'hidden max-h-0'
         }`}
       >
-        <div className='grid h-fit grid-cols-2 gap-6 border-b border-neutral-900 bg-neutral-950 px-[15vw] py-20 text-neutral-100'>
-          <div className='mx-auto flex flex-col gap-10'>
-            <ServiceCard label='Full Stack Development Service' />
-            <ServiceCard label='Webflow App Development Service' />
+        <div className="grid h-fit grid-cols-2 gap-6 border-b border-neutral-900 bg-neutral-950 px-[15vw] py-20 text-neutral-100">
+          <div className="mx-auto flex flex-col gap-10">
+            <ServiceCard label="Full Stack Development Service" />
+            <ServiceCard label="Webflow App Development Service" />
           </div>
           <div>
-            <NavCard label='Home' />
-            <NavCard label='Projects' />
-            <NavCard label='Blog' />
-            <NavCard label='Contact' />
+            <NavCard label="Home" />
+            <NavCard label="Projects" />
+            <NavCard label="Blog" />
+            <NavCard label="Contact" />
 
-            <div className='mt-20 flex flex-row gap-12'>
-              <SocialCard icon={FaTwitter} href=''>
+            <div className="mt-20 flex flex-row gap-12">
+              <SocialCard icon={FaTwitter} href="">
                 Twitter
               </SocialCard>
-              <SocialCard icon={FaLinkedin} href=''>
+              <SocialCard icon={FaLinkedin} href="">
                 LinkedIn
               </SocialCard>
-              <SocialCard icon={FaGithub} href=''>
+              <SocialCard icon={FaGithub} href="">
                 GitHub
               </SocialCard>
-              <SocialCard icon={FaEnvelope} href=''>
+              <SocialCard icon={FaEnvelope} href="">
                 Email
               </SocialCard>
             </div>
           </div>
         </div>
-        <div className='min-h-full backdrop-blur-md'></div>
+        <div className="min-h-full backdrop-blur-md"></div>
       </nav>
     </header>
   )
@@ -88,11 +88,11 @@ function NavCard(props: { label: string }) {
   return (
     <Link
       href={'/' + props.label.toLowerCase()}
-      className='group relative block cursor-pointer border-b-2 border-neutral-500 px-3 py-8 text-4xl font-medium transition-all hover:bg-neutral-200 hover:pl-10 hover:text-black'
+      className="group relative block cursor-pointer border-b-2 border-neutral-500 px-3 py-8 text-4xl font-medium transition-all hover:bg-neutral-200 hover:pl-10 hover:text-black"
     >
       {props.label}
 
-      <FaArrowRight className='absolute right-8 top-8 ml-3 hidden p-1 text-black group-hover:block' />
+      <FaArrowRight className="absolute right-8 top-8 ml-3 hidden p-1 text-black group-hover:block" />
     </Link>
   )
 }
@@ -103,8 +103,8 @@ function SocialCard(props: {
   children: React.ReactNode
 }) {
   return (
-    <div className='cursor-pointer text-lg font-medium text-neutral-500 transition-all hover:text-neutral-300'>
-      <props.icon className='mr-2 inline align-[-2px]' />
+    <div className="cursor-pointer text-lg font-medium text-neutral-500 transition-all hover:text-neutral-300">
+      <props.icon className="mr-2 inline align-[-2px]" />
       {props.children}
     </div>
   )
@@ -113,10 +113,10 @@ function SocialCard(props: {
 function ServiceCard(props: { label: string }) {
   // Add Rotating Border Gradient
   return (
-    <div className='hoer:text-white cursor-pointer rounded-2xl border border-neutral-800 bg-neutral-900 px-6 py-4 text-2xl leading-relaxed transition-all hover:scale-110 hover:border-neutral-700'>
-      <img src='GIF' alt='' className='mb-3 h-[160px] bg-transparent' />
+    <div className="hoer:text-white cursor-pointer rounded-2xl border border-neutral-800 bg-neutral-900 px-6 py-4 text-2xl leading-relaxed transition-all hover:scale-110 hover:border-neutral-700">
+      <img src="GIF" alt="" className="mb-3 h-[160px] bg-transparent" />
       {props.label}
-      <HiArrowUpRight className='ml-3 inline-block p-1' />
+      <HiArrowUpRight className="ml-3 inline-block p-1" />
     </div>
   )
 }
@@ -137,11 +137,11 @@ function PageNavigation() {
   }
 
   return (
-    <nav className='flex flex-row gap-4'>
-      <NavCard label='Home' active />
-      <NavCard label='Recent Work' />
-      <NavCard label='Benefits' />
-      <NavCard label='FAQs' />
+    <nav className="flex flex-row gap-4">
+      <NavCard label="Home" active />
+      <NavCard label="Recent Work" />
+      <NavCard label="Benefits" />
+      <NavCard label="FAQs" />
     </nav>
   )
 }

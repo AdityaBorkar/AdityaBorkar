@@ -1,15 +1,15 @@
 ---
 interface Props {
-  title: string;
-  description: string;
-  heroImage: string;
-  tags: string[];
+  title: string
+  description: string
+  heroImage: string
+  tags: string[]
 }
 
 // TODO: [Animation] Comet Border effect on project card hover
 // TODO: [Animation] On hover release small bubbles/sparkles in the background
 
-const { title, description, heroImage, tags } = Astro.props;
+const { title, description, heroImage, tags } = Astro.props
 
 // onMouseMove={(e) => {
 //   if (!PointerDivRef.current) return
@@ -28,7 +28,7 @@ const { title, description, heroImage, tags } = Astro.props;
 ---
 
 <a
-  href={`/projects/${title.toLowerCase().replace(/[\s\W]+/g, "-")}`}
+  href={`/projects/${title.toLowerCase().replace(/[\s\W]+/g, '-')}`}
   class="group relative rounded-3xl border border-zinc-300 bg-zinc-100 p-4 transition-all hover:bg-zinc-100 hover:shadow-lg"
 >
   <div class="h-64 rounded-xl">

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Marquee from 'react-fast-marquee'
 import { twMerge } from 'tailwind-merge'
 
-import BookCallFooter from '@/components/BookCallFooter'
-import LinkButton from '@/components/LinkButton'
+import BookCallFooter from '@/components old/BookCallFooter'
+import LinkButton from '@/components old/LinkButton'
 import CLIENT_LIST from '@/content/clients'
 import TESTIMONIALS from '@/content/testimonials'
 

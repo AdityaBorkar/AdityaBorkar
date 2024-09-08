@@ -1,40 +1,41 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import LandingLayout from '@/layouts/LandingLayout/index.astro'
 
-import type { IconType } from "react-icons";
-import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa6";
-import { HiCalendar } from "react-icons/hi2";
+import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa6'
+import { HiCalendar } from 'react-icons/hi2'
 
-import ScheduleMeetBtn from "@/components/ScheduleMeetBtn";
-import InlineLink from "./InlineLink.astro";
+import InlineLink from './InlineLink.astro'
+import ScheduleMeetBtn from '@/components/ScheduleMeetBtn.astro'
 
 const SchemaMarkup = {
   //   "@context": "https://schema.org/",
   //   "@type": "",
   //   name: "Contact",
-} as const;
+} as const
 
-//   I'm available for projects, podcasts, talks, consultations, & collabs. Looking to start a new project or just want to say hi? Email me, and I’ll do my best to reply within 24 hrs.
-// If contact forms aren’t your thing... email me at hello@arnau.design
+//
+// ... email me at hello@arnau.design
 ---
 
 <LandingLayout
   title="Contact"
   description="Contact me for projects, podcasts, talks, consultations, & collabs."
   keywords={[
-    "contact",
-    "projects",
-    "podcasts",
-    "talks",
-    "consultations",
-    "collabs",
+    'contact',
+    'projects',
+    'podcasts',
+    'talks',
+    'consultations',
+    'collabs',
   ]}
   schemaMarkup={SchemaMarkup}
 >
   <main class="mx-auto my-24 w-full max-w-[36rem]">
     <h2 class="mb-4 text-4xl font-bold">How can I help you?</h2>
     <div class="font-medium text-text-secondary">
-      I usually reply within 24 hours.
+      I'm available for projects, talks, consultations, & collabs. Looking to
+      start a new project or just want to say hi? Email me, and I'll do my best
+      to reply within 24 hrs.
     </div>
 
     <form class="mt-12">
@@ -103,7 +104,7 @@ const SchemaMarkup = {
 
     <div class="mt-24 text-text-secondary">
       <div>
-        {"If you prefer email, write to "}
+        {"If contact forms aren't your thing, email me at "}
         <a
           href="mailto:hi@adityaborkar.com"
           class="font-medium underline underline-offset-4 hover:underline-offset-8"
@@ -112,7 +113,7 @@ const SchemaMarkup = {
         </a>
       </div>
       <div class="mt-2">
-        {"or feel free to reach me on "}
+        {'or feel free to reach me on '}
         <InlineLink href="https://x.com/adityab_tech/dm" icon={FaTwitter}>
           Twitter
         </InlineLink>

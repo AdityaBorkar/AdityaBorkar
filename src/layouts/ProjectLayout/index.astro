@@ -1,24 +1,27 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { cn } from "@/lib/utils";
-import { PROJECTS_LIST, PROJECT_CATEGORIES } from "@/content/projects";
-import type { ProjectCategory, ProjectType } from "@/types/projectInfo";
-import ProjectCard from "./ProjectCard.astro";
+import LandingLayout from '@/layouts/LandingLayout/index.astro'
+import { cn } from '@/lib/utils'
+import {
+  PROJECTS_LIST,
+  PROJECT_CATEGORIES,
+} from '@/content/projects/projects/projects'
+import type { ProjectCategory, ProjectType } from '@/types/projectInfo'
+import ProjectCard from './ProjectCard.astro'
 
 // const PointerDivRef = useRef<HTMLDivElement>(null);
 
 // const [filterCategory, setFilterCategory] =
 //   useState<ProjectCategory>("All Projects");
-const filterCategory = "All Projects";
+const filterCategory = 'All Projects'
 
 const projects =
-  filterCategory === "All Projects"
+  filterCategory === 'All Projects'
     ? PROJECTS_LIST
     : PROJECTS_LIST.filter((project) =>
-        project.categories.includes(filterCategory)
-      );
+        project.categories.includes(filterCategory),
+      )
 
-const SchemaMarkup = {};
+const SchemaMarkup = {}
 
 // TODO: Add a Background to hero section
 
@@ -29,7 +32,7 @@ const SchemaMarkup = {};
 <LandingLayout
   title="Projects"
   description="Projects"
-  keywords={["projects"]}
+  keywords={['projects']}
   schemaMarkup={SchemaMarkup}
 >
   <div class="section mx-auto pb-48">
@@ -60,8 +63,8 @@ const SchemaMarkup = {};
             <button
               type="button"
               class={cn(
-                "cursor-pointer rounded-full bg-bg-secondary px-4 py-1.5 text-sm font-medium text-text-secondary",
-                filterCategory === tag && "bg-foreground text-background"
+                'cursor-pointer rounded-full bg-bg-secondary px-4 py-1.5 text-sm font-medium text-text-secondary',
+                filterCategory === tag && 'bg-foreground text-background',
               )}
             >
               {tag}

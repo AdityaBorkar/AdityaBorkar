@@ -1,11 +1,11 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import LandingLayout from '@/layouts/LandingLayout/index.astro'
 
 const SchemaMarkup = {
-  "@context": "https://schema.org/",
-  "@type": "PrivacyPolicy",
-  name: "Privacy Policy",
-} as const;
+  '@context': 'https://schema.org/',
+  '@type': 'PrivacyPolicy',
+  name: 'Privacy Policy',
+} as const
 // https://www.delhivery.com/terms-and-conditions
 // https://evilmartians.com/privacy
 // privacy#notice_at_collection
@@ -21,7 +21,7 @@ const SchemaMarkup = {
 <LandingLayout
   title="Policy"
   description="Policy"
-  keywords={["policy"]}
+  keywords={['policy']}
   schemaMarkup={SchemaMarkup}
 >
   <main>Policy</main>

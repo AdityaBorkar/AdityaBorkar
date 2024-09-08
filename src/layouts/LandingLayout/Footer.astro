@@ -1,46 +1,50 @@
 ---
-
-import {
-  LuGithub,
-  LuInstagram,
-  LuLinkedin,
-  LuMail,
-  LuTwitter,
-} from "react-icons/lu";
-
-// TODO: Privacy Policy for the analytical data that is collected
-
-// TODO - WILL REPLACING REACT-ICONS WITH ICONS SVG BE A GOOD IDEA?
-
+import FooterLink from './FooterLink.astro'
 ---
 
-<footer class="pb-8 pt-12 text-base">
-  <div class="section mt-6 max-w-[100%] text-center">
-    <div class="flex flex-row justify-center gap-12 *:hover:text-foreground">
-      <a href="mailto:hi@adityab.tech" target="_blank">
-        <LuMail class:list="-mt-0.5 mr-2 inline-block size-5" />
-        hi@adityab.tech
-      </a>
-      <a href="https://x.com/adityab_tech" target="_blank">
-        <LuTwitter class:list="-mt-0.5 mr-2 inline-block size-5" />
-        Twitter (X)
-      </a>
-      <a href="https://x.com/adityab_tech" target="_blank">
-        <LuLinkedin class:list="-mt-0.5 mr-2 inline-block size-5" />
-        LinkedIn
-      </a>
-      <a href="https://x.com/adityaborkar" target="_blank">
-        <LuGithub class:list="-mt-0.5 mr-2 inline-block size-5" />
-        GitHub
-      </a>
-      <a href="https://x.com/adityab_tech" target="_blank">
-        <LuInstagram class:list="-mt-0.5 mr-2 inline-block size-5" />
-        Instagram
-      </a>
+<footer class="py-8 dark text-text-secondary text-base bg-background">
+  <div class="mt-6 max-w-[64rem] mx-auto flex flex-row justify-between">
+    <div class="w-fit">
+      <div class="mr-[5vw] text-text-primary">
+        <div
+          class="py-1 px-3 w-fit border-2 border-border uppercase text-center font-medium tracking-wide"
+        >
+          Aditya Borkar
+        </div>
+        <div class="mt-6">hi@adityab.tech</div>
+      </div>
     </div>
+    <div class="flex flex-row gap-20">
+      <div>
+        <div class="text-text-tertiary font-medium mb-3">Me</div>
+        <FooterLink href="/">Home</FooterLink>
+        <FooterLink href="/about">About</FooterLink>
+        <FooterLink href="/contact">Contact</FooterLink>
+      </div>
+      <div>
+        <div class="text-text-tertiary font-medium mb-3">Work</div>
+        <FooterLink href="">Projects</FooterLink>
+        <FooterLink href="">Blog</FooterLink>
+      </div>
+      <div>
+        <div class="text-text-tertiary font-medium mb-3 shrink-0">Services</div>
+        <FooterLink href="/services/product-engineer"
+          >Product Engineer</FooterLink
+        >
+        <FooterLink href="/services/ai-engineer">AI Engineer</FooterLink>
+      </div>
+      <div>
+        <div class="text-text-tertiary font-medium mb-3">Socials</div>
+        <FooterLink href="https://x.com/adityab_tech"> Twitter (X) </FooterLink>
+        <FooterLink href="https://linkedin.com/in/adityab_tech">
+          LinkedIn
+        </FooterLink>
+        <FooterLink href="https://github.com/AdityaBorkar">GitHub</FooterLink>
+      </div>
+    </div>
+  </div>
 
-    <div class="mt-24">
-      Designed with ❤️ and built with ✨ by Aditya Borkar 😉
-    </div>
+  <div class="mt-24 text-center text-text-secondary">
+    Designed with ❤️ and built with 🚀 by Aditya Borkar 😉
   </div>
 </footer>

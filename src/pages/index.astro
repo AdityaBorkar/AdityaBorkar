@@ -1,22 +1,22 @@
 ---
-import { Image } from "astro:assets";
-import ProfileImage from "../assets/profile.png";
+import { Image } from 'astro:assets'
+import ProfileImage from '../assets/profile.png'
 
-import LandingLayout from "../layouts/LandingLayout/index.astro";
-import TESTIMONIALS from "../content/testimonials";
+import LandingLayout from '../layouts/LandingLayout/index.astro'
+import TESTIMONIALS from '../content/testimonials'
 
-import Card from "../components/Card.astro";
-import SectionHeading from "../components/SectionHeading";
-import BentoDiv from "../components copy/BentoDiv";
-import BookCallFooter from "../components copy/BookCallFooter";
+import Card from '../components/Card.astro'
+import BentoDiv from '../components/BentoDiv.astro'
 
-import { LuMail } from "react-icons/lu";
-import { BiLogoGithub, BiLogoTwitter, BiLogoLinkedin } from "react-icons/bi";
+import { LuMail } from 'react-icons/lu'
+import { BiLogoGithub, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi'
 
-import type { Thing, WithContext } from "schema-dts";
-import Marquee from "@/components/Marquee.astro";
+import type { Thing, WithContext } from 'schema-dts'
+import Marquee from '@/components/Marquee.astro'
+import CursorBubble from '@/components/CursorBubble.astro'
+import { HiArrowUpRight } from 'react-icons/hi2'
 
-const SchemaMarkup = {} as WithContext<Thing>;
+const SchemaMarkup = {} as WithContext<Thing>
 
 // TODO: Add accessiblity
 
@@ -28,41 +28,59 @@ const SchemaMarkup = {} as WithContext<Thing>;
 
 const Mockups1 = [
   {
-    img: "/res/mockup1.png",
-    link: "https://example.com",
+    img: '/res/mockup1.png',
+    link: 'https://example.com',
   },
   {
-    img: "/res/mockup2.png",
-    link: "https://example.com",
+    img: '/res/mockup2.png',
+    link: 'https://example.com',
   },
-];
+]
 const Mockups2 = [
   {
-    img: "/res/mockup1.png",
-    link: "https://example.com",
+    img: '/res/mockup1.png',
+    link: 'https://example.com',
   },
   {
-    img: "/res/mockup2.png",
-    link: "https://example.com",
+    img: '/res/mockup2.png',
+    link: 'https://example.com',
   },
-];
+]
+
+const FEATURED_BLOGS = [
+  // TODO: Featured Only (2 Most Viewed and 1 Recent)
+  {
+    title: 'How to build a SaaS',
+    link: 'https://example.com',
+  },
+  {
+    title: 'How to build a SaaS',
+    link: 'https://example.com',
+  },
+  {
+    title: 'How to build a SaaS',
+    link: 'https://example.com',
+  },
+]
+
+// TODO - Fade-in-Up Entry on Scroll
+// TODO - Appear images with blur first (use blur-base64 technique)
 ---
 
 <style>
   h3 {
     @apply mb-16 mt-48 text-left text-4xl font-bold;
+    @apply mx-auto max-w-[64rem];
   }
-
   section {
-    @apply mb-16 mt-48;
+    @apply mx-auto max-w-[64rem];
   }
 </style>
-<!-- h3 apply section -->
 
 <LandingLayout
   title="Aditya Borkar - Product Engineer"
   description="Some catching ranking text"
-  keywords={["Aditya Borkar", "Product Engineer", "Software Engineer"]}
+  keywords={['Aditya Borkar', 'Product Engineer', 'Software Engineer']}
   schemaMarkup={SchemaMarkup}
 >
   <div>
@@ -105,18 +123,18 @@ const Mockups2 = [
         >
           {"I'm Aditya Borkar, as a "}
           <em>software engineer</em>
-          {", I specialize in creating "}
+          {', I specialize in creating '}
           <em>high-quality products</em>
-          {" with"}
+          {' with'}
           <em>humanizing user experience</em>
           {
-            ", leveraging integration with APIs and libraries. My aim is to help businesses in"
+            ', leveraging integration with APIs and libraries. My aim is to help businesses in'
           }
           <em>optimizing</em>
-          {" their processes for "}
+          {' their processes for '}
           <em>improved efficiency</em>
           {
-            "and ease of use. I have strong opinions to deliver clean, maintainable, scalable, production-ready world-class code."
+            'and ease of use. I have strong opinions to deliver clean, maintainable, scalable, production-ready world-class code.'
           }
           {
             /* TODO: Attract attention and convey how your skills can help deveopers/businesses */
@@ -181,9 +199,8 @@ const Mockups2 = [
       </Marquee> -->
     </section>
 
-    <SectionHeading>About ↓</SectionHeading>
-
-    <section class="grid grid-cols-8 gap-8">
+    <h3>About ↓</h3>
+    <section class="grid grid-cols-8 gap-4">
       <BentoDiv label="Motivation" className="col-span-4 row-span-3">
         <p class="text-base">
           I became a programmer and product engineer because I'm passionate
@@ -269,99 +286,171 @@ const Mockups2 = [
       <BentoDiv label="Read More" className="col-span-2"> /about </BentoDiv>
     </section>
 
-    <SectionHeading>Services ↓</SectionHeading>
-
+    <h3>Services ↓</h3>
+    {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
     <section>
-      <div class="grid grid-cols-5 gap-12">
-        {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
-        <div
-          class="col-span-2 row-span-2 rounded-2xl border border-neutral-800 p-4"
-        >
-          Full Stack Product Engineer
-        </div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        {/* --- */}
+      <div class="grid grid-cols-5 gap-x-8 gap-y-4">
+        <div class="col-span-2 row-span-2 rounded-2xl border border-border p-4">
+          Product Engineer
 
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div
-          class="col-span-2 row-span-2 rounded-2xl border border-neutral-800 p-4"
-        >
-          AI Engineer [SPECIALIZED]
+          <button>Learn More</button>
         </div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
-        <div class="rounded-2xl border border-neutral-800 p-4">.</div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Problem Resolution
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Customer Focused
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Cross-Discipline Expertise
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Tech Agnostic
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Quality Assured
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Scalable Solutions
+        </div>
+      </div>
+
+      <div class="grid grid-cols-5 gap-8 mt-20">
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Cross-Discipline Expertise
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Tech Agnostic
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Quality Assured
+        </div>
+        <div class="col-span-2 row-span-2 rounded-2xl border border-border p-4">
+          AI Engineer [SPECIALIZED]
+
+          <button>Learn More</button>
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Cross-Discipline Expertise
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Tech Agnostic
+        </div>
+        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
+          Scalable Solutions
+        </div>
       </div>
     </section>
 
-    {/* <SectionHeading>Selected Work</SectionHeading> */}
-
-    <SectionHeading>What people speak ?</SectionHeading>
-
-    {/* TODO: Carousal */}
+    <h3>Selected Work</h3>
     <section class="flex flex-row justify-center gap-12 overflow-auto">
       {
-        TESTIMONIALS.map((testimonial) => (
-          //   key={testimonial.author}
-          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-neutral-300">
-            <p class="text-sm">{testimonial.text}</p>
+        FEATURED_BLOGS.map((blog) => (
+          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-text-secondary">
+            <img src={blog.img} alt="" class="object-cover" />
+            <p class="text-sm">{blog.title}</p>
             <div class="mt-1 text-base">
-              <div class="font-medium">{testimonial.author}</div>
-              <div class="text-sm">{testimonial.role}</div>
+              {/* <div class="font-medium">{blog.author}</div>
+              <div class="text-sm">{blog.role}</div> */}
             </div>
           </div>
         ))
       }
     </section>
 
-    <SectionHeading>Writings ↓</SectionHeading>
-
-    {/* TODO: Featured Only (2 Most Viewed and 1 Recent) */}
+    <h3>Featured Writings ↓</h3>
     <section class="flex flex-row justify-center gap-12 overflow-auto">
       {
-        TESTIMONIALS.map((testimonial) => (
-          //   key={testimonial.author}
-          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-neutral-300">
-            <p class="text-sm">{testimonial.text}</p>
+        FEATURED_BLOGS.map((blog) => (
+          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-text-secondary">
+            <img src={blog.img} alt="" class="object-cover" />
+            <p class="text-sm">{blog.title}</p>
             <div class="mt-1 text-base">
-              <div class="font-medium">{testimonial.author}</div>
-              <div class="text-sm">{testimonial.role}</div>
+              {/* <div class="font-medium">{blog.author}</div>
+              <div class="text-sm">{blog.role}</div> */}
             </div>
           </div>
         ))
       }
     </section>
 
-    <BookCallFooter />
+    <h3>What people speak ?</h3>
+    <section class="flex flex-row flex-wrap items-center justify-evenly gap-8">
+      {
+        TESTIMONIALS.map((testimonial) => (
+          <div class="h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white group px-6 py-4 dark:bg-black">
+            <div class="flex flex-row items-center justify-between">
+              <div class="w-fit bg-gradient-to-tr tracking-tighter from-yellow-500 to-orange-500 bg-clip-text text-xl text-transparent">
+                ★★★★★
+              </div>
+              {testimonial.project && (
+                <a
+                  href={testimonial.project.url}
+                  class="text-text-tertiary py-1 hover:bg-background border font-medium border-border/20 text-xs rounded-full w-fit px-2 "
+                >
+                  Project: {testimonial.project.label}
+                  <HiArrowUpRight className="size-3 ml-0.5 -mt-0.5 inline-block" />
+                </a>
+              )}
+            </div>
 
-    {
-      /* <div class='mt-64 '>
-		  <h3 class='font-semibold text-3xl text-center'>Reach Out</h3>
-		  <form class='mt-16 text-center w-[20%] mx-auto'>
-			<input
-			  name=''
-			  type='text'
-			  class='mb-8 border border-neutral-800 w-full rounded-md py-2 px-4 bg-neutral-900'
-			/>
-			<textarea
-			  name=''
-			  class='mb-8 border border-neutral-800 w-full rounded-md py-2 px-4 bg-neutral-900'
-			/>
-			<button
-			  type='submit'
-			  class='mt-8 px-4 py-2 bg-white mx-auto text-black rounded-md font-medium text-sm'
-			>
-			  Send Inquiry
-			</button>
-		  </form>
-		</div> */
-    }
+            <p class="my-4 text-pretty text-sm">{testimonial.text}</p>
+
+            <div>
+              <div class="font-medium">{testimonial.author}</div>
+              <div class="text-text-secondary">{testimonial.role}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="pb-48 relative pt-72">
+      <div class="absolute top-0 left-0 w-full h-full"></div>
+
+      <div class="px-24 relative">
+        <CursorBubble
+          class="-top-12 right-16 bg-purple-500"
+          fillColor="fill-purple-500"
+          text="Product"
+        />
+        <CursorBubble
+          class="top-[135%] left-32 bg-sky-500"
+          fillColor="fill-sky-500"
+          text="Technology"
+        />
+        <CursorBubble
+          class="-top-8 left-48 bg-orange-500"
+          fillColor="fill-orange-500"
+          text="AI"
+        />
+        <CursorBubble
+          class="top-[120%] right-48 bg-emerald-500"
+          fillColor="fill-emerald-500"
+          text="Customers"
+        />
+        <div class="text-5xl font-semibold text-center leading-normal">
+          Let's
+          <span class="italic font-normal tracking-tight font-sansSerif"
+            >discuss</span
+          >
+          your
+          <span class="italic font-normal tracking-tight font-sansSerif"
+            >ideas</span
+          >
+          and figure out if we are a great
+          <span class="italic font-normal tracking-tight font-sansSerif"
+            >fit</span
+          > for each-other.
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="mx-auto mt-12 block rounded-xl bg-foreground px-12 py-4 text-xl font-semibold text-background shadow-md"
+      >
+        Book a call
+      </button>
+    </section>
   </div>
 </LandingLayout>

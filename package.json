@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.0",
+    "@million/lint": "1.0.0-rc.84",
     "astro": "^4.15.3",
     "astro-sst": "2.43.5",
     "class-variance-authority": "^0.7.0",
@@ -36,6 +37,7 @@
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "schema-dts": "^1.1.2"
   }

@@ -1,15 +1,15 @@
 ---
 interface MarqueeItem {
-  img: string;
-  link: string;
+  img: string
+  link: string
 }
 
 interface Props {
-  items: MarqueeItem[];
-  direction?: "left" | "right";
+  items: MarqueeItem[]
+  direction?: 'left' | 'right'
 }
 
-const { items, direction = "left" } = Astro.props;
+const { items, direction = 'left' } = Astro.props
 ---
 
 <div class="marquee-container">
@@ -33,7 +33,7 @@ const { items, direction = "left" } = Astro.props;
     display: flex;
     animation: scroll 40s linear infinite;
   }
-  .marquee[data-direction="right"] {
+  .marquee[data-direction='right'] {
     animation-direction: reverse;
   }
   .marquee-item {

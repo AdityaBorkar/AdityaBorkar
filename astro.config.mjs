@@ -1,13 +1,18 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import aws from "astro-sst";
-
-import react from "@astrojs/react";
+import react from '@astrojs/react'
+import tailwind from '@astrojs/tailwind'
+import MillionLint from '@million/lint'
+import aws from 'astro-sst'
+import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  // output: "dist",
+  output: 'dist',
   adapter: aws(),
-  integrations: [tailwind({ applyBaseStyles: false }), react()],
-});
-
-// TODO - million.js
+  integrations: [
+    tailwind({
+      nesting: true,
+      applyBaseStyles: false,
+    }),
+    react(), // TODO: React 19 and React Compiler
+    MillionLint.astro(),
+  ],
+})

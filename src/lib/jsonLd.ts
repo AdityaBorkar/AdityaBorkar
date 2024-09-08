@@ -15,40 +15,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { Thing, WithContext, Graph } from "schema-dts";
+import type { Graph, Thing, WithContext } from 'schema-dts'
 
-export function JsonLd(item: Graph, space?: string | number): string;
+export function JsonLd(item: Graph, space?: string | number): string
 export function JsonLd<T extends Thing>(
   item: WithContext<T>,
-  space?: string | number
-): string;
+  space?: string | number,
+): string
 export function JsonLd(
   item: Graph | WithContext<Thing>,
-  space?: string | number
+  space?: string | number,
 ): string {
-  return JSON.stringify(item, safeJsonLdReplacer, space);
+  return JSON.stringify(item, safeJsonLdReplacer, space)
 }
 
-type JsonValueScalar = string | boolean | number;
+type JsonValueScalar = string | boolean | number
 type JsonValue =
   | JsonValueScalar
   | Array<JsonValue>
-  | { [key: string]: JsonValue };
-type JsonReplacer = (_: string, value: JsonValue) => JsonValue | undefined;
+  | { [key: string]: JsonValue }
+type JsonReplacer = (_: string, value: JsonValue) => JsonValue | undefined
 
 const ESCAPE_ENTITIES = Object.freeze({
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&apos;",
-});
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&apos;',
+})
 const ESCAPE_REGEX = new RegExp(
-  `[${Object.keys(ESCAPE_ENTITIES).join("")}]`,
-  "g"
-);
+  `[${Object.keys(ESCAPE_ENTITIES).join('')}]`,
+  'g',
+)
 const ESCAPE_REPLACER = (t: string): string =>
-  ESCAPE_ENTITIES[t as keyof typeof ESCAPE_ENTITIES];
+  ESCAPE_ENTITIES[t as keyof typeof ESCAPE_ENTITIES]
 
 /**
  * A replacer for JSON.stringify to strip JSON-LD of illegal HTML entities
@@ -59,29 +59,29 @@ const safeJsonLdReplacer: JsonReplacer = (() => {
   // Solution from https://stackoverflow.com/a/5499821/864313
   return (_: string, value: JsonValue): JsonValue | undefined => {
     switch (typeof value) {
-      case "object":
+      case 'object':
         // Omit null values.
         if (value === null) {
-          return undefined;
+          return undefined
         }
 
-        return value; // JSON.stringify will recursively call replacer.
-      case "number":
-      case "boolean":
-      case "bigint":
-        return value; // These values are not risky.
-      case "string":
-        return value.replace(ESCAPE_REGEX, ESCAPE_REPLACER);
+        return value // JSON.stringify will recursively call replacer.
+      case 'number':
+      case 'boolean':
+      case 'bigint':
+        return value // These values are not risky.
+      case 'string':
+        return value.replace(ESCAPE_REGEX, ESCAPE_REPLACER)
       default: {
         // We shouldn't expect other types.
-        isNever(value);
+        isNever(value)
 
         // JSON.stringify will remove this element.
-        return undefined;
+        return undefined
       }
     }
-  };
-})();
+  }
+})()
 
 // Utility: Assert never
 function isNever(_: never): void {}

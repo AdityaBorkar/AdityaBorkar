@@ -1,0 +1,20 @@
+---
+
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.getElementById('custom-cursor')
+
+    document.onmousemove = (e) => {
+      cursor?.style.setProperty('top', e.clientY - 300 + 'px')
+      cursor?.style.setProperty('left', e.clientX - 300 + 'px')
+    }
+  })
+</script>
+
+<img
+  id="custom-cursor"
+  src="cursor.svg"
+  class="fixed -left-[600px] -top-[600px] -z-10 h-[600px] w-[600px] select-none"
+/>

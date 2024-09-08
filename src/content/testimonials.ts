@@ -1,23 +1,21 @@
 const TESTIMONIALS = [
   {
-    author: 'Onkar J.',
-    role: 'Product Designer, Freelance',
-    text: 'Aditya Borkar is something about lorem ipsum and something about why latin is the default language. I mean, we need an english equivalent of lorem ipsum.',
-  },
-  {
     author: 'Sanjay B.',
     role: 'Business Owner, Vasundhara',
+    project: { label: 'Vasundhara', url: 'projects/vasundhara' },
     text: "Rahul is an exceptional product engineer who consistently delivers high-quality solutions. His attention to detail and ability to meet deadlines are impressive. He's a valuable asset to our team and a pleasure to work with. 5 stars!",
   },
   {
     author: 'Mukund M.',
     role: 'Accountant, Freelance',
+    project: { label: 'Vasundhara', url: 'projects/vasundhara' },
     text: "I've had the pleasure of working with Emily on several projects, and she never fails to amaze me with her technical expertise. Her innovative approach to problem-solving is impressive. She's a true collaborator and team player. Highly recommended!",
   },
   {
-    author: 'Sneh P.',
-    role: 'Operations Manager, Natraj Buildicon',
-    text: "Ajay is a rockstar product engineer who knows his stuff inside out. He's always willing to lend a hand and share his knowledge with the team. His positive attitude and energy are contagious. A true asset to our company!",
+    author: 'Onkar J.',
+    role: 'Product Designer, Freelance',
+    project: { label: 'Platipie', url: 'projects/platipie' },
+    text: 'Aditya Borkar is something about lorem ipsum and something about why latin is the default language. I mean, we need an english equivalent of lorem ipsum.',
   },
   {
     author: 'Harsh S.',
@@ -25,8 +23,15 @@ const TESTIMONIALS = [
     text: "I've worked with several product engineers, but David stands out for his exceptional communication skills and ability to distill complex concepts into actionable insights. His work is top-notch, and he's a joy to work with. Highly recommended!",
   },
   {
+    author: 'Sneh P.',
+    role: 'Operations Manager, Natraj Buildicon',
+    project: { label: 'Amy', url: 'projects/amy' },
+    text: "Ajay is a rockstar product engineer who knows his stuff inside out. He's always willing to lend a hand and share his knowledge with the team. His positive attitude and energy are contagious. A true asset to our company!",
+  },
+  {
     author: 'Nishad K.',
     role: 'Editor-in-Chief, VeryFirstTale',
+    project: { label: 'VeryFirstTale', url: 'projects/veryfirsttale' },
     text: "Sarah is an outstanding product engineer who consistently pushes the boundaries of innovation. Her passion for her work is evident in everything she does. She's a true leader and a valuable resource for our team. 5 stars, without a doubt!",
     proof: {
       name: 'LinkedIn',

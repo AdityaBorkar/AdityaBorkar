@@ -15,12 +15,12 @@ full stack product engineer ✦ web developer ✦ ai engineer
 
 - indie projects
 
-  - 
+  -
   - read more: [adityaborkar.com/projects](https://adityaborkar.com/projects)
 
 - featured articles
 
-  - 
+  -
   - read more: [adityaborkar.com/blog](https://adityaborkar.com/blog)
 
 > if my open-source contributions / projects make a difference to you, kindly consider sponsoring, to help support my daily cup of coffee :-)

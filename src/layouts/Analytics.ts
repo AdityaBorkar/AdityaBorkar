@@ -18,5 +18,5 @@ export default function Analytics() {
   // TODO: Add Web Vitals Collection + Analytics Collector
   // onWindowClose()/onFocusOut()
 
-  return;
+  return
 }

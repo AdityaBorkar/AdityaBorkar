@@ -1,4 +1,4 @@
-import ScheduleMeetBtn from '@/components/ScheduleMeetBtn'
+import ScheduleMeetBtn from '@/components old/ScheduleMeetBtn'
 
 export default function CTA() {
   return (
