@@ -1,6 +1,6 @@
 import type { ProjectType } from '@/types/projectInfo'
 
-export const PROJECTS_LIST: ProjectType[] = [
+const PROJECTS_LIST: ProjectType[] = [
   {
     title: 'Platipie',
     description:
@@ -70,7 +70,7 @@ export const PROJECTS_LIST: ProjectType[] = [
     heroImage: '',
   },
   {
-    title: 'Webflow Design System (community)',
+    title: 'Webflow Apps Design System',
     description:
       'Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.',
     categories: [
@@ -121,6 +121,30 @@ export const PROJECTS_LIST: ProjectType[] = [
     title: 'Personal Website (v2)',
     description:
       'Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.',
+    categories: [
+      // 'Library',
+      'Software Development',
+      'Platform Engineering',
+    ],
+    tags: [
+      'Open Source',
+      'SaaS: Software-as-a-Service',
+      'Developer Tool',
+      'Platform',
+      'TypeScript',
+      'MQTT',
+      'SST',
+      'Pulumi',
+      'IaaC',
+    ],
+    website: 'replocal.app',
+    github: '',
+    heroImage: '',
+  },
+  {
+    title: 'Maanas',
+    description:
+      'Second brain for myself featuring notes, time blocking, and a knowledge base.',
     categories: [
       // 'Library',
       'Software Development',
@@ -249,7 +273,7 @@ export const PROJECTS_LIST: ProjectType[] = [
     heroImage: '',
   },
   {
-    title: 'Doanna',
+    title: 'Amy',
     description:
       'Extension for Google Sheets to syncronize dates with Google Calendar with event customization.',
     categories: ['Plugins & Extensions'],
@@ -280,3 +304,5 @@ export const PROJECTS_LIST: ProjectType[] = [
     heroImage: '',
   },
 ]
+
+export default PROJECTS_LIST

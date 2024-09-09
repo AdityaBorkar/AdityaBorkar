@@ -5,7 +5,7 @@ import aws from 'astro-sst'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  output: 'dist',
+  // output: 'dist',
   adapter: aws(),
   integrations: [
     tailwind({

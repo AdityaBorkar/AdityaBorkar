@@ -1,0 +1,57 @@
+---
+import LandingLayout from '@/layouts/LandingLayout/index.astro'
+
+const projects = [
+  {
+    name: 'Hooop.cloud',
+    description:
+      'Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.',
+    image: '/projects/hooop.png',
+    url: 'https://hooop.cloud',
+    tags: ['Cloudflare', 'Serverless', 'Management'],
+  },
+  {
+    name: 'Platipie',
+    description:
+      'Platipie is a platform that allows you to create and manage your own websites and applications.',
+    image: '/projects/platipie.png',
+    url: 'https://platipie.com',
+    tags: ['Webflow', 'JavaScript', 'TypeScript'],
+  },
+  {
+    name: 'Cloud',
+    description:
+      'Cloud is a platform that allows you to create and manage your own websites and applications.',
+    image: '/projects/cloud.png',
+    url: 'https://cloud.com',
+    tags: ['Cloudflare', 'Serverless', 'Management'],
+  },
+]
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'hooop.cloud' } },
+    { params: { slug: 'platipie' } },
+    { params: { slug: 'cloud' } },
+  ]
+}
+
+const slug = Astro.params.slug
+const project = projects.find((project) => project.url === slug)
+if (!project) return Astro.redirect('/404')
+
+const { name, description, image, url, tags } = project
+
+const SchemaMarkup = {}
+---
+
+<LandingLayout
+  title={project.name}
+  description={project.description}
+  keywords={project.tags}
+  schemaMarkup={SchemaMarkup}
+>
+  <div class="flex flex-col items-center justify-center">
+    <h1 class="text-4xl font-bold">Projects</h1>
+  </div>
+</LandingLayout>

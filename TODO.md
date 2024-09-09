@@ -33,6 +33,10 @@
   - Make sure that error, warning, and success states are not visually communicated by just color.
 - Responsiveness
 - Accessibility
+  - <https://www.a11yproject.com/checklist/>
+  - <https://www.w3.org/WAI/ARIA/apg/>
+  - <https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html>
+- Tab indices are logical
 - Animations and Transitions:
   - Page View Transitions
   - Apple-inspired animations
@@ -45,19 +49,13 @@
   - <https://developer.chrome.com/blog/optimizing-lcp-using-signed-exchanges/>
 - Analytics (GA4 alternative + Sentry alternative + HotJar alternative)
   - Discover: Posthog and Product Development
--
 
 ---
 
 ## Site Checklist
 
 [-] Make sure that button, a, and label element content is unique and descriptive.
-[-] Make sure that focus order is linear
 [-] Replace 'title' attribute with tooltips: <https://inclusive-components.design/tooltips-toggletips/>
-
-[-] Can you still see where links are among body content if everything is grayscale?
-[-] <https://www.a11yproject.com/checklist/>
-[-] Guides: <https://www.w3.org/WAI/ARIA/apg/> + <https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html>
 
 ---
 
