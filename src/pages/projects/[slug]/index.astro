@@ -1,57 +1,119 @@
 ---
 import LandingLayout from '@/layouts/LandingLayout/index.astro'
-
-const projects = [
-  {
-    name: 'Hooop.cloud',
-    description:
-      'Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.',
-    image: '/projects/hooop.png',
-    url: 'https://hooop.cloud',
-    tags: ['Cloudflare', 'Serverless', 'Management'],
-  },
-  {
-    name: 'Platipie',
-    description:
-      'Platipie is a platform that allows you to create and manage your own websites and applications.',
-    image: '/projects/platipie.png',
-    url: 'https://platipie.com',
-    tags: ['Webflow', 'JavaScript', 'TypeScript'],
-  },
-  {
-    name: 'Cloud',
-    description:
-      'Cloud is a platform that allows you to create and manage your own websites and applications.',
-    image: '/projects/cloud.png',
-    url: 'https://cloud.com',
-    tags: ['Cloudflare', 'Serverless', 'Management'],
-  },
-]
+import { HiChevronRight } from 'react-icons/hi2'
+import { LuGithub, LuGlobe } from 'react-icons/lu'
 
 export function getStaticPaths() {
-  return [
-    { params: { slug: 'hooop.cloud' } },
-    { params: { slug: 'platipie' } },
-    { params: { slug: 'cloud' } },
+  const projects = [
+    {
+      name: 'Hooop.cloud',
+      slug: 'hooop.cloud',
+      description:
+        'Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.',
+      image: '/projects/hooop.png',
+      url: 'https://hooop.cloud',
+      tags: ['Cloudflare', 'Serverless', 'Management'],
+    },
+    {
+      name: 'Platipie',
+      slug: 'platipie',
+      description:
+        'Platipie is a platform that allows you to create and manage your own websites and applications.',
+      image: '/projects/platipie.png',
+      url: 'https://platipie.com',
+      tags: ['Webflow', 'JavaScript', 'TypeScript'],
+    },
+    {
+      name: 'Cloud',
+      slug: 'cloud',
+      description:
+        'Cloud is a platform that allows you to create and manage your own websites and applications.',
+      image: '/projects/cloud.png',
+      url: 'https://cloud.com',
+      tags: ['Cloudflare', 'Serverless', 'Management'],
+    },
   ]
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }))
 }
 
-const slug = Astro.params.slug
-const project = projects.find((project) => project.url === slug)
+const { slug } = Astro.params
+const { project } = Astro.props
 if (!project) return Astro.redirect('/404')
 
 const { name, description, image, url, tags } = project
 
 const SchemaMarkup = {}
+
+console.log({ project })
 ---
 
 <LandingLayout
   title={project.name}
-  description={project.description}
   keywords={project.tags}
+  description={project.description}
   schemaMarkup={SchemaMarkup}
 >
-  <div class="flex flex-col items-center justify-center">
-    <h1 class="text-4xl font-bold">Projects</h1>
+  <div
+    class="mt-24 mb-8 mx-auto max-w-[64rem] grid grid-cols-[auto_20rem] gap-8"
+  >
+    <div>
+      <!-- Breadcrumb -->
+      <div class="flex text-sm flex-row text-text-tertiary gap-2">
+        <a href="/projects">Projects</a>
+        <span>
+          <HiChevronRight
+            className="size-3 stroke-1 align-[-1px] inline-block"
+          />
+        </span>
+        <a href={`/projects/${project.slug}`}>{project.name}</a>
+      </div>
+
+      <h1 class="mb-4 mt-8 text-5xl text-left font-bold">{project.name}</h1>
+
+      <p class="mb-4 text-base text-text-secondary text-left">
+        {project.description}
+      </p>
+
+      <img
+        src={project.image}
+        alt={project.name}
+        class="w-full my-16 min-h-96 object-cover border border-border/50 rounded-xl"
+      />
+
+      <div class="mt-8">CONTENT</div>
+    </div>
+
+    <div
+      class="border border-border/20 bg-white dark:bg-black rounded-xl h-fit *:px-4 mt-56 flex flex-col gap-4"
+    >
+      <div class="py-4 text-sm font-medium">BUSINESS OUTCOME</div>
+      <div class="grid grid-cols-2 text-center gap-2">
+        <a
+          href={project.url}
+          target="_blank"
+          class="text-sm bg-bg-tertiary text-white rounded-md py-2 hover:bg-bg-secondary transition-all duration-300"
+        >
+          <LuGlobe className="size-4 stroke-2 align-[-3px]  inline-block" />
+          Live Preview
+        </a>
+        <a
+          href={project.url}
+          target="_blank"
+          class="text-sm bg-bg-tertiary text-white rounded-md px-4 py-2 hover:bg-bg-secondary transition-all duration-300"
+        >
+          <LuGithub className="size-4 stroke-2 align-[-3px]  inline-block" />
+          View Code
+        </a>
+      </div>
+      <div class="border-t border-border/20 pt-4">
+        Looking for consultation? Looking for an engineer (or team) to build
+        your project?
+        <a href="/contact" class="block my-2">Contact</a>
+      </div>
+    </div>
   </div>
 </LandingLayout>

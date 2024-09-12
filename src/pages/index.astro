@@ -15,6 +15,7 @@ import type { Thing, WithContext } from 'schema-dts'
 import Marquee from '@/components/Marquee.astro'
 import CursorBubble from '@/components/CursorBubble.astro'
 import { HiArrowUpRight } from 'react-icons/hi2'
+import { cn } from '@/lib/utils'
 
 const SchemaMarkup = {} as WithContext<Thing>
 
@@ -65,6 +66,13 @@ const FEATURED_BLOGS = [
 
 // TODO - Fade-in-Up Entry on Scroll
 // TODO - Appear images with blur first (use blur-base64 technique)
+
+const GitHubDots = []
+
+for (let i = 0; i < 150; i++) {
+  const random = Math.floor(Math.random() * 3)
+  GitHubDots.push(random)
+}
 ---
 
 <style>
@@ -74,6 +82,9 @@ const FEATURED_BLOGS = [
   }
   section {
     @apply mx-auto max-w-[64rem];
+  }
+  em {
+    @apply font-semibold not-italic text-neutral-900;
   }
 </style>
 
@@ -99,8 +110,8 @@ const FEATURED_BLOGS = [
       </div>
       <div class="-mt-4 w-[100%]">
         <div class="text-3xl font-bold leading-[1.5]">
-          Full Stack Product Engineer.
-          <br /> AI Developer. OSS Maintainer.
+          Product Engineer. OSS Maintainer.
+          <br /> Full Stack Web Developer.
         </div>
 
         <div class="mt-6 flex flex-row gap-4 text-text-secondary">
@@ -121,40 +132,33 @@ const FEATURED_BLOGS = [
         <p
           class="my-12 text-balance text-base text-text-primary [&>em]:font-semibold [&>em]:text-neutral-900"
         >
-          {"I'm Aditya Borkar, as a "}
-          <em>software engineer</em>
-          {', I specialize in creating '}
+          {"I'm Aditya Borkar, an "}
+          <em>experienced software engineer</em>
+          {', specializing in creating '}
           <em>high-quality products</em>
-          {' with'}
+          {' with '}
           <em>humanizing user experience</em>
+          {' that drives '}
+          <em>user engagement</em>
+          {' and '}
+          <em>business growth.</em>
+          <!--
+          Problem-Solving: Ability to design and implement solutions to complex problems.
+          Communication: Clear and effective communication with clients and team members.
+          Time Management: Delivering work on time and managing multiple projects efficiently.
+          Adaptability: Quickly learning new tools or methodologies as required.
+          Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
+          Documentation: Creating detailed technical documentation for future reference.
+          -->
           {
-            ', leveraging integration with APIs and libraries. My aim is to help businesses in'
+            ' I have a strong opinions to deliver clean, maintainable, scalable, production-ready, tested code.'
           }
-          <em>optimizing</em>
-          {' their processes for '}
-          <em>improved efficiency</em>
-          {
-            'and ease of use. I have strong opinions to deliver clean, maintainable, scalable, production-ready world-class code.'
-          }
-          {
-            /* TODO: Attract attention and convey how your skills can help deveopers/businesses */
-          }
-          {
-            /* <p class="mt-4">
-				As a software engineer, I specialize in creating high-quality
-				products with humanizing user experience, leveraging integration
-				with APIs and libraries. My aim is to aid businesses in optimizing
-				their processes for improved efficiency and ease of use.
-			  </p> */
-          }
-          With a results-driven approach and a dedication to innovation, I strive
-          to deliver cutting-edge solutions that propel businesses to new heights
         </p>
 
         <div class="w-fit">
           <a
             href="/contact"
-            class="rounded-xl bg-amber-700 px-6 py-3 font-semibold text-background"
+            class="rounded-md bg-neutral-800 hover:bg-neutral-950 px-6 py-3 font-semibold text-background"
           >
             Enquire / Contact
           </a>
@@ -167,7 +171,7 @@ const FEATURED_BLOGS = [
               >
               </div>
             </div>
-            Available now
+            Available Now
           </div>
         </div>
       </div>
@@ -222,8 +226,32 @@ const FEATURED_BLOGS = [
 
       <BentoDiv label="Medium" className=""> . </BentoDiv>
 
-      <BentoDiv label="GitHub" className="col-span-4 row-span-2">
-        Heatmap
+      <BentoDiv className="col-span-4 group row-span-2 relative">
+        <a
+          href="https://github.com/AdityaBorkar"
+          target="_blank"
+          class="opacity-0 rounded-3xl text-background font-semibold justify-center items-center group-hover:opacity-100 transition-all duration-300 flex w-full h-full bg-black/70 cursor-pointer absolute top-0 left-0"
+        >
+          Open GitHub Profile
+          <HiArrowUpRight className="size-4 ml-2" />
+        </a>
+        <div
+          class="grid grid-flow-col auto-cols-fr gap-1 w-fit grid-rows-[repeat(7,minmax(0,1fr))]"
+        >
+          {
+            GitHubDots.map((commits) => (
+              <div
+                class={cn(
+                  'size-4 rounded',
+                  commits === 0 ? 'bg-neutral-200' : 'bg-green-800',
+                )}
+                style={{
+                  opacity: commits > 0 ? (commits * 100) / 2 : 1,
+                }}
+              />
+            ))
+          }
+        </div>
       </BentoDiv>
 
       <BentoDiv label="Stats" className="col-span-6 row-span-2">
