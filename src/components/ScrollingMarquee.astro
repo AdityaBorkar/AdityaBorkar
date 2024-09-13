@@ -1,0 +1,39 @@
+---
+interface Props {
+  direction?: 'left' | 'right'
+}
+
+const { direction = 'left' } = Astro.props
+
+// <!-- Auto scroll with low speed, increase the speed with speed of the mouse. Keep scrolling for a long time. -->
+---
+
+<div class="marquee-container">
+  <div
+    class="marquee inline-flex flex-row flex-nowrap overflow-auto whitespace-nowrap"
+    data-direction={direction}
+  >
+    <slot />
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    overflow: hidden;
+    width: 100%;
+  }
+  .marquee {
+    animation: scroll 40s linear infinite;
+  }
+  .marquee[data-direction='right'] {
+    animation-direction: reverse;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+</style>

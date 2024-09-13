@@ -1,7 +1,7 @@
 ---
 import LandingLayout from '@/layouts/LandingLayout/index.astro'
 import { HiChevronRight } from 'react-icons/hi2'
-import { LuGithub, LuGlobe } from 'react-icons/lu'
+import { LuEye, LuGithub, LuGlobe } from 'react-icons/lu'
 
 export function getStaticPaths() {
   const projects = [
@@ -58,61 +58,69 @@ console.log({ project })
   schemaMarkup={SchemaMarkup}
 >
   <div
-    class="mt-24 mb-8 mx-auto max-w-[64rem] grid grid-cols-[auto_20rem] gap-8"
+    class="mx-auto mb-8 mt-24 grid max-w-[64rem] grid-cols-[auto_20rem] gap-8"
   >
     <div>
       <!-- Breadcrumb -->
-      <div class="flex text-sm flex-row text-text-tertiary gap-2">
+      <div class="flex flex-row gap-2 text-sm text-text-tertiary">
         <a href="/projects">Projects</a>
         <span>
           <HiChevronRight
-            className="size-3 stroke-1 align-[-1px] inline-block"
+            className="inline-block size-3 stroke-1 align-[-1px]"
           />
         </span>
         <a href={`/projects/${project.slug}`}>{project.name}</a>
       </div>
 
-      <h1 class="mb-4 mt-8 text-5xl text-left font-bold">{project.name}</h1>
+      <h1 class="mb-4 mt-8 text-left text-5xl font-bold">{project.name}</h1>
 
-      <p class="mb-4 text-base text-text-secondary text-left">
+      <p class="mb-4 text-left text-base text-text-secondary">
         {project.description}
       </p>
 
       <img
         src={project.image}
         alt={project.name}
-        class="w-full my-16 min-h-96 object-cover border border-border/50 rounded-xl"
+        class="my-16 min-h-96 w-full rounded-xl border border-border/50 object-cover"
       />
 
       <div class="mt-8">CONTENT</div>
     </div>
 
     <div
-      class="border border-border/20 bg-white dark:bg-black rounded-xl h-fit *:px-4 mt-56 flex flex-col gap-4"
+      class="mt-56 flex h-fit flex-col gap-4 rounded-xl border border-border/20 bg-white *:px-4 dark:bg-black"
     >
       <div class="py-4 text-sm font-medium">BUSINESS OUTCOME</div>
-      <div class="grid grid-cols-2 text-center gap-2">
+      <div class="grid grid-cols-2 gap-2 text-center">
         <a
           href={project.url}
           target="_blank"
-          class="text-sm bg-bg-tertiary text-white rounded-md py-2 hover:bg-bg-secondary transition-all duration-300"
+          class="rounded-md bg-bg-tertiary py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
         >
-          <LuGlobe className="size-4 stroke-2 align-[-3px]  inline-block" />
+          <LuGlobe className="inline-block size-4 stroke-2 align-[-3px]" />
           Live Preview
         </a>
         <a
           href={project.url}
           target="_blank"
-          class="text-sm bg-bg-tertiary text-white rounded-md px-4 py-2 hover:bg-bg-secondary transition-all duration-300"
+          class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
         >
-          <LuGithub className="size-4 stroke-2 align-[-3px]  inline-block" />
-          View Code
+          <LuEye className="inline-block size-4 stroke-2 align-[-3px]" />
+          Quick Peek
         </a>
+        <!-- <a
+          href={project.url}
+          target="_blank"
+          class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
+        >
+          <LuGithub className="inline-block size-4 stroke-2 align-[-3px]" />
+          View Code
+        </a> -->
       </div>
       <div class="border-t border-border/20 pt-4">
         Looking for consultation? Looking for an engineer (or team) to build
         your project?
-        <a href="/contact" class="block my-2">Contact</a>
+        <a href="/contact" class="my-2 block">Contact</a>
       </div>
     </div>
   </div>

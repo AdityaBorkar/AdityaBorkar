@@ -14,8 +14,9 @@ module.exports = {
   tailwindFunctions: ['clsx', 'tw', 'cva'],
   plugins: [
     require.resolve('@trivago/prettier-plugin-sort-imports'),
-    require.resolve('prettier-plugin-tailwindcss'),
     require.resolve('prettier-plugin-astro'),
+    require.resolve('prettier-plugin-tailwindcss'),
+    // require.resolve('prettier-plugin-organize-imports'),
   ],
   overrides: [
     {

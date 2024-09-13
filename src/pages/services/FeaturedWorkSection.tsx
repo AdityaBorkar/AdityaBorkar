@@ -1,4 +1,4 @@
-import { H2 } from './ui'
+import { H2 } from '../full-stack/ui'
 
 export default function FeaturedWorkSection() {
   return (

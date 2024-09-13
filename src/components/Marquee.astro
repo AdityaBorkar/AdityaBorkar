@@ -1,26 +1,17 @@
 ---
-interface MarqueeItem {
-  img: string
-  link: string
-}
+import { cn } from '@/lib/utils'
 
 interface Props {
-  items: MarqueeItem[]
+  class?: string
   direction?: 'left' | 'right'
 }
 
-const { items, direction = 'left' } = Astro.props
+const { direction = 'left', class: className } = Astro.props
 ---
 
-<div class="marquee-container">
+<div class={cn('marquee-container', className)}>
   <div class="marquee" data-direction={direction}>
-    {
-      items.map(({ img, link }) => (
-        <a href={link} class="marquee-item">
-          <img src={img} alt="" />
-        </a>
-      ))
-    }
+    <slot />
   </div>
 </div>
 
@@ -31,7 +22,7 @@ const { items, direction = 'left' } = Astro.props
   }
   .marquee {
     display: flex;
-    animation: scroll 40s linear infinite;
+    animation: scroll 5s linear infinite;
   }
   .marquee[data-direction='right'] {
     animation-direction: reverse;

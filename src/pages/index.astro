@@ -1,21 +1,40 @@
 ---
 import { Image } from 'astro:assets'
-import ProfileImage from '../assets/profile.png'
-
-import LandingLayout from '../layouts/LandingLayout/index.astro'
-import TESTIMONIALS from '../content/testimonials'
-
-import Card from '../components/Card.astro'
-import BentoDiv from '../components/BentoDiv.astro'
-
-import { LuMail } from 'react-icons/lu'
+import {
+  LuAtom,
+  LuBriefcase,
+  LuFileText,
+  LuGift,
+  LuMail,
+  LuQuote,
+  LuRocket,
+  LuSmile,
+  LuUser2,
+  LuUserCircle,
+} from 'react-icons/lu'
 import { BiLogoGithub, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi'
-
 import type { Thing, WithContext } from 'schema-dts'
-import Marquee from '@/components/Marquee.astro'
-import CursorBubble from '@/components/CursorBubble.astro'
 import { HiArrowUpRight } from 'react-icons/hi2'
+
 import { cn } from '@/lib/utils'
+import LandingLayout from '@/layouts/LandingLayout/index.astro'
+import BentoDiv from '@/components/BentoDiv.astro'
+import Card from '@/components/Card.astro'
+import CursorBubble from '@/components/CursorBubble.astro'
+import ScrollingMarquee from '@/components/ScrollingMarquee.astro'
+
+import ProfileImage from '@/assets/profile.png'
+import Mockups from '@/content/mockups'
+import TESTIMONIALS from '@/content/testimonials'
+import TECHNOLOGIES from '@/content/technologies'
+import Marquee from '@/components/Marquee.astro'
+
+import LaptopAbstractImage from '@/assets/illustrations/laptop-on-abstract.png'
+import LaptopWithNotesImage from '@/assets/illustrations/laptop-with-notes.png'
+import ServiceCard from './ServiceCard.astro'
+import Heading from './Heading.astro'
+import PROJECTS_LIST from '@/content/projects/projects'
+import BookCallFooter from '@/components/BookCallFooter.astro'
 
 const SchemaMarkup = {} as WithContext<Thing>
 
@@ -27,28 +46,13 @@ const SchemaMarkup = {} as WithContext<Thing>
 //   year: 'numeric',
 // })
 
-const Mockups1 = [
-  {
-    img: '/res/mockup1.png',
-    link: 'https://example.com',
-  },
-  {
-    img: '/res/mockup2.png',
-    link: 'https://example.com',
-  },
-]
-const Mockups2 = [
-  {
-    img: '/res/mockup1.png',
-    link: 'https://example.com',
-  },
-  {
-    img: '/res/mockup2.png',
-    link: 'https://example.com',
-  },
-]
+const Mockups1 = Mockups
+const Mockups2 = Mockups
 
-const FEATURED_BLOGS = [
+const Technologies1 = TECHNOLOGIES
+const Technologies2 = TECHNOLOGIES
+
+const BlogPosts = [
   // TODO: Featured Only (2 Most Viewed and 1 Recent)
   {
     title: 'How to build a SaaS',
@@ -64,6 +68,12 @@ const FEATURED_BLOGS = [
   },
 ]
 
+const Projects = PROJECTS_LIST.filter((project) =>
+  ['Platipie', 'Vasundhara', 'Hooop Cloud', 'Blog Platform'].includes(
+    project.title,
+  ),
+)
+
 // TODO - Fade-in-Up Entry on Scroll
 // TODO - Appear images with blur first (use blur-base64 technique)
 
@@ -76,10 +86,6 @@ for (let i = 0; i < 150; i++) {
 ---
 
 <style>
-  h3 {
-    @apply mb-16 mt-48 text-left text-4xl font-bold;
-    @apply mx-auto max-w-[64rem];
-  }
   section {
     @apply mx-auto max-w-[64rem];
   }
@@ -94,391 +100,421 @@ for (let i = 0; i < 150; i++) {
   keywords={['Aditya Borkar', 'Product Engineer', 'Software Engineer']}
   schemaMarkup={SchemaMarkup}
 >
-  <div>
-    <section
-      class="mx-auto mb-36 mt-48 grid max-w-[64rem] grid-cols-[1fr_2fr] gap-16"
-    >
-      <div class="mx-auto size-80 overflow-hidden rounded-full bg-neutral-900">
-        {
-          /* Mountains in Background, Well-defined body, Authorative Face, More Formal */
-        }
-        <Image
-          class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover"
-          src={ProfileImage}
-          alt=""
-        />
+  <section
+    class="mx-auto mb-36 mt-56 grid max-w-[64rem] grid-cols-[1fr_2fr] gap-16"
+  >
+    <div class="mx-auto size-80 overflow-hidden rounded-full bg-neutral-900">
+      {
+        /* Mountains in Background, Well-defined body, Authorative Face, More Formal */
+      }
+      <Image
+        class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover"
+        src={ProfileImage}
+        alt=""
+      />
+    </div>
+    <div class="-mt-8 w-[100%]">
+      <div class="text-4xl font-bold leading-[1.5]">
+        Product Engineer. OSS Maintainer.
+        <br /> Full Stack Web Developer.
       </div>
-      <div class="-mt-4 w-[100%]">
-        <div class="text-3xl font-bold leading-[1.5]">
-          Product Engineer. OSS Maintainer.
-          <br /> Full Stack Web Developer.
-        </div>
 
-        <div class="mt-6 flex flex-row gap-4 text-text-secondary">
-          <a href="https://github.com/AdityaBorkar">
-            <BiLogoGithub className="size-6 hover:text-foreground" />
-          </a>
-          <a href="https://twitter.com/adityab_tech">
-            <BiLogoTwitter className="size-6 hover:text-foreground" />
-          </a>
-          <a href="https://linkedin.com/in/aditya-borkar">
-            <BiLogoLinkedin className="size-6 hover:text-foreground" />
-          </a>
-          <a href="mailto:hi@adityab.tech" class="mt-0.5">
-            <LuMail className="size-5 hover:text-foreground" />
-          </a>
-        </div>
-
-        <p
-          class="my-12 text-balance text-base text-text-primary [&>em]:font-semibold [&>em]:text-neutral-900"
+      <div class="mb-6 mt-4 text-xs">
+        <a
+          href="https://ossacc.com/"
+          target="_blank"
+          class="rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900"
+          >oss/acc</a
         >
-          {"I'm Aditya Borkar, an "}
-          <em>experienced software engineer</em>
-          {', specializing in creating '}
-          <em>high-quality products</em>
-          {' with '}
-          <em>humanizing user experience</em>
-          {' that drives '}
-          <em>user engagement</em>
-          {' and '}
-          <em>business growth.</em>
-          <!--
-          Problem-Solving: Ability to design and implement solutions to complex problems.
+        <a
+          href="https://en.wikipedia.org/wiki/Effective_altruism"
+          target="_blank"
+          class="ml-2 rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900"
+          >e/altruism</a
+        >
+        <!-- href="https://en.wikipedia.org/wiki/Effective_accelerationism" -->
+      </div>
+
+      <div class="mt-6 flex flex-row gap-4 text-text-tertiary">
+        <a href="https://github.com/AdityaBorkar">
+          <BiLogoGithub className="size-6 hover:text-foreground" />
+        </a>
+        <a href="https://twitter.com/adityab_tech">
+          <BiLogoTwitter className="size-6 hover:text-foreground" />
+        </a>
+        <a href="https://linkedin.com/in/aditya-borkar">
+          <BiLogoLinkedin className="size-6 hover:text-foreground" />
+        </a>
+        <a href="mailto:hi@adityab.tech" class="mt-0.5">
+          <LuMail className="size-5 hover:text-foreground" />
+        </a>
+      </div>
+
+      <p
+        class="mb-20 mt-12 text-balance text-lg leading-relaxed text-text-secondary [&>em]:font-semibold [&>em]:text-neutral-900"
+      >
+        {"I'm Aditya Borkar, an "}
+        <em>experienced software engineer</em>
+        {', specializing in creating '}
+        <em>high-quality products</em>
+        {' with '}
+        <em>humanizing user experience</em>
+        {' that drives '}
+        <em>user engagement</em>
+        {' and '}
+        <em>business growth.</em>
+        <!--
+            Problem-Solving: Ability to design and implement solutions to complex problems.
           Communication: Clear and effective communication with clients and team members.
           Time Management: Delivering work on time and managing multiple projects efficiently.
           Adaptability: Quickly learning new tools or methodologies as required.
           Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
           Documentation: Creating detailed technical documentation for future reference.
           -->
-          {
-            ' I have a strong opinions to deliver clean, maintainable, scalable, production-ready, tested code.'
-          }
-        </p>
+        {
+          ' I have a strong opinions to deliver clean, maintainable, scalable, production-ready, tested code.'
+        }
+      </p>
 
-        <div class="w-fit">
-          <a
-            href="/contact"
-            class="rounded-md bg-neutral-800 hover:bg-neutral-950 px-6 py-3 font-semibold text-background"
-          >
-            Enquire / Contact
-          </a>
+      <div class="w-fit">
+        <a
+          href="/contact"
+          class="rounded-md bg-neutral-800 px-6 py-3 text-base font-semibold text-background hover:bg-neutral-950"
+        >
+          Enquire / Contact
+        </a>
 
-          <div class="my-8 text-center text-sm text-text-secondary">
-            <div class="relative mr-2 inline-block">
-              <div class="size-3 rounded-full bg-green-500"></div>
-              <div
-                class="absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full bg-green-500 [animation-delay:0.4s] [animation-duration:2s]"
-              >
-              </div>
+        <div class="mt-6 text-center text-sm text-text-secondary">
+          <div class="relative mr-2 inline-block">
+            <div class="size-3 rounded-full bg-green-500"></div>
+            <div
+              class="absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full bg-green-500 [animation-delay:0.4s] [animation-duration:2s]"
+            >
             </div>
-            Available Now
           </div>
+          Available Now
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Marquee -->
-    <!-- TODO - Repeat 1 more line -->
-    <!-- TODO: opacity-100 on scroll down -->
-    <!-- Blur on both ends -->
-    <!-- Auto scroll with low speed, increase the speed with speed of the mouse. Keep scrolling for a long time. -->
-    <section class="opacity-25 *:mx-8">
-      <!-- <Marquee>
+  <section class="w-full !max-w-full *:my-6">
+    <ScrollingMarquee direction="left">
+      {
+        Mockups1.map(({ img, link }) => (
+          <a href={link} class="mx-4 block h-[20rem] w-[36rem]">
+            <Image
+              src={img}
+              alt=""
+              class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
+            />
+          </a>
+        ))
+      }
+    </ScrollingMarquee>
+    <ScrollingMarquee direction="right">
+      {
+        Mockups2.map(({ img, link }) => (
+          <a href={link} class="mx-4 block h-[20rem] w-[36rem]">
+            <Image
+              src={img}
+              alt=""
+              class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
+            />
+          </a>
+        ))
+      }
+    </ScrollingMarquee>
+  </section>
+
+  <Heading icon={LuSmile} label="About">Brief About Myself</Heading>
+  <section class="grid grid-cols-8 gap-4">
+    <BentoDiv label="Motivation" className="col-span-4 row-span-4">
+      <p class="text-base">
+        I became a programmer and product engineer because I'm passionate about
+        harnessing the power of technology to solve real-world problems and make
+        a meaningful impact on people's lives. I enjoy the creative challenge of
+        designing innovative solutions and the satisfaction of seeing my ideas
+        come to life. Through programming and product engineering, I aim to
+        continually learn, grow, and push the boundaries of what's possible.
+        {/* Passion, Problem-solving, Learning mindset */}
+      </p>
+    </BentoDiv>
+
+    <BentoDiv label="Certifications" className="col-span-4 row-span-2">
+      Google Developer Expert AWS Certified
+      <br />
+      TopTal Vetted NextJS Expert
+      <br />
+      Medusa Expert
+    </BentoDiv>
+
+    <div class="col-span-4 flex hidden flex-row gap-4">
+      <!-- label="Peerlist" -->
+      <!-- label="ProductHunt" -->
+      <!-- label="Dev.to" -->
+      <!-- label="IndieHackers" -->
+      <!-- label="Read.cv -->
+      <!-- label="Medium" -->
+
+      <BentoDiv className=""> Google Developer Expert </BentoDiv>
+      <!-- <BentoDiv className=""> AWS Certified </BentoDiv> -->
+      <BentoDiv className=""> TopTal Vetted </BentoDiv>
+      <BentoDiv className=""> NextJS Expert </BentoDiv>
+      <BentoDiv className=""> Medusa Expert </BentoDiv>
+      <!-- <BentoDiv className=""> Upwork Certified </BentoDiv> -->
+    </div>
+
+    <BentoDiv className="group relative col-span-4 row-span-2">
+      <a
+        href="https://github.com/AdityaBorkar"
+        target="_blank"
+        class="absolute left-0 top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-3xl bg-black/70 font-semibold text-background opacity-0 transition-all duration-300 group-hover:opacity-100"
+      >
+        Open GitHub Profile
+        <HiArrowUpRight className="ml-2 size-4" />
+      </a>
+      <div
+        class="grid w-fit auto-cols-fr grid-flow-col grid-rows-[repeat(7,minmax(0,1fr))] gap-1"
+      >
         {
-          Mockups1.map(({ img, link }) => (
-            <a href={link}>
-              <img src={img} alt="" class="h-72 border border-border" />
-            </a>
+          GitHubDots.map((commits) => (
+            <div
+              class={cn(
+                'size-4 rounded',
+                commits === 0 ? 'bg-neutral-200' : 'bg-green-800',
+              )}
+              style={{
+                opacity: commits > 0 ? (commits * 100) / 2 : 1,
+              }}
+            />
+          ))
+        }
+      </div>
+    </BentoDiv>
+
+    <BentoDiv label="Stats" className="col-span-6 row-span-2">
+      <div class="flex flex-row justify-evenly py-4 text-center text-sm">
+        <div>
+          <div class="mb-2 text-2xl font-semibold">3+</div>
+          Years of Expertise
+        </div>
+        <div>
+          <div class="mb-2 text-2xl font-semibold">13</div>
+          Total Projects
+        </div>
+        <div>
+          <div class="mb-2 text-2xl font-semibold">5+</div>
+          Happy Clients
+        </div>
+        <div>
+          <div class="mb-2 text-2xl font-semibold">13</div>
+          GitHub Stars
+        </div>
+        {
+          /*
+          <div>
+            <div class="text-2xl font-semibold">600+</div>
+            Commits
+          </div>
+          */
+        }
+        <div>
+          <div class="mb-2 text-2xl font-semibold">6300+</div>
+          Coding Hours
+        </div>
+      </div>
+      {
+        /* I am comfortable to work in many programming languages and
+			  cross-platforms. I love to solve problems using tech, for that, I am
+			  flexible to learn any language/library/frameworks/tools */
+      }
+    </BentoDiv>
+
+    <BentoDiv label="Photo" className="col-span-2 row-span-5">
+      Desk Setup
+      {
+        /* OR Timelapse of me working on my desk with coffee from a picturesque place */
+      }
+    </BentoDiv>
+
+    <BentoDiv label="Tech Stack" className="col-span-4 row-span-5">
+      <Marquee direction="right" class="mb-6 mt-8">
+        {
+          Technologies1.map((tech) => (
+            <Image
+              src={tech.logo}
+              alt={tech.name}
+              class="mx-4 block h-8 w-auto rounded-md object-cover"
+            />
           ))
         }
       </Marquee>
-      <Marquee>
+      <Marquee direction="left" class="mb-4">
         {
-          Mockups2.map(({ img, link }) => (
-            <a href={link}>
-              <img src={img} alt="" class="h-72 border border-border" />
-            </a>
+          Technologies2.map((tech) => (
+            <Image
+              src={tech.logo}
+              alt={tech.name}
+              class="mx-4 block h-8 w-auto rounded-md object-cover"
+            />
           ))
         }
-      </Marquee> -->
-    </section>
+      </Marquee>
+    </BentoDiv>
 
-    <h3>About ↓</h3>
-    <section class="grid grid-cols-8 gap-4">
-      <BentoDiv label="Motivation" className="col-span-4 row-span-3">
-        <p class="text-base">
-          I became a programmer and product engineer because I'm passionate
-          about harnessing the power of technology to solve real-world problems
-          and make a meaningful impact on people's lives. I enjoy the creative
-          challenge of designing innovative solutions and the satisfaction of
-          seeing my ideas come to life. Through programming and product
-          engineering, I aim to continually learn, grow, and push the boundaries
-          of what's possible.
-          {/* Passion, Problem-solving, Learning mindset */}
-        </p>
-      </BentoDiv>
+    <BentoDiv label="Location" className="col-span-2 row-span-5">
+      Maps + Timezones comfortable
+    </BentoDiv>
 
-      <BentoDiv label="Peerlist" className=""> . </BentoDiv>
+    <BentoDiv label="Read More" className="col-span-2 row-span-2">
+      /about
+    </BentoDiv>
+  </section>
 
-      <BentoDiv label="IndieHackers" className=""> . </BentoDiv>
+  <Heading icon={LuGift} label="Services"> What We Do </Heading>
+  {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
+  <!-- Full Cycle Development -->
+  <!-- Backend Development -->
+  <!-- Frontend Development -->
+  <!--  -->
+  <!--  -->
+  <!-- UI / UX Design -->
+  <!-- Team Engineering -->
+  <!-- Technical Consultancy -->
+  <!-- Product Engineering -->
+  <section>
+    <div class="grid grid-cols-3 gap-8">
+      <ServiceCard image={LaptopWithNotesImage}>
+        Full Cycle <br />
+        Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Prototype & <br />
+        MVP Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Technical <br />
+        Consultancy
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        AI / Automation <br />
+        Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Backend <br />
+        Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Frontend <br />
+        Development
+      </ServiceCard>
+    </div>
 
-      <BentoDiv label="Read.cv" className=""> . </BentoDiv>
+    <div class="mt-12 text-base text-text-secondary">
+      Write down some notes about the process to achieve each of the service for
+      SEO reasons.
+      <a href="/services/" class="text-foreground"> /services </a>
+    </div>
+  </section>
 
-      <BentoDiv label="Medium" className=""> . </BentoDiv>
+  <!-- Cross-Discipline Expertise
+  Tech Agnostic
+  Quality Assured
+  AI Engineer [SPECIALIZED]
+  Cross-Discipline Expertise
+  Tech Agnostic
+  Scalable Solutions -->
 
-      <BentoDiv className="col-span-4 group row-span-2 relative">
+  <Heading icon={LuAtom} label="Projects"> Our Selected Works </Heading>
+  <section class="grid w-full grid-cols-2 gap-8">
+    {
+      Projects.map((project) => (
         <a
-          href="https://github.com/AdityaBorkar"
-          target="_blank"
-          class="opacity-0 rounded-3xl text-background font-semibold justify-center items-center group-hover:opacity-100 transition-all duration-300 flex w-full h-full bg-black/70 cursor-pointer absolute top-0 left-0"
+          href="/projects/"
+          class="rounded-2xl border border-border/20 bg-white px-8 py-6"
         >
-          Open GitHub Profile
-          <HiArrowUpRight className="size-4 ml-2" />
+          <div class="text-xl font-semibold text-text-primary">
+            {project.title}
+          </div>
+          <p class="mt-2 text-sm font-medium text-text-secondary">
+            {project.description}
+          </p>
+          <Image
+            src={LaptopAbstractImage}
+            alt=""
+            class="mx-auto mt-4 block h-72 w-auto object-cover"
+          />
         </a>
-        <div
-          class="grid grid-flow-col auto-cols-fr gap-1 w-fit grid-rows-[repeat(7,minmax(0,1fr))]"
+      ))
+    }
+  </section>
+  <a
+    href="/projects/"
+    class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+  >
+    View All Projects
+  </a>
+
+  <Heading icon={LuFileText} label="Blog"> Featured Writings </Heading>
+  <section class="flex flex-row justify-center gap-8 overflow-auto">
+    {
+      BlogPosts.map((blog) => (
+        <a
+          href="/blog/"
+          class="w-[36rem] rounded-2xl border border-border/20 bg-white px-6 py-4 text-text-secondary"
         >
-          {
-            GitHubDots.map((commits) => (
-              <div
-                class={cn(
-                  'size-4 rounded',
-                  commits === 0 ? 'bg-neutral-200' : 'bg-green-800',
-                )}
-                style={{
-                  opacity: commits > 0 ? (commits * 100) / 2 : 1,
-                }}
-              />
-            ))
-          }
-        </div>
-      </BentoDiv>
+          <Image
+            src={LaptopAbstractImage}
+            alt=""
+            class="mx-auto my-2 block h-36 w-auto object-cover"
+          />
+          <p class="mt-6 text-base font-medium text-text-primary">
+            {blog.title}
+          </p>
+        </a>
+      ))
+    }
+  </section>
+  <a
+    href="/projects/"
+    class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+  >
+    View All Posts
+  </a>
 
-      <BentoDiv label="Stats" className="col-span-6 row-span-2">
-        <div class="flex flex-row justify-evenly py-4 text-center text-sm">
-          <div>
-            <div class="mb-2 text-2xl font-semibold">3+</div>
-            Years of Expertise
-          </div>
-          <div>
-            <div class="mb-2 text-2xl font-semibold">10+</div>
-            Total Projects
-          </div>
-          <div>
-            <div class="mb-2 text-2xl font-semibold">4+</div>
-            Happy Clients
-          </div>
-          <div>
-            <div class="mb-2 text-2xl font-semibold">10+</div>
-            GitHub Stars
-          </div>
-          {
-            /* <div>
-				<div class="text-2xl font-semibold">600+</div>
-				Commits
-			  </div> */
-          }
-          <div>
-            <div class="mb-2 text-2xl font-semibold">3000+</div>
-            Coding Hours
-          </div>
-        </div>
-        {
-          /* I am comfortable to work in many programming languages and
-			  cross-platforms. I love to solve problems using tech, for that, I am
-			  flexible to learn any language/library/frameworks/tools */
-        }
-      </BentoDiv>
-
-      <BentoDiv label="Photo" className="col-span-2 row-span-5">
-        Desk Setup
-        {
-          /* OR Timelapse of me working on my desk with coffee from a picturesque place */
-        }
-      </BentoDiv>
-
-      <BentoDiv label="Tech Stack" className="col-span-4 row-span-4">
-        Tech Stack
-      </BentoDiv>
-
-      <BentoDiv label="Location" className="col-span-2 row-span-4">
-        Maps + Timezones comfortable
-      </BentoDiv>
-
-      {
-        /* <BentoBox label="Spotify" class="col-span-2">
-			Playlist
-		  </BentoBox> */
-      }
-
-      <BentoDiv label="Read More" className="col-span-2"> /about </BentoDiv>
-    </section>
-
-    <h3>Services ↓</h3>
-    {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
-    <section>
-      <div class="grid grid-cols-5 gap-x-8 gap-y-4">
-        <div class="col-span-2 row-span-2 rounded-2xl border border-border p-4">
-          Product Engineer
-
-          <button>Learn More</button>
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Problem Resolution
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Customer Focused
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Cross-Discipline Expertise
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Tech Agnostic
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Quality Assured
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Scalable Solutions
-        </div>
-      </div>
-
-      <div class="grid grid-cols-5 gap-8 mt-20">
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Cross-Discipline Expertise
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Tech Agnostic
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Quality Assured
-        </div>
-        <div class="col-span-2 row-span-2 rounded-2xl border border-border p-4">
-          AI Engineer [SPECIALIZED]
-
-          <button>Learn More</button>
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Cross-Discipline Expertise
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Tech Agnostic
-        </div>
-        <div class="rounded-xl border min-h-36 border-border py-2 px-4">
-          Scalable Solutions
-        </div>
-      </div>
-    </section>
-
-    <h3>Selected Work</h3>
-    <section class="flex flex-row justify-center gap-12 overflow-auto">
-      {
-        FEATURED_BLOGS.map((blog) => (
-          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-text-secondary">
-            <img src={blog.img} alt="" class="object-cover" />
-            <p class="text-sm">{blog.title}</p>
-            <div class="mt-1 text-base">
-              {/* <div class="font-medium">{blog.author}</div>
-              <div class="text-sm">{blog.role}</div> */}
+  <Heading icon={LuUserCircle} label="Testimonials">
+    What People Speak
+  </Heading>
+  <section class="flex flex-row flex-wrap items-center justify-evenly gap-8">
+    {
+      TESTIMONIALS.map((testimonial) => (
+        <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
+          <div class="flex flex-row items-center justify-between">
+            <div class="w-fit bg-gradient-to-tr from-yellow-500 to-orange-500 bg-clip-text text-xl tracking-tighter text-transparent">
+              ★★★★★
             </div>
+            {testimonial.project && (
+              <a
+                href={testimonial.project.url}
+                class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-background"
+              >
+                Project: {testimonial.project.label}
+                <HiArrowUpRight className="size-3 ml-0.5 -mt-0.5 inline-block" />
+              </a>
+            )}
           </div>
-        ))
-      }
-    </section>
 
-    <h3>Featured Writings ↓</h3>
-    <section class="flex flex-row justify-center gap-12 overflow-auto">
-      {
-        FEATURED_BLOGS.map((blog) => (
-          <div class="w-[36rem] rounded-lg border border-neutral-900 p-4 text-text-secondary">
-            <img src={blog.img} alt="" class="object-cover" />
-            <p class="text-sm">{blog.title}</p>
-            <div class="mt-1 text-base">
-              {/* <div class="font-medium">{blog.author}</div>
-              <div class="text-sm">{blog.role}</div> */}
-            </div>
+          <p class="my-4 text-pretty text-sm">{testimonial.text}</p>
+
+          <div>
+            <div class="font-medium">{testimonial.author}</div>
+            <div class="text-text-secondary">{testimonial.role}</div>
           </div>
-        ))
-      }
-    </section>
-
-    <h3>What people speak ?</h3>
-    <section class="flex flex-row flex-wrap items-center justify-evenly gap-8">
-      {
-        TESTIMONIALS.map((testimonial) => (
-          <div class="h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white group px-6 py-4 dark:bg-black">
-            <div class="flex flex-row items-center justify-between">
-              <div class="w-fit bg-gradient-to-tr tracking-tighter from-yellow-500 to-orange-500 bg-clip-text text-xl text-transparent">
-                ★★★★★
-              </div>
-              {testimonial.project && (
-                <a
-                  href={testimonial.project.url}
-                  class="text-text-tertiary py-1 hover:bg-background border font-medium border-border/20 text-xs rounded-full w-fit px-2 "
-                >
-                  Project: {testimonial.project.label}
-                  <HiArrowUpRight className="size-3 ml-0.5 -mt-0.5 inline-block" />
-                </a>
-              )}
-            </div>
-
-            <p class="my-4 text-pretty text-sm">{testimonial.text}</p>
-
-            <div>
-              <div class="font-medium">{testimonial.author}</div>
-              <div class="text-text-secondary">{testimonial.role}</div>
-            </div>
-          </div>
-        ))
-      }
-    </section>
-
-    <section class="pb-48 relative pt-72">
-      <div class="absolute top-0 left-0 w-full h-full"></div>
-
-      <div class="px-24 relative">
-        <CursorBubble
-          class="-top-12 right-16 bg-purple-500"
-          fillColor="fill-purple-500"
-          text="Product"
-        />
-        <CursorBubble
-          class="top-[135%] left-32 bg-sky-500"
-          fillColor="fill-sky-500"
-          text="Technology"
-        />
-        <CursorBubble
-          class="-top-8 left-48 bg-orange-500"
-          fillColor="fill-orange-500"
-          text="AI"
-        />
-        <CursorBubble
-          class="top-[120%] right-48 bg-emerald-500"
-          fillColor="fill-emerald-500"
-          text="Customers"
-        />
-        <div class="text-5xl font-semibold text-center leading-normal">
-          Let's
-          <span class="italic font-normal tracking-tight font-sansSerif"
-            >discuss</span
-          >
-          your
-          <span class="italic font-normal tracking-tight font-sansSerif"
-            >ideas</span
-          >
-          and figure out if we are a great
-          <span class="italic font-normal tracking-tight font-sansSerif"
-            >fit</span
-          > for each-other.
         </div>
-      </div>
+      ))
+    }
+  </section>
 
-      <button
-        type="button"
-        class="mx-auto mt-12 block rounded-xl bg-foreground px-12 py-4 text-xl font-semibold text-background shadow-md"
-      >
-        Book a call
-      </button>
-    </section>
-  </div>
+  <BookCallFooter />
 </LandingLayout>

@@ -74,16 +74,16 @@ const SchemaMarkup = {}
   schemaMarkup={SchemaMarkup}
 >
   <div class="mx-auto max-w-[80rem]">
-    <h1 class="mt-36 mb-8 text-5xl font-bold">Blog Posts</h1>
+    <h1 class="mb-8 mt-36 text-5xl font-bold">Blog Posts</h1>
     <div class="mb-16 text-base text-text-secondary">
       Notes and essays I write in my digital garden.
     </div>
 
-    <div class="flex mb-12 justify-between items-center">
+    <div class="mb-12 flex items-center justify-between">
       <div class="flex gap-2">
         {
           Tags.map((tag) => (
-            <span class="text-sm text-text-primary font-medium rounded-full px-3 py-1 border border-border/20">
+            <span class="rounded-full border border-border/20 px-3 py-1 text-sm font-medium text-text-primary">
               {tag}
             </span>
           ))
@@ -97,15 +97,15 @@ const SchemaMarkup = {}
         BlogPosts.map((post) => (
           <a
             href={`/blog/${post.slug}`}
-            class="hover:scale-105 transition-all duration-500"
+            class="transition-all duration-500 hover:scale-105"
           >
             {/* HOVER: SHINE EFFECT */}
             <img
               src={post.image}
               alt={post.title}
-              class="border rounded-xl w-full object-cover border-border/20"
+              class="w-full rounded-xl border border-border/20 object-cover"
             />
-            <div class="px-4 py-1 text-lg mt-2 leading-tight font-medium">
+            <div class="mt-2 px-4 py-1 text-lg font-medium leading-tight">
               {post.title}
             </div>
           </a>

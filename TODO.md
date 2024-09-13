@@ -15,7 +15,7 @@
     - Dependency Scanning
     - Core Web Vitals
     - Validate HTML (<https://validator.w3.org/nu/>)
-  
+
 ## Page Experience
 
 - /projects -> ProjectCard: Add impact of the product like (<https://evilmartians.com/products>)
