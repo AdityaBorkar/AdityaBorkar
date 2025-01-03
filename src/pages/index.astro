@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets'
+import { BiLogoGithub, BiLogoLinkedin, BiLogoTwitter } from 'react-icons/bi'
+import { HiArrowUpRight } from 'react-icons/hi2'
 import {
   LuAtom,
   LuBriefcase,
@@ -12,29 +14,27 @@ import {
   LuUser2,
   LuUserCircle,
 } from 'react-icons/lu'
-import { BiLogoGithub, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi'
 import type { Thing, WithContext } from 'schema-dts'
-import { HiArrowUpRight } from 'react-icons/hi2'
 
-import { cn } from '@/lib/utils'
-import LandingLayout from '@/layouts/LandingLayout/index.astro'
 import BentoDiv from '@/components/BentoDiv.astro'
 import Card from '@/components/Card.astro'
 import CursorBubble from '@/components/CursorBubble.astro'
 import ScrollingMarquee from '@/components/ScrollingMarquee.astro'
+import LandingLayout from '@/layouts/LandingLayout/index.astro'
+import { cn } from '@/lib/utils'
 
 import ProfileImage from '@/assets/profile.png'
-import Mockups from '@/content/mockups'
-import TESTIMONIALS from '@/content/testimonials'
-import TECHNOLOGIES from '@/content/technologies'
 import Marquee from '@/components/Marquee.astro'
+import Mockups from '@/content/mockups'
+import TECHNOLOGIES from '@/content/technologies'
+import TESTIMONIALS from '@/content/testimonials'
 
 import LaptopAbstractImage from '@/assets/illustrations/laptop-on-abstract.png'
 import LaptopWithNotesImage from '@/assets/illustrations/laptop-with-notes.png'
-import ServiceCard from './ServiceCard.astro'
-import Heading from './Heading.astro'
-import PROJECTS_LIST from '@/content/projects/projects'
 import BookCallFooter from '@/components/BookCallFooter.astro'
+import PROJECTS_LIST from '@/content/projects/projects'
+import Heading from './Heading.astro'
+import ServiceCard from './ServiceCard.astro'
 
 const SchemaMarkup = {} as WithContext<Thing>
 

@@ -1,7 +1,7 @@
-import TESTIMONIALS from '@/content/testimonials'
-import { HiChevronDown, HiChevronUp } from 'react-icons/hi2'
-import Marquee from 'react-fast-marquee'
 import CLIENT_LIST from '@/content/clients'
+import TESTIMONIALS from '@/content/testimonials'
+import Marquee from 'react-fast-marquee'
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi2'
 import { twMerge } from 'tailwind-merge'
 
 export default function ServicesPage() {

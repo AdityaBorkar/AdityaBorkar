@@ -1,5 +1,5 @@
-import TESTIMONIALS from '@/content/testimonials'
 import LinkButton from '@/components/LinkButton'
+import TESTIMONIALS from '@/content/testimonials'
 
 // TODO: Add accessiblity and JSON-LD
 

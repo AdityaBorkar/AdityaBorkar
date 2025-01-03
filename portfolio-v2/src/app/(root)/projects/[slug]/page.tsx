@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 
+import SchemaMarkup from '@/components/SchemaMarkup'
 import Link from 'next/link'
 import { HiArrowLeft, HiArrowUpRight, HiOutlineGlobeAlt } from 'react-icons/hi2'
 import { VscGithub } from 'react-icons/vsc'
 import { twMerge } from 'tailwind-merge'
-import SchemaMarkup from '@/components/SchemaMarkup'
 import generateProjectSchema from './schema'
 
 export default function ProjectPage(props: { params: { id: string } }) {

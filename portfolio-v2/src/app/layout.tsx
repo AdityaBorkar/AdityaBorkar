@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-import localFont from 'next/font/local'
 import { Inter, Lora } from 'next/font/google'
+import localFont from 'next/font/local'
 import { twMerge } from 'tailwind-merge'
 
 // import 'css-paint-polyfill'

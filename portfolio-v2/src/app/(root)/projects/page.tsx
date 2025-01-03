@@ -3,13 +3,13 @@
 import type { ProjectCategory, ProjectType } from '@/types/projectInfo'
 
 import Link from 'next/link'
-import { HiFilter } from 'react-icons/hi'
 import { useRef, useState } from 'react'
+import { HiFilter } from 'react-icons/hi'
 import { twMerge } from 'tailwind-merge'
 
 import SchemaMarkup from '@/components/SchemaMarkup'
-import ProjectListSchema from './schema'
 import { PROJECTS_LIST } from '@/content/projects'
+import ProjectListSchema from './schema'
 
 const ProjectCategories = [
   'All',

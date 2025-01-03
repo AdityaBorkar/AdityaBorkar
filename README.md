@@ -2,7 +2,7 @@ full stack product engineer ✦ web developer ✦ ai engineer
 
 ---
 
-- working on `full stack web products`, `ai products`, `webflow apps`, indie products and open-source contributions
+- working on full stack web products, ai products, webflow apps, indie products and open-source contributions
 - offering freelancing services for product development and engineering: [adityab.tech/services](adityaborkar.com/services)
 - schedule a meeting: [adityab.tech/contact](adityaborkar.com/contact)
 
