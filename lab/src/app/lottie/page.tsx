@@ -24,11 +24,11 @@ export default function LottiePage() {
     if (!ErrorRef.current || !DownloadButtonRef.current) return
 
     const url = e.target.value
+    if (!url) return
     if (
       !url.startsWith('https://cdn.lottielab.com/l/') &&
       !url.endsWith('.json') &&
-      !url.endsWith('.html') &&
-      url
+      !url.endsWith('.html')
     ) {
       ErrorRef.current.style.visibility = 'visible'
     } else {
