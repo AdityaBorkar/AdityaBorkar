@@ -1,0 +1,519 @@
+---
+import { Image } from "astro:assets";
+import { HiArrowUpRight } from "react-icons/hi2";
+import {
+  LuAtom,
+  LuBriefcase,
+  LuFileText,
+  LuGift,
+  LuMail,
+  LuQuote,
+  LuRocket,
+  LuSmile,
+  LuUser2,
+  LuUserCircle,
+} from "react-icons/lu";
+// import type { Thing, WithContext } from 'schema-dts'
+
+// import BentoDiv from '@/components/BentoDiv.astro'
+// import Card from '@/components/Card.astro'
+// import CursorBubble from '@/components/CursorBubble.astro'
+// import ScrollingMarquee from '@/components/ScrollingMarquee.astro'
+// import LandingLayout from '@/layouts/LandingLayout/index.astro'
+// import { cn } from '@/lib/utils'
+
+// import ProfileImage from '@/assets/profile.png'
+// import Marquee from '@/components/Marquee.astro'
+// import Mockups from '@/content/mockups'
+// import TECHNOLOGIES from '@/content/technologies'
+// import TESTIMONIALS from '@/content/testimonials'
+
+// import LaptopAbstractImage from '@/assets/illustrations/laptop-on-abstract.png'
+// import LaptopWithNotesImage from '@/assets/illustrations/laptop-with-notes.png'
+// import BookCallFooter from '@/components/BookCallFooter.astro'
+// import PROJECTS_LIST from '@/content/projects/projects'
+// import Heading from './Heading.astro'
+// import ServiceCard from './ServiceCard.astro'
+
+// const SchemaMarkup = {} as WithContext<Thing>
+
+// // TODO: Add accessiblity
+
+// // const date = new Date().toLocaleString('en-US', {
+// //   month: 'long',
+// //   day: 'numeric',
+// //   year: 'numeric',
+// // })
+
+// const Mockups1 = Mockups
+// const Mockups2 = Mockups
+
+// const Technologies1 = TECHNOLOGIES
+// const Technologies2 = TECHNOLOGIES
+
+// const BlogPosts = [
+//   // TODO: Featured Only (2 Most Viewed and 1 Recent)
+//   {
+//     title: 'How to build a SaaS',
+//     link: 'https://example.com',
+//   },
+//   {
+//     title: 'How to build a SaaS',
+//     link: 'https://example.com',
+//   },
+//   {
+//     title: 'How to build a SaaS',
+//     link: 'https://example.com',
+//   },
+// ]
+
+// const Projects = PROJECTS_LIST.filter((project) =>
+//   ['Platipie', 'Vasundhara', 'Hooop Cloud', 'Blog Platform'].includes(
+//     project.title,
+//   ),
+// )
+
+// // TODO - Fade-in-Up Entry on Scroll
+// // TODO - Appear images with blur first (use blur-base64 technique)
+
+// const GitHubDots = []
+
+// for (let i = 0; i < 150; i++) {
+//   const random = Math.floor(Math.random() * 3)
+//   GitHubDots.push(random)
+// }
+---
+
+<style>
+  section {
+    @apply mx-auto max-w-[64rem];
+  }
+  em {
+    @apply font-semibold not-italic text-neutral-900;
+  }
+</style>
+
+<LandingLayout
+  title="Aditya Borkar - Product Engineer"
+  description="Some catching ranking text"
+  keywords={["Aditya Borkar", "Product Engineer", "Software Engineer"]}
+  schemaMarkup={SchemaMarkup}
+>
+  <section
+    class="mx-auto mb-36 mt-56 grid max-w-[64rem] grid-cols-[1fr_2fr] gap-16"
+  >
+    <div class="mx-auto size-80 overflow-hidden rounded-full bg-neutral-900">
+      {
+        /* Mountains in Background, Well-defined body, Authorative Face, More Formal */
+      }
+      <Image
+        class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover"
+        src={ProfileImage}
+        alt=""
+      />
+    </div>
+    <div class="-mt-8 w-[100%]">
+      <div class="text-4xl font-bold leading-[1.5]">
+        Product Engineer. OSS Maintainer.
+        <br /> Full Stack Web Developer.
+      </div>
+
+      <div class="mb-6 mt-4 text-xs">
+        <a
+          href="https://ossacc.com/"
+          target="_blank"
+          class="rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900"
+          >oss/acc</a
+        >
+        <a
+          href="https://en.wikipedia.org/wiki/Effective_altruism"
+          target="_blank"
+          class="ml-2 rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900"
+          >e/altruism</a
+        >
+        <!-- href="https://en.wikipedia.org/wiki/Effective_accelerationism" -->
+      </div>
+
+      <div class="mt-6 flex flex-row gap-4 text-text-tertiary">
+        <a href="https://github.com/AdityaBorkar">
+          <BiLogoGithub className="size-6 hover:text-foreground" />
+        </a>
+        <a href="https://twitter.com/adityab_tech">
+          <BiLogoTwitter className="size-6 hover:text-foreground" />
+        </a>
+        <a href="https://linkedin.com/in/aditya-borkar">
+          <BiLogoLinkedin className="size-6 hover:text-foreground" />
+        </a>
+        <a href="mailto:hi@adityab.tech" class="mt-0.5">
+          <LuMail className="size-5 hover:text-foreground" />
+        </a>
+      </div>
+
+      <p
+        class="mb-20 mt-12 text-balance text-lg leading-relaxed text-text-secondary [&>em]:font-semibold [&>em]:text-neutral-900"
+      >
+        {"I'm Aditya Borkar, an "}
+        <em>experienced software engineer</em>
+        {", specializing in creating "}
+        <em>high-quality products</em>
+        {" with "}
+        <em>humanizing user experience</em>
+        {" that drives "}
+        <em>user engagement</em>
+        {" and "}
+        <em>business growth.</em>
+        <!--
+            Problem-Solving: Ability to design and implement solutions to complex problems.
+          Communication: Clear and effective communication with clients and team members.
+          Time Management: Delivering work on time and managing multiple projects efficiently.
+          Adaptability: Quickly learning new tools or methodologies as required.
+          Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
+          Documentation: Creating detailed technical documentation for future reference.
+          -->
+        {
+          " I have a strong opinions to deliver clean, maintainable, scalable, production-ready, tested code."
+        }
+      </p>
+
+      <div class="w-fit">
+        <a
+          href="/contact"
+          class="rounded-md bg-neutral-800 px-6 py-3 text-base font-semibold text-background hover:bg-neutral-950"
+        >
+          Enquire / Contact
+        </a>
+
+        <div class="mt-6 text-center text-sm text-text-secondary">
+          <div class="relative mr-2 inline-block">
+            <div class="size-3 rounded-full bg-green-500"></div>
+            <div
+              class="absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full bg-green-500 [animation-delay:0.4s] [animation-duration:2s]"
+            >
+            </div>
+          </div>
+          Available Now
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full !max-w-full *:my-6">
+    <ScrollingMarquee direction="left">
+      {
+        Mockups1.map(({ img, link }) => (
+          <a href={link} class="mx-4 block h-[20rem] w-[36rem]">
+            <Image
+              src={img}
+              alt=""
+              class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
+            />
+          </a>
+        ))
+      }
+    </ScrollingMarquee>
+    <ScrollingMarquee direction="right">
+      {
+        Mockups2.map(({ img, link }) => (
+          <a href={link} class="mx-4 block h-[20rem] w-[36rem]">
+            <Image
+              src={img}
+              alt=""
+              class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
+            />
+          </a>
+        ))
+      }
+    </ScrollingMarquee>
+  </section>
+
+  <Heading icon={LuSmile} label="About">Brief About Myself</Heading>
+  <section class="grid grid-cols-8 gap-4">
+    <BentoDiv label="Motivation" className="col-span-4 row-span-4">
+      <p class="text-base">
+        I became a programmer and product engineer because I'm passionate about
+        harnessing the power of technology to solve real-world problems and make
+        a meaningful impact on people's lives. I enjoy the creative challenge of
+        designing innovative solutions and the satisfaction of seeing my ideas
+        come to life. Through programming and product engineering, I aim to
+        continually learn, grow, and push the boundaries of what's possible.
+        {/* Passion, Problem-solving, Learning mindset */}
+      </p>
+    </BentoDiv>
+
+    <BentoDiv label="Certifications" className="col-span-4 row-span-2">
+      Google Developer Expert AWS Certified
+      <br />
+      TopTal Vetted NextJS Expert
+      <br />
+      Medusa Expert
+    </BentoDiv>
+
+    <div class="col-span-4 flex hidden flex-row gap-4">
+      <!-- label="Peerlist" -->
+      <!-- label="ProductHunt" -->
+      <!-- label="Dev.to" -->
+      <!-- label="IndieHackers" -->
+      <!-- label="Read.cv -->
+      <!-- label="Medium" -->
+
+      <BentoDiv className=""> Google Developer Expert </BentoDiv>
+      <!-- <BentoDiv className=""> AWS Certified </BentoDiv> -->
+      <BentoDiv className=""> TopTal Vetted </BentoDiv>
+      <BentoDiv className=""> NextJS Expert </BentoDiv>
+      <BentoDiv className=""> Medusa Expert </BentoDiv>
+      <!-- <BentoDiv className=""> Upwork Certified </BentoDiv> -->
+    </div>
+
+    <BentoDiv className="group relative col-span-4 row-span-2">
+      <a
+        href="https://github.com/AdityaBorkar"
+        target="_blank"
+        class="absolute left-0 top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-3xl bg-black/70 font-semibold text-background opacity-0 transition-all duration-300 group-hover:opacity-100"
+      >
+        Open GitHub Profile
+        <HiArrowUpRight className="ml-2 size-4" />
+      </a>
+      <div
+        class="grid w-fit auto-cols-fr grid-flow-col grid-rows-[repeat(7,minmax(0,1fr))] gap-1"
+      >
+        {
+          GitHubDots.map((commits) => (
+            <div
+              class={cn(
+                "size-4 rounded",
+                commits === 0 ? "bg-neutral-200" : "bg-green-800",
+              )}
+              style={{
+                opacity: commits > 0 ? (commits * 100) / 2 : 1,
+              }}
+            />
+          ))
+        }
+      </div>
+    </BentoDiv>
+
+    <BentoDiv label="Stats" className="col-span-6 row-span-2">
+      <div class="flex flex-row justify-evenly py-4 text-center text-sm">
+        <div>
+          <div class="mb-2 text-2xl font-semibold">3+</div>
+          Years of Expertise
+        </div>
+        <div>
+          <div class="mb-2 text-2xl font-semibold">13</div>
+          Total Projects
+        </div>
+        <div>
+          <div class="mb-2 text-2xl font-semibold">5+</div>
+          Happy Clients
+        </div>
+        <div>
+          <div class="mb-2 text-2xl font-semibold">13</div>
+          GitHub Stars
+        </div>
+        {
+          /*
+          <div>
+            <div class="text-2xl font-semibold">600+</div>
+            Commits
+          </div>
+          */
+        }
+        <div>
+          <div class="mb-2 text-2xl font-semibold">6300+</div>
+          Coding Hours
+        </div>
+      </div>
+      {
+        /* I am comfortable to work in many programming languages and
+			  cross-platforms. I love to solve problems using tech, for that, I am
+			  flexible to learn any language/library/frameworks/tools */
+      }
+    </BentoDiv>
+
+    <BentoDiv label="Photo" className="col-span-2 row-span-5">
+      Desk Setup
+      {
+        /* OR Timelapse of me working on my desk with coffee from a picturesque place */
+      }
+    </BentoDiv>
+
+    <BentoDiv label="Tech Stack" className="col-span-4 row-span-5">
+      <Marquee direction="right" class="mb-6 mt-8">
+        {
+          Technologies1.map((tech) => (
+            <Image
+              src={tech.logo}
+              alt={tech.name}
+              class="mx-4 block h-8 w-auto rounded-md object-cover"
+            />
+          ))
+        }
+      </Marquee>
+      <Marquee direction="left" class="mb-4">
+        {
+          Technologies2.map((tech) => (
+            <Image
+              src={tech.logo}
+              alt={tech.name}
+              class="mx-4 block h-8 w-auto rounded-md object-cover"
+            />
+          ))
+        }
+      </Marquee>
+    </BentoDiv>
+
+    <BentoDiv label="Location" className="col-span-2 row-span-5">
+      Maps + Timezones comfortable
+    </BentoDiv>
+
+    <BentoDiv label="Read More" className="col-span-2 row-span-2">
+      /about
+    </BentoDiv>
+  </section>
+
+  <Heading icon={LuGift} label="Services"> What We Do </Heading>
+  {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
+  <!-- Full Cycle Development -->
+  <!-- Backend Development -->
+  <!-- Frontend Development -->
+  <!--  -->
+  <!--  -->
+  <!-- UI / UX Design -->
+  <!-- Team Engineering -->
+  <!-- Technical Consultancy -->
+  <!-- Product Engineering -->
+  <section>
+    <div class="grid grid-cols-3 gap-8">
+      <ServiceCard image={LaptopWithNotesImage}>
+        Full Cycle <br />
+        Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Prototype & <br />
+        MVP Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Technical <br />
+        Consultancy
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        AI / Automation <br />
+        Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Backend <br />
+        Development
+      </ServiceCard>
+      <ServiceCard image={LaptopWithNotesImage}>
+        Frontend <br />
+        Development
+      </ServiceCard>
+    </div>
+
+    <div class="mt-12 text-base text-text-secondary">
+      Write down some notes about the process to achieve each of the service for
+      SEO reasons.
+      <a href="/services/" class="text-foreground"> /services </a>
+    </div>
+  </section>
+
+  <!-- Cross-Discipline Expertise
+  Tech Agnostic
+  Quality Assured
+  AI Engineer [SPECIALIZED]
+  Cross-Discipline Expertise
+  Tech Agnostic
+  Scalable Solutions -->
+
+  <Heading icon={LuAtom} label="Projects"> Our Selected Works </Heading>
+  <section class="grid w-full grid-cols-2 gap-8">
+    {
+      Projects.map((project) => (
+        <a
+          href="/projects/"
+          class="rounded-2xl border border-border/20 bg-white px-8 py-6"
+        >
+          <div class="text-xl font-semibold text-text-primary">
+            {project.title}
+          </div>
+          <p class="mt-2 text-sm font-medium text-text-secondary">
+            {project.description}
+          </p>
+          <Image
+            src={LaptopAbstractImage}
+            alt=""
+            class="mx-auto mt-4 block h-72 w-auto object-cover"
+          />
+        </a>
+      ))
+    }
+  </section>
+  <a
+    href="/projects/"
+    class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+  >
+    View All Projects
+  </a>
+
+  <Heading icon={LuFileText} label="Blog"> Featured Writings </Heading>
+  <section class="flex flex-row justify-center gap-8 overflow-auto">
+    {
+      BlogPosts.map((blog) => (
+        <a
+          href="/blog/"
+          class="w-[36rem] rounded-2xl border border-border/20 bg-white px-6 py-4 text-text-secondary"
+        >
+          <Image
+            src={LaptopAbstractImage}
+            alt=""
+            class="mx-auto my-2 block h-36 w-auto object-cover"
+          />
+          <p class="mt-6 text-base font-medium text-text-primary">
+            {blog.title}
+          </p>
+        </a>
+      ))
+    }
+  </section>
+  <a
+    href="/projects/"
+    class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+  >
+    View All Posts
+  </a>
+
+  <Heading icon={LuUserCircle} label="Testimonials">
+    What People Speak
+  </Heading>
+  <section class="flex flex-row flex-wrap items-center justify-evenly gap-8">
+    {
+      TESTIMONIALS.map((testimonial) => (
+        <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
+          <div class="flex flex-row items-center justify-between">
+            <div class="w-fit bg-gradient-to-tr from-yellow-500 to-orange-500 bg-clip-text text-xl tracking-tighter text-transparent">
+              ★★★★★
+            </div>
+            {testimonial.project && (
+              <a
+                href={testimonial.project.url}
+                class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-background"
+              >
+                Project: {testimonial.project.label}
+                <HiArrowUpRight className="size-3 ml-0.5 -mt-0.5 inline-block" />
+              </a>
+            )}
+          </div>
+
+          <p class="my-4 text-pretty text-sm">{testimonial.text}</p>
+
+          <div>
+            <div class="font-medium">{testimonial.author}</div>
+            <div class="text-text-secondary">{testimonial.role}</div>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <BookCallFooter />
+</LandingLayout>
