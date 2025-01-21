@@ -1,0 +1,51 @@
+---
+import FooterLink from "./FooterLink.astro";
+---
+
+<footer class="dark bg-bg-primary py-8 text-base text-text-secondary">
+  <div class="mx-auto mt-6 flex max-w-[64rem] flex-row justify-between">
+    <div class="w-fit">
+      <div class="mr-[5vw] text-text-primary">
+        <div
+          class="w-fit border-2 border-border px-3 py-1 text-center font-medium uppercase tracking-wide"
+        >
+          Aditya Borkar
+        </div>
+        <a class="mt-6 block" href="mailto:hi@adityab.tech">hi@adityab.tech</a>
+      </div>
+    </div>
+    <div class="flex flex-row gap-20">
+      <div>
+        <div class="mb-3 font-medium text-text-tertiary">Me</div>
+        <FooterLink href="/">Home</FooterLink>
+        <FooterLink href="/about">About</FooterLink>
+        <FooterLink href="/contact">Contact</FooterLink>
+      </div>
+      <div>
+        <div class="mb-3 font-medium text-text-tertiary">Work</div>
+        <FooterLink href="">Projects</FooterLink>
+        <FooterLink href="">Labs</FooterLink>
+        <FooterLink href="">Blog</FooterLink>
+      </div>
+      <div>
+        <div class="mb-3 shrink-0 font-medium text-text-tertiary">Services</div>
+        <FooterLink href="/services/product-engineer"
+          >Product Engineer</FooterLink
+        >
+        <FooterLink href="/services/ai-engineer">AI Engineer</FooterLink>
+      </div>
+      <div>
+        <div class="mb-3 font-medium text-text-tertiary">Socials</div>
+        <FooterLink href="https://x.com/adityab_tech"> Twitter (X) </FooterLink>
+        <FooterLink href="https://linkedin.com/in/adityab_tech">
+          LinkedIn
+        </FooterLink>
+        <FooterLink href="https://github.com/AdityaBorkar">GitHub</FooterLink>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-24 text-center text-text-secondary">
+    Designed with ❤️ and built with 🚀 by Aditya Borkar 😉
+  </div>
+</footer>

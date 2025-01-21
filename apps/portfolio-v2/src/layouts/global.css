@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff");
+  font-display: swap;
+  font-optical-sizing: auto;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/LoraVariable.ttf") format("ttf");
+  font-display: swap;
+  font-optical-sizing: auto;
+}
+
+@layer theme {
+  /* TODO - USE P3 COLOR GAMUT ON SAFARI */
+
+  :root {
+    --color-background: var(--color-neutral-100);
+    --color-bg-primary: var(--color-neutral-400);
+    --color-bg-secondary: var(--color-neutral-300);
+    --color-bg-tertiary: var(--color-neutral-900);
+    --color-text: var(--color-neutral-900);
+    --color-text-primary: var(--color-neutral-900);
+    --color-text-secondary: var(--color-neutral-700);
+    --color-text-tertiary: var(--color-neutral-600);
+    --color-border: var(--color-neutral-900);
+  }
+
+  .dark {
+    --color-background: var(--color-neutral-900);
+    --color-bg-primary: var(--color-neutral-400);
+    --color-bg-secondary: var(--color-neutral-300);
+    --color-bg-tertiary: var(--color-neutral-900);
+    --color-text: var(--color-neutral-900);
+    --color-text-primary: var(--color-neutral-900);
+    --color-text-secondary: var(--color-neutral-800);
+    --color-text-tertiary: var(--color-neutral-600);
+    --color-border: var(--color-neutral-900);
+  }
+
+  *::selection {
+    @apply bg-amber-400 text-black;
+  }
+
+  .dark *::selection {
+    @apply bg-amber-500 text-black;
+  }
+}
+
+@utility section {
+  @apply mx-auto max-w-[64rem];
+}
+
+@utility em {
+  @apply font-semibold not-italic text-neutral-900;
+}
+
+@layer base {
+  /* CSS RESET */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    scrollbar-gutter: stable;
+    font-family: "Inter", sans-serif;
+  }
+
+  a:focus,
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  a:focus,
+  input:focus,
+  button:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid transparent;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::marker {
+    content: "";
+  }
+}
+
+@layer base {
+  /* LENIS */
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
+/* TODO: USE @starting-style FOR BETTER TRANSITIONS  */
+/* TODO: try out in real simulation */
+/* @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+        transition-delay: 1ms !important;
+    }
+} */
+
+/* @keyframes apple-wobble {
+    0% {
+        transform: rotate(1deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(-1.5deg);
+        animation-timing-function: ease-out;
+    }
+} */
+
+/* @keyframes shine {
+    0% {
+        @apply left-[-150px];
+    }
+
+    30% {
+        @apply left-[100%];
+    }
+
+    100% {
+        @apply left-[100%];
+    }
+}
+
+.shine-effect {
+    clip-path: border-box;
+}
+
+.shine-effect:before {
+    @apply top-0 -left-[150px] absolute w-[150px] h-full;
+    content: '';
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, .5),
+            rgba(255, 255, 255, 0) 70%);
+    animation: shine 5s infinite ease-in-out;
+} */
