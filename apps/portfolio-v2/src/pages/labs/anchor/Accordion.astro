@@ -1,0 +1,21 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  heading: string;
+  children: React.ReactNode;
+  anchorName: string;
+  className?: string;
+}
+
+const { heading, children, anchorName, className, ...props } = Astro.props;
+---
+
+<details
+  {...props}
+  class={cn("w-full border rounded-xl", className)}
+  style={{ anchorName }}
+>
+  <summary class="py-8">{heading}</summary>
+  {children}
+</details>

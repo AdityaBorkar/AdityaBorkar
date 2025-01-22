@@ -1,0 +1,72 @@
+---
+import NavCard from "./NavCard.astro";
+import SocialCard from "./SocialCard.astro";
+import ServiceCard from "./ServiceCard.astro";
+---
+
+<header
+    data-open={open}
+    class="sticky top-0 z-50 mx-auto flex w-full flex-row justify-between border-b border-neutral-800 px-[7vw] py-4 [data-open='true']:bg-neutral-950 backdrop-blur-md"
+>
+    <div class="cursor-default pt-1 font-bold text-neutral-100">
+        <div
+            class="inline-block border-2 border-white px-1 py-0 text-2xl tracking-wider"
+        >
+            AB
+        </div>
+        <div class="ml-3 inline-block align-bottom text-3xl tracking-tighter">
+            Adi.
+        </div>
+    </div>
+
+    <nav class="flex flex-row gap-4">
+        <NavCard label="Home" active />
+        <NavCard label="Recent Work" />
+        <NavCard label="Benefits" />
+        <NavCard label="FAQs" />
+    </nav>
+
+    <div
+        onClick={() => setOpen((open) => !open)}
+        class="peer ml-12 cursor-pointer rounded-full border-2 border-neutral-200 bg-neutral-200 p-1.5 text-neutral-950 transition-all hover:bg-neutral-950 hover:text-neutral-200"
+    >
+        {
+            open ? (
+                <HiOutlineXMark class="h-6 w-6" />
+            ) : (
+                <HiOutlineBars3BottomRight class="h-6 w-6" />
+            )
+        }
+    </div>
+
+    <nav
+        class={`absolute left-0 top-[100%] z-40 w-screen max-w-full transition-all ${
+            open ? "block h-screen" : "hidden max-h-0"
+        }`}
+    >
+        <div
+            class="grid h-fit grid-cols-2 gap-6 border-b border-neutral-900 bg-neutral-950 px-[15vw] py-20 text-neutral-100"
+        >
+            <div class="mx-auto flex flex-col gap-10">
+                <ServiceCard label="Full Stack Development Service" />
+                <ServiceCard label="Webflow App Development Service" />
+            </div>
+            <div>
+                <NavCard label="Home" />
+                <NavCard label="Projects" />
+                <NavCard label="Blog" />
+                <NavCard label="Contact" />
+
+                <div class="mt-20 flex flex-row gap-12">
+                    <SocialCard icon={FaTwitter} href=""> Twitter </SocialCard>
+                    <SocialCard icon={FaLinkedin} href="">
+                        LinkedIn
+                    </SocialCard>
+                    <SocialCard icon={FaGithub} href=""> GitHub </SocialCard>
+                    <SocialCard icon={FaEnvelope} href=""> Email </SocialCard>
+                </div>
+            </div>
+        </div>
+        <div class="min-h-full backdrop-blur-md"></div>
+    </nav>
+</header>

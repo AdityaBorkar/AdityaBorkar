@@ -1,0 +1,16 @@
+---
+interface Props {
+    // biome-ignore lint/suspicious/noExplicitAny: Write types once SVG are stable
+    icon: any;
+    href: string;
+}
+
+const { icon: Icon, href } = Astro.props;
+---
+
+<div
+    class="cursor-pointer text-lg font-medium text-neutral-500 transition-all hover:text-neutral-300"
+>
+    <Icon class="mr-2 inline align-[-2px]" />
+    <slot />
+</div>

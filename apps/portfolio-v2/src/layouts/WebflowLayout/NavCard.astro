@@ -1,0 +1,30 @@
+---
+interface Props {
+    label: string;
+    active?: boolean;
+}
+
+const { label, active } = Astro.props;
+
+// function NavCard(props: { label: string }) {
+//   return (
+//     <Link
+//       href={'/' + props.label.toLowerCase()}
+//       className='group relative block cursor-pointer border-b-2 border-neutral-500 px-3 py-8 text-4xl font-medium transition-all hover:bg-neutral-200 hover:pl-10 hover:text-black'
+//     >
+//       {props.label}
+//       <FaArrowRight className='absolute right-8 top-8 ml-3 hidden p-1 text-black group-hover:block' />
+//     </Link>
+//   )
+// }
+---
+
+<div
+    class={`cursor-pointer rounded-full px-5 py-1 font-semibold leading-loose ${
+        active
+            ? "bg-neutral-200 text-neutral-950"
+            : "text-neutral-400 hover:bg-neutral-800 hover:text-neutral-200"
+    }`}
+>
+    {label}
+</div>

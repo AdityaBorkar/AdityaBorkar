@@ -1,0 +1,47 @@
+---
+import type { ImageMetadata } from "astro";
+
+import { Image } from "astro:assets";
+
+import { cn } from "@/lib/utils";
+
+interface Props {
+  src: ImageMetadata;
+  alt?: string;
+  class?: string;
+}
+
+const { src, alt, class: className } = Astro.props as Props;
+
+// TODO: Open a popup with image caption
+---
+
+<div class={cn(className)}>
+  <Image
+    src={src}
+    alt={alt || ""}
+    class="h-full w-full cursor-pointer rounded-xl object-cover hover:scale-105 hover:shadow-xl hover:shadow-bg-secondary/20"
+  />
+  <!--
+  <div
+    class="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-black/75"
+  >
+    <figure class="relative">
+      <button
+        type="button"
+        class="absolute -right-12 top-2 rounded-full border border-white/40 bg-zinc-950 p-2 hover:bg-zinc-900"
+      >
+        <LuX class="size-6 text-white" />
+      </button>
+      <img
+        src={src}
+        alt={alt || ''}
+        class="h-auto max-h-[60vh] w-[80vw] max-w-[40rem] rounded-3xl object-cover"
+      />
+      <figcaption class="mt-4 text-center text-zinc-100">
+        Here comes some description about the image.
+      </figcaption>
+    </figure>
+  </div>
+  -->
+</div>

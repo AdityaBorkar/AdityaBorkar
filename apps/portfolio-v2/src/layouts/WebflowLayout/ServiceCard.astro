@@ -1,0 +1,19 @@
+---
+import ArrowUpRightIcon from "@/assets/icons/ArrowUpRight.svg";
+
+interface Props {
+    label: string;
+}
+
+const { label } = Astro.props;
+
+// Add Rotating Border Gradient
+---
+
+<div
+    class="hoer:text-white cursor-pointer rounded-2xl border border-neutral-800 bg-neutral-900 px-6 py-4 text-2xl leading-relaxed transition-all hover:scale-110 hover:border-neutral-700"
+>
+    <img src="GIF" alt="" class="mb-3 h-[160px] bg-transparent" />
+    {label}
+    <ArrowUpRightIcon class="ml-3 inline-block p-1" />
+</div>
