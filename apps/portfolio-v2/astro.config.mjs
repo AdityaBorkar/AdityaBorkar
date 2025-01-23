@@ -5,6 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@astrojs/react'
 
 export default defineConfig({
+  prefetch: {
+    defaultStrategy: 'hover',
+  },
   integrations: [
     react(),
     // MillionLint.astro()

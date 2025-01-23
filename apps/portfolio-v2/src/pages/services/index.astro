@@ -1,21 +1,22 @@
 ---
 // import FeaturedWorkSection from './FeaturedWorkSection'
-import Marquee from 'react-fast-marquee'
-import { twMerge } from 'tailwind-merge'
+// import Marquee from 'react-fast-marquee'
 
-import LandingLayout from '@/layouts/LandingLayout/index.astro'
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getSchemaMarkup } from "@/lib/schema";
 
-import CLIENT_LIST from '@/content/clients'
-import TESTIMONIALS from '@/content/testimonials'
+// import BookCallFooter from "@/components/BookCallFooter.astro";
+// import FeaturedWorkSection from "./FeaturedWorkSection";
+// import ProcessSection from "./ProcessSection";
+// import SplashIcons from "./SplashIcons";
+// import WhatIWorkSection from "./WhatIWorkSection";
+// import { Accordian, H2 } from "./ui";
+// import { getSchemaMarkup } from "@/lib/getSchemaMarkup";
 
-import BookCallFooter from '@/components/BookCallFooter.astro'
-import FeaturedWorkSection from './FeaturedWorkSection'
-import ProcessSection from './ProcessSection'
-import SplashIcons from './SplashIcons'
-import WhatIWorkSection from './WhatIWorkSection'
-import { Accordian, H2 } from './ui'
-
-const SchemaMarkup = {}
+const title = "Services";
+const description = "Services";
+const keywords = ["Services"];
+const SchemaMarkup = [getSchemaMarkup("person")];
 
 // TODO: GET INSPIRATION FROM https://www.jannalynnhagan.com/services
 // TODO: SHOW MOBILE MOCKUPS WITH HANDS ON THE WORK SECTION
@@ -45,17 +46,25 @@ const SchemaMarkup = {}
   }
 </style>
 
+<!--
+          Problem-Solving: Ability to design and implement solutions to complex problems.
+          Communication: Clear and effective communication with clients and team members.
+          Time Management: Delivering work on time and managing multiple projects efficiently.
+          Adaptability: Quickly learning new tools or methodologies as required.
+          Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
+          Documentation: Creating detailed technical documentation for future reference.
+          -->
 <LandingLayout
-  title="Services"
-  description="Services"
-  keywords={['Services']}
+  title={title}
+  keywords={keywords}
+  description={description}
   schemaMarkup={SchemaMarkup}
 >
   {/* TODO: Shift radial to bottom 50% and scale 200% */}
   {
     /* <div class="bg-gradient-radial absolute left-0 top-0 -z-20 h-screen w-screen from-transparent via-zinc-200 to-white" /> */
   }
-  <section class="flex h-screen flex-col items-center justify-center">
+  <!-- <section class="flex h-screen flex-col items-center justify-center">
     <SplashIcons />
 
     <div class="relative">
@@ -109,7 +118,7 @@ const SchemaMarkup = {}
               alt={client.name}
               title={client.name}
               class={twMerge(
-                'mx-8 h-9 text-neutral-500 hover:grayscale-0',
+                "mx-8 h-9 text-neutral-500 hover:grayscale-0",
                 client.class,
               )}
             />
@@ -117,17 +126,17 @@ const SchemaMarkup = {}
         }
       </Marquee>
     </div>
-  </section>
+  </section> -->
 
   {/* TODO: Define Customer's Problems */}
 
-  <ProcessSection />
+  <!-- <ProcessSection />
 
   <WhatIWorkSection />
 
-  <FeaturedWorkSection />
+  <FeaturedWorkSection /> -->
 
-  <H2>Why people work with me?</H2>
+  <!-- <H2>Why people work with me?</H2>
   <section class="grid grid-cols-2 gap-x-16">
     <div>
       <div>Strong Technical Foundations</div>
@@ -203,9 +212,9 @@ To be the leading Webflow agency with great people, clients & products. */
         in your work.
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section
+  <!-- <section
     class="mt-24 flex flex-row flex-wrap items-start justify-evenly gap-8"
   >
     {
@@ -241,15 +250,15 @@ To be the leading Webflow agency with great people, clients & products. */
         </div>
       ))
     }
-  </section>
+      </section> -->
 
-  <section class="mt-64 grid grid-cols-[1fr_2fr]">
-    <div>
+  <!-- <section class="mt-64 grid grid-cols-[1fr_2fr]"> -->
+  <!-- <div>
       <h2 class="text-5xl font-semibold">FAQs</h2>
       <div class="mt-2 text-neutral-500">Frequently Asked Questions</div>
-    </div>
-    <div>
-      <Accordian title="How do you charge?">
+    </div> -->
+  <!-- <div> -->
+  <!-- <Accordian title="How do you charge?">
         I charge on hourly rates payable on milestone-basis. I ask for 40%
         upfront payment. I support the following currencies - USD, EUR, GBP,
         AUD, CAD, SGD, INR
@@ -283,9 +292,9 @@ To be the leading Webflow agency with great people, clients & products. */
       <Accordian title="Can you scale if the requirements grow?">
         Scalability and Flexibility: Questions about the developer's ability to
         scale the team if needed or adapt to changing project requirements.
-      </Accordian>
-      {
-        /* WHY SHOULD I WORK WITH YOU?
+      </Accordian> -->
+  {
+    /* WHY SHOULD I WORK WITH YOU?
 Just think of me as your creative bestie. 👯 As a business owner myself, I understand that you can’t do it all. I want to take all things “design” off your plate so you can focus on what you do best. I only work with a handful of clients at a time so that I’m able to dedicate the time and care needed to do my best work.
 // You feel comfortable jumping into complex topics immediately
   // Good understanding of APIs and how to properly build them for long-term success
@@ -314,9 +323,9 @@ No. This needs to be provided by you before I can start design.
 DO YOU IMPLEMENT OUR EMAIL MARKETING STRATEGY, TOO?
 No. I can help with implementing and suggesting basic email flows + implementations. Any advanced email marketing strategies or flows will be implemented by you.
  */
-      }
-    </div>
-  </section>
+  }
+  <!-- </div> -->
+  <!-- </section> -->
 
-  <BookCallFooter />
+  <!-- <BookCallFooter /> -->
 </LandingLayout>

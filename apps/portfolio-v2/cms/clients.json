@@ -1,0 +1,19 @@
+[
+  {
+    "id": "AIESEC",
+    "logo": "logo/aiesec.png",
+    "className": "py-1"
+  },
+  {
+    "id": "VeryFirstTale",
+    "logo": "logo/vft.webp"
+  },
+  {
+    "id": "Platipie",
+    "logo": "logo/platipie.svg"
+  },
+  {
+    "id": "Raspberry Pi Foundation",
+    "logo": "logo/rpf.svg"
+  }
+]

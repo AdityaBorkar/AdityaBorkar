@@ -1,76 +1,29 @@
 ---
-import LandingLayout from '@/layouts/LandingLayout/index.astro'
+import { getCollection } from "astro:content";
 
-const BlogPosts = [
-  {
-    image: '/blogs/1.png',
-    slug: 'cli-tool-for-creating-a-cloudflare-token-with-ease',
-    title: 'CLI Tool for creating a Cloudflare Token with ease',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'cloudflare-tunnels-with-sst',
-    title: 'Cloudflare Tunnels with SST',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'creating-mobile-apps-with-webflow',
-    title: 'Creating Mobile Apps with Webflow',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'creating-emails-with-webflow',
-    title: 'Creating Emails with Webflow',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'my-honest-suggestions-for-astro-js',
-    // TODO - Make it sound "Houston!"
-    title: 'My honest suggestions for Astro.js',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'we-need-a-new-javascript-framework',
-    title: 'We need a new javascript framework!',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'hooop-cloud-serverless-management',
-    title: '[Launch] Hooop.cloud - Serverless Management',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'state-of-javascript-frameworks-in-2024',
-    title: 'State of JavaScript Frameworks in 2024',
-  },
-  {
-    image: '/blogs/1.png',
-    slug: 'using-react-js-with-webflow-websites',
-    title: 'Using React.js with Webflow Websites',
-  },
-  //   TODO - DO CROSS-POSTING
-  //   Astrojs
-  // A11y
-  // Newsletters that I'm subscribed to
-]
+import { blogs } from "@/content.config";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getSchemaMarkup } from "@/lib/schema";
+
+const BlogPosts = await getCollection(blogs);
 
 const Tags = [
-  // TODO -
-  '🌐 All',
-  '💻 JavaScript / TypeScript',
-  '🔍 Dev Tooling',
-  '💡 Webflow',
-  '🚀 Cloudflare',
-  '💡 React.js',
-]
+  // TODO - collect tags from all posts
+  "🌐 All",
+  "💻 JavaScript / TypeScript",
+  "🔍 Dev Tooling",
+  "💡 Webflow",
+  "🚀 Cloudflare",
+  "💡 React.js",
+];
 
-const SchemaMarkup = {}
+const SchemaMarkup = [getSchemaMarkup("person")];
 ---
 
 <LandingLayout
   title="Blog"
   description="Blog"
-  keywords={['Blog']}
+  keywords={["Blog"]}
   schemaMarkup={SchemaMarkup}
 >
   <div class="mx-auto max-w-[80rem]">
@@ -83,7 +36,7 @@ const SchemaMarkup = {}
       <div class="flex gap-2">
         {
           Tags.map((tag) => (
-            <span class="rounded-full border border-border/20 px-3 py-1 text-sm font-medium text-text-primary">
+            <span class="rounded-full border border-border/20 px-3 py-1 text-sm font-medium">
               {tag}
             </span>
           ))
@@ -95,15 +48,12 @@ const SchemaMarkup = {}
     <div class="mb-16 grid grid-cols-3 gap-10">
       {
         BlogPosts.map((post) => (
-          <a
-            href={`/blog/${post.slug}`}
-            class="transition-all duration-500 hover:scale-105"
-          >
+          <a href={`/blog/${post.id}`} class="transition-all duration-500">
             {/* HOVER: SHINE EFFECT */}
             <img
-              src={post.image}
+              src={"post.image"}
               alt={post.title}
-              class="w-full rounded-xl border border-border/20 object-cover"
+              class="w-full min-h-[14rem] rounded-xl border border-border/20 object-cover"
             />
             <div class="mt-2 px-4 py-1 text-lg font-medium leading-tight">
               {post.title}

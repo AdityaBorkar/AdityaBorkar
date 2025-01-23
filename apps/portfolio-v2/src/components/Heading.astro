@@ -1,0 +1,25 @@
+---
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  icon: string;
+  label: string;
+  class?: string;
+}
+
+const { icon, label, class: className } = Astro.props;
+---
+
+<div class="mx-auto mb-6 mt-48 max-w-[64rem] text-base text-text-tertiary">
+  <Icon icon={icon} class="inline size-4 align-[-1px] font-medium" />
+  {label}
+</div>
+
+<h3
+  class:list={[
+    "text-5xl text-left mb-16 font-semibold mx-auto max-w-[64rem]",
+    className,
+  ]}
+>
+  <slot />
+</h3>

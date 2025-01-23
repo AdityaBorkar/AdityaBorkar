@@ -1,37 +1,36 @@
 ---
-import { cn } from '@/lib/utils'
-
-interface CursorBubbleProps {
-  text: string
-  fillColor: string
+interface Props {
+  text: string;
+  fillColor: string;
+  class?: string;
 }
 
-const { text, fillColor, class: className } = Astro.props
+const { text, fillColor } = Astro.props;
 ---
 
 <script>
-  for (const bubble of document.querySelectorAll('.figma-cursor-bubble')) {
-    bubble.addEventListener('mouseover', (e) => {
+  for (const bubble of document.querySelectorAll("[data-figma-cursor")) {
+    bubble.addEventListener("mouseover", (e) => {
       const randomTop = Math.round(
         Math.random() < 0.5 ? Math.random() * 20 : Math.random() * 50 + 100,
-      )
+      );
       const randomLeft = Math.round(
         Math.random() < 0.5 ? Math.random() * 21 : Math.random() * 21 + 80,
-      )
+      );
       // @ts-expect-error
-      bubble.style.top = `${randomTop}%`
+      bubble.style.top = `${randomTop}%`;
       // @ts-expect-error
-      bubble.style.left = `${randomLeft}%`
-    })
+      bubble.style.left = `${randomLeft}%`;
+    });
   }
 </script>
 
 <div
-  class={cn(
-    'figma-cursor-bubble',
-    'absolute ease-in-out duration-500 font-medium z-10 tracking-wide text-sm py-1 px-3 rounded text-white w-fit h-fit',
-    className,
-  )}
+  data-figma-cursor
+  class:list={[
+    "absolute ease-in-out duration-500 font-medium z-10 tracking-wide text-sm py-1 px-3 rounded text-white w-fit h-fit",
+    Astro.props.class,
+  ]}
 >
   <svg
     width="22"

@@ -1,5 +1,13 @@
 # Checklist
 
+https://motion.dev/#section-5
+https://github.com/magicuidesign/magicui/blob/main/registry/default/magicui/blur-fade.tsx
+https://magicui.design/docs/components/blur-fade
+
+## Developer Experience (February 2025)
+
+- [ ] ./src/components/Icon.astro
+
 ## Accessibility [LAST PRIORITY]
 
 [-] Accessibility Modes: <https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/#filtered-display-mode>
@@ -7,6 +15,45 @@
 
 [-] Readibility = 8th grade reading level: <https://datayze.com/readability-analyzer.php>
 [-] Projects -> Tags in Images: Open Source / AI
+
+## Domain Authority
+
+- Cross Posting Blogs
+- Get 1000+ backlinks
+
+## UI Elements for inspiration
+
+- https://magicui.design/docs/components/iphone-15-pro
+- https://magicui.design/docs/components/script-copy-btn
+- https://magicui.design/docs/components/file-tree
+- https://magicui.design/docs/components/animated-circular-progress-bar
+- https://magicui.design/docs/components/tweet-card
+- https://magicui.design/docs/components/globe
+- https://magicui.design/docs/components/bento-grid
+- https://magicui.design/docs/components/number-ticker
+- https://magicui.design/docs/components/word-rotate
+- https://magicui.design/docs/components/typing-animation
+- https://magicui.design/docs/components/scroll-based-velocity
+- https://magicui.design/docs/components/morphing-text
+- https://magicui.design/docs/components/ripple
+- https://magicui.design/docs/components/meteors
+- https://magicui.design/docs/components/interactive-grid-pattern
+- https://magicui.design/docs/components/animated-grid-pattern
+- https://magicui.design/docs/components/flickering-grid
+- https://magicui.design/docs/components/warp-background
++ https://magicui.design/docs/components/interactive-hover-button
++ https://magicui.design/docs/components/shimmer-button
++ https://magicui.design/docs/components/animated-subscribe-button
++ https://magicui.design/docs/components/marquee
+- https://magicui.design/docs/components/animated-beam
+- https://magicui.design/docs/components/border-beam
+- https://magicui.design/docs/components/confetti
+- https://magicui.design/docs/components/scroll-progress
+
+- https://ui.aceternity.com/components/3d-pin
+- https://ui.aceternity.com/components/animated-tooltip
+- https://ui.aceternity.com/components/aurora-background
+- https://ui.aceternity.com/components/background-beams
 
 ## Images
 
@@ -22,7 +69,6 @@
 
 ## Dev Tooling & Optimization
 
-- WILL REPLACING REACT-ICONS WITH ICONS SVG BE A GOOD IDEA?
 - Biome.json -> core web vitals
 - Biome.json -> configure with editorconfig
 - Solve Million Lint Errors

@@ -1,20 +1,20 @@
 ---
-import { twMerge } from 'tailwind-merge'
+import { cn } from "@/lib/utils";
 
 interface Props {
-  href: string
-  className?: string
+  href: string;
+  className?: string;
 }
 
-const { href, className } = Astro.props
+const { href, className } = Astro.props;
 ---
 
 <a
   href={href}
   target="_blank"
   rel="noreferrer"
-  class={twMerge(
-    'relative block w-full rounded-md bg-neutral-200 px-4 py-3 font-medium text-neutral-800',
+  class={cn(
+    "relative block w-full rounded-md bg-neutral-200 px-4 py-3 font-medium text-neutral-800",
     className,
   )}
 >

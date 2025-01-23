@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+import { getImage } from "@/lib/assets";
+import Icon from "./ui/Icon.astro";
+
+type Props = {
+  image: string;
+};
+---
+
+<div
+  class="relative cursor-pointer rounded-3xl border border-border/20 bg-white px-8 py-4 text-2xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+>
+  <Image
+    src={getImage(Astro.props.image)}
+    alt=""
+    class="mx-auto mb-6 mt-2 block h-36 w-auto"
+  />
+  <slot />
+  <Icon
+    icon="CirclePlus"
+    class="absolute bottom-5 right-5 text-text-secondary"
+  />
+</div>

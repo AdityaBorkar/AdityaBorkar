@@ -1,0 +1,107 @@
+---
+import type { Thing, WithContext } from "schema-dts";
+
+import SpeedInsights from "@vercel/speed-insights/astro";
+import { ClientRouter } from "astro:transitions";
+
+import { JsonLd } from "@/lib/jsonLd";
+import { cn } from "@/lib/utils";
+
+import "./global.css";
+
+interface Props {
+    title: string;
+    description: string;
+    keywords: string[];
+    schemaMarkup?: WithContext<Thing>[];
+}
+
+const { title, description, keywords, schemaMarkup = [] } = Astro.props;
+
+// TODO: Replace with Hooop Cloud
+// TODO: Analytics
+// TODO: Visitor Count
+// TODO: Visitor Nationality
+// TODO: Primary Source of Search
+// TODO: Track Session Duration
+// TODO; Track Session Pages
+// TODO: Track each page view
+// TODO: Track each button click
+// TODO: Engagement
+// Average engagement time
+// Engaged sessions per user
+// Average engagement time per session
+// TODO: Add Web Vitals Collection + Analytics Collector
+// onWindowClose()/onFocusOut()
+
+// TODO: Add Squircle CSS Worklet
+// import 'css-paint-polyfill'
+// import workletURL from "url-loader!<package-name>/worklet.js";
+// const workletURL = ''
+// CSS.paintWorklet.addModule(workletURL)
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Accept-CH" content="Width, Downlink, Sec-CH-UA" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <!--
+        themeColor	false	"#000000"	Browser theme color.
+        colorScheme	false	"light"	Preferred color scheme.
+        -->
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords?.join(", ")} />
+        <script
+            type="application/ld+json"
+            set:html={schemaMarkup.map(JsonLd).join("\n")}
+        />
+        <!-- Open Graph -->
+        <!--
+        facebook.image	false	"/facebook.png"	Facebook share image.
+        facebook.url	false	"https://astro.build"	Page URL.
+        facebook.type	false	"website"	Type of resource. See all types here.
+        twitter.image	false	"/twitter.png"	Twitter share image.
+        twitter.site	false	"@astrodotbuild"	Twitter handle of publishing site.
+        twitter.card	false	"summary"	Format of Twitter share card. See all types here.
+        -->
+        <ClientRouter />
+        <script data-astro-rerun type="module" is:inline>
+            const doc = document.documentElement;
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", (event) => {
+                    const isDark = event.matches;
+                    doc.classList.toggle("dark", isDark);
+                    window.localStorage.setItem(
+                        "theme",
+                        isDark ? "dark" : "light",
+                    );
+                });
+
+            const theme =
+                window.localStorage.getItem("theme") ||
+                (window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light");
+            doc.classList.toggle(theme);
+
+            document.body.style.visibility = "visible";
+            document.body.style.opacity = "1";
+        </script>
+    </head>
+    <body
+        class={cn(
+            "relative min-h-screen cursor-default bg-background text-text-secondary",
+            "text-sm leading-normal antialiased",
+            // 'before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full',
+            // 'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',
+        )}
+        transition:animate="slide"
+    >
+        <slot />
+        <SpeedInsights />
+    </body>
+</html>

@@ -1,15 +1,16 @@
 import { defineCollection, z } from 'astro:content'
-import { glob } from 'astro/loaders'
+import { glob, file } from 'astro/loaders'
 
-export const blogs = defineCollection({
+const blogs = defineCollection({
   loader: glob({
     pattern: '**/!(wip-)*.md',
     base: './cms/blog',
   }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
-    index: z.number().optional(),
+    date: z.date(),
+    // description: z.string(),
+    // index: z.number().optional(),
     // group: z
     //   .enum([
     //     'getting-started',
@@ -25,27 +26,68 @@ export const blogs = defineCollection({
   }),
 })
 
-export const projects = defineCollection({
+const projects = defineCollection({
   loader: glob({
     pattern: '**/!(wip-)*.md',
     base: './cms/projects',
   }),
   schema: z.object({
+    index: z.number().optional(),
     title: z.string(),
     description: z.string(),
-    // index: z.number().optional(),
+    hero_image: z.string().nullable(),
     categories: z.array(z.string()),
     tags: z.array(z.string()),
-    preview_link: z.string().optional(),
-    github_link: z.string().optional(),
-    hero_image: z.string().optional(),
+    preview_link: z.string().nullable(),
+    github_link: z.string().nullable(),
   }),
 })
 
-export { clients } from '../cms/Clients'
+const clients = defineCollection({
+  loader: file('./cms/clients.json'),
+  schema: z.object({
+    id: z.string(),
+    logo: z.string(),
+    className: z.string().optional(),
+  }),
+})
 
-export { mockups } from '../cms/Mockups'
+const mockups = defineCollection({
+  loader: file('./cms/mockups.json'),
+  schema: z.object({
+    id: z.string(),
+    img: z.string(),
+  }),
+})
 
-export { technologies } from '../cms/Technologies'
+const testimonials = defineCollection({
+  loader: file('./cms/testimonials.json'),
+  schema: z.object({
+    id: z.string(),
+    role: z.string(),
+    text: z.string(),
+    proof: z
+      .object({
+        name: z.string(),
+        url: z.string(),
+      })
+      .optional(),
+  }),
+})
 
-export { testimonials } from '../cms/Testimonials'
+const technologies = defineCollection({
+  loader: file('./cms/technologies.json'),
+  schema: z.object({
+    id: z.string(),
+    logo: z.string(),
+  }),
+})
+
+export const collections = {
+  blogs,
+  projects,
+  clients,
+  mockups,
+  testimonials,
+  technologies,
+}

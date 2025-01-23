@@ -1,54 +1,54 @@
 ---
-import LandingLayout from '@/layouts/LandingLayout/index.astro'
-import { HiChevronRight } from 'react-icons/hi2'
-import { LuEye, LuGithub, LuGlobe } from 'react-icons/lu'
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+// import { HiChevronRight } from 'react-icons/hi2'
+// import { LuEye, LuGithub, LuGlobe } from 'react-icons/lu'
 
 export function getStaticPaths() {
   const projects = [
     {
-      name: 'Hooop.cloud',
-      slug: 'hooop.cloud',
+      name: "Hooop.cloud",
+      slug: "hooop.cloud",
       description:
-        'Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.',
-      image: '/projects/hooop.png',
-      url: 'https://hooop.cloud',
-      tags: ['Cloudflare', 'Serverless', 'Management'],
+        "Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.",
+      image: "/projects/hooop.png",
+      url: "https://hooop.cloud",
+      tags: ["Cloudflare", "Serverless", "Management"],
     },
     {
-      name: 'Platipie',
-      slug: 'platipie',
+      name: "Platipie",
+      slug: "platipie",
       description:
-        'Platipie is a platform that allows you to create and manage your own websites and applications.',
-      image: '/projects/platipie.png',
-      url: 'https://platipie.com',
-      tags: ['Webflow', 'JavaScript', 'TypeScript'],
+        "Platipie is a platform that allows you to create and manage your own websites and applications.",
+      image: "/projects/platipie.png",
+      url: "https://platipie.com",
+      tags: ["Webflow", "JavaScript", "TypeScript"],
     },
     {
-      name: 'Cloud',
-      slug: 'cloud',
+      name: "Cloud",
+      slug: "cloud",
       description:
-        'Cloud is a platform that allows you to create and manage your own websites and applications.',
-      image: '/projects/cloud.png',
-      url: 'https://cloud.com',
-      tags: ['Cloudflare', 'Serverless', 'Management'],
+        "Cloud is a platform that allows you to create and manage your own websites and applications.",
+      image: "/projects/cloud.png",
+      url: "https://cloud.com",
+      tags: ["Cloudflare", "Serverless", "Management"],
     },
-  ]
+  ];
 
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
-  }))
+  }));
 }
 
-const { slug } = Astro.params
-const { project } = Astro.props
-if (!project) return Astro.redirect('/404')
+const { slug } = Astro.params;
+const { project } = Astro.props;
+if (!project) return Astro.redirect("/404");
 
-const { name, description, image, url, tags } = project
+const { name, description, image, url, tags } = project;
 
-const SchemaMarkup = {}
+const SchemaMarkup = [];
 
-console.log({ project })
+console.log({ project });
 ---
 
 <LandingLayout
@@ -65,9 +65,9 @@ console.log({ project })
       <div class="flex flex-row gap-2 text-sm text-text-tertiary">
         <a href="/projects">Projects</a>
         <span>
-          <HiChevronRight
+          <!-- <HiChevronRight
             className="inline-block size-3 stroke-1 align-[-1px]"
-          />
+          /> -->
         </span>
         <a href={`/projects/${project.slug}`}>{project.name}</a>
       </div>
@@ -97,7 +97,7 @@ console.log({ project })
           target="_blank"
           class="rounded-md bg-bg-tertiary py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
         >
-          <LuGlobe className="inline-block size-4 stroke-2 align-[-3px]" />
+          <!-- <LuGlobe className="inline-block size-4 stroke-2 align-[-3px]" /> -->
           Live Preview
         </a>
         <a
@@ -105,7 +105,7 @@ console.log({ project })
           target="_blank"
           class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
         >
-          <LuEye className="inline-block size-4 stroke-2 align-[-3px]" />
+          <!-- <LuEye className="inline-block size-4 stroke-2 align-[-3px]" /> -->
           Quick Peek
         </a>
         <!-- <a

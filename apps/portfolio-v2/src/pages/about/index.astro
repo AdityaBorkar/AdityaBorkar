@@ -1,9 +1,10 @@
 ---
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
 
-import { cn } from "@/lib/utils";
-import BentoImage from "./BentoImage.astro";
+import { cn, getSchemaMarkup } from "@/lib/utils";
+import BentoImage from "@/components/pages/BentoImage.astro";
 
+import ArrowUpRightIcon from "@/assets/icons/ArrowUpRight.svg";
 import BadmintonImage from "@/assets/personal/badminton.jpeg";
 import CityImage from "@/assets/personal/city.jpeg";
 import Coffee1Image from "@/assets/personal/coffee-1.jpeg";
@@ -21,7 +22,7 @@ import WorkspaceIkea3Image from "@/assets/personal/workspace-ikea-3.jpeg";
 import WorkspaceMacdImage from "@/assets/personal/workspace-macd.jpeg";
 import WorkspaceStarbucksImage from "@/assets/personal/workspace-starbucks.jpeg";
 
-const SchemaMarkup = {};
+const SchemaMarkup = [getSchemaMarkup("person")];
 ---
 
 <!-- 
@@ -56,7 +57,7 @@ const SchemaMarkup = {};
       >
         <!-- <SiReaddotcv className="-mt-1 mr-2 inline-block size-5" /> -->
         Read.CV
-        <!-- <LuArrowUpRight className="-mt-1 ml-1 inline-block size-4" /> -->
+        <ArrowUpRightIcon className="-mt-1 ml-1 inline-block size-4" />
       </a>
     </div>
 

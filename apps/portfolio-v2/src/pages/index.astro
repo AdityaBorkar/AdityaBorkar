@@ -1,54 +1,55 @@
 ---
-import type { Thing, WithContext } from "schema-dts";
-
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import AtomIcon from "@/assets/icons/Atom.svg";
-import MailIcon from "@/assets/icons/Mail.svg";
-import GithubIcon from "@/assets/icons/GitHub.svg";
-import TwitterIcon from "@/assets/icons/Twitter.svg";
-import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import SmileIcon from "@/assets/icons/Smile.svg";
-import ArrowUpRightIcon from "@/assets/icons/ArrowUpRight.svg";
-import GiftIcon from "@/assets/icons/Gift.svg";
 import BookCallFooter from "@/components/BookCallFooter.astro";
-import ProfileImage from "@/assets/profile.png";
-import LaptopWithNotesImage from "@/assets/illustrations/laptop-with-notes.png";
-import { mockups, projects, blogs, technologies } from "@/content.config";
-import ScrollingMarquee from "@/components/ScrollingMarquee.astro";
-import Marquee from "@/components/Marquee.astro";
-import { cn } from "@/lib/utils";
+import Heading from "@/components/Heading.astro";
+import BentoDiv from "@/components/BentoDiv.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import Marquee from "@/components/ui/Marquee.astro";
+import Icon from "@/components/ui/Icon.astro";
+import { cn, getSchemaMarkup, getImage } from "@/lib/utils";
 
-import Heading from "@/components/pages/Heading.astro";
-import BentoDiv from "@/components/pages/BentoDiv.astro";
-import ServiceCard from "@/components/pages/ServiceCard.astro";
+const title = "Aditya Borkar - Product Engineer";
+const description = "Some catching ranking text";
+const keywords = ["Aditya Borkar", "Product Engineer", "Software Engineer"];
+const SchemaMarkup = [getSchemaMarkup("person")];
 
-// import Card from '@/components/Card.astro'
-// import CursorBubble from '@/components/CursorBubble.astro'
-// import LaptopAbstractImage from '@/assets/illustrations/laptop-on-abstract.png'
-// import LaptopWithNotesImage from '@/assets/illustrations/laptop-with-notes.png'
-// import BookCallFooter from '@/components/BookCallFooter.astro'
+const FEATURED_PROJECTS = [
+  "Platipie",
+  "Vasundhara",
+  "Hooop Cloud",
+  "Blog Platform",
+];
 
-const SchemaMarkup = {} as WithContext<Thing>;
+const FEATURED_BLOGS = [
+  "Cloudflare Tunnels with SST",
+  "Android Apps with Webflow",
+  "Creating HTML Emails with Webflow",
+  "Sitemaps for Astro.js",
+  // TODO: Featured Only (2 Most Viewed and 1 Recent)
+];
 
-const BlogPosts = await getCollection(blogs);
-// TODO: Featured Only (2 Most Viewed and 1 Recent)
+const IS_AVAILABLE_NOW = false;
 
-const Projects = (await getCollection(projects)).filter((project) =>
-  ["Platipie", "Vasundhara", "Hooop Cloud", "Blog Platform"].includes(
-    project.title,
-  ),
+const Projects = (await getCollection("projects")).filter((project) =>
+  FEATURED_PROJECTS.includes(project.data.title),
 );
+const BlogPosts = (await getCollection("blogs")).filter((blog) =>
+  FEATURED_BLOGS.includes(blog.data.title),
+);
+const Mockups = await getCollection("mockups");
+const Technologies = await getCollection("technologies");
+const Testimonials = await getCollection("testimonials");
 
-const Mockups1 = mockups.slice(0, mockups.length / 2);
-const Mockups2 = mockups.slice(mockups.length / 2, mockups.length);
+const Mockups1 = Mockups.slice(0, Mockups.length / 2);
+const Mockups2 = Mockups.slice(Mockups.length / 2, Mockups.length);
 
-const Technologies1 = technologies.slice(0, technologies.length / 2);
-const Technologies2 = technologies.slice(
-  technologies.length / 2,
-  technologies.length,
+const Technologies1 = Technologies.slice(0, Technologies.length / 2);
+const Technologies2 = Technologies.slice(
+  Technologies.length / 2,
+  Technologies.length,
 );
 
 const GitHubDots = [];
@@ -63,28 +64,41 @@ for (let i = 0; i < 150; i++) {
 ---
 
 <LandingLayout
-  title="Aditya Borkar - Product Engineer"
-  description="Some catching ranking text"
-  keywords={["Aditya Borkar", "Product Engineer", "Software Engineer"]}
+  title={title}
+  keywords={keywords}
+  description={description}
   schemaMarkup={SchemaMarkup}
 >
   <section
-    class="mx-auto mb-36 mt-56 grid max-w-[64rem] grid-cols-[1fr_2fr] gap-16"
+    class="mx-auto pb-24 pt-36 grid max-w-[64rem] h-[80vh] min-h-fit max-h-[56rem] grid-cols-[1fr_2fr] gap-16"
   >
-    <div class="mx-auto size-80 overflow-hidden rounded-full bg-neutral-900">
+    <div class="mx-auto size-80 overflow-hidden rounded-full">
       <Image
-        class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover"
-        src={ProfileImage}
+        class:list={[
+          "h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover",
+          "starting:blur-sm starting:-translate-x-4 starting:opacity-0 duration-1000",
+        ]}
+        src={getImage("profile.png")}
         alt=""
       />
     </div>
     <div class="-mt-8 w-[100%]">
-      <div class="text-4xl font-bold leading-[1.5]">
+      <div
+        class:list={[
+          "text-4xl font-bold leading-[1.5]",
+          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-300",
+        ]}
+      >
         Product Engineer. OSS Maintainer.
         <br /> Full Stack Web Developer.
       </div>
 
-      <div class="mb-6 mt-4 text-xs">
+      <div
+        class:list={[
+          "mb-6 mt-4 text-xs",
+          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-500",
+        ]}
+      >
         <a
           target="_blank"
           href="https://ossacc.com/"
@@ -97,103 +111,150 @@ for (let i = 0; i < 150; i++) {
           class="ml-2 rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900 cursor-alias"
           >e/altruism</a
         >
-        <!-- href="https://en.wikipedia.org/wiki/Effective_accelerationism" -->
       </div>
 
-      <div class="mt-6 flex flex-row gap-4 text-text-tertiary">
-        <a href="https://github.com/AdityaBorkar">
-          <GithubIcon class="size-6 hover:text-foreground" />
+      <div
+        class:list={[
+          "mt-6 flex flex-row gap-4 text-text-tertiary",
+          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-700",
+        ]}
+      >
+        <a target="_blank" href="https://github.com/AdityaBorkar">
+          <Icon
+            icon="GitHub"
+            class="size-6 hover:fill-text-primary fill-text"
+          />
         </a>
-        <a href="https://twitter.com/adityab_tech">
-          <TwitterIcon class="size-6 hover:text-foreground" />
+        <a target="_blank" href="https://twitter.com/adityab_tech">
+          <Icon
+            icon="Twitter"
+            class="size-6 hover:fill-text-primary fill-text"
+          />
         </a>
-        <a href="https://linkedin.com/in/aditya-borkar">
-          <LinkedinIcon class="size-6 hover:text-foreground" />
+        <a target="_blank" href="https://linkedin.com/in/aditya-borkar">
+          <Icon
+            icon="LinkedIn"
+            class="size-6 hover:fill-text-primary fill-text"
+          />
         </a>
         <a href="mailto:hi@adityab.tech" class="mt-0.5">
-          <MailIcon class="size-5 hover:text-foreground" />
+          <Icon icon="Mail" class="size-5 hover:text-text-primary text-text" />
         </a>
       </div>
 
       <p
-        class="mb-20 mt-12 text-balance text-lg leading-relaxed text-text-secondary [&>em]:font-semibold [&>em]:text-neutral-900"
+        class:list={[
+          "mb-20 mt-12 text-balance text-lg leading-relaxed text-text-secondary [&>span]:font-semibold [&>span]:text-text-primary",
+          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-1000",
+        ]}
       >
-        {"I'm Aditya Borkar, an "}
-        <em>experienced software engineer</em>
-        {", specializing in creating "}
-        <em>high-quality products</em>
+        {"Hi there, I'm Aditya, an "}
+        <span>product engineer</span>
+        {" based in India with"}
+        <span>3+ years of experience</span>
+        {" in creating "}
+        <span>high-quality products</span>
         {" with "}
-        <em>humanizing user experience</em>
+        <span>humanizing user experience</span>
         {" that drives "}
-        <em>user engagement</em>
+        <span>user engagement</span>
         {" and "}
-        <em>business growth.</em>
-        <!--
-            Problem-Solving: Ability to design and implement solutions to complex problems.
-          Communication: Clear and effective communication with clients and team members.
-          Time Management: Delivering work on time and managing multiple projects efficiently.
-          Adaptability: Quickly learning new tools or methodologies as required.
-          Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
-          Documentation: Creating detailed technical documentation for future reference.
-          -->
+        <span>business growth.</span>
         {
-          " I have a strong opinions to deliver clean, maintainable, scalable, production-ready, tested code."
+          " I am opinionated to deliver clean, maintainable, scalable, production-ready, tested code in a"
         }
+        <span>timely manner.</span>
       </p>
 
       <div class="w-fit">
         <a
           href="/contact"
-          class="rounded-md bg-neutral-800 px-6 py-3 text-base font-semibold text-background hover:bg-neutral-950"
+          class:list={[
+            "rounded-md bg-gradient-to-b from-text-secondary to-text-primary hover:bg-gradient-to-t px-6 py-3 text-base font-semibold text-background",
+            "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-1200",
+          ]}
         >
           Enquire / Contact
         </a>
 
-        <div class="mt-6 text-center text-sm text-text-secondary">
+        <div
+          class:list={[
+            "mt-6 text-center text-sm text-text-secondary",
+            "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-1200",
+          ]}
+        >
           <div class="relative mr-2 inline-block">
-            <div class="size-3 rounded-full bg-green-500"></div>
             <div
-              class="absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full bg-green-500 [animation-delay:0.4s] [animation-duration:2s]"
+              class:list={[
+                "size-3 rounded-full",
+                IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
+              ]}
+            >
+            </div>
+            <div
+              class:list={[
+                "absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full",
+                "[animation-duration:2s] [animation-delay:0.4s]",
+                IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
+              ]}
             >
             </div>
           </div>
-          Available Now
+          {IS_AVAILABLE_NOW ? "Available Now" : "Limited Availability"}
         </div>
       </div>
     </div>
   </section>
 
-  <section class="w-full !max-w-full *:my-6">
-    <ScrollingMarquee direction="left">
+  <section class="w-full !max-w-full">
+    <Marquee
+      direction="right"
+      duration="30s"
+      class:list={[
+        "my-6",
+        "starting:opacity-0 starting:blur-md transition-all delay-2000 duration-1000",
+      ]}
+    >
       {
-        Mockups1.map(({ img, link }) => (
-          <a href={link} class="mx-4 block h-[20rem] w-[36rem]">
+        Mockups1.map(({ data: { img, id } }) => (
+          <a href={id} class:list={["mx-4 block h-[20rem] w-[36rem]"]}>
+            {/* @ts-ignore - Bug in Astro Typings */}
             <Image
-              src={img}
               alt=""
+              src={getImage(img)}
+              inferSize={true}
               class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
             />
           </a>
         ))
       }
-    </ScrollingMarquee>
-    <ScrollingMarquee direction="right">
+    </Marquee>
+    <Marquee
+      direction="left"
+      duration="30s"
+      class:list={[
+        "my-6",
+        "starting:opacity-0 starting:blur-md transition-all delay-2000 duration-1000",
+      ]}
+    >
       {
-        Mockups2.map(({ img, link }) => (
-          <a href={link} class="mx-4 block h-[20rem] w-[36rem]">
+        Mockups2.map(async ({ data: { img, id } }) => (
+          <a href={id} class:list={["mx-4 block h-[20rem] w-[36rem]"]}>
+            {/* @ts-ignore - Bug in Astro Typings */}
             <Image
-              src={img}
               alt=""
+              src={getImage(img)}
+              inferSize={true}
               class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
             />
           </a>
         ))
       }
-    </ScrollingMarquee>
+    </Marquee>
   </section>
 
-  <Heading icon={SmileIcon} label="About">Brief About Myself</Heading>
-  <section class="grid grid-cols-8 gap-4">
+  <Heading icon="Smile" label="About">Brief About Myself</Heading>
+  <section class="grid grid-cols-8 gap-4 max-w-[64rem] mx-auto">
     <BentoDiv label="Motivation" className="col-span-4 row-span-4">
       <p class="text-base">
         I became a programmer and product engineer because I'm passionate about
@@ -214,7 +275,7 @@ for (let i = 0; i < 150; i++) {
       Medusa Expert
     </BentoDiv>
 
-    <div class="col-span-4 flex hidden flex-row gap-4">
+    <div class="col-span-4 flex flex-row gap-4">
       <!-- label="Peerlist" -->
       <!-- label="ProductHunt" -->
       <!-- label="Dev.to" -->
@@ -232,12 +293,19 @@ for (let i = 0; i < 150; i++) {
 
     <BentoDiv className="group relative col-span-4 row-span-2">
       <a
-        href="https://github.com/AdityaBorkar"
         target="_blank"
-        class="absolute left-0 top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-3xl bg-black/70 font-semibold text-background opacity-0 transition-all duration-300 group-hover:opacity-100"
+        href="https://github.com/AdityaBorkar"
+        class:list={[
+          "absolute left-0 top-0 hidden h-full w-full items-center justify-center cursor-pointer rounded-3xl group-hover:flex bg-background/70 font-semibold text-text-secondary",
+          "backdrop-blur-sm transition-all duration-700 starting:opacity-0",
+        ]}
       >
-        Open GitHub Profile
-        <ArrowUpRightIcon class="ml-2 size-4" />
+        <span
+          class:list="duration-100 delay-1000 transition-all relative translate-x-20"
+        >
+          Open GitHub Profile
+          <Icon icon="ArrowUpRight" class="ml-2 -mt-1 inline-block size-4" />
+        </span>
       </a>
       <div
         class="grid w-fit auto-cols-fr grid-flow-col grid-rows-[repeat(7,minmax(0,1fr))] gap-1"
@@ -304,23 +372,23 @@ for (let i = 0; i < 150; i++) {
     </BentoDiv>
 
     <BentoDiv label="Tech Stack" className="col-span-4 row-span-5">
-      <Marquee direction="right" class="mb-6 mt-8">
+      <Marquee direction="right" class="mb-6 mt-8" duration="3s">
         {
-          Technologies1.map((tech) => (
+          Technologies1.map(({ data: tech }) => (
             <Image
-              src={tech.logo}
-              alt={tech.name}
+              src={getImage(tech.logo)}
+              alt={tech.id}
               class="mx-4 block h-8 w-auto rounded-md object-cover"
             />
           ))
         }
       </Marquee>
-      <Marquee direction="left" class="mb-4">
+      <Marquee direction="left" class="mb-4" duration="3s">
         {
-          Technologies2.map((tech) => (
+          Technologies2.map(({ data: tech }) => (
             <Image
-              src={tech.logo}
-              alt={tech.name}
+              src={getImage(tech.logo)}
+              alt={tech.id}
               class="mx-4 block h-8 w-auto rounded-md object-cover"
             />
           ))
@@ -337,7 +405,7 @@ for (let i = 0; i < 150; i++) {
     </BentoDiv>
   </section>
 
-  <Heading icon={GiftIcon} label="Services"> What We Do </Heading>
+  <Heading icon="Gift" label="Services"> What We Do </Heading>
   {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
   <!-- Full Cycle Development -->
   <!-- Backend Development -->
@@ -348,29 +416,29 @@ for (let i = 0; i < 150; i++) {
   <!-- Team Engineering -->
   <!-- Technical Consultancy -->
   <!-- Product Engineering -->
-  <section>
+  <section class="max-w-[64rem] mx-auto">
     <div class="grid grid-cols-3 gap-8">
-      <ServiceCard image={LaptopWithNotesImage}>
+      <ServiceCard image="illustrations/laptop-with-notes.png">
         Full Cycle <br />
         Development
       </ServiceCard>
-      <ServiceCard image={LaptopWithNotesImage}>
+      <ServiceCard image="illustrations/laptop-with-notes.png">
         Prototype & <br />
         MVP Development
       </ServiceCard>
-      <ServiceCard image={LaptopWithNotesImage}>
+      <ServiceCard image="illustrations/laptop-with-notes.png">
         Technical <br />
         Consultancy
       </ServiceCard>
-      <ServiceCard image={LaptopWithNotesImage}>
+      <ServiceCard image="illustrations/laptop-with-notes.png">
         AI / Automation <br />
         Development
       </ServiceCard>
-      <ServiceCard image={LaptopWithNotesImage}>
+      <ServiceCard image="illustrations/laptop-with-notes.png">
         Backend <br />
         Development
       </ServiceCard>
-      <ServiceCard image={LaptopWithNotesImage}>
+      <ServiceCard image="illustrations/laptop-with-notes.png">
         Frontend <br />
         Development
       </ServiceCard>
@@ -391,27 +459,27 @@ for (let i = 0; i < 150; i++) {
   Tech Agnostic
   Scalable Solutions -->
 
-  <Heading icon={AtomIcon} label="Projects"> Our Selected Works </Heading>
-  <section class="grid w-full grid-cols-2 gap-8">
+  <Heading icon="Atom" label="Projects"> Our Selected Works </Heading>
+  <section class="grid w-full grid-cols-2 gap-8 max-w-[64rem] mx-auto">
     {
-      // Projects.map((project) => (
-      //   <a
-      //     href="/projects/"
-      //     class="rounded-2xl border border-border/20 bg-white px-8 py-6"
-      //   >
-      //     <div class="text-xl font-semibold text-text-primary">
-      //       {project.title}
-      //     </div>
-      //     <p class="mt-2 text-sm font-medium text-text-secondary">
-      //       {project.description}
-      //     </p>
-      //     <Image
-      //       src={LaptopAbstractImage}
-      //       alt=""
-      //       class="mx-auto mt-4 block h-72 w-auto object-cover"
-      //     />
-      //   </a>
-      // ))
+      Projects.map(({ data: project, id }) => (
+        <a
+          href={`/projects/${id}`}
+          class="rounded-2xl border border-border/20 bg-white px-8 py-6"
+        >
+          <div class="text-xl font-semibold text-text-primary">
+            {project.title}
+          </div>
+          <p class="mt-2 text-sm font-medium text-text-secondary">
+            {project.description}
+          </p>
+          <Image
+            src={getImage("illustrations/laptop-with-notes.png")}
+            alt=""
+            class="mx-auto mt-4 block h-72 w-auto object-cover"
+          />
+        </a>
+      ))
     }
   </section>
   <a
@@ -421,16 +489,18 @@ for (let i = 0; i < 150; i++) {
     View All Projects
   </a>
 
-  <!-- <Heading icon={LuFileText} label="Blog"> Featured Writings </Heading>
-  <section class="flex flex-row justify-center gap-8 overflow-auto">
+  <Heading icon="FileText" label="Blog"> Featured Writings </Heading>
+  <section
+    class="flex flex-row justify-center gap-8 overflow-auto max-w-[64rem] mx-auto"
+  >
     {
-      BlogPosts.map((blog) => (
+      BlogPosts.map(({ data: blog, id }) => (
         <a
-          href="/blog/"
+          href={`/blog/${id}`}
           class="w-[36rem] rounded-2xl border border-border/20 bg-white px-6 py-4 text-text-secondary"
         >
           <Image
-            src={LaptopAbstractImage}
+            src={getImage("illustrations/laptop-with-notes.png")}
             alt=""
             class="mx-auto my-2 block h-36 w-auto object-cover"
           />
@@ -446,40 +516,40 @@ for (let i = 0; i < 150; i++) {
     class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
   >
     View All Posts
-  </a> -->
+  </a>
 
-  <!-- <Heading icon={LuUserCircle} label="Testimonials">
-    What People Speak
-  </Heading> -->
-  <!-- <section class="flex flex-row flex-wrap items-center justify-evenly gap-8">
+  <Heading icon="UserCircle" label="Testimonials"> What People Speak </Heading>
+  <section
+    class="flex flex-row flex-wrap items-center justify-evenly gap-8 max-w-[64rem] mx-auto"
+  >
     {
-      TESTIMONIALS.map((testimonial) => (
+      Testimonials.map(({ data: testimonial }) => (
         <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
           <div class="flex flex-row items-center justify-between">
             <div class="w-fit bg-gradient-to-tr from-yellow-500 to-orange-500 bg-clip-text text-xl tracking-tighter text-transparent">
               ★★★★★
             </div>
-            {testimonial.project && (
+            {/* {testimonial.project && (
               <a
                 href={testimonial.project.url}
                 class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-bg-primary"
               >
                 Project: {testimonial.project.label}
-                <HiArrowUpRight className="size-3 ml-0.5 -mt-0.5 inline-block" />
+                <ArrowUpRightIcon class="size-3 ml-0.5 -mt-0.5 inline-block" />
               </a>
-            )}
+            )} */}
           </div>
 
           <p class="my-4 text-pretty text-sm">{testimonial.text}</p>
 
           <div>
-            <div class="font-medium">{testimonial.author}</div>
+            <div class="font-medium">{testimonial.id}</div>
             <div class="text-text-secondary">{testimonial.role}</div>
           </div>
         </div>
       ))
     }
-  </section> -->
+  </section>
 
   <BookCallFooter />
 </LandingLayout>

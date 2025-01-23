@@ -1,25 +1,30 @@
 ---
-import PROJECT_CATEGORIES from '@/content/projectCategories'
-import PROJECTS_LIST from '@/content/projects/projects'
-import LandingLayout from '@/layouts/LandingLayout/index.astro'
-import { cn } from '@/lib/utils'
-import type { ProjectCategory, ProjectType } from '@/types/projectInfo'
-import ProjectCard from './ProjectCard.astro'
+import { getCollection } from "astro:content";
+
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { cn } from "@/lib/utils";
+import ProjectCard from "@/components/pages/ProjectCard.astro";
+import { getSchemaMarkup } from "@/lib/schema";
+import { collections } from "@/content.config";
+
+const title = "Projects";
+const description = "Projects";
+const keywords = ["projects"];
+const SchemaMarkup = [getSchemaMarkup("person")];
 
 // const PointerDivRef = useRef<HTMLDivElement>(null);
 
 // const [filterCategory, setFilterCategory] =
 //   useState<ProjectCategory>("All Projects");
-const filterCategory = 'All Projects'
+// const filterCategory = "All Projects";
 
-const projects =
-  filterCategory === 'All Projects'
-    ? PROJECTS_LIST
-    : PROJECTS_LIST.filter((project) =>
-        project.categories.includes(filterCategory),
-      )
-
-const SchemaMarkup = {}
+const AllProjects = await getCollection("projects");
+console.log({ AllProjects });
+// filterCategory === "All Projects"
+//   ? PROJECTS_LIST
+//   : PROJECTS_LIST.filter((project) =>
+//       project.categories.includes(filterCategory),
+//     );
 
 // TODO: Add a Background to hero section
 
@@ -28,9 +33,9 @@ const SchemaMarkup = {}
 ---
 
 <LandingLayout
-  title="Projects"
-  description="Projects"
-  keywords={['projects']}
+  title={title}
+  keywords={keywords}
+  description={description}
   schemaMarkup={SchemaMarkup}
 >
   <div class="mx-auto max-w-[64rem] pb-48">
@@ -57,23 +62,23 @@ const SchemaMarkup = {}
       }
       <div class="flex flex-grow flex-row flex-wrap gap-2">
         {
-          PROJECT_CATEGORIES.map((tag) => (
-            <button
-              type="button"
-              class={cn(
-                'cursor-pointer rounded-full bg-bg-secondary px-4 py-1.5 text-sm font-medium text-text-secondary',
-                filterCategory === tag && 'bg-foreground text-background',
-              )}
-            >
-              {tag}
-            </button>
-          ))
+          // PROJECT_CATEGORIES.map((tag) => (
+          //   <button
+          //     type="button"
+          //     class={cn(
+          //       "cursor-pointer rounded-full bg-bg-secondary px-4 py-1.5 text-sm font-medium text-text-secondary",
+          //       filterCategory === tag && "bg-foreground text-background",
+          //     )}
+          //   >
+          //     {tag}
+          //   </button>
+          // ))
         }
       </div>
     </div>
 
     <div class="mt-12 grid grid-cols-2 gap-12">
-      {projects.map((project) => <ProjectCard {...project} />)}
+      <!-- {AllProjects.map((project) => <ProjectCard {...project} />)} -->
     </div>
 
     {
