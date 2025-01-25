@@ -1,11 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 
-import { blogs } from "@/content.config";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { getSchemaMarkup } from "@/lib/schema";
+import { getSchemaMarkup } from "@/lib/utils";
 
-const BlogPosts = await getCollection(blogs);
+const BlogPosts = await getCollection("blogs");
 
 const Tags = [
   // TODO - collect tags from all posts
@@ -47,11 +46,11 @@ const SchemaMarkup = [getSchemaMarkup("person")];
 
     <div class="mb-16 grid grid-cols-3 gap-10">
       {
-        BlogPosts.map((post) => (
-          <a href={`/blog/${post.id}`} class="transition-all duration-500">
+        BlogPosts.map(({ id, data: post }) => (
+          <a href={`/blog/${id}`} class="transition-all duration-500">
             {/* HOVER: SHINE EFFECT */}
             <img
-              src={"post.image"}
+              src={post.image}
               alt={post.title}
               class="w-full min-h-[14rem] rounded-xl border border-border/20 object-cover"
             />

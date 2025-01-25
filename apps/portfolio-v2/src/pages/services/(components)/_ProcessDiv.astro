@@ -1,0 +1,18 @@
+---
+interface Props {
+    serial: string;
+    class?: string;
+}
+---
+
+<div
+    class:list={[
+        "flex flex-row border font-semibold items-center border-border/20 text-text-primary rounded-xl py-4 px-6",
+        Astro.props.class,
+    ]}
+>
+    <div class="pr-4 font-normal text-lg -mb-0.5">
+        {Astro.props.serial}
+    </div>
+    <slot />
+</div>

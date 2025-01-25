@@ -1,39 +1,14 @@
 ---
+import { Image } from "astro:assets";
+
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-
-import { cn, getSchemaMarkup } from "@/lib/utils";
-import BentoImage from "@/components/pages/BentoImage.astro";
-
-import ArrowUpRightIcon from "@/assets/icons/ArrowUpRight.svg";
-import BadmintonImage from "@/assets/personal/badminton.jpeg";
-import CityImage from "@/assets/personal/city.jpeg";
-import Coffee1Image from "@/assets/personal/coffee-1.jpeg";
-import Coffee2Image from "@/assets/personal/coffee-2.jpeg";
-import ChessImage from "@/assets/personal/chess.jpeg";
-import CycleImage from "@/assets/personal/cycle.jpeg";
-import DeskCats1Image from "@/assets/personal/desk-cats-1.jpeg";
-import DeskCats2Image from "@/assets/personal/desk-cats-2.jpeg";
-import DeskCats3Image from "@/assets/personal/desk-cats-3.jpeg";
-import LetterImage from "@/assets/personal/letter.jpeg";
-import TemporaryImage from "@/assets/personal/temporary-1.jpeg";
-import WorkspaceIkea1Image from "@/assets/personal/workspace-ikea-1.jpeg";
-import WorkspaceIkea2Image from "@/assets/personal/workspace-ikea-2.jpeg";
-import WorkspaceIkea3Image from "@/assets/personal/workspace-ikea-3.jpeg";
-import WorkspaceMacdImage from "@/assets/personal/workspace-macd.jpeg";
-import WorkspaceStarbucksImage from "@/assets/personal/workspace-starbucks.jpeg";
+import BentoImage from "@/components/BentoImage.astro";
+import Icon from "@/components/ui/Icon.astro";
+import { cn, getImage, getSchemaMarkup } from "@/lib/utils";
 
 const SchemaMarkup = [getSchemaMarkup("person")];
 ---
 
-<!-- 
-<style>
-  h3 {
-    @apply mt-16 text-lg font-semibold;
-  }
-  p {
-    @apply mt-4 text-pretty text-base text-text-secondary max-md:text-sm;
-  }
-</style> -->
 <LandingLayout
   title="About"
   description="About me"
@@ -41,27 +16,30 @@ const SchemaMarkup = [getSchemaMarkup("person")];
   schemaMarkup={SchemaMarkup}
 >
   <main class="mx-auto w-[80vw] max-w-[48rem] py-20">
-    <div class="my-8 flex flex-col justify-between sm:flex-row">
+    <div
+      class="my-8 flex flex-col justify-between items-center sm:flex-row magic-fade-down delay-300"
+    >
       <h2 class="text-2xl font-semibold">
-        <img
-          src="/assets/waving-hand-emoji.png"
+        <Image
+          src={getImage("emoji/waving-hand.png")}
           alt=""
-          class="-mt-1 mr-4 inline-block h-10"
+          class="-mt-1 mr-4 inline-block h-10 w-fit"
         />
         Hi, I'm Aditya Borkar
       </h2>
       <a
-        href="https://read.cv/adityab.tech"
+        href="/cv"
         target="_blank"
-        class="mt-1.5 block h-fit rounded-full px-5 py-1 text-sm font-semibold text-text-secondary hover:text-foreground max-sm:mt-6"
+        class="block h-fit rounded-full px-4 py-2 text-sm font-semibold text-text-secondary hover:bg-bg-primary hover:text-text-primary max-sm:mt-6"
       >
-        <!-- <SiReaddotcv className="-mt-1 mr-2 inline-block size-5" /> -->
-        Read.CV
-        <ArrowUpRightIcon className="-mt-1 ml-1 inline-block size-4" />
+        Read CV
+        <Icon icon="ArrowUpRight" class="-mt-1 ml-1 inline-block size-4" />
       </a>
     </div>
 
-    <p>
+    <p
+      class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm magic-fade-down delay-500"
+    >
       I engineer interfaces, products, and systems, from early concepts to
       full-fledged products, by partnering closely with designers, research, and
       engineering peers. I have done a bit of everything from branding, web
@@ -79,16 +57,40 @@ const SchemaMarkup = [getSchemaMarkup("person")];
         "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3",
       )}
     >
-      <BentoImage src={DeskCats1Image} />
-      <BentoImage src={WorkspaceIkea1Image} class="md:row-span-2" />
-      <BentoImage src={WorkspaceIkea2Image} />
-      <BentoImage src={WorkspaceIkea3Image} class="row-span-2" />
-      <BentoImage src={WorkspaceStarbucksImage} class="row-span-2" />
-      <BentoImage src={WorkspaceMacdImage} />
+      <BentoImage
+        src="personal/desk-cats-1.jpeg"
+        class="delay-700"
+        caption="Neighbor's cats 🐱🐱 seem to be enjoying my workspace"
+      />
+      <BentoImage
+        src="personal/sagar-vihar-shot.jpeg"
+        class="md:row-span-2 delay-800"
+        caption="A glimpse of my city 🏙️ - Navi Mumbai"
+      />
+      <BentoImage
+        src="personal/badminton.jpeg"
+        class="delay-900"
+        caption="I love to play badminton! Let's play sometime? 🏸🏸"
+      />
+      <BentoImage
+        src="personal/nm-marathon.jpeg"
+        class="row-span-2 delay-700"
+        caption="🏃🏻‍♂️ My first Run - finished 10km in 53 minutes (Pace: 5:17/km)"
+      />
+      <BentoImage
+        src="personal/personal-nature.jpeg"
+        class="row-span-2 delay-1000"
+        caption="Random shot near a forest 🌲 in Navi Mumbai"
+      />
+      <BentoImage
+        src="personal/coffee-2.jpeg"
+        class="delay-1100"
+        caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+      />
     </figure>
 
-    <h3>How did I discover Tech?</h3>
-    <p>
+    <h3 class="mt-16 text-lg font-semibold">How did I discover Tech?</h3>
+    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
       I discovered about CODE University, Berlin and got admitted but could not
       join it due to Covid-19 pandemic. Instead of defering education, I planned
       to continue to learn online and build my own career in tech. While
@@ -99,8 +101,10 @@ const SchemaMarkup = [getSchemaMarkup("person")];
       pursue Web Software Engineering as a career.
     </p>
 
-    <h3>How did I discover Web & Product Development?</h3>
-    <p>
+    <h3 class="mt-16 text-lg font-semibold">
+      How did I discover Web & Product Development?
+    </h3>
+    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
       I discovered about CODE University, Berlin and got admitted but could not
       join it due to Covid-19 pandemic. Instead of defering education, I planned
       to continue to learn online and build my own career in tech. While
@@ -111,7 +115,7 @@ const SchemaMarkup = [getSchemaMarkup("person")];
       pursue Web Software Engineering as a career.
     </p>
 
-    <p>
+    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
       I have worked with Raspberry Pi Foundation to work initially on NTTT and
       Translation Programme to make computing accessible to young and
       underpriviledged children.
@@ -123,13 +127,23 @@ const SchemaMarkup = [getSchemaMarkup("person")];
         "grid-cols-3 grid-rows-1 max-md:grid-cols-2 max-md:grid-rows-2",
       )}
     >
-      <BentoImage src={CityImage} class="max-md:row-span-2" />
-      <BentoImage src={BadmintonImage} />
-      <BentoImage src={Coffee2Image} />
+      <BentoImage
+        src="personal/coffee-1.jpeg"
+        class="max-md:row-span-2"
+        caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+      />
+      <BentoImage
+        src="personal/letter.jpeg"
+        caption="A letter from my friend sent from Taiwan ❤️"
+      />
+      <BentoImage
+        src="personal/workspace-starbucks.jpeg"
+        caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+      />
     </figure>
 
-    <h3>Things I do in my free time!</h3>
-    <p>
+    <h3 class="mt-16 text-lg font-semibold">Things I do in my free time!</h3>
+    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
       I like to play chess in my free time. I love to cycle to get my daily dose
       of happiness. I believe in green techniques and strive to make my life
       more sustainable and impackful for the humankind.
@@ -148,12 +162,33 @@ const SchemaMarkup = [getSchemaMarkup("person")];
         "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3",
       )}
     >
-      <BentoImage src={DeskCats1Image} />
-      <BentoImage src={WorkspaceIkea1Image} class="md:row-span-2" />
-      <BentoImage src={WorkspaceIkea2Image} />
-      <BentoImage src={LetterImage} class="row-span-2" />
-      <BentoImage src={Coffee2Image} class="row-span-2" />
-      <BentoImage src={Coffee1Image} />
+      <BentoImage
+        src="personal/desk-cats-2.jpeg"
+        caption="Daily dose of serotonin 😊"
+      />
+      <BentoImage
+        src="personal/nmhq-cycling.jpeg"
+        class="md:row-span-2"
+        caption="🚴🏻‍♂️ Sun-downer cycling ride to the City Head-Quarters 🏢"
+      />
+      <BentoImage
+        src="personal/desk-cats-3.jpeg"
+        caption="She 🐱🐱 is my debugger!"
+      />
+      <BentoImage
+        src="personal/city.jpeg"
+        class="row-span-2"
+        caption="A glimpse of my city 🏙️ - Navi Mumbai"
+      />
+      <BentoImage
+        src="personal/workspace-ikea-1.jpeg"
+        class="row-span-2"
+        caption="My temporary workspace 💻"
+      />
+      <BentoImage
+        src="personal/workspace-ikea-3.jpeg"
+        caption="Come on, let's work together! 🤝"
+      />
     </figure>
   </main>
 </LandingLayout>

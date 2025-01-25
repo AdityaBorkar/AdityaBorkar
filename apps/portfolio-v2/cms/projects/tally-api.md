@@ -3,7 +3,8 @@ title: Tally API
 description: API for integrating with Tally accounting software.
 hero_image: 
 categories:
-  - Software Development
+  - Library
+  - Plugins & Extensions
 tags:
   - API
   - Accounting

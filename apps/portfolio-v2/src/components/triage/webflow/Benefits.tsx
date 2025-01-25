@@ -2,7 +2,7 @@
 
 // import Lottie from 'lottie-react'
 
-import H2 from '../H2'
+import H2 from '../triage/H2'
 
 export default function Benefits() {
   return (

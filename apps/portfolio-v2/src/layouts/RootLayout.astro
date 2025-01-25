@@ -1,11 +1,10 @@
 ---
 import type { Thing, WithContext } from "schema-dts";
 
-import SpeedInsights from "@vercel/speed-insights/astro";
 import { ClientRouter } from "astro:transitions";
 
+import Posthog from "@/components/Posthog.astro";
 import { JsonLd } from "@/lib/jsonLd";
-import { cn } from "@/lib/utils";
 
 import "./global.css";
 
@@ -17,22 +16,6 @@ interface Props {
 }
 
 const { title, description, keywords, schemaMarkup = [] } = Astro.props;
-
-// TODO: Replace with Hooop Cloud
-// TODO: Analytics
-// TODO: Visitor Count
-// TODO: Visitor Nationality
-// TODO: Primary Source of Search
-// TODO: Track Session Duration
-// TODO; Track Session Pages
-// TODO: Track each page view
-// TODO: Track each button click
-// TODO: Engagement
-// Average engagement time
-// Engaged sessions per user
-// Average engagement time per session
-// TODO: Add Web Vitals Collection + Analytics Collector
-// onWindowClose()/onFocusOut()
 
 // TODO: Add Squircle CSS Worklet
 // import 'css-paint-polyfill'
@@ -93,15 +76,18 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         </script>
     </head>
     <body
-        class={cn(
-            "relative min-h-screen cursor-default bg-background text-text-secondary",
-            "text-sm leading-normal antialiased",
-            // 'before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full',
-            // 'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',
-        )}
         transition:animate="slide"
+        class="text-sm leading-normal antialiased relative min-h-screen cursor-default bg-background text-text-secondary"
     >
+        <!--
+        'before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full',
+        'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',
+        -->
         <slot />
-        <SpeedInsights />
+        {process.env.NODE_ENV !== "development" && <Posthog />}
+        <script>
+            import Lenis from "lenis";
+            const lenis = new Lenis({ autoRaf: true });
+        </script>
     </body>
 </html>

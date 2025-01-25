@@ -3,7 +3,7 @@ title: Chess Coach
 description: AI platform to analyze chess matches and recommend training modules to players.
 hero_image: 
 categories:
-  - Software Development
+  - Frontend Development
   - Artificial Intelligence
 tags:
   - AI

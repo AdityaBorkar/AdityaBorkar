@@ -1,0 +1,25 @@
+---
+interface Props {
+    label: string;
+    class?: string;
+}
+---
+
+<div class="mx-auto mb-4 mt-16 max-w-[64rem]">
+    <div
+        class:list={[
+            "w-fit text-sm border border-border/20 rounded-full font-bold px-4 py-2 uppercase tracking-wider",
+        ]}
+    >
+        {Astro.props.label}
+    </div>
+</div>
+
+<h3
+    class:list={[
+        "text-5xl text-left mb-12 font-semibold mx-auto max-w-[64rem]",
+        Astro.props.class,
+    ]}
+>
+    <slot />
+</h3>

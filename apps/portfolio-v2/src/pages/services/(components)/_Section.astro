@@ -1,0 +1,9 @@
+---
+interface Props {
+    class?: string;
+}
+---
+
+<section class:list={["max-w-[64rem] mx-auto", Astro.props.class]}>
+    <slot />
+</section>

@@ -1,4 +1,7 @@
+@import "lenis/dist/lenis.css";
 @import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
 
 @variant dark (&:where(.dark, .dark *));
 
@@ -76,12 +79,20 @@
   }
 }
 
-@utility section {
-  @apply mx-auto max-w-[64rem];
+@utility magic-fade {
+  @apply starting:blur-sm starting:opacity-0 duration-1000;
 }
 
-@utility em {
-  @apply font-semibold not-italic text-neutral-900;
+@utility magic-fade-up {
+  @apply starting:blur-sm starting:translate-y-4 starting:opacity-0 duration-1000;
+}
+
+@utility magic-fade-down {
+  @apply starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000;
+}
+
+@utility magic-fade-right {
+  @apply starting:blur-sm starting:-translate-x-4 starting:opacity-0 duration-1000;
 }
 
 @layer base {

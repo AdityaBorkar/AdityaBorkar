@@ -1,0 +1,66 @@
+---
+import Accordion from "@/components/ui/Accordion.astro";
+
+// TODO: SHOW MOBILE MOCKUPS WITH HANDS ON THE WORK SECTION
+// Relax, Talk with the client, Keep it minimal, focus on Product Development and Business Outcomes.
+---
+
+<!-- <h2
+  class="mb-24 mt-6 hidden text-center text-[50px] font-semibold uppercase tracking-wider text-neutral-600"
+>
+  H2
+</h2> -->
+<section class="mt-64 max-w-[64rem] mx-auto grid grid-cols-[1fr_2fr]">
+    <div>
+        <h2 class="text-5xl font-semibold">FAQs</h2>
+        <div class="mt-2 text-neutral-500">Frequently Asked Questions</div>
+    </div>
+    <div>
+        <Accordion name="faqs" title="What timezones do you work in?">
+            I am flexible to work in any timezone. Based upon my ongoing
+            projects, I shall convey my availability when we discuss the project
+            proposal.
+        </Accordion>
+        <Accordion name="faqs" title="Who owns the code and IP?">
+            I push the code to the GitHub Repository you own. Publishing is
+            configured with a CI/CD Pipeline wherever possible. Once the project
+            is completed, all the intellectual rights and ownership shall be
+            transferred to you.
+        </Accordion>
+        <Accordion name="faqs" title="Where do you host the software?">
+            Depending on the project, I host the software on AWS, GCP, Vercel or
+            any other cloud provider of your choice.
+        </Accordion>
+        <Accordion
+            name="faqs"
+            title="Do you offer maintenance and post-project support?"
+        >
+            Yes! I offer maintenance and post-project support. I also offer a 30
+            day warranty period for any bugs or issues that may arise after the
+            project is completed.
+        </Accordion>
+        <Accordion name="faqs" title="Do you offer Confidentiality Contracts?">
+            Yes! I offer Contracts with specific clauses as per requirements. I
+            am also open to signing an NDA if required. I understand the
+            importance of Project Privacy and Confidentiality. I am open to
+            discuss about this and include it in a contract that we both agree
+            upon.
+        </Accordion>
+        <Accordion
+            name="faqs"
+            title="Do you work in teams? How do you collaborate?"
+        >
+            Communication and Collaboration: They might ask about the preferred
+            communication channels, frequency of updates, and availability for
+            meetings or discussions.
+        </Accordion>
+        <Accordion name="faqs" title="Can you scale if the requirements grow?">
+            Scalability and Flexibility: Questions about the developer's ability
+            to scale the team if needed or adapt to changing project
+            requirements.
+        </Accordion>
+        <Accordion name="faqs" title="Do you offer digital marketing services?">
+            No, I do not offer digital marketing services.
+        </Accordion>
+    </div>
+</section>

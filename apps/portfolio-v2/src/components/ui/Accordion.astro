@@ -1,0 +1,35 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+    title: string;
+    name: string;
+    open?: boolean;
+}
+
+const { title, name, open } = Astro.props;
+---
+
+<details
+    class="group border-b border-border/30 pb-6 pt-4"
+    name={name}
+    open={open}
+>
+    <!-- data-scroll
+    data-scroll-repeat
+    data-scroll-call={`open-accordion-${name}-${title}`} -->
+    <summary class="relative text-xl font-semibold text-text-primary">
+        {title}
+        <Icon
+            icon="ChevronDown"
+            class="absolute right-1 top-0 ml-2 group-open:hidden"
+        />
+        <Icon
+            icon="ChevronUp"
+            class="absolute right-1 top-0 ml-2 hidden group-open:block"
+        />
+    </summary>
+    <p class="mt-2 text-text-secondary">
+        <slot />
+    </p>
+</details>

@@ -66,19 +66,20 @@ const errors = { username: "", email: "", password: "" };
 >
   <main class="mx-auto my-36 w-full max-w-[36rem]">
     <h2
-      class="mb-4 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary"
+      class="mb-4 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary magic-fade-down delay-300"
     >
       How can I help you?
     </h2>
-    <p class="font-medium text-text-secondary">
+
+    <p class="font-medium text-text-secondary magic-fade-down delay-500">
       I'm available for projects, consultations, and collaborations. Looking to
       start a new project or want a consult regarding your current project?
     </p>
-    <p class="mt-2 font-medium text-text-secondary">
+    <p class="mt-2 font-medium text-text-secondary magic-fade-down delay-500">
       I usually reply within 24 hours.
     </p>
 
-    <form class="mt-8">
+    <form class="mt-8 magic-fade-down delay-900">
       <div class="grid grid-cols-2 gap-4">
         <Input
           id="contactForm_name"
@@ -107,12 +108,18 @@ const errors = { username: "", email: "", password: "" };
           class="peer block h-64 w-full rounded-md bg-bg-primary px-4 py-2 border border-border/10 placeholder:text-text-tertiary group-hover:pb-24"
         ></textarea>
         <div
-          class="hidden absolute top-6 -right-[calc(60%+0.5rem)] text-pretty w-[60%] rounded-md border border-border/20 text-text-secondary px-3 py-2 text-sm group-focus:block peer-focus:block starting:opacity-0 ease-in-out duration-300"
+          class="hidden magic-fade absolute top-6 -right-[calc(60%+0.5rem)] text-pretty w-[60%] rounded-md border border-border/20 text-text-secondary px-3 py-2 text-sm group-focus:block peer-focus:block starting:opacity-0 ease-in-out duration-300"
         >
           Share your vision and ideas. Include any relevant links to references,
           prototypes, existing websites, or sources of inspiration. This will
           help me to understand your project better.
         </div>
+        <Input
+          id="contactForm_phone"
+          type="tel"
+          label="Attach Files"
+          placeholder="+91 9876543210"
+        />
       </div>
 
       <div class="mt-10 flex flex-row justify-end">
@@ -120,7 +127,7 @@ const errors = { username: "", email: "", password: "" };
       </div>
     </form>
 
-    <div class="mt-16 text-text-secondary">
+    <div class="mt-16 text-text-secondary magic-fade-down delay-1200">
       <div>
         {"Prefer a more direct approach?  "}
         <br />
@@ -155,3 +162,5 @@ const errors = { username: "", email: "", password: "" };
     });
   </script> -->
 </LandingLayout>
+
+<!-- Contact Form: Collect only necessary data (e.g., name, email) with explicit user consent and explain its use. -->

@@ -8,7 +8,7 @@ interface Props {
 // <!-- Auto scroll with low speed, increase the speed with speed of the mouse. Keep scrolling for a long time. -->
 ---
 
-<div class:list={["overflow-hidden w-full", Astro.props.class]}>
+<div class:list={["overflow-hidden", Astro.props.class]}>
   <div
     class="inline-flex flex-row flex-nowrap overflow-auto whitespace-nowrap animate-scroll data-[direction=right]:[animation-direction:reverse]"
     data-direction={Astro.props.direction || "left"}

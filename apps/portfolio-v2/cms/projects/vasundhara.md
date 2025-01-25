@@ -3,7 +3,7 @@ title: Vasundhara
 description: Commercial Fleet, Accounting, Compliance, Vendor, Drivers and Staff Management System.
 hero_image: 
 categories:
-  - Software Development
+  - Full Stack Development
   - Platform Engineering
 tags:
   - Realtime Admin Panel

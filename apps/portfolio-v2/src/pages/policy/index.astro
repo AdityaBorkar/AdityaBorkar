@@ -1,6 +1,9 @@
 ---
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { getSchemaMarkup } from "@/lib/schema";
+import { getSchemaMarkup } from "@/lib/utils";
+import PrivacyPolicy from "./_privacy-policy.md";
+import CookiePolicy from "./_cookie-policy.md";
+import TermsOfService from "./_terms-of-service.md";
 
 const title = "Policy";
 const description = "Policy";
@@ -10,13 +13,15 @@ const SchemaMarkup = [getSchemaMarkup("person")];
 // https://www.delhivery.com/terms-and-conditions
 // https://evilmartians.com/privacy
 // privacy#notice_at_collection
-
-// Information Security Policy
-// Delhivery is committed to safeguarding the confidentiality, integrity and availability of all physical and electronic information assets of the organization.
-// We ensure that the regulatory, operational and contractual requirements are fulfilled.
-
 // TODO: MAKE SURE NO COOKIES ARE STORED IN THE BROWSER. NO-COOKIE POLICY.
 // Popup: We do not use cookies on this website. We respect your privacy.
+// <!-- Privacy Policy: Include a clear and concise privacy policy detailing what data you collect, why, and how it’s processed. -->
+// <!-- Cookie Consent: Use a cookie banner to inform users about cookies and provide opt-in options for non-essential cookies. -->
+// <!-- COOKIES = cal.com / lottie / posthog / vercel / vercel speed insights / embeds -->
+// <!-- You should not transfer EU users' personal data outside the EU -->
+// <!-- Complying with 'right to be forgotten' requests -->
+// <!-- Data Access/Control: Provide users options to request, modify, or delete their data. -->
+// <!-- Third-Party Tools: Verify GDPR compliance for tools like analytics or embedded content (e.g., Google Analytics, YouTube). -->
 ---
 
 <LandingLayout
@@ -25,5 +30,9 @@ const SchemaMarkup = [getSchemaMarkup("person")];
   description={description}
   schemaMarkup={SchemaMarkup}
 >
-  <main>Policy</main>
+  <main class="prose min-h-screen max-w-[48rem] py-24 mx-auto">
+    <PrivacyPolicy />
+    <CookiePolicy />
+    <TermsOfService />
+  </main>
 </LandingLayout>

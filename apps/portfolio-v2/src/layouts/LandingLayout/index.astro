@@ -11,6 +11,7 @@ import SunIcon from "@/assets/icons/Sun.svg";
 import GitHubIcon from "@/assets/icons/GitHub.svg";
 import TwitterIcon from "@/assets/icons/Twitter.svg";
 import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
+import AiAssistant from "@/components/AiAssistant.astro";
 
 interface Props {
   title: string;
@@ -70,8 +71,6 @@ const path = "";
 ---
 
 <RootLayout {...Astro.props}>
-  <!-- <ReactLenis root> -->
-
   <header
     transition:persist
     transition:animate="none"
@@ -186,8 +185,8 @@ const path = "";
 
   <slot />
 
-  <footer class="py-8 text-base bg-text-primary text-bg-tertiary">
-    <div class="mx-auto mt-6 flex max-w-[56rem] flex-row justify-between">
+  <footer class="text-base py-4 bg-text-primary text-bg-tertiary">
+    <div class="mx-auto pt-12 flex max-w-[56rem] flex-row justify-between">
       <div class="w-fit">
         <div class="mr-[5vw] w-fit text-center text-bg-primary">
           <div
@@ -246,10 +245,17 @@ const path = "";
       </div>
     </div>
 
-    <div class="mt-24 text-center opacity-50 hover:opacity-100">
+    <div class="mt-8 py-8 text-center opacity-50 hover:opacity-100">
       Designed with ❤️ and built with 🚀 by Aditya Borkar 😉
     </div>
+
+    <a
+      href="/policy"
+      class="py-4 text-center text-xs block w-fit mx-auto underline underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
+    >
+      Read Terms of Service, Privacy Policy, and Cookie Policy.
+    </a>
   </footer>
 
-  <!-- </ReactLenis> -->
+  <AiAssistant />
 </RootLayout>

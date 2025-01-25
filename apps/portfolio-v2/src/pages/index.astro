@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
 import BookCallFooter from "@/components/BookCallFooter.astro";
-import Heading from "@/components/Heading.astro";
+import Heading from "./home/_Heading.astro";
 import BentoDiv from "@/components/BentoDiv.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 import Marquee from "@/components/ui/Marquee.astro";
@@ -74,31 +74,18 @@ for (let i = 0; i < 150; i++) {
   >
     <div class="mx-auto size-80 overflow-hidden rounded-full">
       <Image
-        class:list={[
-          "h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover",
-          "starting:blur-sm starting:-translate-x-4 starting:opacity-0 duration-1000",
-        ]}
+        class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover magic-fade-right"
         src={getImage("profile.png")}
         alt=""
       />
     </div>
     <div class="-mt-8 w-[100%]">
-      <div
-        class:list={[
-          "text-4xl font-bold leading-[1.5]",
-          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-300",
-        ]}
-      >
+      <div class="text-4xl font-bold leading-[1.5] magic-fade-down delay-300">
         Product Engineer. OSS Maintainer.
         <br /> Full Stack Web Developer.
       </div>
 
-      <div
-        class:list={[
-          "mb-6 mt-4 text-xs",
-          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-500",
-        ]}
-      >
+      <div class="mb-6 mt-4 text-xs magic-fade-down delay-500">
         <a
           target="_blank"
           href="https://ossacc.com/"
@@ -114,10 +101,7 @@ for (let i = 0; i < 150; i++) {
       </div>
 
       <div
-        class:list={[
-          "mt-6 flex flex-row gap-4 text-text-tertiary",
-          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-700",
-        ]}
+        class="mt-6 flex flex-row items-center gap-4 text-text-tertiary magic-fade-down delay-700"
       >
         <a target="_blank" href="https://github.com/AdityaBorkar">
           <Icon
@@ -143,10 +127,7 @@ for (let i = 0; i < 150; i++) {
       </div>
 
       <p
-        class:list={[
-          "mb-20 mt-12 text-balance text-lg leading-relaxed text-text-secondary [&>span]:font-semibold [&>span]:text-text-primary",
-          "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-1000",
-        ]}
+        class="mt-12 text-balance text-lg leading-relaxed text-text-secondary [&>span]:font-semibold [&>span]:text-text-primary magic-fade-down delay-1000"
       >
         {"Hi there, I'm Aditya, an "}
         <span>product engineer</span>
@@ -166,42 +147,40 @@ for (let i = 0; i < 150; i++) {
         <span>timely manner.</span>
       </p>
 
-      <div class="w-fit">
+      <div class="mt-16 flex flex-row gap-8">
         <a
           href="/contact"
-          class:list={[
-            "rounded-md bg-gradient-to-b from-text-secondary to-text-primary hover:bg-gradient-to-t px-6 py-3 text-base font-semibold text-background",
-            "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-1200",
-          ]}
+          class="rounded-lg bg-gradient-to-b from-text-secondary to-text-primary hover:bg-gradient-to-t px-6 py-2.5 text-base font-semibold text-background magic-fade-down delay-1200"
         >
           Enquire / Contact
         </a>
+        <a
+          href="/projects"
+          class="rounded-lg border border-border/20 px-6 py-2.5 text-base font-semibold magic-fade-down delay-1200"
+        >
+          View Work
+        </a>
+      </div>
 
+      <div
+        class="mt-6 w-fit px-4 text-center text-sm text-text-secondary magic-fade-down delay-1200"
+      >
         <div
           class:list={[
-            "mt-6 text-center text-sm text-text-secondary",
-            "starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 delay-1200",
+            "relative mr-2 inline-block size-3 rounded-full -mb-0.5",
+            IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
           ]}
         >
-          <div class="relative mr-2 inline-block">
-            <div
-              class:list={[
-                "size-3 rounded-full",
-                IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
-              ]}
-            >
-            </div>
-            <div
-              class:list={[
-                "absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full",
-                "[animation-duration:2s] [animation-delay:0.4s]",
-                IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
-              ]}
-            >
-            </div>
+          <div
+            class:list={[
+              "absolute -top-0.5 -ml-0.5 size-4 animate-ping rounded-full",
+              "[animation-duration:2s] [animation-delay:0.4s]",
+              IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
+            ]}
+          >
           </div>
-          {IS_AVAILABLE_NOW ? "Available Now" : "Limited Availability"}
         </div>
+        {IS_AVAILABLE_NOW ? "Available Now" : "Limited Availability"}
       </div>
     </div>
   </section>
@@ -210,10 +189,7 @@ for (let i = 0; i < 150; i++) {
     <Marquee
       direction="right"
       duration="30s"
-      class:list={[
-        "my-6",
-        "starting:opacity-0 starting:blur-md transition-all delay-2000 duration-1000",
-      ]}
+      class="my-6 magic-fade-up delay-2000"
     >
       {
         Mockups1.map(({ data: { img, id } }) => (
@@ -232,10 +208,7 @@ for (let i = 0; i < 150; i++) {
     <Marquee
       direction="left"
       duration="30s"
-      class:list={[
-        "my-6",
-        "starting:opacity-0 starting:blur-md transition-all delay-2000 duration-1000",
-      ]}
+      class="my-6 magic-fade-up delay-2200"
     >
       {
         Mockups2.map(async ({ data: { img, id } }) => (
@@ -518,7 +491,7 @@ for (let i = 0; i < 150; i++) {
     View All Posts
   </a>
 
-  <Heading icon="UserCircle" label="Testimonials"> What People Speak </Heading>
+  <Heading icon="UserCircle" label="Testimonials">What People Speak</Heading>
   <section
     class="flex flex-row flex-wrap items-center justify-evenly gap-8 max-w-[64rem] mx-auto"
   >
@@ -526,8 +499,27 @@ for (let i = 0; i < 150; i++) {
       Testimonials.map(({ data: testimonial }) => (
         <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
           <div class="flex flex-row items-center justify-between">
-            <div class="w-fit bg-gradient-to-tr from-yellow-500 to-orange-500 bg-clip-text text-xl tracking-tighter text-transparent">
-              ★★★★★
+            <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
+              <Icon
+                icon="Star"
+                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+              />
+              <Icon
+                icon="Star"
+                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+              />
+              <Icon
+                icon="Star"
+                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+              />
+              <Icon
+                icon="Star"
+                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+              />
+              <Icon
+                icon="Star"
+                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+              />
             </div>
             {/* {testimonial.project && (
               <a
@@ -540,9 +532,9 @@ for (let i = 0; i < 150; i++) {
             )} */}
           </div>
 
-          <p class="my-4 text-pretty text-sm">{testimonial.text}</p>
+          <p class="mt-2 text-pretty text-sm">{testimonial.text}</p>
 
-          <div>
+          <div class="mt-4">
             <div class="font-medium">{testimonial.id}</div>
             <div class="text-text-secondary">{testimonial.role}</div>
           </div>

@@ -3,7 +3,7 @@ title: Portfolio V2
 description: A personal portfolio showcasing projects and skills.
 hero_image: 
 categories:
-  - Personal
+  - Frontend Development
 tags:
   - Portfolio
   - Web Development

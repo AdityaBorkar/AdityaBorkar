@@ -3,8 +3,8 @@ title: SyncSink
 description: Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.
 hero_image: 
 categories:
-  - Software Development
-  - Platform Engineering
+  - Library
+  - Frontend Development
 tags:
   - Open Source
   - "SaaS: Software-as-a-Service"

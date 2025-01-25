@@ -1,0 +1,154 @@
+---
+import { getCollection } from "astro:content";
+
+import Icon from "@/components/ui/Icon.astro";
+import Heading from "../(components)/_Heading.astro";
+import Section from "../(components)/_Section.astro";
+
+const Testimonials = await getCollection("testimonials");
+---
+
+<Heading label="Why people work with me?"> Why people work with me? </Heading>
+<Section class="grid grid-cols-2 gap-x-16">
+    <div>
+        <div>Strong Technical Foundations</div>
+        <div>Experience with Databases</div>
+        <div>Version Control</div>
+        <div>Soft Skills</div>
+        <div>Cultural Fit</div>
+        {
+            /* 
+          // Technical Proficiency: Strong knowledge of both front-end (HTML, CSS, JavaScript frameworks) and back-end technologies (Node.js, Python, Ruby, Java).
+          // Experience with Databases: Proficiency in SQL and NoSQL databases.
+          // Version Control: Expertise in using version control systems like Git.
+          // Soft Skills: Good communication, teamwork, and project management skills.
+          // Cultural Fit: Alignment with the company's values and work culture.
+        */
+        }
+        {
+            /* right arrow
+Outdated CMS (Wordpress, Contentful, etc)
+right arrow
+Lack of Communication
+right arrow
+Performance and Quality Issues
+right arrow
+Lack in Availability
+right arrow
+Lack in Consultancy
+right arrow
+Messy CMS Setup
+right arrow
+Lack of Resources
+right arrow
+Lack of Design Capabilities
+right arrow
+Constant Project Delays */
+        }
+        We develop elegant, custom‑built solutions from start to finish that address
+        the big challenges you face building the entire product while also tackling
+        your “here‑and‑now” development and optimization needs.
+    </div>
+    <div>
+        <img
+            src="/resources/pic (4).jpeg"
+            alt="Lights"
+            class="mb-6 w-full rounded-3xl object-cover"
+        />
+    </div>
+    {
+        /* Our Mission
+We create Webflow sites that are on their league of their own for ambitious startups and enterprises.
+Our Values
+1. Clients always come first.
+2. Get it done. No excuses.
+3. Stay humble, Be confident.
+Our Vision
+To be the leading Webflow agency with great people, clients & products. */
+    }
+    <div>
+        Self-motivation and ability to work independently Collaboration skills
+        for working with other team members or clients Basic understanding of
+        business goals and how technology supports them Ability to suggest
+        solutions that align with project objectives
+    </div>
+
+    <div class="rounded-2xl border border-border/20 bg-white p-4">
+        <div class="mb-4 text-xs font-semibold uppercase text-text-secondary">
+            My Philosophy
+        </div>
+        <div class="text-xl font-semibold">μεράκι - Meraki</div>
+        <div class="mt-0.5 text-sm">pronounced: meh-rah-kee</div>
+        <div class="mt-2 text-base">
+            The soul, creativity, or love put into something; putting your
+            essence in your work.
+        </div>
+    </div>
+</Section>
+<!-- // Just think of me as your creative bestie. 👯 As a business owner myself, I understand that you can’t do it all. I want to take all things “design” off your plate so you can focus on what you do best. I only work with a handful of clients at a time so that I’m able to dedicate the time and care needed to do my best work.
+// You feel comfortable jumping into complex topics immediately
+  // Good understanding of APIs and how to properly build them for long-term success
+  // A self-starter who works well independently as well as interdependently in a remote environment
+  // A motivated person who enjoys working on complex technical problems who does not need to be micro-managed
+  // Someone who is looking to grow with us and our product
+ -->
+<Section
+    class="flex flex-row flex-wrap items-center justify-evenly gap-8 max-w-[64rem] mx-auto"
+>
+    <!-- SCROLL BASED TOOLBAR -->
+    {
+        Testimonials.map(({ data: testimonial }) => (
+            <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
+                <div class="flex flex-row items-center justify-between">
+                    <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
+                        <Icon
+                            icon="Star"
+                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                        />
+                        <Icon
+                            icon="Star"
+                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                        />
+                        <Icon
+                            icon="Star"
+                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                        />
+                        <Icon
+                            icon="Star"
+                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                        />
+                        <Icon
+                            icon="Star"
+                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                        />
+                    </div>
+                    {/* {testimonial.project && (
+              <a
+                href={testimonial.project.url}
+                class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-bg-primary"
+              >
+                Project: {testimonial.project.label}
+                <ArrowUpRightIcon class="size-3 ml-0.5 -mt-0.5 inline-block" />
+              </a>
+            )} */}
+                </div>
+
+                <p class="mt-2 text-pretty text-sm">{testimonial.text}</p>
+
+                <div class="mt-4">
+                    <div class="font-medium">{testimonial.id}</div>
+                    <div class="text-text-secondary">{testimonial.role}</div>
+                </div>
+            </div>
+        ))
+    }
+</Section>
+
+<!--
+Problem-Solving: Ability to design and implement solutions to complex problems.
+Communication: Clear and effective communication with clients and team members.
+Time Management: Delivering work on time and managing multiple projects efficiently.
+Adaptability: Quickly learning new tools or methodologies as required.
+Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
+Documentation: Creating detailed technical documentation for future reference.
+-->

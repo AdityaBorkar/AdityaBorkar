@@ -3,8 +3,8 @@ title: GeM Finder
 description: Google Chrome Extension to navigate the GeM website and get personalized bids.
 hero_image: 
 categories:
-  - Software Development
   - Plugins & Extensions
+  - Full Stack Development
 tags:
   - Google Chrome Extension
   - Web Scraping

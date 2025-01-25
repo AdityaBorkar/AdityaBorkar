@@ -1,48 +1,44 @@
 ---
-import {
-  HiArrowLeft,
-  HiArrowUpRight,
-  HiOutlineGlobeAlt,
-} from "react-icons/hi2";
-import { VscGithub } from "react-icons/vsc";
+import { getCollection } from "astro:content";
 
-import ExternalLink from "./ExternalLink.astro";
+import ExternalLink from "./_ExternalLink.astro";
 
-// TODO: Fetch Details (SSG)
-// const project = {
-//   // TODO: Frontmatter
-//   title: "GeM Finder",
-//   description:
-//     "Google Chrome Extension to navigate the GeM website and get personalized bids.",
-//   categories: ["Software Development", "Plugins & Extensions"],
-//   tags: [
-//     "Google Chrome Extension",
-//     "Web Scraping",
-//     "Govt. of India API",
-//     "Data Analysis",
-//     "Personalization",
-//   ],
-//   website: "gem.vasundhara.cc",
-//   github: "",
-//   tech: [
-//     { name: "TypeScript", img: "" },
-//     { name: "PWA (Web App)", img: "" },
-//     { name: "Chrome Extension", img: "" },
-//     { name: "Plasmo", img: "" },
-//     { name: "TailwindCSS", img: "" },
-//     { name: "Cloudflare Workers", img: "" },
-//     { name: "Cloudflare D1", img: "" },
-//     { name: "WhatsApp Business API", img: "" },
-//   ],
-//   heroImage: "",
-//   highlights: ["34% Revenue Growth y-o-y", "Saved 120+ man-hours per month"],
-//   // TODO: MDX
-// } as ProjectType;
+export const getStaticPaths = async () => {
+  const posts = await getCollection("blogs");
+  return posts.map(({ id }) => ({ params: { slug: id } }));
+};
+
+const project = {
+  title: "GeM Finder",
+  description:
+    "Google Chrome Extension to navigate the GeM website and get personalized bids.",
+  categories: ["Software Development", "Plugins & Extensions"],
+  tags: [
+    "Google Chrome Extension",
+    "Web Scraping",
+    "Govt. of India API",
+    "Data Analysis",
+    "Personalization",
+  ],
+  website: "gem.vasundhara.cc",
+  github: "",
+  tech: [
+    { name: "TypeScript", img: "" },
+    { name: "PWA (Web App)", img: "" },
+    { name: "Chrome Extension", img: "" },
+    { name: "Plasmo", img: "" },
+    { name: "TailwindCSS", img: "" },
+    { name: "Cloudflare Workers", img: "" },
+    { name: "Cloudflare D1", img: "" },
+    { name: "WhatsApp Business API", img: "" },
+  ],
+  heroImage: "",
+  highlights: ["34% Revenue Growth y-o-y", "Saved 120+ man-hours per month"],
+};
 
 const SchemaMarkup = [];
 //   {
 //   // https://schema.org/WebApplication
-//   // https://schema.org/SoftwareApplication
 //   "@context": "https://schema.org",
 //   "@type": "SoftwareApplication",
 //   name: project.title,
@@ -60,20 +56,12 @@ const SchemaMarkup = [];
 //   // applicationSuite	: The name of the application suite to which the application belongs (e.g. Excel belongs to Office).
 //   // ---
 // };
-
-// function h4(props: { children: string; class?: string }) {
-//   return (
-//     <h4 class="mb-4 mt-16 text-2xl font-semibold text-white">
-//       {props.children}
-//     </h4>
-//   )
-// }
 ---
 
 <style>
-  h4 {
+  /* h4 {
     @apply mb-4 mt-16 text-2xl font-semibold text-white;
-  }
+  } */
 </style>
 
 <div class="mx-auto max-w-[64rem] text-neutral-300">
@@ -83,7 +71,7 @@ const SchemaMarkup = [];
         href="/projects"
         class="mt-16 block font-medium text-neutral-400 hover:text-neutral-200"
       >
-        <HiArrowLeft className="-mt-1 mr-4 inline-block size-5" />
+        <!-- <HiArrowLeft className="-mt-1 mr-4 inline-block size-5" /> -->
         Back to "Projects"
       </a>
 
@@ -119,15 +107,15 @@ const SchemaMarkup = [];
       <div class="py-36"></div>
       <div class="sticky top-32 flex w-full flex-col gap-4 text-sm">
         <ExternalLink href={"https://github.com/"}>
-          <HiOutlineGlobeAlt className="mr-2 inline-block size-5" />
+          <!-- <HiOutlineGlobeAlt className="mr-2 inline-block size-5" /> -->
           gem.adityaborkar.com
-          <HiArrowUpRight className="absolute right-4 top-4 size-4" />
+          <!-- <HiArrowUpRight className="absolute right-4 top-4 size-4" /> -->
         </ExternalLink>
 
         <ExternalLink href={"https://github.com/"}>
-          <VscGithub className="mr-2 inline-block size-5" />
+          <!-- <VscGithub className="mr-2 inline-block size-5" /> -->
           adityaborkar/gem-finder
-          <HiArrowUpRight className="absolute right-4 top-4 size-4" />
+          <!-- <HiArrowUpRight className="absolute right-4 top-4 size-4" /> -->
         </ExternalLink>
 
         <div class="rounded-lg border border-neutral-700 p-4">

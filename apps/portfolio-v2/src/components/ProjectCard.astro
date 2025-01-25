@@ -1,15 +1,11 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  heroImage: string;
-  tags: string[];
-}
+import type { CollectionEntry } from "astro:content";
 
-// TODO: [Animation] Comet Border effect on project card hover
-// TODO: [Animation] On hover release small bubbles/sparkles in the background
+interface Props extends CollectionEntry<"projects"> {}
 
-const { title, description, heroImage, tags } = Astro.props;
+const {
+  data: { title, description, hero_image, tags },
+} = Astro.props;
 
 // onMouseMove={(e) => {
 //   if (!PointerDivRef.current) return
@@ -25,17 +21,20 @@ const { title, description, heroImage, tags } = Astro.props;
 //   if (!PointerDivRef.current) return
 //   PointerDivRef.current.style.display = 'none'
 // }}
+
+// TODO: [Animation] Comet Border effect on project card hover
+// TODO: [Animation] On hover release small bubbles/sparkles in the background
 ---
 
 <a
   href={`/projects/${title.toLowerCase().replace(/[\s\W]+/g, "-")}`}
-  class="group relative rounded-3xl border border-zinc-300 bg-zinc-100 p-4 transition-all hover:shadow-lg"
+  class="group relative rounded-3xl border border-border/20 bg-background p-4 transition-all hover:shadow-lg"
 >
   <div class="h-64 rounded-xl">
     <img
-      src={heroImage}
+      src={hero_image}
       alt={`Visual Representation of ${title}`}
-      class="group-hover:zoom-105 mx-auto h-full rounded-xl bg-zinc-300 text-center text-text-secondary"
+      class="group-hover:zoom-105 mx-auto h-full rounded-xl bg-bg-primary text-center"
     />
   </div>
   <div class="cursor-pointer px-2 pb-2 pt-4">
@@ -48,7 +47,7 @@ const { title, description, heroImage, tags } = Astro.props;
     <ul class="mt-4 flex cursor-pointer flex-row flex-wrap gap-x-1 gap-y-2">
       {
         tags.map((tag) => (
-          <li class="cursor-pointer rounded-full bg-bg-primary px-2.5 py-1 text-xs text-text-secondary">
+          <li class="cursor-pointer rounded-full bg-bg-primary px-2.5 py-1 text-xs">
             {tag}
           </li>
         ))
