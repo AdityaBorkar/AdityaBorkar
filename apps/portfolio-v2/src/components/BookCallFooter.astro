@@ -3,11 +3,9 @@ import CursorBubble from "./CursorBubble.astro";
 ---
 
 <section class="relative pb-48 pt-72 max-w-[64rem] mx-auto">
-  <div class="absolute left-0 top-0 h-full w-full"></div>
-
   <div class="relative px-24">
     <CursorBubble
-      class="-top-12 right-16 bg-purple-500"
+      class="-top-[15%] right-16 bg-purple-500"
       fillColor="fill-purple-500"
       text="Product"
     />
@@ -27,23 +25,23 @@ import CursorBubble from "./CursorBubble.astro";
       text="Customers"
     />
     <div class="text-center text-5xl font-semibold leading-normal">
-      Let's
-      <span class="font-sans-serif font-normal italic tracking-tight"
-        >discuss</span
-      >
-      your
-      <span class="font-sans-serif font-normal italic tracking-tight"
-        >ideas</span
-      >
-      and figure out if we are a great
+      {"Let's"}
+      <span class="font-sans-serif font-normal italic tracking-tight">
+        discuss
+      </span>
+      {"your"}
+      <span class="font-sans-serif font-normal italic tracking-tight">
+        ideas
+      </span>
+      {"and figure out if we are a great"}
       <span class="font-sans-serif font-normal italic tracking-tight">fit</span>
-      for each-other.
+      {"for each-other."}
     </div>
   </div>
 
   <button
     type="button"
-    class="mx-auto mt-36 block rounded-xl bg-text-primary cursor-pointer px-12 py-4 text-xl font-semibold text-background shadow-md"
+    class="mx-auto mt-36 block rounded-lg hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 transition-all duration-300 cursor-pointer px-12 py-4 text-xl font-semibold text-background"
   >
     Book a call
   </button>

@@ -3,9 +3,9 @@ import type { Thing, WithContext } from "schema-dts";
 
 import { ClientRouter } from "astro:transitions";
 
+import CookiePopup from "@/components/CookiePopup.astro";
 import Posthog from "@/components/Posthog.astro";
 import { JsonLd } from "@/lib/jsonLd";
-
 import "./global.css";
 
 interface Props {
@@ -84,7 +84,11 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',
         -->
         <slot />
+
         {process.env.NODE_ENV !== "development" && <Posthog />}
+
+        <!-- <CookiePopup /> -->
+
         <script>
             import Lenis from "lenis";
             const lenis = new Lenis({ autoRaf: true });

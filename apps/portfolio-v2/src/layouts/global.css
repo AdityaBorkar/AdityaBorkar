@@ -74,9 +74,9 @@
     @apply bg-amber-500/50 text-white;
   }
 
-  * {
+  /* * {
     @apply transition-all;
-  }
+  } */
 }
 
 @utility magic-fade {
