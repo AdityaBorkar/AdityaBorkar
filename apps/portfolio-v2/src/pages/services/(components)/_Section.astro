@@ -4,6 +4,11 @@ interface Props {
 }
 ---
 
-<section class:list={["max-w-[64rem] mx-auto", Astro.props.class]}>
+<section
+    class:list={[
+        "relative max-w-[64rem] mx-auto opacity-100",
+        Astro.props.class,
+    ]}
+>
     <slot />
 </section>

@@ -1,5 +1,14 @@
 # Content
 
+## Images
+
+[-] P3 color profile
+[-] Portrait mode
+[-] Meaningful names
+[-] Instead, showcase your team members, behind-the-scenes glimpses, and real customer stories. This humanizes your brand, making it relatable and trustworthy. When people see the human side of your business, they are more likely to engage and connect with you!
+[-] profile photo on home page must be [Mountains in Background, Well-defined body, Authorative Face, More Formal]
+
+
 ## Content Checklist
 
 [-] Readibility = 8th grade reading level: https://datayze.com/readability-analyzer.php
