@@ -13,15 +13,21 @@ interface Props {
 // TODO - Make bite-sized videos and play them on hover
 ---
 
-<figure class:list={["group relative magic-fade", Astro.props.class]}>
+<figure
+  class:list={[
+    // TODO: Fix Transition Duration
+    "group relative magic-fade hover:scale-105 hover:shadow-xl hover:shadow-bg-secondary/20",
+    Astro.props.class,
+  ]}
+>
   <Image
     src={getImage(Astro.props.src)}
     alt={Astro.props.alt || ""}
-    class="h-full w-full cursor-pointer rounded-xl object-cover hover:scale-105 hover:shadow-xl hover:shadow-bg-secondary/20"
+    class="h-full w-full cursor-pointer rounded-xl object-cover"
   />
 
   <figcaption
-    class="group-hover:opacity-100 rounded-xl absolute left-0 top-0 flex h-full w-full items-end bg-gradient-to-t from-black/75 to-transparent opacity-0"
+    class="opacity-0 group-hover:opacity-100 rounded-xl absolute left-0 top-0 flex h-full w-full items-end bg-gradient-to-t from-black/75 via-black/10 to-transparent transition-opacity duration-500"
   >
     <span
       class="group-hover:block hidden text-sm text-pretty text-white magic-fade-up px-4 py-2 duration-500"

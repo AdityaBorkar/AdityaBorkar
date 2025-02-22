@@ -17,6 +17,15 @@ const AllCategories = [
 ];
 
 // TODO: Add a Background to hero section
+
+// Separate Section to show Open Source Contributions
+
+// Direct Links to Website, and Sources, and Case Studies
+
+// Add impact of the product like (<https://evilmartians.com/products>)
+
+// TODO: Remove "Frontend Development" and "MAD" from categories
+// Filter Animation
 ---
 
 <LandingLayout
@@ -27,7 +36,9 @@ const AllCategories = [
 >
   <div class="mx-auto max-w-[64rem] pb-48">
     <h1 class="mt-36 text-5xl font-bold">Selected Projects</h1>
-    <div class="mt-12 max-w-[70%] text-balance text-base text-text-secondary">
+    <div
+      class="mt-12 max-w-[70%] text-balance text-base text-text-secondary/50"
+    >
       <p>
         I create handcrafted products and signature projects that make a
         difference.
@@ -55,6 +66,7 @@ const AllCategories = [
               class:list={[
                 "cursor-pointer rounded-full bg-bg-primary hover:bg-bg-secondary px-4 py-1.5 text-sm font-medium text-text-secondary",
                 // filterCategory === tag && "bg-foreground text-background",
+                "hover:bg-orange-900 hover:text-text-primary",
               ]}
             >
               {tag}

@@ -1,26 +1,28 @@
 ---
 import Section from "../(components)/_Section.astro";
 import Heading from "../(components)/_Heading.astro";
+import { getImage } from "@/lib/assets";
+import { Image } from "astro:assets";
 
 const Benefits = [
     {
-        title: "Full Stack Development",
+        title: "Full Stack <br/> Development",
         svg: "/assets/illustrations/full-stack.webm",
     },
     {
-        title: "Artificial Intelligence Development",
+        title: "AI <br/> Development",
         svg: "/assets/illustrations/3d-chatbot-head.webm",
     },
     {
-        title: "Prototype / MVP Development",
+        title: "MVP <br/> Development",
         svg: "/assets/illustrations/3d-chatbot-head.webm",
     },
     {
-        title: "Custom Technology Solution",
+        title: "Custom Tech <br /> Solutions",
         svg: "/assets/illustrations/3d-chatbot-head.webm",
     },
     {
-        title: "3+ years of Expertise",
+        title: "3+ years of <br/> Expertise",
         svg: "/assets/illustrations/3d-chatbot-head.webm",
     },
     {
@@ -54,19 +56,24 @@ const CurrencyConversion = [
         <div
             class="row-span-2 rounded-2xl border border-border/20 bg-white px-8 py-6"
         >
-            <div
-                class="grid grid-cols-4 gap-y-8 font-medium text-text-primary text-center"
-            >
+            <div class="grid grid-cols-3 gap-y-8 text-text-primary text-center">
                 {
                     Benefits.map((benefit) => (
                         <div>
-                            <video
+                            {/* <video
                                 src={benefit.svg}
                                 autoplay
                                 loop
-                                class="size-24 mx-auto"
+                                class="size-24 mx-auto hover:scale-200 transition-all"
+                            /> */}
+                            <Image
+                                src={getImage(
+                                    "illustrations/client-trophy.png",
+                                )}
+                                alt=""
+                                class="size-36 mx-auto"
                             />
-                            <div>{benefit.title}</div>
+                            <div set:html={benefit.title} />
                         </div>
                     ))
                 }

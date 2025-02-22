@@ -5,21 +5,17 @@ interface Props {
 }
 ---
 
-<div class="mx-auto mb-4 mt-32 max-w-[64rem]">
-    <div
-        class:list={[
-            "w-fit text-sm bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600 border border-border/20 rounded-full font-bold px-3 py-1 uppercase tracking-wider",
-        ]}
-    >
-        {Astro.props.label}
-    </div>
-</div>
-
 <h3
     class:list={[
-        "text-5xl text-left mb-12 font-semibold mx-auto max-w-[64rem]",
+        "relative text-5xl text-left mb-12 font-semibold mx-auto max-w-[64rem] opacity-100",
         Astro.props.class,
     ]}
 >
+    <div
+        class="mb-4 mt-32 w-fit text-sm bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600 border border-border/20 rounded-full font-bold px-3 py-1 uppercase tracking-wider"
+    >
+        {Astro.props.label}
+    </div>
+
     <slot />
 </h3>

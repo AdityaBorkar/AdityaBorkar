@@ -134,9 +134,9 @@ const path = "";
             href={link}
             class={cn(
               "relative h-fit cursor-pointer rounded-full px-4 py-1 text-sm font-medium text-text-secondary hover:text-text-primary",
-              path === link && "text-text-primary",
               // path === link &&
               //   'after:bg-bg-secondary after:absolute after:-bottom-1 after:left-[37.5%] after:h-2 after:w-1/4 after:rounded-md after:bg-amber-500 after:blur after:dark:bg-amber-800',
+              path === link && "text-text-primary",
               path === link &&
                 "before:absolute before:-bottom-2.5 before:left-[10%] before:w-4/5 before:rounded-[4px] before:border-b before:border-amber-600",
             )}
@@ -164,11 +164,11 @@ const path = "";
     <div class="absolute -right-14 top-1.5">
       <MoonIcon
         data-theme="toggle"
-        class="hidden dark:block size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary"
+        class="hidden dark:block size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary transition-colors duration-300"
       />
       <SunIcon
         data-theme="toggle"
-        class="dark:hidden size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary"
+        class="dark:hidden size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary transition-colors duration-300"
       />
     </div>
 
@@ -176,8 +176,13 @@ const path = "";
       document.querySelectorAll("[data-theme='toggle']").forEach((element) => {
         element.addEventListener("click", () => {
           const isDark = !document.documentElement.classList.contains("dark");
-          document.documentElement.classList.toggle("dark", isDark);
           window.localStorage.setItem("theme", isDark ? "dark" : "light");
+
+          const switchTheme = () => {
+            document.documentElement.classList.toggle("dark", isDark);
+          };
+          if (!document.startViewTransition) switchTheme();
+          document.startViewTransition(switchTheme);
         });
       });
     </script>
@@ -216,10 +221,8 @@ const path = "";
           <div class="mb-3 shrink-0 font-medium text-bg-tertiary/60">
             Services
           </div>
-          <FooterLink href="/services/product-engineer"
-            >Product Engineer</FooterLink
-          >
-          <FooterLink href="/services/ai-engineer">AI Engineer</FooterLink>
+          <FooterLink href="/services">Product Engineer</FooterLink>
+          <FooterLink href="/services">AI Engineer</FooterLink>
         </div>
         <div>
           <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div>
@@ -245,16 +248,18 @@ const path = "";
       </div>
     </div>
 
-    <div class="mt-8 py-8 text-center opacity-50 hover:opacity-100">
-      Designed with ❤️ and built with 🚀 by Aditya Borkar 😉
-    </div>
-
     <a
       href="/policy"
-      class="py-4 text-center text-xs block w-fit mx-auto underline underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
+      class="mt-8 py-4 text-center text-xs block w-fit mx-auto hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
     >
       Read Terms of Service, Privacy Policy, and Cookie Policy.
     </a>
+
+    <div
+      class="mt-4 py-6 text-center opacity-30 text-bg-primary hover:opacity-100 transition-opacity duration-500"
+    >
+      Designed and built with ❤️ by Aditya Borkar
+    </div>
   </footer>
 
   <AiAssistant />

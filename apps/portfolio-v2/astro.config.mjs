@@ -20,3 +20,7 @@ export default defineConfig({
     svg: true,
   },
 })
+
+// https://docs.astro.build/en/guides/integrations-guide/vercel/
+// https://docs.astro.build/en/guides/integrations-guide/partytown/ (Analytics with Heatmaps)
+// https://docs.astro.build/en/guides/integrations-guide/sitemap/ (important for site search / seo)
