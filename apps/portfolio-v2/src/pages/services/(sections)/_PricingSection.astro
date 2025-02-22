@@ -1,48 +1,102 @@
 ---
+import Section from "../(components)/_Section.astro";
+import Heading from "../(components)/_Heading.astro";
 
+const Benefits = [
+    {
+        title: "Full Stack Development",
+        svg: "/assets/illustrations/full-stack.webm",
+    },
+    {
+        title: "Artificial Intelligence Development",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Prototype / MVP Development",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Custom Technology Solution",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "3+ years of Expertise",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "100% Client Satisfaction",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Regular Updates & Timely Delivery",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Flexible Timezone & Work Hours",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+];
+
+const CurrencyConversion = [
+    { rate: "3.70", currency: "AED (Arab Emirates Dirham)" },
+    { rate: "1.65", currency: "AUD (Australian Dollar)" },
+    { rate: "0.85", currency: "GBP (British Pound)" },
+    { rate: "1.50", currency: "CAD (Canadian Dollar)" },
+    { rate: "0.95", currency: "EUR (Euro)" },
+    { rate: "80.00", currency: "INR (Indian Rupee)" },
+    { rate: "1.35", currency: "SGD (Singapore Dollar)" },
+];
 ---
 
-<h2 class="text-center text-4xl font-semibold">Pricing</h2>
-<section class="mt-24 max-w-[64rem] mx-auto">
-    <div class="grid grid-cols-[auto_22rem] gap-4">
+<Heading label="Pricing">How much does it cost?</Heading>
+<Section>
+    <div class="grid grid-cols-[auto_20rem] gap-4">
         <div
-            class="row-span-2 flex flex-col justify-between rounded-2xl border border-border/20 bg-white px-8 py-6"
+            class="row-span-2 rounded-2xl border border-border/20 bg-white px-8 py-6"
         >
             <div
-                class="grid grid-cols-4 gap-y-16 text-text-primary text-center"
+                class="grid grid-cols-4 gap-y-8 font-medium text-text-primary text-center"
             >
-                <div>Full Stack Development</div>
-                <div>Artificial Intelligence Development</div>
-                <div>Prototype / MVP Development</div>
-                <div>Custom Technology Solution</div>
-                <div>Agile Development</div>
-                <div>Timely Service</div>
-                <div>Weekly Updates</div>
-                <div>Flexible Timezone</div>
+                {
+                    Benefits.map((benefit) => (
+                        <div>
+                            <video
+                                src={benefit.svg}
+                                autoplay
+                                loop
+                                class="size-24 mx-auto"
+                            />
+                            <div>{benefit.title}</div>
+                        </div>
+                    ))
+                }
             </div>
-            <div class="text-text-tertiary">
+            <div class="text-text-tertiary mt-8">
                 <div>We request for 40% upfront payment.</div>
-                <div>We invoice based on milestones or weekly basis.</div>
-                <div popovertarget="pricing-currency-rates">
+                <div>We invoice based on milestones or hourly basis.</div>
+                <div>
                     We support payments in: USD, EUR, GBP, AUD, CAD, SGD, INR
-                    [i]
                 </div>
-                <div popover id="pricing-currency-rates">
-                    <div>1 USD = 3.70 AED (Arab Emirates Dirham)</div>
-                    <div>1 USD = 1.65 AUD (Australian Dollar)</div>
-                    <div>1 USD = 0.85 GBP (British Pound)</div>
-                    <div>1 USD = 1.50 CAD (Canadian Dollar)</div>
-                    <div>1 USD = 0.95 EUR (Euro)</div>
-                    <div>1 USD = 80.00 INR (Indian Rupee)</div>
-                    <div>1 USD = 1.35 SGD (Singapore Dollar)</div>
+                <!--
+                <div popover>
+                    {
+                        CurrencyConversion.map((currency) => (
+                            <div>
+                                1 USD = {currency.rate} {currency.currency}
+                            </div>
+                        ))
+                    }
                     <div>
                         These rates are exclusively for reference. Actual rates
                         shall be applicable as per the quote / invoice.
                     </div>
                 </div>
+                -->
             </div>
         </div>
-        <div class="bg-text-primary rounded-2xl px-8 py-6">
+        <div
+            class="bg-text-primary flex flex-col justify-between rounded-2xl px-8 py-6"
+        >
             <div class="text-4xl text-bg-primary font-semibold">
                 <div
                     class="text-sm text-bg-tertiary uppercase tracking-wide mb-2"
@@ -52,12 +106,14 @@
                 $20 - $35
             </div>
             <div
-                class="mt-8 ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"
+                class="ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"
             >
                 Book a call
             </div>
         </div>
-        <div class="bg-text-primary rounded-2xl px-8 py-6">
+        <div
+            class="bg-text-primary flex flex-col justify-between rounded-2xl px-8 py-6"
+        >
             <div class="text-4xl text-bg-primary font-semibold">
                 <div
                     class="text-sm text-bg-tertiary uppercase tracking-wide mb-2"
@@ -67,10 +123,10 @@
                 Custom Pricing
             </div>
             <div
-                class="mt-8 ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"
+                class="ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"
             >
                 Request a Quote
             </div>
         </div>
     </div>
-</section>
+</Section>

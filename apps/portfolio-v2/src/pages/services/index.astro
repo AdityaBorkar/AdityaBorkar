@@ -40,4 +40,42 @@ const SchemaMarkup = [getSchemaMarkup("person")];
   <FaqSection />
 
   <BookCallFooter />
+
+  <div
+    class="h-[12rem] bg-gradient-to-t from-background to-transparent w-screen fixed bottom-0 left-0"
+  >
+  </div>
 </LandingLayout>
+
+<script>
+  import { animate } from "motion/mini";
+  import { inView } from "motion";
+
+  const MagicFadeDownAnimation = (
+    element: Element,
+    entry: IntersectionObserverEntry,
+  ) => {
+    const animation = animate(
+      element,
+      {
+        y: [200, 0],
+        opacity: [0, 1],
+        filter: ["blur(30px)", "blur(0px)"],
+      },
+      { delay: 0.1, duration: 0.6 },
+    );
+    return () => animation.stop();
+  };
+
+  inView("section", MagicFadeDownAnimation, { margin: "200px" });
+  inView("h3", MagicFadeDownAnimation, { margin: "200px" });
+</script>
+
+<style>
+  section {
+    opacity: 0 !important;
+  }
+  h3 {
+    opacity: 0 !important;
+  }
+</style>

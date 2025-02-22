@@ -1,66 +1,100 @@
 ---
 import Accordion from "@/components/ui/Accordion.astro";
-
-// TODO: SHOW MOBILE MOCKUPS WITH HANDS ON THE WORK SECTION
-// Relax, Talk with the client, Keep it minimal, focus on Product Development and Business Outcomes.
+import Section from "../(components)/_Section.astro";
 ---
 
-<!-- <h2
-  class="mb-24 mt-6 hidden text-center text-[50px] font-semibold uppercase tracking-wider text-neutral-600"
->
-  H2
-</h2> -->
-<section class="mt-64 max-w-[64rem] mx-auto grid grid-cols-[1fr_2fr]">
-    <div>
+<Section class="mt-48 flex flex-row gap-32">
+    <div
+        class="flex-nowrap animate-[magic-fade-up_1s_ease-in-out_1] whitespace-nowrap"
+    >
         <h2 class="text-5xl font-semibold">FAQs</h2>
-        <div class="mt-2 text-neutral-500">Frequently Asked Questions</div>
+        <div class="mt-2 text-text-tertiary">Frequently Asked Questions</div>
     </div>
-    <div>
-        <Accordion name="faqs" title="What timezones do you work in?">
-            I am flexible to work in any timezone. Based upon my ongoing
-            projects, I shall convey my availability when we discuss the project
-            proposal.
+    <div class="grow">
+        <!-- How do you record the hours? -->
+        <Accordion name="faqs" title="How long does a project take?">
+            Timeline depends on requirements and complexity of your project. I
+            will provide you with a timeline and a detailed plan of the project
+            with the quote.
         </Accordion>
-        <Accordion name="faqs" title="Who owns the code and IP?">
-            I push the code to the GitHub Repository you own. Publishing is
-            configured with a CI/CD Pipeline wherever possible. Once the project
-            is completed, all the intellectual rights and ownership shall be
-            transferred to you.
-        </Accordion>
-        <Accordion name="faqs" title="Where do you host the software?">
-            Depending on the project, I host the software on AWS, GCP, Vercel or
-            any other cloud provider of your choice.
+        <Accordion name="faqs" title="In which time zones do you operate?">
+            I am flexible and can accommodate multiple time zones based on the
+            project's needs. Let me know your preferred working hours, and I
+            will do my best to align with them.
         </Accordion>
         <Accordion
             name="faqs"
-            title="Do you offer maintenance and post-project support?"
+            title="Are you open to signing confidentiality agreements?"
         >
-            Yes! I offer maintenance and post-project support. I also offer a 30
-            day warranty period for any bugs or issues that may arise after the
-            project is completed.
-        </Accordion>
-        <Accordion name="faqs" title="Do you offer Confidentiality Contracts?">
-            Yes! I offer Contracts with specific clauses as per requirements. I
-            am also open to signing an NDA if required. I understand the
-            importance of Project Privacy and Confidentiality. I am open to
-            discuss about this and include it in a contract that we both agree
-            upon.
+            I provide tailored contracts with specific clauses to meet your
+            requirements. Additionally, I am open to signing a Non-Disclosure
+            Agreement (NDA) if needed. I fully understand the importance of
+            maintaining project privacy and confidentiality and am happy to
+            discuss and incorporate these aspects into a mutually agreed-upon
+            contract.
         </Accordion>
         <Accordion
             name="faqs"
-            title="Do you work in teams? How do you collaborate?"
+            title="Are you experienced with working on existing codebases?"
         >
-            Communication and Collaboration: They might ask about the preferred
-            communication channels, frequency of updates, and availability for
-            meetings or discussions.
+            Yes, I am experienced and comfortable working with existing
+            codebases. I can adapt quickly, understand the structure, and
+            contribute effectively to ongoing projects. If they project is not
+            feasible to work with, I will let you know and suggest the best
+            course of action.
         </Accordion>
-        <Accordion name="faqs" title="Can you scale if the requirements grow?">
-            Scalability and Flexibility: Questions about the developer's ability
-            to scale the team if needed or adapt to changing project
-            requirements.
+        <Accordion
+            name="faqs"
+            title="Do you work in teams? How do you approach collaboration?"
+        >
+            Yes, I have experience working in teams and collaborate using tools
+            like Git, project management platforms (e.g., Jira, Trello), and
+            communication apps (e.g., Slack, Microsoft Teams). I prioritize
+            clear communication, effective coordination, and timely
+            contributions to ensure smooth teamwork.
         </Accordion>
-        <Accordion name="faqs" title="Do you offer digital marketing services?">
-            No, I do not offer digital marketing services.
+        <Accordion
+            name="faqs"
+            title="Who retains ownership of the code and intellectual property rights?"
+        >
+            Typically, the ownership of code and intellectual property (IP) is
+            outlined in the agreement or contract. I am open to assigning full
+            ownership of the code and IP to the client upon project completion
+            and payment, ensuring all rights are transferred as per the agreed
+            terms.
+        </Accordion>
+        <Accordion name="faqs" title="Where is the software hosted?">
+            I can host the software on platforms like AWS, GCP, Vercel, or any
+            preferred hosting service as per your requirements. If you have a
+            preferred hosting environment or need assistance selecting one, I
+            can help with that as well.
+        </Accordion>
+        <Accordion
+            name="faqs"
+            title="Do you provide maintenance and post-project support?"
+        >
+            Yes, I offer maintenance and post-project support. This can include
+            bug fixes, updates, enhancements, and any other assistance needed
+            after project completion, based on the terms outlined in the
+            contract.
+        </Accordion>
+        <Accordion
+            name="faqs"
+            title="Are you able to scale if the requirements increase?"
+        >
+            Yes, I can scale to meet growing requirements. Whether it's
+            increasing the scope, adding features, or handling larger workloads,
+            I can adjust resources and plans accordingly to ensure smooth
+            progress and performance.
+        </Accordion>
+        <Accordion
+            name="faqs"
+            title="Do you provide digital marketing services?"
+        >
+            I do not offer digital marketing services directly, but I can
+            collaborate with trusted professionals or agencies to meet your
+            digital marketing needs, including SEO, content marketing, and
+            social media strategies.
         </Accordion>
     </div>
-</section>
+</Section>

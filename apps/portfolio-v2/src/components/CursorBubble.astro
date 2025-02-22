@@ -9,18 +9,23 @@ const { text, fillColor } = Astro.props;
 ---
 
 <script>
+  import { animate } from "motion/mini";
+
   for (const bubble of document.querySelectorAll("[data-figma-cursor")) {
     bubble.addEventListener("mouseover", (e) => {
       const randomTop = Math.round(
-        Math.random() < 0.5 ? Math.random() * 20 : Math.random() * 50 + 100,
+        Math.random() < 0.5
+          ? Math.random() * 30 - 50
+          : Math.random() * 50 + 100,
       );
       const randomLeft = Math.round(
         Math.random() < 0.5 ? Math.random() * 21 : Math.random() * 21 + 80,
       );
-      // @ts-expect-error
-      bubble.style.top = `${randomTop}%`;
-      // @ts-expect-error
-      bubble.style.left = `${randomLeft}%`;
+      animate(
+        bubble,
+        { top: `${randomTop}%`, left: `${randomLeft}%` },
+        { duration: 0.3 },
+      );
     });
   }
 </script>

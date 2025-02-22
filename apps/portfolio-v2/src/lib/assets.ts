@@ -1,5 +1,5 @@
 const IMAGE_LIST = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp}',
+  '/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,webm}',
 )
 
 const SVG_LIST = import.meta.glob('/src/assets/icons/*.svg', {

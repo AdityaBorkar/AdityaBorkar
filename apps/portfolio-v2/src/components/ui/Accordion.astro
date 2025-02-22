@@ -11,25 +11,107 @@ const { title, name, open } = Astro.props;
 ---
 
 <details
-    class="group border-b border-border/30 pb-6 pt-4"
-    name={name}
+    class="group border-b border-border/20 overflow-hidden"
+    data-name={name}
     open={open}
 >
-    <!-- data-scroll
-    data-scroll-repeat
-    data-scroll-call={`open-accordion-${name}-${title}`} -->
-    <summary class="relative text-xl font-semibold text-text-primary">
+    <summary
+        class="relative block py-4 text-xl font-semibold text-text-primary"
+    >
         {title}
         <Icon
             icon="ChevronDown"
-            class="absolute right-1 top-0 ml-2 group-open:hidden"
-        />
-        <Icon
-            icon="ChevronUp"
-            class="absolute right-1 top-0 ml-2 hidden group-open:block"
+            class="absolute right-4 top-5 ml-2 group-open:rotate-180"
         />
     </summary>
-    <p class="mt-2 text-text-secondary">
+    <p class="pb-6 text-text-secondary">
         <slot />
     </p>
 </details>
+
+<script>
+    class Accordion {
+        details: HTMLDetailsElement;
+        summary: HTMLElement;
+        content: HTMLParagraphElement;
+        animation: Animation | null;
+        isClosing: boolean;
+        isExpanding: boolean;
+
+        constructor(element: HTMLDetailsElement) {
+            this.details = element;
+            this.summary = element.querySelector("summary") as HTMLElement;
+            this.content = element.querySelector("p") as HTMLParagraphElement;
+            this.animation = null;
+            this.isClosing = false;
+            this.isExpanding = false;
+            this.summary.addEventListener("click", (e) => this.toggle(e));
+            this.summary.addEventListener("custom-close", () => this.shrink());
+        }
+
+        toggle(e: MouseEvent) {
+            e.preventDefault();
+            // this.details.style.overflow = "hidden";
+            if (this.isClosing || !this.details.open) this.open();
+            else if (this.isExpanding || this.details.open) this.shrink();
+
+            document
+                .querySelectorAll(`[data-name="${this.details.dataset.name}"]`)
+                .forEach((element) => {
+                    if (element === this.details) return;
+                    // @ts-expect-error
+                    // console.log(element.open);
+                    if (element.open)
+                        (element.children[0] as HTMLElement).dispatchEvent(
+                            new Event("custom-close"),
+                        );
+                });
+        }
+
+        open() {
+            this.details.style.height = `${this.details.offsetHeight}px`;
+            this.details.open = true;
+            window.requestAnimationFrame(() => this.expand());
+        }
+
+        shrink() {
+            this.isClosing = true;
+            const startHeight = `${this.details.offsetHeight}px`;
+            const endHeight = `${this.summary.offsetHeight}px`;
+
+            if (this.animation) this.animation.cancel();
+            this.animation = this.details.animate(
+                { height: [startHeight, endHeight] },
+                { duration: 300, easing: "ease-in-out" },
+            );
+            this.animation.onfinish = () => this.onAnimationFinish(false);
+            this.animation.oncancel = () => (this.isClosing = false);
+        }
+
+        expand() {
+            this.isExpanding = true;
+            const startHeight = `${this.details.offsetHeight}px`;
+            const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
+
+            if (this.animation) this.animation.cancel();
+            this.animation = this.details.animate(
+                { height: [startHeight, endHeight] },
+                { duration: 300, easing: "ease-in-out" },
+            );
+            this.animation.onfinish = () => this.onAnimationFinish(true);
+            this.animation.oncancel = () => (this.isExpanding = false);
+        }
+
+        onAnimationFinish(open: boolean) {
+            this.details.open = open;
+            this.animation = null;
+            this.isClosing = false;
+            this.isExpanding = false;
+            this.details.style.height = this.details.style.overflow = "";
+        }
+    }
+
+    document
+        .querySelectorAll("details")
+        .forEach((element) => new Accordion(element));
+</script>
