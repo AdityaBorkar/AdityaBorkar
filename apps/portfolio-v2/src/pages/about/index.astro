@@ -2,26 +2,72 @@
 import { Image } from "astro:assets";
 
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import BentoImage from "@/components/BentoImage.astro";
 import Icon from "@/components/ui/Icon.astro";
-import { cn, getImage, getSchemaMarkup } from "@/lib/utils";
-
-const SchemaMarkup = [getSchemaMarkup("person")];
-
-// Add chess.com stats and profile / ...
+import { getImage, getSchemaMarkup } from "@/lib/utils";
+import BentoImage from "./_BentoImage.astro";
+import Paragraph from "./_Paragraph.astro";
+import Heading from "./_Heading.astro";
 ---
 
 <LandingLayout
-  title="About"
-  description="About me"
-  keywords={["about", "me"]}
-  schemaMarkup={SchemaMarkup}
+  title="Aditya Borkar - Freelance Product Engineer & Full-Stack Developer"
+  description="Meet Aditya Borkar, a passionate Product Developer and Full-Stack Engineer from Navi Mumbai. With expertise in web development, UX design, and AI, I create innovative solutions that help businesses thrive. Learn about my journey, projects and let's connect over coffee!"
+  keywords={[
+    // Core Professional Identity
+    "freelance product engineer",
+    "freelance full stack developer",
+    "remote developer india",
+    "hire product developer",
+
+    // Expertise Areas
+    "web application development",
+    "custom software development",
+    "frontend development freelancer",
+    "backend development consultant",
+    "AI development services",
+    "UX engineering",
+
+    // Technology Stack
+    "react developer for hire",
+    "nextjs expert",
+    "typescript developer",
+    "nodejs developer",
+    "aws certified developer",
+
+    // Service Types
+    "product development consulting",
+    "technical architecture consulting",
+    "MVP development",
+    "startup technology consultant",
+    "software modernization expert",
+
+    // Location & Work Model
+    "indian freelance developer",
+    "navi mumbai developer",
+    "remote software consultant",
+    "offshore development partner",
+
+    // Qualifications & Trust Signals
+    "toptal vetted developer",
+    "google developer expert",
+    "aws certified engineer",
+    "medusa expert developer",
+
+    // Industry Focus
+    "saas development",
+    "enterprise software development",
+    "startup product development",
+    "b2b software solutions",
+  ]}
+  schemaMarkup={[getSchemaMarkup("person")]}
 >
   <main class="mx-auto w-[80vw] max-w-[48rem] py-20">
     <div
       class="my-8 flex flex-col justify-between items-center sm:flex-row magic-fade-down delay-300"
     >
       <h2 class="text-2xl font-semibold">
+        <!-- TODO: Animate: Wave Effect -->
+        <!-- TODO: Animate: Once on entry + On hover group -->
         <Image
           src={getImage("emoji/waving-hand.png")}
           alt=""
@@ -32,165 +78,210 @@ const SchemaMarkup = [getSchemaMarkup("person")];
       <a
         href="/cv"
         target="_blank"
-        class="block h-fit rounded-full px-4 py-2 text-sm font-semibold text-text-secondary hover:bg-bg-primary hover:text-text-primary max-sm:mt-6"
+        class="block h-fit rounded-full px-4 py-2.5 text-sm font-medium text-text-secondary hover:bg-bg-primary hover:text-text-primary max-sm:mt-6 transition-colors duration-300"
       >
-        Read CV
+        <!-- TODO: Animate: Letters Effect -->
         <Icon icon="ArrowUpRight" class="-mt-1 ml-1 inline-block size-4" />
+        Resume / CV
       </a>
     </div>
 
-    <p
-      class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm magic-fade-down delay-500"
-    >
+    <Paragraph class="magic-fade-down delay-500">
       I engineer interfaces, products, and systems, from early concepts to
-      full-fledged products, by partnering closely with designers, research, and
-      engineering peers. I have done a bit of everything from branding, web
-      design, copywriting, UX, design systems, and design engineering. My goal
-      is to use technology to help people thrive in their work. Spending a lot
-      of time digging into engineers&#x2019; heads and passionate about how
-      software and methods can impact the outcomes of our work, I progressively
-      shifted my focus from design systems to developer experience, which later
-      led me to joining Linear in late 2023.
-    </p>
+      full-fledged products, by partnering closely with designers, engineering
+      peers and customers. I have done a bit of everything from web design, UX,
+      front-end, back-end, hardware, and AI development. My goal is to use
+      technology to help people thrive in their work and create delightful human
+      experiences.
+    </Paragraph>
 
-    <figure
-      class={cn(
+    <div
+      class:list={[
         "mx-auto mt-8 grid h-[120vw] w-full gap-4 md:h-[60vw] lg:max-h-[40rem]",
-        "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3",
-      )}
+        "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3 !my-32",
+      ]}
     >
+      <!-- TODO: class="delay-700" -->
       <BentoImage
         src="personal/desk-cats-1.jpeg"
-        class="delay-700"
         caption="Neighbor's cats 🐱🐱 seem to be enjoying my workspace"
+        wrapperClass=""
       />
       <BentoImage
         src="personal/sagar-vihar-shot.jpeg"
-        class="md:row-span-2 delay-800"
         caption="A glimpse of my city 🏙️ - Navi Mumbai"
+        wrapperClass="md:row-span-2 delay-800"
       />
       <BentoImage
         src="personal/badminton.jpeg"
-        class="delay-900"
         caption="I love to play badminton! Let's play sometime? 🏸🏸"
+        wrapperClass="delay-900"
       />
-      <BentoImage
+      <!-- <BentoImage
         src="personal/nm-marathon.jpeg"
-        class="row-span-2 delay-700"
         caption="🏃🏻‍♂️ My first Run - finished 10km in 53 minutes (Pace: 5:17/km)"
+        wrapperClass="row-span-2 delay-700"
+      /> -->
+      <BentoImage
+        src="personal/coffee-1.jpeg"
+        caption="Hello World! 🌍  "
+        wrapperClass="row-span-2 delay-700"
       />
       <BentoImage
-        src="personal/personal-nature.jpeg"
-        class="row-span-2 delay-1000"
-        caption="Random shot near a forest 🌲 in Navi Mumbai"
+        src="personal/workspace-ikea-1.jpeg"
+        caption="Quick snacking with a clint"
+        wrapperClass="row-span-2 delay-1000"
       />
+      <!-- <BentoImage
+        src="personal/personal-nature.jpeg"
+        caption="Random shot near a forest 🌲 in Navi Mumbai"
+        wrapperClass="row-span-2 delay-1000"
+      /> -->
       <BentoImage
         src="personal/coffee-2.jpeg"
-        class="delay-1100"
         caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+        wrapperClass="delay-1100"
       />
-    </figure>
+    </div>
 
-    <h3 class="mt-16 text-lg font-semibold">How did I discover Tech?</h3>
-    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
-      I discovered about CODE University, Berlin and got admitted but could not
-      join it due to Covid-19 pandemic. Instead of defering education, I planned
-      to continue to learn online and build my own career in tech. While
-      exploring different languages - Java, Python, PHP, C++ and others; I
-      struck upon JavaScript, it powered me to create beautiful user interfaces
-      and ship to multiple devices cross-platforms easily within days. With the
-      rising popularity of PWAs and new features coming in the web, I decided to
-      pursue Web Software Engineering as a career.
-    </p>
+    <Heading>How did I discover Tech?</Heading>
+    <Paragraph>
+      Technology has always fascinated me—not just for what it is, but for what
+      it can do to transform lives. At 14, I built my first HTML-JS solution to
+      automate my dad's business, reducing man-hours by a staggering 80%. That
+      small success fueled my passion, pushing me to learn PHP and MySQL to
+      build more robust software. Starting with my family, I semi-automated our
+      traditional transportation business. I also had the privilege of working
+      with the Raspberry Pi Foundation on the NTTT and Translation Programme,
+      helping make computing accessible to underprivileged children. As I
+      explored further, I picked up Python to automate invoice generation for
+      our family business, eventually moving 80% of its processes online.
+      exploring Java, Python, PHP, C++, and JavaScript. JavaScript, in
+      particular, felt revolutionary—it empowered me to build beautiful,
+      high-performance user interfaces and ship cross-platform apps within days.
+      With the rise of PWAs and cutting-edge web capabilities, I chose to
+      specialize in Software Engineering on the Web. I landed my first gig for a
+      US based client when I was 17. At the age of 19, I took a brief break to
+      explore and specialize in product development and customer experience.
+    </Paragraph>
 
-    <h3 class="mt-16 text-lg font-semibold">
-      How did I discover Web & Product Development?
-    </h3>
-    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
-      I discovered about CODE University, Berlin and got admitted but could not
-      join it due to Covid-19 pandemic. Instead of defering education, I planned
-      to continue to learn online and build my own career in tech. While
-      exploring different languages - Java, Python, PHP, C++ and others; I
-      struck upon JavaScript, it powered me to create beautiful user interfaces
-      and ship to multiple devices cross-platforms easily within days. With the
-      rising popularity of PWAs and new features coming in the web, I decided to
-      pursue Web Software Engineering as a career.
-    </p>
-
-    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
-      I have worked with Raspberry Pi Foundation to work initially on NTTT and
-      Translation Programme to make computing accessible to young and
-      underpriviledged children.
-    </p>
-
-    <figure
-      class={cn(
+    <div
+      class:list={[
         "mx-auto mt-8 grid h-[50vw] w-full gap-4 md:max-h-[12rem]",
         "grid-cols-3 grid-rows-1 max-md:grid-cols-2 max-md:grid-rows-2",
-      )}
+      ]}
     >
       <BentoImage
         src="personal/coffee-1.jpeg"
-        class="max-md:row-span-2"
         caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+        wrapperClass="max-md:row-span-2"
       />
       <BentoImage
         src="personal/letter.jpeg"
         caption="A letter from my friend sent from Taiwan ❤️"
+        wrapperClass=""
       />
       <BentoImage
         src="personal/workspace-starbucks.jpeg"
         caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+        wrapperClass=""
       />
-    </figure>
+    </div>
 
-    <h3 class="mt-16 text-lg font-semibold">Things I do in my free time!</h3>
-    <p class="mt-4 text-pretty text-base text-text-secondary max-md:text-sm">
-      I like to play chess in my free time. I love to cycle to get my daily dose
-      of happiness. I believe in green techniques and strive to make my life
-      more sustainable and impackful for the humankind.
-      <br />
-      My hobbies and my achievements in my hobbies. // Major projects I did? // Professional
-      Background: Briefly describe your experience and expertise in web engineering.
-      // Skills and Specializations: Highlight key skills and areas of specialization.
-      // Notable Projects: Mention a few significant projects or clients. // Education
-      and Certifications: List relevant qualifications and certifications. // Personal
-      Touch: Share a bit about your interests or hobbies to make it more personable.
-    </p>
+    <Heading>My journey towards Product Engineer</Heading>
+    <Paragraph>
+      My passion for product development stems from the joy of creating. I
+      started working on products that I wanted to use daily (like a second
+      brain, etc - check my projects). The process of creating led me to
+      discover the field. Now, The joy of creating exceptional products is what
+      drives me.
+    </Paragraph>
+    <Paragraph>
+      I love to set high-standards for software, and make them feel magical,
+      fluid, and joy to use. I aspire to build products that are fast, deeply
+      integrated yet open, and seamless. I also love exploring the latest
+      advancements in web technology to create delightful, high-performance
+      experiences.
+    </Paragraph>
 
-    <figure
-      class={cn(
+    <div
+      class:list={[
+        "mx-auto mt-8 grid h-[50vw] w-full gap-4 md:max-h-[12rem]",
+        "grid-cols-3 grid-rows-1 max-md:grid-cols-2 max-md:grid-rows-2",
+      ]}
+    >
+      <BentoImage
+        src="personal/coffee-1.jpeg"
+        caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+        wrapperClass="max-md:row-span-2"
+      />
+      <BentoImage
+        src="personal/letter.jpeg"
+        caption="A letter from my friend sent from Taiwan ❤️"
+        wrapperClass=""
+      />
+      <BentoImage
+        src="personal/workspace-starbucks.jpeg"
+        caption="I love to brew and share coffee! Come on, let's meet up! 🍵🍵"
+        wrapperClass=""
+      />
+    </div>
+
+    <Heading>Things I do in my free time!</Heading>
+    <Paragraph>
+      I love to engage in sports - badminton, pickleball, cycling, running,
+      swimming, chess. I also love to brew coffee and spend time with my
+      friends. Alongside, I love discovering new things and seeking knowledge,
+      applying it to my lifestyle in some way. I recently started running and
+      <a
+        target="_blank"
+        href="https://www.sportstimingsolutions.in/share.php?event_id=84982&bib=10165"
+        class="font-medium underline underline-offset-4"
+        >completed 10km at India's only sea-bridge marathon</a
+      >. You can check my stats on
+      <a
+        target="_blank"
+        href="https://www.strava.com/athletes/aditya-borkar"
+        class="font-medium underline underline-offset-4">Strava</a
+      >.
+    </Paragraph>
+
+    <div
+      class:list={[
         "mx-auto mt-8 grid h-[120vw] w-full gap-4 md:h-[60vw] lg:max-h-[40rem]",
         "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3",
-      )}
+      ]}
     >
       <BentoImage
         src="personal/desk-cats-2.jpeg"
         caption="Daily dose of serotonin 😊"
+        wrapperClass=""
       />
       <BentoImage
         src="personal/nmhq-cycling.jpeg"
-        class="md:row-span-2"
         caption="🚴🏻‍♂️ Sun-downer cycling ride to the City Head-Quarters 🏢"
+        wrapperClass="md:row-span-2"
       />
       <BentoImage
         src="personal/desk-cats-3.jpeg"
         caption="She 🐱🐱 is my debugger!"
+        wrapperClass=""
       />
       <BentoImage
         src="personal/city.jpeg"
-        class="row-span-2"
         caption="A glimpse of my city 🏙️ - Navi Mumbai"
+        wrapperClass="row-span-2"
       />
       <BentoImage
         src="personal/workspace-ikea-1.jpeg"
-        class="row-span-2"
         caption="My temporary workspace 💻"
+        wrapperClass="row-span-2"
       />
       <BentoImage
         src="personal/workspace-ikea-3.jpeg"
         caption="Come on, let's work together! 🤝"
+        wrapperClass=""
       />
-    </figure>
+    </div>
   </main>
 </LandingLayout>

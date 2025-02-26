@@ -11,6 +11,42 @@ const Clients = await getCollection("clients");
 // TODO - Make component out of `LinkButton`
 ---
 
+<script>
+    import { animate } from "motion/mini";
+    import { inView } from "motion";
+
+    const MagicFadeDownAnimation = (
+        element: Element,
+        entry: IntersectionObserverEntry,
+    ) => {
+        // console.log({ top: entry.boundingClientRect.top });
+        if (entry.boundingClientRect.top < window.innerHeight / 2) return;
+        // if (entry.boundingClientRect.bottom > window.innerHeight / 4) return;
+        animate(
+            element,
+            {
+                y: [500, 0],
+                opacity: [0, 1],
+                // filter: ["blur(10px)", "blur(0px)"],
+            },
+            { delay: 0.3, duration: 0.6 },
+        );
+    };
+
+    // inView("h3", MagicFadeDownAnimation, {
+    //   margin: "0px 0px -15% 0px",
+    //   amount: "all",
+    // });
+    // inView("section", MagicFadeDownAnimation, {
+    //   margin: "0px 0px -15% 0px",
+    // });
+
+    // Numbers
+    // animate(0, 100, {
+    //   onUpdate: latest => console.log(latest)
+    // })
+</script>
+
 <section class="flex h-screen flex-col items-center justify-center">
     {/* vision / product / services / organization */}
 

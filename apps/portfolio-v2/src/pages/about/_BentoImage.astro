@@ -1,0 +1,29 @@
+---
+import { getImage } from "@/lib/utils";
+import BentoImageReact from "@/pages/about/_BentoImageReact";
+
+interface Props {
+  src: string;
+  alt?: string;
+  caption: string;
+  wrapperClass?: string;
+}
+
+const img = await getImage(Astro.props.src);
+const fullPath = img.default.src.split("/");
+const relativePath = fullPath.slice(-3).join("/");
+
+// TODO: Make bite-sized videos and play them on hover
+
+// TODO: FINANCIAL: Upgrade to Motion.dev PLUS
+// ! REQUIRED API IS IN MEMBERS-ONLY ALPHA
+// https://motion.dev/docs/view
+---
+
+<div class={Astro.props.wrapperClass}>
+  <BentoImageReact
+    client:only="react"
+    src={relativePath}
+    caption={Astro.props.caption}
+  />
+</div>

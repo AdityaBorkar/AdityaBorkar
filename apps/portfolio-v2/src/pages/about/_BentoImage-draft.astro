@@ -1,0 +1,130 @@
+---
+import { Image } from "astro:assets";
+
+import { getImage } from "@/lib/utils";
+import BentoImageReact from "@/pages/about/_BentoImageReact";
+
+interface Props {
+  src: string;
+  alt?: string;
+  class?: string;
+  caption: string;
+}
+
+// TODO - Make bite-sized videos and play them on hover
+
+const img = await getImage(Astro.props.src);
+console.log(img.default.src);
+
+// const [isOpen, setOpen] = useState(false)
+
+// const { scrollY } = useScroll()
+// useDomEvent(useRef(window), 'scroll', () => {
+//   const change = scrollY.get() - (scrollY.getPrevious() || 0)
+//   if (isOpen && (change > 2 || change < -2)) setOpen(false)
+// })
+
+// ! REQUIRED API IS IN MEMBERS-ONLY ALPHA
+// https://motion.dev/docs/view
+---
+
+<!--
+<BentoImageReact
+  client:only="react"
+  src={"./assets/personal/badminton.jpeg"}
+  class={Astro.props.class}
+  caption={Astro.props.caption}
+/>
+-->
+<figure
+  class:list={[
+    // TODO: SET H SUCH THAT IT IS EQUAL TO IMAGE
+    "BENTO-IMAGE",
+    "relative w-[100%] h-4 bg-green-500 pt-[100%] cursor-ne-resize select-none my-8 mx-0",
+    // isOpen ? "cursor-default" : "",
+    Astro.props.class,
+  ]}
+>
+  <!-- transition={SpringTransition} -->
+  <!-- onClick={() => setOpen(false)} -->
+  <div
+    class:list={[
+      "fixed inset-0 pointer-events-none opacity-0 z-40 backdrop-blur-2xl",
+      // isOpen && "pointer-events-auto opacity-100",
+    ]}
+  >
+  </div>
+  <!-- layout -->
+  <!-- transition={{
+    default: SpringTransition,
+    zIndex: { delay: isOpen ? 0 : 1 },
+  }}
+  animate={{ zIndex: isOpen ? 40 : 0 }} -->
+  <img
+    draggable="false"
+    class:list={[
+      "absolute inset-0 w-full h-auto object-cover rounded-xl bg-white",
+      // isOpen && "fixed max-h-[70vh] w-auto h-auto m-auto rounded-3xl",
+    ]}
+    src={img.default.src}
+    alt={Astro.props.alt}
+  />
+  {
+    /* <figcaption className='opacity-0 group-hover:opacity-100 rounded-xl absolute left-0 top-0 flex h-full w-full items-end bg-gradient-to-t from-black/75 via-black/10 to-transparent transition-opacity duration-500'>
+    <span className='group-hover:block hidden text-sm text-pretty text-white magic-fade-up px-4 py-2 duration-500'>
+    {caption}
+    </span>
+    </figcaption> */
+  }
+</figure>
+
+<script>
+  import { animate, press } from "motion";
+
+  function AnimateFn({
+    img,
+    shadow,
+    figure,
+  }: {
+    img: Element;
+    shadow: Element;
+    figure: HTMLElement;
+  }) {
+    figure.dataset.open = figure.dataset.open === "true" ? "false" : "true";
+    const isOpen = figure.dataset.open === "true";
+
+    console.log({ img: getComputedStyle(img).margin });
+
+    animate(figure, {
+      cursor: isOpen ? "default" : "ne-resize",
+    });
+
+    // animate(shadow, {
+    //   opacity: isOpen ? 1 : 0,
+    //   pointerEvents: isOpen ? "auto" : "none",
+    // });
+
+    animate(img, {
+      height: isOpen ? "70vh" : "auto",
+      // maxHeight: isOpen ? "70vh" : "initial",
+      width: isOpen ? "auto" : "100%",
+      margin: isOpen ? "auto" : "initial",
+      borderRadius: isOpen ? "1.5rem" : "0.75rem",
+      position: isOpen ? "fixed" : "absolute",
+    });
+  }
+
+  press(".BENTO-IMAGE > img", (img) => {
+    const figure = img.parentElement;
+    const shadow = img.previousElementSibling;
+    if (!figure || !shadow) return;
+    AnimateFn({ img, shadow, figure });
+  });
+
+  press(".BENTO-IMAGE > div", (shadow) => {
+    const figure = shadow.parentElement;
+    const img = shadow.nextElementSibling;
+    if (!figure || !img) return;
+    AnimateFn({ img, shadow, figure });
+  });
+</script>

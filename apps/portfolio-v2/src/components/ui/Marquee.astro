@@ -1,14 +1,18 @@
 ---
 interface Props {
+  id?: string;
   class?: string;
   duration?: string;
   direction?: "left" | "right";
 }
 
-// <!-- Auto scroll with low speed, increase the speed with speed of the mouse. Keep scrolling for a long time. -->
+// TODO: Manual Horizontal Scroll Controls.
 ---
 
-<div class:list={["overflow-hidden", Astro.props.class]}>
+<div
+  id={Astro.props.id}
+  class:list={["overflow-hidden cursor-grab", Astro.props.class]}
+>
   <div
     class="inline-flex flex-row flex-nowrap overflow-auto whitespace-nowrap animate-scroll data-[direction=right]:[animation-direction:reverse]"
     data-direction={Astro.props.direction || "left"}

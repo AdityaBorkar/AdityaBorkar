@@ -1,0 +1,30 @@
+---
+import MoonIcon from "@/assets/icons/Moon.svg";
+import SunIcon from "@/assets/icons/Sun.svg";
+---
+
+<div class="absolute -right-14 top-1.5">
+    <MoonIcon
+        data-theme="toggle"
+        class="hidden dark:block size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary transition-colors duration-300"
+    />
+    <SunIcon
+        data-theme="toggle"
+        class="dark:hidden size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary transition-colors duration-300"
+    />
+</div>
+
+<script>
+    document.querySelectorAll("[data-theme='toggle']").forEach((element) => {
+        element.addEventListener("click", () => {
+            const isDark = !document.documentElement.classList.contains("dark");
+            window.localStorage.setItem("theme", isDark ? "dark" : "light");
+
+            const switchTheme = () => {
+                document.documentElement.classList.toggle("dark", isDark);
+            };
+            if (!document.startViewTransition) switchTheme();
+            document.startViewTransition(switchTheme);
+        });
+    });
+</script>

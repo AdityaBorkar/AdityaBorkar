@@ -4,6 +4,8 @@ import type { Thing, WithContext } from "schema-dts";
 import { ClientRouter } from "astro:transitions";
 
 import Posthog from "@/components/Posthog.astro";
+import VercelToolbar from "@/components/VercelToolbar.astro";
+import CookiePopup from "@/components/CookiePopup.astro";
 import { JsonLd } from "@/lib/jsonLd";
 import "./global.css";
 
@@ -15,13 +17,6 @@ interface Props {
 }
 
 const { title, description, keywords, schemaMarkup = [] } = Astro.props;
-
-// import CookiePopup from "@/components/CookiePopup.astro";
-// TODO: Add Squircle CSS Worklet
-// import 'css-paint-polyfill'
-// import workletURL from "url-loader!<package-name>/worklet.js";
-// const workletURL = ''
-// CSS.paintWorklet.addModule(workletURL)
 ---
 
 <html lang="en">
@@ -85,13 +80,20 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         -->
         <slot />
 
-        {process.env.NODE_ENV !== "development" && <Posthog />}
-
-        <!-- <CookiePopup /> -->
+        <CookiePopup />
 
         <script>
             import Lenis from "lenis";
-            const lenis = new Lenis({ autoRaf: true });
+            new Lenis({ autoRaf: true, lerp: 0.06 });
+
+            // TODO: Add Squircle CSS Worklet
+            // import 'css-paint-polyfill'
+            // import workletURL from "url-loader!<package-name>/worklet.js";
+            // const workletURL = ''
+            // CSS.paintWorklet.addModule(workletURL)
         </script>
+
+        {process.env.NODE_ENV !== "development" && <Posthog />}
+        {process.env.NODE_ENV === "development" && <VercelToolbar />}
     </body>
 </html>

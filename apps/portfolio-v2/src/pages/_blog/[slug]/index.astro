@@ -1,0 +1,157 @@
+---
+import { getCollection } from "astro:content";
+
+import ExternalLink from "./_ExternalLink.astro";
+
+export const getStaticPaths = async () => {
+  const posts = await getCollection("blogs");
+  return posts.map(({ id }) => ({ params: { slug: id } }));
+};
+
+const project = {
+  title: "GeM Finder",
+  description:
+    "Google Chrome Extension to navigate the GeM website and get personalized bids.",
+  categories: ["Software Development", "Plugins & Extensions"],
+  tags: [
+    "Google Chrome Extension",
+    "Web Scraping",
+    "Govt. of India API",
+    "Data Analysis",
+    "Personalization",
+  ],
+  website: "gem.vasundhara.cc",
+  github: "",
+  tech: [
+    { name: "TypeScript", img: "" },
+    { name: "PWA (Web App)", img: "" },
+    { name: "Chrome Extension", img: "" },
+    { name: "Plasmo", img: "" },
+    { name: "TailwindCSS", img: "" },
+    { name: "Cloudflare Workers", img: "" },
+    { name: "Cloudflare D1", img: "" },
+    { name: "WhatsApp Business API", img: "" },
+  ],
+  heroImage: "",
+  highlights: ["34% Revenue Growth y-o-y", "Saved 120+ man-hours per month"],
+};
+
+const SchemaMarkup = [];
+//   {
+//   // https://schema.org/WebApplication
+//   "@context": "https://schema.org",
+//   "@type": "SoftwareApplication",
+//   name: project.title,
+//   about: project.description,
+//   abstract: project.description,
+//   accountablePerson: AdityaBorkarPerson,
+//   // applicationCategory: [project.category],
+//   // applicationSubCategory
+//   // softwareHelp
+//   // softwareAddOn
+//   // screenshot
+//   // installUrl
+//   // featureList
+//   // downloadUrl
+//   // applicationSuite	: The name of the application suite to which the application belongs (e.g. Excel belongs to Office).
+//   // ---
+// };
+---
+
+<style>
+  /* h4 {
+    @apply mb-4 mt-16 text-2xl font-semibold text-white;
+  } */
+</style>
+
+<div class="mx-auto max-w-[64rem] text-neutral-300">
+  <div class="relative grid grid-cols-[42rem_18rem] gap-16">
+    <main>
+      <a
+        href="/projects"
+        class="mt-16 block font-medium text-neutral-400 hover:text-neutral-200"
+      >
+        <!-- <HiArrowLeft className="-mt-1 mr-4 inline-block size-5" /> -->
+        Back to "Projects"
+      </a>
+
+      <h2 class="mt-12 text-4xl font-bold text-white">
+        {project.title}
+      </h2>
+      <div class="mt-4 text-neutral-400">{project.description}</div>
+
+      {
+        /* TODO: Make this a GIF. With Screen Recordings and kickass animations. */
+      }
+      <div class="mx-auto my-16 h-96 w-[90%] rounded-2xl bg-neutral-800"></div>
+
+      <h4>Problem Statement</h4>
+      <p class="mt-4">
+        Government of India and it's various agencies (350k+ registered buyers)
+        advertise the 11k+ products and 300+ services required for them on an
+        open e-marketplace called as "Government e-Marketplace" (GeM). On a
+        daily basis, more than 100+ bids are posted, with 1000+ sellers
+        competing to win. To track these bids, a full-time employee is required
+        per 50 bids.
+      </p>
+      <p class="mt-4">
+        The solution was to automate the process of finding the bid according to
+        the business' capabilities, capacity and eligibility criterion.
+      </p>
+
+      <h4>Crafted Solution</h4>
+      <div>Add Images/Screens and explain</div>
+    </main>
+
+    <aside class="relative">
+      <div class="py-36"></div>
+      <div class="sticky top-32 flex w-full flex-col gap-4 text-sm">
+        <ExternalLink href={"https://github.com/"}>
+          <!-- <HiOutlineGlobeAlt className="mr-2 inline-block size-5" /> -->
+          gem.adityaborkar.com
+          <!-- <HiArrowUpRight className="absolute right-4 top-4 size-4" /> -->
+        </ExternalLink>
+
+        <ExternalLink href={"https://github.com/"}>
+          <!-- <VscGithub className="mr-2 inline-block size-5" /> -->
+          adityaborkar/gem-finder
+          <!-- <HiArrowUpRight className="absolute right-4 top-4 size-4" /> -->
+        </ExternalLink>
+
+        <div class="rounded-lg border border-neutral-700 p-4">
+          <div class="mb-2 text-base font-semibold text-neutral-100">
+            Business Outcome
+          </div>
+          <ul class="ml-1 list-inside list-disc">
+            {
+              /* {project.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))} */
+            }
+          </ul>
+        </div>
+
+        <div class="rounded-lg border border-neutral-700 p-4">
+          <div class="mb-2 text-base font-semibold text-neutral-100">
+            Tech Stack
+          </div>
+          <ul class="ml-1 flex list-inside list-disc flex-col gap-1">
+            {
+              /* {project.tech.map((tech) => (
+                  <li key={tech.name}>
+                    {tech.img}
+                    {tech.name}
+                  </li>
+                ))} */
+            }
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="my-48 text-center">
+    CALL TO ACTION:
+    {/* VIEW MORE PROJECTS/BLOGS */}
+    {/* CONTACT / SCHEDULE MEET */}
+  </div>
+</div>

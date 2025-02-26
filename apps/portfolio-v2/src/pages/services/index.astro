@@ -15,41 +15,6 @@ const title = "Services";
 const description = "Services";
 const keywords = ["Services"];
 const SchemaMarkup = [getSchemaMarkup("person")];
-
-const benefits = [
-  {
-    title: "Full Stack <br/> Development",
-    svg: "/assets/illustrations/full-stack.webm",
-  },
-  {
-    title: "AI <br/> Development",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-  {
-    title: "MVP <br/> Development",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-  {
-    title: "Custom Tech <br /> Solutions",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-  {
-    title: "3+ years of <br/> Expertise",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-  {
-    title: "100% Client Satisfaction",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-  {
-    title: "Regular Updates & Timely Delivery",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-  {
-    title: "Flexible Timezone & Work Hours",
-    svg: "/assets/illustrations/3d-chatbot-head.webm",
-  },
-];
 ---
 
 <LandingLayout
@@ -70,50 +35,9 @@ const benefits = [
 
   <TestimonialSection />
 
-  <!-- <PricingSection /> -->
+  <PricingSection />
 
   <FaqSection />
 
   <BookCallFooter />
-
-  <div
-    class="h-[8rem] bg-gradient-to-t from-background to-transparent w-screen fixed bottom-0 left-0"
-  >
-  </div>
 </LandingLayout>
-
-<script>
-  import { animate } from "motion/mini";
-  import { inView } from "motion";
-
-  const MagicFadeDownAnimation = (
-    element: Element,
-    entry: IntersectionObserverEntry,
-  ) => {
-    // console.log({ top: entry.boundingClientRect.top });
-    if (entry.boundingClientRect.top < window.innerHeight / 2) return;
-    // if (entry.boundingClientRect.bottom > window.innerHeight / 4) return;
-    animate(
-      element,
-      {
-        y: [500, 0],
-        opacity: [0, 1],
-        // filter: ["blur(10px)", "blur(0px)"],
-      },
-      { delay: 0.3, duration: 0.6 },
-    );
-  };
-
-  // inView("h3", MagicFadeDownAnimation, {
-  //   margin: "0px 0px -15% 0px",
-  //   amount: "all",
-  // });
-  // inView("section", MagicFadeDownAnimation, {
-  //   margin: "0px 0px -15% 0px",
-  // });
-
-  // Numbers
-  // animate(0, 100, {
-  //   onUpdate: latest => console.log(latest)
-  // })
-</script>
