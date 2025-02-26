@@ -36,6 +36,12 @@
   }
 }
 
+// - Biome.json
+//   - core web vitals
+//   - configure with editorconfig
+//   - TailwindCSS Auto Class Sorting
+//   - Integrate with Astro CI/CD on Vercel / SST
+
 // module.exports = {
 //   semi: false,
 //   singleQuote: true,
