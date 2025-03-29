@@ -1,11 +1,12 @@
 ---
-import { Image } from 'astro:assets';
-import Icon from '@/components/ui/Icon.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getImage, getSchemaMarkup } from '@/lib/utils';
-import BentoImage from './_BentoImage.astro';
-import Heading from './_Heading.astro';
-import Paragraph from './_Paragraph.astro';
+import { Image } from "astro:assets";
+import Icon from "@/components/ui/Icon.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getImage, getSchemaMarkup } from "@/lib/utils";
+import BentoImage from "./_BentoImage.astro";
+import Heading from "./_Heading.astro";
+import Paragraph from "./_Paragraph.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
 ---
 
 <LandingLayout
@@ -60,9 +61,9 @@ import Paragraph from './_Paragraph.astro';
   ]}
   schemaMarkup={[getSchemaMarkup("person")]}
 >
-  <main class="mx-auto w-[80vw] max-w-[48rem] py-20">
+  <main class="mx-auto w-full px-4 md:w-[80vw] md:max-w-[48rem] py-20">
     <div
-      class="my-8 flex flex-col justify-between items-center sm:flex-row magic-fade-down delay-300"
+      class="mb-8 flex flex-col justify-between md:items-center md:flex-row magic-fade-down delay-300"
     >
       <h2 class="text-2xl font-semibold">
         <!-- TODO: Animate: Wave Effect -->
@@ -70,19 +71,21 @@ import Paragraph from './_Paragraph.astro';
         <Image
           src={getImage("emoji/waving-hand.png")}
           alt=""
-          class="-mt-1 mr-4 inline-block h-10 w-fit"
+          class="-mt-1 mr-2 md:mr-4 inline-block h-10 w-fit"
         />
         Hi, I'm Aditya Borkar
       </h2>
-      <a
+      <!-- target="_blank" -->
+      <ButtonLink
         href="/cv"
-        target="_blank"
-        class="block h-fit rounded-full px-4 py-2.5 text-sm font-medium text-text-secondary hover:bg-bg-primary hover:text-text-primary max-sm:mt-6 transition-colors duration-300"
+        variant="secondary"
+        size="md"
+        class="max-sm:mt-6 w-fit"
       >
         <!-- TODO: Animate: Letters Effect -->
         <Icon icon="ArrowUpRight" class="-mt-1 ml-1 inline-block size-4" />
         Resume / CV
-      </a>
+      </ButtonLink>
     </div>
 
     <Paragraph class="magic-fade-down delay-500">
@@ -97,7 +100,7 @@ import Paragraph from './_Paragraph.astro';
     <div
       class:list={[
         "mx-auto mt-8 grid h-[120vw] w-full gap-4 md:h-[60vw] lg:max-h-[40rem]",
-        "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3 !my-32",
+        "grid-cols-2 grid-rows-4 md:grid-cols-3 md:grid-rows-3 ",
       ]}
     >
       <!-- TODO: class="delay-700" -->

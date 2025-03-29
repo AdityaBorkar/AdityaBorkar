@@ -1,20 +1,24 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import type { Thing, WithContext } from 'schema-dts';
-import CookiePopup from '@/components/CookiePopup.astro';
-import Posthog from '@/components/Posthog.astro';
-import VercelToolbar from '@/components/VercelToolbar.astro';
-import { JsonLd } from '@/lib/jsonLd';
-import './global.css';
+import type { Thing, WithContext } from "schema-dts";
+
+import { ClientRouter } from "astro:transitions";
+
+import CookiePopup from "@/components/CookiePopup.astro";
+import Posthog from "@/components/Posthog.astro";
+import VercelToolbar from "@/components/VercelToolbar.astro";
+import { JsonLd } from "@/lib/jsonLd";
+import "./global.css";
 
 interface Props {
-	title: string;
-	description: string;
-	keywords: string[];
-	schemaMarkup?: WithContext<Thing>[];
+    title: string;
+    description: string;
+    keywords: string[];
+    schemaMarkup?: WithContext<Thing>[];
 }
 
 const { title, description, keywords, schemaMarkup = [] } = Astro.props;
+
+// Adopt Vision OS Design = https://www.figma.com/design/O29ixqfOkH0VVQRGvED74A/Apple-Design-Resources---visionOS-(Community)?node-id=487-15472&p=f&t=L9Lz4VIvfQPsbK4Q-0
 ---
 
 <html lang="en">

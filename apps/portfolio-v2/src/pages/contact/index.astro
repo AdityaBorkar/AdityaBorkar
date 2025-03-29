@@ -1,25 +1,25 @@
 ---
-import ScheduleMeetBtn from '@/components/ScheduleMeetBtn.astro';
-import Button from '@/components/ui/Button.astro';
-import Input from '@/components/ui/Input.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getSchemaMarkup } from '@/lib/utils';
+import ScheduleMeetBtn from "@/components/ScheduleMeetBtn.astro";
+import Button from "@/components/ui/Button.astro";
+import Input from "@/components/ui/Input.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getSchemaMarkup } from "@/lib/utils";
 
-const title = 'Contact';
+const title = "Contact";
 const description =
-	"Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
+  "Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
 const keywords = [
-	'contact me',
-	'collaborate with me',
-	'project consultation',
-	'podcast guest',
-	'public speaking',
-	'business inquiries',
-	'partnership opportunities',
-	'freelance projects',
-	'hire a developer',
+  "contact me",
+  "collaborate with me",
+  "project consultation",
+  "podcast guest",
+  "public speaking",
+  "business inquiries",
+  "partnership opportunities",
+  "freelance projects",
+  "hire a developer",
 ];
-const SchemaMarkup = [getSchemaMarkup('person'), getSchemaMarkup('contact')];
+const SchemaMarkup = [getSchemaMarkup("person"), getSchemaMarkup("contact")];
 
 // TODO - Schedule call with form parameters
 // TODO - Add form validation
@@ -28,7 +28,7 @@ const SchemaMarkup = [getSchemaMarkup('person'), getSchemaMarkup('contact')];
 // TODO - Add form thank you message (TOAST)
 // TODO - Open Graph Image
 
-const errors = { username: '', email: '', password: '' };
+const errors = { username: "", email: "", password: "" };
 
 // if (Astro.request.method === "POST") {
 //   try {
@@ -66,7 +66,7 @@ const errors = { username: '', email: '', password: '' };
   description={description}
   schemaMarkup={SchemaMarkup}
 >
-  <main class="mx-auto my-36 w-full max-w-[36rem]">
+  <main class="mx-auto my-12 md:my-36 w-full max-w-[36rem] max-md:px-4">
     <h2
       class="mb-4 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary magic-fade-down delay-300"
     >
@@ -109,6 +109,7 @@ const errors = { username: '', email: '', password: '' };
           placeholder="Feel free to write here..."
           class="peer block h-64 w-full rounded-md bg-bg-primary px-4 py-2 border border-border/10 placeholder:text-text-tertiary group-hover:pb-24"
         ></textarea>
+        <!-- TODO: Handle responsiveness -->
         <div
           class="hidden magic-fade absolute top-6 -right-[calc(60%+0.5rem)] text-pretty w-[60%] rounded-md border border-border/20 text-text-secondary px-3 py-2 text-sm group-focus:block peer-focus:block starting:opacity-0 ease-in-out duration-300"
         >

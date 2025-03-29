@@ -1,13 +1,16 @@
 ---
 interface Props {
-	class?: string;
+    class?: string;
 }
+
+const { class: className } = Astro.props;
 ---
 
 <p
     class:list={[
-        "mt-4 text-pretty text-base text-text-tertiary max-md:text-sm",
-        Astro.props.class,
+        "mt-4 text-pretty text-sm text-text-tertiary",
+        "md:text-base",
+        className,
     ]}
 >
     <slot />

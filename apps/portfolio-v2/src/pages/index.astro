@@ -1,55 +1,60 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import BentoDiv from '@/components/BentoDiv.astro';
-import BookCallFooter from '@/components/BookCallFooter.astro';
-import ServiceCard from '@/components/ServiceCard.astro';
-import Icon from '@/components/ui/Icon.astro';
-import Marquee from '@/components/ui/Marquee.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { cn, getImage, getSchemaMarkup } from '@/lib/utils';
-import Heading from './home/_Heading.astro';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import BentoDiv from "@/components/BentoDiv.astro";
+import BookCallFooter from "@/components/BookCallFooter.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import Icon from "@/components/ui/Icon.astro";
+import Marquee from "@/components/ui/Marquee.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { cn, getImage, getSchemaMarkup } from "@/lib/utils";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Heading from "./home/_Heading.astro";
+import Tag from "./home/_Tag.astro";
+import MarqueeImage from "./home/_MarqueeImage.astro";
+import Section from "./home/_Section.astro";
 
 const FEATURED_PROJECTS = [
-	'Platipie',
-	'Vasundhara',
-	'Hooop Cloud',
-	'Blog Platform',
+  "Platipie",
+  "Vasundhara",
+  "Hooop Cloud",
+  "Blog Platform",
 ];
 
 const FEATURED_BLOGS = [
-	'Cloudflare Tunnels with SST',
-	'Android Apps with Webflow',
-	'Creating HTML Emails with Webflow',
-	'Sitemaps for Astro.js',
-	// TODO: Featured Only (2 Most Viewed and 1 Recent)
+  "Cloudflare Tunnels with SST",
+  "Android Apps with Webflow",
+  "Creating HTML Emails with Webflow",
+  "Sitemaps for Astro.js",
+  // TODO: Featured Only (2 Most Viewed and 1 Recent)
 ];
 
-const IS_AVAILABLE_NOW = false;
+const IS_AVAILABLE_NOW = true;
 
-const Projects = (await getCollection('projects')).filter((project) =>
-	FEATURED_PROJECTS.includes(project.data.title),
+const Projects = (await getCollection("projects")).filter((project) =>
+  FEATURED_PROJECTS.includes(project.data.title),
 );
-const BlogPosts = (await getCollection('blogs')).filter((blog) =>
-	FEATURED_BLOGS.includes(blog.data.title),
-);
-const Mockups = await getCollection('mockups');
-const Technologies = await getCollection('technologies');
-const Testimonials = await getCollection('testimonials');
+// const BlogPosts = (await getCollection("blogs")).filter((blog) =>
+//   FEATURED_BLOGS.includes(blog.data.title),
+// );
+const Mockups = await getCollection("mockups");
+const Technologies = await getCollection("technologies");
+const Testimonials = await getCollection("testimonials");
 
 const Mockups1 = Mockups.slice(0, Mockups.length / 2);
 const Mockups2 = Mockups.slice(Mockups.length / 2, Mockups.length);
 
 const Technologies1 = Technologies.slice(0, Technologies.length / 2);
 const Technologies2 = Technologies.slice(
-	Technologies.length / 2,
-	Technologies.length,
+  Technologies.length / 2,
+  Technologies.length,
 );
 
 const GitHubDots = [];
 for (let i = 0; i < 150; i++) {
-	const random = Math.floor(Math.random() * 3);
-	GitHubDots.push(random);
+  const random = Math.floor(Math.random() * 3);
+  GitHubDots.push(random);
 }
 
 // TODO LIST ON THIS PAGE:
@@ -79,81 +84,84 @@ for (let i = 0; i < 150; i++) {
   description="Showcasing the work of Aditya Borkar, a Mumbai-based product engineer and full-stack developer, specializing in web development, internal communications, and front-end development."
   schemaMarkup={[getSchemaMarkup("person")]}
 >
-  <section
+  <Section
     class:list={[
-      "mx-auto container pb-24 pt-12 grid-cols-1 px-4 grid max-w-[64rem] md:h-[80vh] min-h-fit md:max-h-[56rem] ",
-      "md:grid-cols-[1fr_2fr] md:pt-36 md:gap-16 md:px-0",
+      "mx-auto pb-24 pt-12 grid-cols-1 px-4 grid max-w-[64rem] min-h-fit",
+      "md:grid-cols-[1fr_2fr] md:pt-36 md:gap-16 md:px-0 md:max-h-[56rem] md:h-[80vh]",
     ]}
   >
     <div
-      class="mr-auto md:mx-auto size-40 md:size-80 overflow-hidden rounded-4xl md:rounded-full"
+      class="mr-auto md:mx-auto size-36 md:size-80 overflow-hidden rounded-4xl md:rounded-full"
     >
       <Image
         class:list={[
-          "h-full w-full -scale-x-125 scale-y-125 rounded-2xl object-cover magic-fade-right",
-          "",
+          "h-full w-full -scale-x-100 rounded-2xl object-cover magic-fade-right",
         ]}
         src={getImage("profile.png")}
         alt=""
       />
     </div>
-    <div class="mt-4 lg:-mt-8 w-[100%]">
+    <div class:list={["mt-4 w-[100%]", "lg:-mt-8"]}>
       <div
         class:list={[
-          "font-bold bg-clip-text leading-normal text-transparent from-white to-text-quarternary bg-gradient-to-br  magic-fade-down delay-300",
-          "text-3xl md:text-4xl",
+          "text-2xl font-bold bg-clip-text leading-normal text-transparent from-white to-text-quarternary bg-gradient-to-br",
+          "md:text-4xl",
+          "magic-fade-down delay-300",
         ]}
       >
         Product Engineer. <br class="md:hidden" />
-        OSS Maintainer.
-        <br class="" /> Full Stack Web Developer.
-      </div>
-
-      <div class="mb-6 mt-4 text-xs magic-fade-down delay-500">
-        <a
-          target="_blank"
-          href="https://ossacc.com/"
-          class="rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900 cursor-alias"
-          >oss/acc</a
-        >
-        <a
-          target="_blank"
-          href="https://en.wikipedia.org/wiki/Effective_altruism"
-          class="ml-2 rounded bg-green-800 px-2 py-1 font-medium tracking-wider text-white hover:bg-green-900 cursor-alias"
-          >e/altruism</a
-        >
+        OSS Maintainer. <br /> Full Stack Web Developer.
       </div>
 
       <div
-        class="mt-6 flex flex-row items-center gap-4 text-text-tertiary magic-fade-down delay-700"
+        class:list={[
+          "mt-4 text-xs flex flex-row gap-2",
+          "magic-fade-down delay-500",
+        ]}
+      >
+        <Tag href="https://ossacc.com/" label="oss/acc" />
+        <Tag
+          href="https://en.wikipedia.org/wiki/Effective_altruism"
+          label="e/altruism"
+        />
+      </div>
+
+      <div
+        class:list={[
+          "mt-4 flex flex-row items-center gap-4 text-text-tertiary",
+          "magic-fade-down delay-700",
+        ]}
       >
         <a target="_blank" href="https://github.com/AdityaBorkar">
           <Icon
             icon="GitHub"
-            class="size-6 hover:fill-text-primary fill-text"
+            class="size-6 hover:fill-text-primary fill-text-quarternary"
           />
         </a>
         <a target="_blank" href="https://twitter.com/adityab_tech">
           <Icon
             icon="Twitter"
-            class="size-6 hover:fill-text-primary fill-text"
+            class="size-6 hover:fill-text-primary fill-text-quarternary"
           />
         </a>
         <a target="_blank" href="https://linkedin.com/in/aditya-borkar">
           <Icon
             icon="LinkedIn"
-            class="size-6 hover:fill-text-primary fill-text"
+            class="size-6 hover:fill-text-primary fill-text-quarternary"
           />
         </a>
         <a href="mailto:hi@adityab.tech" class="mt-0.5">
-          <Icon icon="Mail" class="size-5 hover:text-text-primary text-text" />
+          <Icon
+            icon="Mail"
+            class="size-5 hover:text-text-primary text-text-quarternary"
+          />
         </a>
       </div>
 
       <p
         class:list={[
-          "text-balance  leading-relaxed text-text-tertiary [&>span]:font-semibold [&>span]:text-text-secondary magic-fade-down delay-1000",
-          "mt-8 md:mt-12 text-base md:text-lg",
+          "text-balance leading-relaxed text-text-tertiary [&>span]:font-semibold [&>span]:text-text-secondary magic-fade-down delay-1000",
+          "mt-8 md:mt-12 text-sm md:text-lg",
         ]}
       >
         {"I'm Aditya, an "}
@@ -180,19 +188,19 @@ for (let i = 0; i < 150; i++) {
         <span>timely manner.</span>
       </p>
 
-      <div class="mt-8 md:mt-16 flex flex-row gap-8">
-        <a
-          href="/contact"
-          class="rounded-lg bg-gradient-to-b from-text-secondary to-text-primary hover:bg-gradient-to-t px-6 py-2.5 text-base font-semibold text-background magic-fade-down delay-1200"
-        >
+      <div
+        class:list={[
+          "mt-8 flex flex-row gap-4 ",
+          "md:mt-16 md:gap-8",
+          "magic-fade-down delay-1100",
+        ]}
+      >
+        <ButtonLink variant="primary" size="lg" href="/contact">
           Enquire / Contact
-        </a>
-        <a
-          href="/projects"
-          class="rounded-lg border border-border/20 px-6 py-2.5 text-base font-semibold magic-fade-down delay-1200"
-        >
+        </ButtonLink>
+        <ButtonLink variant="secondary" size="lg" href="/projects">
           View Work
-        </a>
+        </ButtonLink>
       </div>
 
       <div
@@ -200,7 +208,7 @@ for (let i = 0; i < 150; i++) {
       >
         <div
           class:list={[
-            "relative mr-2 inline-block size-3 rounded-full -mb-0.5",
+            "relative mr-2 inline-block size-3 rounded-full ",
             IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
           ]}
         >
@@ -216,26 +224,18 @@ for (let i = 0; i < 150; i++) {
         {IS_AVAILABLE_NOW ? "Available Now" : "Limited Availability"}
       </div>
     </div>
-  </section>
+  </Section>
 
-  <!-- <section class="w-full !max-w-full" id="mockups-container">
+  <Section class="w-full !max-w-full" id="mockups-container">
     <Marquee
       id="mockups-1"
       direction="right"
       duration="30s"
-      class="my-6 magic-fade-up delay-2000 origin-bottom"
+      class:list={["my-2 magic-fade-up delay-2000 origin-bottom", "md:my-8"]}
     >
       {
         Mockups1.map(({ data: { img, id } }) => (
-          <a href={id} class:list={["mx-4 block h-[20rem] w-[36rem]"]}>
-            {/* @ts-ignore - Bug in Astro Typings */}
-            <Image
-              alt=""
-              src={getImage(img)}
-              inferSize={true}
-              class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
-            />
-          </a>
+          <MarqueeImage src={getImage(img)} alt="" href={id} />
         ))
       }
     </Marquee>
@@ -243,50 +243,42 @@ for (let i = 0; i < 150; i++) {
       id="mockups-2"
       direction="left"
       duration="30s"
-      class="my-6 magic-fade-up delay-2200 origin-top"
+      class:list={["my-2 magic-fade-up delay-2200 origin-top", "md:my-8"]}
     >
       {
         Mockups2.map(async ({ data: { img, id } }) => (
-          <a href={id} class:list={["mx-4 block h-[20rem] w-[36rem]"]}>
-            {/* @ts-ignore - Bug in Astro Typings */}
-            <Image
-              alt=""
-              src={getImage(img)}
-              inferSize={true}
-              class="marquee-content block h-full w-full rounded-lg border border-border/20 object-cover"
-            />
-          </a>
+          <MarqueeImage src={getImage(img)} alt="" href={id} />
         ))
       }
     </Marquee>
     <script>
-      import { scroll, transform, inView, animate } from "motion";
+      // import { scroll, transform, inView, animate } from "motion";
 
-      const animation1 = animate(
-        "#mockups-1",
-        { transform: ["scale(0.8)", "scale(1.3)", "scale(1)"] },
-        { ease: "linear" },
-      );
-      const animation2 = animate(
-        "#mockups-2",
-        { transform: ["scale(0.8)", "scale(1.3)", "scale(1)"] },
-        { ease: "linear" },
-      );
-      scroll(animation1, {
-        target: document.getElementById("mockups-1"),
-        offset: ["start end", "end start"],
-      });
-      scroll(animation2, {
-        target: document.getElementById("mockups-2"),
-        offset: ["start end", "end start"],
-      });
+      // const animation1 = animate(
+      //   "#mockups-1",
+      //   { transform: ["scale(0.8)", "scale(1.3)", "scale(1)"] },
+      //   { ease: "linear" },
+      // );
+      // const animation2 = animate(
+      //   "#mockups-2",
+      //   { transform: ["scale(0.8)", "scale(1.3)", "scale(1)"] },
+      //   { ease: "linear" },
+      // );
+      // scroll(animation1, {
+      //   target: document.getElementById("mockups-1"),
+      //   offset: ["start end", "end start"],
+      // });
+      // scroll(animation2, {
+      //   target: document.getElementById("mockups-2"),
+      //   offset: ["start end", "end start"],
+      // });
     </script>
-  </section> -->
+  </Section>
 
   <Heading icon="Smile" label="About">Brief About Myself</Heading>
-  <section class="grid hidden grid-cols-8 gap-4 max-w-[64rem] mx-auto">
+  <Section class="grid grid-cols-8 md:grid-cols-8 gap-4">
     <!-- IMPORTANT: HIGHLIGHT YOUR SPECIALIZATION HERE -->
-    <BentoDiv label="Motivation" className="col-span-4 row-span-4">
+    <!-- <BentoDiv label="Motivation" className="col-span-4 row-span-4">
       <p class="text-base">
         I became a programmer and product engineer because I'm passionate about
         harnessing the power of technology to solve real-world problems and make
@@ -296,33 +288,30 @@ for (let i = 0; i < 150; i++) {
         continually learn, grow, and push the boundaries of what's possible.
         {/* Passion, Problem-solving, Learning mindset */}
       </p>
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <BentoDiv label="Certifications" className="col-span-4 row-span-2">
+    <!-- <BentoDiv label="Certifications" className="col-span-4 row-span-2">
       Google Developer Expert AWS Certified
       <br />
       TopTal Vetted NextJS Expert
       <br />
       Medusa Expert
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <div class="col-span-4 flex flex-row gap-4">
-      <!-- label="Peerlist" -->
-      <!-- label="ProductHunt" -->
-      <!-- label="Dev.to" -->
-      <!-- label="IndieHackers" -->
-      <!-- label="Read.cv -->
-      <!-- label="Medium" -->
-
+    <!-- label="ProductHunt" -->
+    <!-- label="Dev.to" -->
+    <!-- label="IndieHackers" -->
+    <!-- label="Read.cv -->
+    <!-- label="Medium" -->
+    <!-- label="Peerlist" -->
+    <!-- <div class="col-span-4 flex flex-row gap-4">
       <BentoDiv className=""> Google Developer Expert </BentoDiv>
-      <!-- <BentoDiv className=""> AWS Certified </BentoDiv> -->
       <BentoDiv className=""> TopTal Vetted </BentoDiv>
       <BentoDiv className=""> NextJS Expert </BentoDiv>
       <BentoDiv className=""> Medusa Expert </BentoDiv>
-      <!-- <BentoDiv className=""> Upwork Certified </BentoDiv> -->
-    </div>
+    </div> -->
 
-    <BentoDiv className="group relative col-span-4 row-span-2">
+    <!-- <BentoDiv className="group relative col-span-4 row-span-2">
       <a
         target="_blank"
         href="https://github.com/AdityaBorkar"
@@ -355,9 +344,9 @@ for (let i = 0; i < 150; i++) {
           ))
         }
       </div>
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <BentoDiv label="Stats" className="col-span-6 row-span-2">
+    <!-- <BentoDiv label="Stats" className="col-span-6 row-span-2">
       <div class="flex flex-row justify-evenly py-4 text-center text-sm">
         <div>
           <div class="mb-2 text-2xl font-semibold">3+</div>
@@ -393,16 +382,16 @@ for (let i = 0; i < 150; i++) {
 			  cross-platforms. I love to solve problems using tech, for that, I am
 			  flexible to learn any language/library/frameworks/tools */
       }
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <BentoDiv label="Photo" className="col-span-2 row-span-5">
+    <!-- <BentoDiv label="Photo" className="col-span-2 row-span-5">
       Desk Setup
       {
         /* OR Timelapse of me working on my desk with coffee from a picturesque place */
       }
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <BentoDiv label="Tech Stack" className="col-span-4 row-span-5">
+    <!-- <BentoDiv label="Tech Stack" className="col-span-4 row-span-5">
       <Marquee direction="right" class="mb-6 mt-8" duration="3s">
         {
           Technologies1.map(({ data: tech }) => (
@@ -425,106 +414,130 @@ for (let i = 0; i < 150; i++) {
           ))
         }
       </Marquee>
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <BentoDiv label="Location" className="col-span-2 row-span-5">
+    <!-- <BentoDiv label="Location" className="col-span-2 row-span-5">
       Maps + Timezones comfortable
-    </BentoDiv>
+    </BentoDiv> -->
 
-    <BentoDiv label="Read More" className="col-span-2 row-span-2">
+    <!-- <BentoDiv label="Read More" className="col-span-2 row-span-2">
       /about
-    </BentoDiv>
-  </section>
+    </BentoDiv> -->
+  </Section>
 
-  <Heading icon="Gift" label="Services"> What We Do </Heading>
-  {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
-  <!-- Full Cycle Development -->
-  <!-- Backend Development -->
-  <!-- Frontend Development -->
-  <!--  -->
-  <!--  -->
-  <!-- UI / UX Design -->
-  <!-- Team Engineering -->
-  <!-- Technical Consultancy -->
-  <!-- Product Engineering -->
-  <!-- Lesser the CARDS -->
-  <!-- <section class="max-w-[64rem] mx-auto">
-    <div class="grid grid-cols-3 gap-8">
+  <Heading icon="Gift" label="Services"> How I Can Help You </Heading>
+  <Section>
+    <div class:list={["grid grid-cols-2 gap-4", "md:grid-cols-3 md:gap-8"]}>
       <ServiceCard image="illustrations/laptop-with-notes.png">
-        Full Cycle <br />
-        Development
+        <div slot="title">
+          Product <br />
+          Engineering
+        </div>
+        <div>Hello World</div>
       </ServiceCard>
       <ServiceCard image="illustrations/laptop-with-notes.png">
-        Prototype & <br />
-        MVP Development
+        <div slot="title">
+          Prototype & MVP <br /> Development
+        </div>
+        <div>Hello World</div>
       </ServiceCard>
       <ServiceCard image="illustrations/laptop-with-notes.png">
-        Technical <br />
-        Consultancy
+        <div slot="title">
+          Technical <br />
+          Consultancy
+        </div>
+        <div>Hello World</div>
       </ServiceCard>
       <ServiceCard image="illustrations/laptop-with-notes.png">
-        AI / Automation <br />
-        Development
+        <div slot="title">
+          AI / Automation <br />
+          Development
+        </div>
+        <div>Hello World</div>
       </ServiceCard>
       <ServiceCard image="illustrations/laptop-with-notes.png">
-        Backend <br />
-        Development
+        <div slot="title">
+          Backend <br />
+          Development
+        </div>
+        <div>Hello World</div>
       </ServiceCard>
       <ServiceCard image="illustrations/laptop-with-notes.png">
-        Frontend <br />
-        Development
+        <div slot="title">
+          Frontend <br />
+          Development
+        </div>
+        <div>Hello World</div>
       </ServiceCard>
     </div>
+    <!-- Write down some notes about the process to achieve each of the service for
+      SEO reasons. -->
+    <!-- Cross-Discipline Expertise
+        Tech Agnostic
+        Quality Assured
+        AI Engineer [SPECIALIZED]
+        Cross-Discipline Expertise
+        Tech Agnostic
+        Scalable Solutions -->
+  </Section>
+  <ButtonLink
+    variant="primary"
+    size="lg"
+    href="/services/"
+    class="block w-fit mx-auto mt-12"
+  >
+    View Service Offerings
+  </ButtonLink>
 
-    <div class="mt-12 text-base text-text-secondary">
-      Write down some notes about the process to achieve each of the service for
-      SEO reasons.
-      <a href="/services/" class="text-foreground"> /services </a>
-    </div>
-  </section> -->
-
-  <!-- Cross-Discipline Expertise
-  Tech Agnostic
-  Quality Assured
-  AI Engineer [SPECIALIZED]
-  Cross-Discipline Expertise
-  Tech Agnostic
-  Scalable Solutions -->
-
-  <!-- <Heading icon="Atom" label="Projects"> Our Selected Works </Heading>
-  <section class="grid w-full grid-cols-2 gap-8 max-w-[64rem] mx-auto">
+  <Heading icon="Atom" label="Projects"> Selected Works </Heading>
+  <Section class="grid w-full grid-cols-2 gap-4 md:grid-cols-3 md:gap-8">
     {
       Projects.map(({ data: project, id }) => (
         <a
           href={`/projects/${id}`}
-          class="rounded-2xl border border-border/20 bg-white px-8 py-6"
+          class:list={[
+            "rounded-2xl border border-border/10 bg-bg-primary px-4 py-2",
+            "md:px-8 md:py-6",
+          ]}
         >
-          <div class="text-xl font-semibold text-text-primary">
+          <div
+            class:list={[
+              "text-base font-semibold text-text-primary",
+              "md:text-xl",
+              // "magic-fade-down delay-1000",
+            ]}
+          >
             {project.title}
           </div>
-          <p class="mt-2 text-sm font-medium text-text-secondary">
+          <p
+            class:list={[
+              "mt-2 text-xs font-medium text-text-secondary",
+              "md:text-base line-clamp-3",
+            ]}
+          >
             {project.description}
           </p>
           <Image
             src={getImage("illustrations/laptop-with-notes.png")}
             alt=""
-            class="mx-auto mt-4 block h-72 w-auto object-cover"
+            class="mx-auto mt-4 block h-24 w-full md:h-72 object-cover"
           />
         </a>
       ))
     }
-  </section>
-  <a
+  </Section>
+  <ButtonLink
+    variant="primary"
+    size="lg"
     href="/projects/"
-    class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+    class="mx-auto mt-12 block w-fit"
   >
     View All Projects
-  </a>
+  </ButtonLink>
 
+  <!--
   <Heading icon="FileText" label="Blog"> Featured Writings </Heading>
-  <section
-    class="flex flex-row justify-center gap-8 overflow-auto max-w-[64rem] mx-auto"
-  >
+  <Section class="flex flex-row justify-center gap-8 overflow-auto">
     {
       BlogPosts.map(({ data: blog, id }) => (
         <a
@@ -542,21 +555,25 @@ for (let i = 0; i < 150; i++) {
         </a>
       ))
     }
-  </section>
+  </Section>
   <a
     href="/projects/"
     class="mx-auto mt-16 block w-fit rounded-full border-2 border-foreground px-8 py-4 text-base font-semibold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
   >
     View All Posts
   </a>
+  -->
 
   <Heading icon="UserCircle" label="Testimonials">What People Speak</Heading>
-  <section
-    class="flex flex-row flex-wrap items-center justify-evenly gap-8 max-w-[64rem] mx-auto"
+  <Section
+    class:list={[
+      "grid grid-cols-1 gap-4",
+      "md:flex md:flex-row md:flex-wrap md:items-center md:justify-evenly md:gap-8",
+    ]}
   >
     {
       Testimonials.map(({ data: testimonial }) => (
-        <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
+        <div class="group h-fit flex-[1_0_30%] rounded-3xl border border-border/20 bg-white px-6 py-5 dark:bg-black">
           <div class="flex flex-row items-center justify-between">
             <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
               <Icon
@@ -591,16 +608,18 @@ for (let i = 0; i < 150; i++) {
             )} */}
           </div>
 
-          <p class="mt-2 text-pretty text-sm">{testimonial.text}</p>
+          <p class="mt-4 text-pretty text-xs md:text-sm">{testimonial.text}</p>
 
           <div class="mt-4">
-            <div class="font-medium">{testimonial.id}</div>
-            <div class="text-text-secondary">{testimonial.role}</div>
+            <div class="font-medium text-text-primary">{testimonial.id}</div>
+            <div class="text-text-tertiary leading-tight">
+              {testimonial.role}
+            </div>
           </div>
         </div>
       ))
     }
-  </section> -->
+  </Section>
 
   <BookCallFooter />
 </LandingLayout>

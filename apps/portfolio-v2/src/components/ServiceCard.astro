@@ -1,24 +1,48 @@
 ---
-import { Image } from 'astro:assets';
-import { getImage } from '@/lib/assets';
-import Icon from './ui/Icon.astro';
+import { Image } from "astro:assets";
+import { getImage } from "@/lib/assets";
+import Icon from "./ui/Icon.astro";
 
 type Props = {
-	image: string;
+  image: string;
 };
+
+const { image } = Astro.props;
+
+// Use framer motion to animate the card to open and close.
+// Use lottie as an image and process the animation on hover and animation2 on open.
+// {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
 ---
 
-<div
-  class="relative cursor-pointer rounded-3xl border border-border/20 bg-white px-8 py-4 text-2xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+<details
+  class:list={[
+    "relative px-4 py-2 cursor-pointer rounded-3xl border border-border/10 bg-bg-primary transition-all duration-300",
+    "md:px-8 md:py-4",
+    "hover:scale-105 hover:shadow-lg",
+  ]}
 >
-  <Image
-    src={getImage(Astro.props.image)}
-    alt=""
-    class="mx-auto mb-6 mt-2 block h-36 w-auto"
-  />
+  <summary>
+    <Image
+      src={getImage(image)}
+      alt=""
+      class="mx-auto mb-6 mt-2 block h-20 md:h-36 w-auto"
+    />
+    <div
+      class:list={[
+        "text-left text-base font-semibold text-text-secondary",
+        "md:text-xl",
+      ]}
+    >
+      <slot name="title" />
+    </div>
+    <Icon
+      icon="CirclePlus"
+      class:list={[
+        "absolute bottom-3 right-3 text-neutral-500",
+        "md:bottom-5 md:right-5",
+      ]}
+    />
+  </summary>
+
   <slot />
-  <Icon
-    icon="CirclePlus"
-    class="absolute bottom-5 right-5 text-text-secondary"
-  />
-</div>
+</details>

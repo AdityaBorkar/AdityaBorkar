@@ -1,9 +1,15 @@
 ---
-import MoonIcon from '@/assets/icons/Moon.svg';
-import SunIcon from '@/assets/icons/Sun.svg';
+import MoonIcon from "@/assets/icons/Moon.svg";
+import SunIcon from "@/assets/icons/Sun.svg";
+
+interface Props {
+    class?: string;
+}
+
+const props = Astro.props;
 ---
 
-<div class="absolute -right-10 md:-right-14 top-1.5">
+<div class={props.class}>
     <MoonIcon
         data-theme="toggle"
         class="hidden dark:block size-9 cursor-pointer rounded-full p-2 text-text-secondary hover:bg-bg-primary transition-colors duration-300"

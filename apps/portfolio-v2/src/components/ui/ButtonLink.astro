@@ -1,0 +1,15 @@
+---
+import type { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "./Button.astro";
+
+interface Props extends VariantProps<typeof buttonVariants> {
+    href: string;
+    class?: string;
+}
+
+const { href, class: className, ...variantProps } = Astro.props;
+---
+
+<a href={href} class:list={[buttonVariants({ ...variantProps }), className]}>
+    <slot />
+</a>
