@@ -1,1 +1,1 @@
-export const SpringTransition = { type: 'spring', damping: 25, stiffness: 120 }
+export const SpringTransition = { type: 'spring', damping: 25, stiffness: 120 };

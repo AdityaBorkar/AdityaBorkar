@@ -1,12 +1,11 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Icon from '@/components/ui/Icon.astro';
+import Marquee from '@/components/ui/Marquee.astro';
+import { getImage } from '@/lib/assets';
 
-import { getImage } from "@/lib/assets";
-import Icon from "@/components/ui/Icon.astro";
-import Marquee from "@/components/ui/Marquee.astro";
-
-const Clients = await getCollection("clients");
+const Clients = await getCollection('clients');
 
 // TODO - Make component out of `LinkButton`
 ---

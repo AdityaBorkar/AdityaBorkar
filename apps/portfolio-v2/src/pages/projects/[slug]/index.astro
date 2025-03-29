@@ -1,5 +1,5 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
 // import { HiChevronRight } from 'react-icons/hi2'
 // import { LuEye, LuGithub, LuGlobe } from 'react-icons/lu'
 
@@ -13,45 +13,45 @@ import LandingLayout from "@/layouts/LandingLayout/index.astro";
 //     github_link: z.string().nullable(),
 
 export function getStaticPaths() {
-  const projects = [
-    {
-      name: "Hooop.cloud",
-      slug: "hooop.cloud",
-      description:
-        "Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.",
-      image: "/projects/hooop.png",
-      url: "https://hooop.cloud",
-      tags: ["Cloudflare", "Serverless", "Management"],
-    },
-    {
-      name: "Platipie",
-      slug: "platipie",
-      description:
-        "Platipie is a platform that allows you to create and manage your own websites and applications.",
-      image: "/projects/platipie.png",
-      url: "https://platipie.com",
-      tags: ["Webflow", "JavaScript", "TypeScript"],
-    },
-    {
-      name: "Cloud",
-      slug: "cloud",
-      description:
-        "Cloud is a platform that allows you to create and manage your own websites and applications.",
-      image: "/projects/cloud.png",
-      url: "https://cloud.com",
-      tags: ["Cloudflare", "Serverless", "Management"],
-    },
-  ];
+	const projects = [
+		{
+			name: 'Hooop.cloud',
+			slug: 'hooop.cloud',
+			description:
+				'Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.',
+			image: '/projects/hooop.png',
+			url: 'https://hooop.cloud',
+			tags: ['Cloudflare', 'Serverless', 'Management'],
+		},
+		{
+			name: 'Platipie',
+			slug: 'platipie',
+			description:
+				'Platipie is a platform that allows you to create and manage your own websites and applications.',
+			image: '/projects/platipie.png',
+			url: 'https://platipie.com',
+			tags: ['Webflow', 'JavaScript', 'TypeScript'],
+		},
+		{
+			name: 'Cloud',
+			slug: 'cloud',
+			description:
+				'Cloud is a platform that allows you to create and manage your own websites and applications.',
+			image: '/projects/cloud.png',
+			url: 'https://cloud.com',
+			tags: ['Cloudflare', 'Serverless', 'Management'],
+		},
+	];
 
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
-  }));
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}));
 }
 
 const { slug } = Astro.params;
 const { project } = Astro.props;
-if (!project) return Astro.redirect("/404");
+if (!project) return Astro.redirect('/404');
 
 const { name, description, image, url, tags } = project;
 

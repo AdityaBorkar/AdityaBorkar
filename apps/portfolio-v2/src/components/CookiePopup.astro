@@ -1,17 +1,24 @@
 ---
+// TODO: Render this only on the first visit. Save in localStorage.
 
+const showModal = false;
 ---
 
+<!-- modal popup close animation -->
 <div
-    class="fixed bottom-4 max-w-56 left-4 py-3 px-4 z-50 rounded-lg bg-background border border-border/10"
+    class:list={[
+        "fixed hidden bottom-4 max-w-64 left-4 py-4 px-5 z-50 rounded-3xl backdrop-blur-xl border border-border/10",
+        showModal && "block",
+    ]}
 >
     <div class="text-xs">
-        We value your privacy. We don't use third party cookies - only a single
-        in-house cookie.
+        We are transparent about privacy. We use only a single in-house cookie
+        to remember your preferences.
     </div>
     <button
-        class="border mx-auto block border-border/20 rounded-md w-full mt-4 py-1"
+        class="border mx-auto block border-border/10 bg-background rounded-xl w-full mt-3 py-3"
     >
-        Okay, Thanks!
+        <!-- pressed effect -->
+        Alright, got it!
     </button>
 </div>

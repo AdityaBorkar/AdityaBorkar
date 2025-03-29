@@ -1,6 +1,10 @@
-import type { ContactPage, ContactPoint, Person, WithContext } from 'schema-dts'
-
-import { SOCIALS } from './socials'
+import type {
+	ContactPage,
+	ContactPoint,
+	Person,
+	WithContext,
+} from 'schema-dts';
+import { SOCIALS } from './socials';
 
 // Added detailed Person schema with:
 // Professional roles
@@ -53,130 +57,130 @@ import { SOCIALS } from './socials'
 //   }
 // ]}
 export const Person_AdityaBorkar: WithContext<Person> = {
-  '@id': 'https://adityaborkar.com/about',
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Aditya Borkar',
-  honorificPrefix: 'Mr.',
-  familyName: 'Borkar',
-  givenName: 'Aditya',
-  gender: 'Male',
-  alternateName: 'Adi Borkar',
-  additionalName: 'Aditya Sanjay Borkar',
-  brand: 'Aditya Borkar',
+	'@id': 'https://adityaborkar.com/about',
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Aditya Borkar',
+	honorificPrefix: 'Mr.',
+	familyName: 'Borkar',
+	givenName: 'Aditya',
+	gender: 'Male',
+	alternateName: 'Adi Borkar',
+	additionalName: 'Aditya Sanjay Borkar',
+	brand: 'Aditya Borkar',
 
-  description: 'Aditya Borkar is a software engineer and entrepreneur.',
-  image: SOCIALS.image,
-  sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.strava],
-  url: 'https://adityaborkar.com/about',
-  mainEntityOfPage: 'https://adityaborkar.com/about',
-  email: SOCIALS.email,
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: SOCIALS.email,
-  },
-  workLocation: [
-    {
-      '@type': 'Place',
-      name: 'Remote',
-    },
-    {
-      '@type': 'Place',
-      name: 'Mumbai, India',
-    },
-  ],
+	description: 'Aditya Borkar is a software engineer and entrepreneur.',
+	image: SOCIALS.image,
+	sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.strava],
+	url: 'https://adityaborkar.com/about',
+	mainEntityOfPage: 'https://adityaborkar.com/about',
+	email: SOCIALS.email,
+	contactPoint: {
+		'@type': 'ContactPoint',
+		email: SOCIALS.email,
+	},
+	workLocation: [
+		{
+			'@type': 'Place',
+			name: 'Remote',
+		},
+		{
+			'@type': 'Place',
+			name: 'Mumbai, India',
+		},
+	],
 
-  jobTitle: 'Software Engineer',
-  knowsAbout: '',
-  owns: [
-    {
-      '@type': 'OwnershipInfo',
-      name: 'Platipie',
-      url: 'https://platipie.com',
-      ownedFrom: '',
-    },
-    // {
-    //   '@type': 'OwnershipInfo',
-    //   name: 'Replocal',
-    //   url: 'https://replocal.app',
-    //   ownedFrom: '',
-    // },
-    // {
-    //   '@type': 'OwnershipInfo',
-    //   name: 'DynamoDB SDK',
-    //   url: 'https://dynamodb-sdk.com',
-    //   ownedFrom: '',
-    // },
-    // {
-    //   '@type': 'OwnershipInfo',
-    //   name: 'Vasundhara Transport Service',
-    //   url: 'https://vasundhara.cc',
-    //   ownedFrom: '',
-    // },
-  ],
-  //   hasCredential: '',
-  //   alumniOf: '',
-  //   award: '',
-  //   knows: '',
+	jobTitle: 'Software Engineer',
+	knowsAbout: '',
+	owns: [
+		{
+			'@type': 'OwnershipInfo',
+			name: 'Platipie',
+			url: 'https://platipie.com',
+			ownedFrom: '',
+		},
+		// {
+		//   '@type': 'OwnershipInfo',
+		//   name: 'Replocal',
+		//   url: 'https://replocal.app',
+		//   ownedFrom: '',
+		// },
+		// {
+		//   '@type': 'OwnershipInfo',
+		//   name: 'DynamoDB SDK',
+		//   url: 'https://dynamodb-sdk.com',
+		//   ownedFrom: '',
+		// },
+		// {
+		//   '@type': 'OwnershipInfo',
+		//   name: 'Vasundhara Transport Service',
+		//   url: 'https://vasundhara.cc',
+		//   ownedFrom: '',
+		// },
+	],
+	//   hasCredential: '',
+	//   alumniOf: '',
+	//   award: '',
+	//   knows: '',
 
-  //   funder: '',
-  //   funding: '',
-  //   sponser: '',
+	//   funder: '',
+	//   funding: '',
+	//   sponser: '',
 
-  //   "hasOfferCatalog"
-  makesOffer: {
-    '@type': 'Offer',
-    name: 'Software Development Services',
-    alternateName: 'Software Development Services',
-    description: 'Custom software development services',
-    url: 'https://adityaborkar.com/services',
-    mainEntityOfPage: 'https://adityaborkar.com/services',
-    // acceptedPaymentMethod: {
-    //   '@type': 'PaymentMethod',
-    //   name: 'Credit Card',
-    // },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '1',
-    },
-    // review
-  },
+	//   "hasOfferCatalog"
+	makesOffer: {
+		'@type': 'Offer',
+		name: 'Software Development Services',
+		alternateName: 'Software Development Services',
+		description: 'Custom software development services',
+		url: 'https://adityaborkar.com/services',
+		mainEntityOfPage: 'https://adityaborkar.com/services',
+		// acceptedPaymentMethod: {
+		//   '@type': 'PaymentMethod',
+		//   name: 'Credit Card',
+		// },
+		aggregateRating: {
+			'@type': 'AggregateRating',
+			ratingValue: '5',
+			reviewCount: '1',
+		},
+		// review
+	},
 
-  //   https://schema.org/docs/actions.html
+	//   https://schema.org/docs/actions.html
 
-  //   ConsumeAction: 'viewers'
-  //   AchieveAction
-  // AssessAction
-  // ControlAction
-  // CreateAction
-  // FindAction
-  // InteractAction
-  // MoveAction
-  // OrganizeAction
-  // PlayAction
-  // SearchAction
-  // SeekToAction
-  // SolveMathAction
-  // TradeAction
-  // TransferAction
-  // UpdateAction
-  // 'potentialAction'
-}
+	//   ConsumeAction: 'viewers'
+	//   AchieveAction
+	// AssessAction
+	// ControlAction
+	// CreateAction
+	// FindAction
+	// InteractAction
+	// MoveAction
+	// OrganizeAction
+	// PlayAction
+	// SearchAction
+	// SeekToAction
+	// SolveMathAction
+	// TradeAction
+	// TransferAction
+	// UpdateAction
+	// 'potentialAction'
+};
 
 export const Contact_AdityaBorkar: WithContext<ContactPoint> = {
-  '@id': 'https://adityaborkar.com/contact',
-  '@context': 'https://schema.org',
-  '@type': 'ContactPoint',
-  name: 'Contact',
-  url: 'https://adityaborkar.com/contact',
-  email: SOCIALS.email,
-  // telephone
-  // areaServed: 'US',
-  // contactOption: 'TollFree',
-  availableLanguage: ['English'],
-  contactType: 'Customer Service',
-}
+	'@id': 'https://adityaborkar.com/contact',
+	'@context': 'https://schema.org',
+	'@type': 'ContactPoint',
+	name: 'Contact',
+	url: 'https://adityaborkar.com/contact',
+	email: SOCIALS.email,
+	// telephone
+	// areaServed: 'US',
+	// contactOption: 'TollFree',
+	availableLanguage: ['English'],
+	contactType: 'Customer Service',
+};
 
 // * for creative work:
 // const ContactPage_AdityaBorkar: WithContext<ContactPage> = {

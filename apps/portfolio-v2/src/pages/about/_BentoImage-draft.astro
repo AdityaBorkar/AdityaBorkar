@@ -1,14 +1,13 @@
 ---
-import { Image } from "astro:assets";
-
-import { getImage } from "@/lib/utils";
-import BentoImageReact from "@/pages/about/_BentoImageReact";
+import { Image } from 'astro:assets';
+import { getImage } from '@/lib/utils';
+import BentoImageReact from '@/pages/about/_BentoImageReact';
 
 interface Props {
-  src: string;
-  alt?: string;
-  class?: string;
-  caption: string;
+	src: string;
+	alt?: string;
+	class?: string;
+	caption: string;
 }
 
 // TODO - Make bite-sized videos and play them on hover

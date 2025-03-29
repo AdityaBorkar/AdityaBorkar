@@ -25,10 +25,12 @@
   - Validate HTML (<https://validator.w3.org/nu/>)
   - Accessibility
   - Unlighthouse
+  - bundle analyzers/visualizers
 
 - Test if the following things are working:
   - Signed Exchanges using Cloudflare
   - Memory Leak Detection
+  - Enable Gzip or Brotli compression
 
 - Weekly Monitoring
   - Posthog

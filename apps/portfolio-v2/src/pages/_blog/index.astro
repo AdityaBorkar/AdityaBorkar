@@ -1,22 +1,21 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { getSchemaMarkup } from '@/lib/utils';
 
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { getSchemaMarkup } from "@/lib/utils";
-
-const BlogPosts = await getCollection("blogs");
+const BlogPosts = await getCollection('blogs');
 
 const Tags = [
-  // TODO - collect tags from all posts
-  "🌐 All",
-  "💻 JavaScript / TypeScript",
-  "🔍 Dev Tooling",
-  "💡 Webflow",
-  "🚀 Cloudflare",
-  "💡 React.js",
+	// TODO - collect tags from all posts
+	'🌐 All',
+	'💻 JavaScript / TypeScript',
+	'🔍 Dev Tooling',
+	'💡 Webflow',
+	'🚀 Cloudflare',
+	'💡 React.js',
 ];
 
-const SchemaMarkup = [getSchemaMarkup("person")];
+const SchemaMarkup = [getSchemaMarkup('person')];
 ---
 
 <LandingLayout

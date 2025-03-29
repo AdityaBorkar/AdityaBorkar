@@ -1,22 +1,23 @@
 // @ts-check
-import { defineConfig } from 'astro/config'
-import MillionLint from '@million/lint'
-import tailwindcss from '@tailwindcss/vite'
-import react from '@astrojs/react'
+
+import react from '@astrojs/react';
+import MillionLint from '@million/lint';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  prefetch: {
-    defaultStrategy: 'hover',
-  },
-  integrations: [
-    react(),
-    // MillionLint.astro()
-  ],
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  experimental: {
-    responsiveImages: true,
-    svg: true,
-  },
-})
+	prefetch: {
+		defaultStrategy: 'hover',
+	},
+	integrations: [
+		react(),
+		// MillionLint.astro()
+	],
+	vite: {
+		plugins: [tailwindcss()],
+	},
+	experimental: {
+		responsiveImages: true,
+		svg: true,
+	},
+});

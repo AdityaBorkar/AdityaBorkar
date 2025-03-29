@@ -1,39 +1,38 @@
 ---
-import { getCollection } from "astro:content";
-
-import ExternalLink from "./_ExternalLink.astro";
+import { getCollection } from 'astro:content';
+import ExternalLink from './_ExternalLink.astro';
 
 export const getStaticPaths = async () => {
-  const posts = await getCollection("blogs");
-  return posts.map(({ id }) => ({ params: { slug: id } }));
+	const posts = await getCollection('blogs');
+	return posts.map(({ id }) => ({ params: { slug: id } }));
 };
 
 const project = {
-  title: "GeM Finder",
-  description:
-    "Google Chrome Extension to navigate the GeM website and get personalized bids.",
-  categories: ["Software Development", "Plugins & Extensions"],
-  tags: [
-    "Google Chrome Extension",
-    "Web Scraping",
-    "Govt. of India API",
-    "Data Analysis",
-    "Personalization",
-  ],
-  website: "gem.vasundhara.cc",
-  github: "",
-  tech: [
-    { name: "TypeScript", img: "" },
-    { name: "PWA (Web App)", img: "" },
-    { name: "Chrome Extension", img: "" },
-    { name: "Plasmo", img: "" },
-    { name: "TailwindCSS", img: "" },
-    { name: "Cloudflare Workers", img: "" },
-    { name: "Cloudflare D1", img: "" },
-    { name: "WhatsApp Business API", img: "" },
-  ],
-  heroImage: "",
-  highlights: ["34% Revenue Growth y-o-y", "Saved 120+ man-hours per month"],
+	title: 'GeM Finder',
+	description:
+		'Google Chrome Extension to navigate the GeM website and get personalized bids.',
+	categories: ['Software Development', 'Plugins & Extensions'],
+	tags: [
+		'Google Chrome Extension',
+		'Web Scraping',
+		'Govt. of India API',
+		'Data Analysis',
+		'Personalization',
+	],
+	website: 'gem.vasundhara.cc',
+	github: '',
+	tech: [
+		{ name: 'TypeScript', img: '' },
+		{ name: 'PWA (Web App)', img: '' },
+		{ name: 'Chrome Extension', img: '' },
+		{ name: 'Plasmo', img: '' },
+		{ name: 'TailwindCSS', img: '' },
+		{ name: 'Cloudflare Workers', img: '' },
+		{ name: 'Cloudflare D1', img: '' },
+		{ name: 'WhatsApp Business API', img: '' },
+	],
+	heroImage: '',
+	highlights: ['34% Revenue Growth y-o-y', 'Saved 120+ man-hours per month'],
 };
 
 const SchemaMarkup = [];

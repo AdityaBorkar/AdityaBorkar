@@ -1,56 +1,55 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import BookCallFooter from "@/components/BookCallFooter.astro";
-import Heading from "./home/_Heading.astro";
-import BentoDiv from "@/components/BentoDiv.astro";
-import ServiceCard from "@/components/ServiceCard.astro";
-import Marquee from "@/components/ui/Marquee.astro";
-import Icon from "@/components/ui/Icon.astro";
-import { cn, getSchemaMarkup, getImage } from "@/lib/utils";
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BentoDiv from '@/components/BentoDiv.astro';
+import BookCallFooter from '@/components/BookCallFooter.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Icon from '@/components/ui/Icon.astro';
+import Marquee from '@/components/ui/Marquee.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { cn, getImage, getSchemaMarkup } from '@/lib/utils';
+import Heading from './home/_Heading.astro';
 
 const FEATURED_PROJECTS = [
-  "Platipie",
-  "Vasundhara",
-  "Hooop Cloud",
-  "Blog Platform",
+	'Platipie',
+	'Vasundhara',
+	'Hooop Cloud',
+	'Blog Platform',
 ];
 
 const FEATURED_BLOGS = [
-  "Cloudflare Tunnels with SST",
-  "Android Apps with Webflow",
-  "Creating HTML Emails with Webflow",
-  "Sitemaps for Astro.js",
-  // TODO: Featured Only (2 Most Viewed and 1 Recent)
+	'Cloudflare Tunnels with SST',
+	'Android Apps with Webflow',
+	'Creating HTML Emails with Webflow',
+	'Sitemaps for Astro.js',
+	// TODO: Featured Only (2 Most Viewed and 1 Recent)
 ];
 
 const IS_AVAILABLE_NOW = false;
 
-const Projects = (await getCollection("projects")).filter((project) =>
-  FEATURED_PROJECTS.includes(project.data.title),
+const Projects = (await getCollection('projects')).filter((project) =>
+	FEATURED_PROJECTS.includes(project.data.title),
 );
-const BlogPosts = (await getCollection("blogs")).filter((blog) =>
-  FEATURED_BLOGS.includes(blog.data.title),
+const BlogPosts = (await getCollection('blogs')).filter((blog) =>
+	FEATURED_BLOGS.includes(blog.data.title),
 );
-const Mockups = await getCollection("mockups");
-const Technologies = await getCollection("technologies");
-const Testimonials = await getCollection("testimonials");
+const Mockups = await getCollection('mockups');
+const Technologies = await getCollection('technologies');
+const Testimonials = await getCollection('testimonials');
 
 const Mockups1 = Mockups.slice(0, Mockups.length / 2);
 const Mockups2 = Mockups.slice(Mockups.length / 2, Mockups.length);
 
 const Technologies1 = Technologies.slice(0, Technologies.length / 2);
 const Technologies2 = Technologies.slice(
-  Technologies.length / 2,
-  Technologies.length,
+	Technologies.length / 2,
+	Technologies.length,
 );
 
 const GitHubDots = [];
 for (let i = 0; i < 150; i++) {
-  const random = Math.floor(Math.random() * 3);
-  GitHubDots.push(random);
+	const random = Math.floor(Math.random() * 3);
+	GitHubDots.push(random);
 }
 
 // TODO LIST ON THIS PAGE:
@@ -81,21 +80,33 @@ for (let i = 0; i < 150; i++) {
   schemaMarkup={[getSchemaMarkup("person")]}
 >
   <section
-    class="mx-auto pb-24 pt-36 grid max-w-[64rem] h-[80vh] min-h-fit max-h-[56rem] grid-cols-[1fr_2fr] gap-16"
+    class:list={[
+      "mx-auto container pb-24 pt-12 grid-cols-1 px-4 grid max-w-[64rem] md:h-[80vh] min-h-fit md:max-h-[56rem] ",
+      "md:grid-cols-[1fr_2fr] md:pt-36 md:gap-16 md:px-0",
+    ]}
   >
-    <div class="mx-auto size-80 overflow-hidden rounded-full">
+    <div
+      class="mr-auto md:mx-auto size-40 md:size-80 overflow-hidden rounded-4xl md:rounded-full"
+    >
       <Image
-        class="h-full w-full -scale-x-125 scale-y-125 rounded-full object-cover magic-fade-right"
+        class:list={[
+          "h-full w-full -scale-x-125 scale-y-125 rounded-2xl object-cover magic-fade-right",
+          "",
+        ]}
         src={getImage("profile.png")}
         alt=""
       />
     </div>
-    <div class="-mt-8 w-[100%]">
+    <div class="mt-4 lg:-mt-8 w-[100%]">
       <div
-        class="text-4xl font-bold bg-clip-text text-transparent from-white to-text-quarternary bg-gradient-to-br leading-[1.5] magic-fade-down delay-300"
+        class:list={[
+          "font-bold bg-clip-text leading-normal text-transparent from-white to-text-quarternary bg-gradient-to-br  magic-fade-down delay-300",
+          "text-3xl md:text-4xl",
+        ]}
       >
-        Product Engineer. OSS Maintainer.
-        <br /> Full Stack Web Developer.
+        Product Engineer. <br class="md:hidden" />
+        OSS Maintainer.
+        <br class="" /> Full Stack Web Developer.
       </div>
 
       <div class="mb-6 mt-4 text-xs magic-fade-down delay-500">
@@ -140,11 +151,20 @@ for (let i = 0; i < 150; i++) {
       </div>
 
       <p
-        class="mt-12 text-balance text-lg leading-relaxed text-text-tertiary [&>span]:font-semibold [&>span]:text-text-secondary magic-fade-down delay-1000"
+        class:list={[
+          "text-balance  leading-relaxed text-text-tertiary [&>span]:font-semibold [&>span]:text-text-secondary magic-fade-down delay-1000",
+          "mt-8 md:mt-12 text-base md:text-lg",
+        ]}
       >
         {"I'm Aditya, an "}
         <span>product engineer</span>
-        {" based in 🇮🇳-EMOJI India with"}
+        {" based in "}
+        <Image
+          src={getImage("emoji/in-flag.png")}
+          alt=""
+          class="inline-block h-6 w-fit"
+        />
+        {" India with"}
         <span>3+ years of experience</span>
         {" in creating "}
         <span>high-quality products</span>
@@ -160,7 +180,7 @@ for (let i = 0; i < 150; i++) {
         <span>timely manner.</span>
       </p>
 
-      <div class="mt-16 flex flex-row gap-8">
+      <div class="mt-8 md:mt-16 flex flex-row gap-8">
         <a
           href="/contact"
           class="rounded-lg bg-gradient-to-b from-text-secondary to-text-primary hover:bg-gradient-to-t px-6 py-2.5 text-base font-semibold text-background magic-fade-down delay-1200"
@@ -198,7 +218,7 @@ for (let i = 0; i < 150; i++) {
     </div>
   </section>
 
-  <section class="w-full !max-w-full" id="mockups-container">
+  <!-- <section class="w-full !max-w-full" id="mockups-container">
     <Marquee
       id="mockups-1"
       direction="right"
@@ -261,10 +281,10 @@ for (let i = 0; i < 150; i++) {
         offset: ["start end", "end start"],
       });
     </script>
-  </section>
+  </section> -->
 
   <Heading icon="Smile" label="About">Brief About Myself</Heading>
-  <section class="grid grid-cols-8 gap-4 max-w-[64rem] mx-auto">
+  <section class="grid hidden grid-cols-8 gap-4 max-w-[64rem] mx-auto">
     <!-- IMPORTANT: HIGHLIGHT YOUR SPECIALIZATION HERE -->
     <BentoDiv label="Motivation" className="col-span-4 row-span-4">
       <p class="text-base">
@@ -428,7 +448,7 @@ for (let i = 0; i < 150; i++) {
   <!-- Technical Consultancy -->
   <!-- Product Engineering -->
   <!-- Lesser the CARDS -->
-  <section class="max-w-[64rem] mx-auto">
+  <!-- <section class="max-w-[64rem] mx-auto">
     <div class="grid grid-cols-3 gap-8">
       <ServiceCard image="illustrations/laptop-with-notes.png">
         Full Cycle <br />
@@ -461,7 +481,7 @@ for (let i = 0; i < 150; i++) {
       SEO reasons.
       <a href="/services/" class="text-foreground"> /services </a>
     </div>
-  </section>
+  </section> -->
 
   <!-- Cross-Discipline Expertise
   Tech Agnostic
@@ -471,7 +491,7 @@ for (let i = 0; i < 150; i++) {
   Tech Agnostic
   Scalable Solutions -->
 
-  <Heading icon="Atom" label="Projects"> Our Selected Works </Heading>
+  <!-- <Heading icon="Atom" label="Projects"> Our Selected Works </Heading>
   <section class="grid w-full grid-cols-2 gap-8 max-w-[64rem] mx-auto">
     {
       Projects.map(({ data: project, id }) => (
@@ -580,7 +600,7 @@ for (let i = 0; i < 150; i++) {
         </div>
       ))
     }
-  </section>
+  </section> -->
 
   <BookCallFooter />
 </LandingLayout>

@@ -1,19 +1,17 @@
 ---
-import type { Thing, WithContext } from "schema-dts";
-
-import { ClientRouter } from "astro:transitions";
-
-import Posthog from "@/components/Posthog.astro";
-import VercelToolbar from "@/components/VercelToolbar.astro";
-import CookiePopup from "@/components/CookiePopup.astro";
-import { JsonLd } from "@/lib/jsonLd";
-import "./global.css";
+import { ClientRouter } from 'astro:transitions';
+import type { Thing, WithContext } from 'schema-dts';
+import CookiePopup from '@/components/CookiePopup.astro';
+import Posthog from '@/components/Posthog.astro';
+import VercelToolbar from '@/components/VercelToolbar.astro';
+import { JsonLd } from '@/lib/jsonLd';
+import './global.css';
 
 interface Props {
-    title: string;
-    description: string;
-    keywords: string[];
-    schemaMarkup?: WithContext<Thing>[];
+	title: string;
+	description: string;
+	keywords: string[];
+	schemaMarkup?: WithContext<Thing>[];
 }
 
 const { title, description, keywords, schemaMarkup = [] } = Astro.props;
@@ -22,7 +20,7 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Accept-CH" content="Width, Downlink, Sec-CH-UA" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <!--
@@ -72,8 +70,9 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
     </head>
     <body
         class="text-sm leading-normal antialiased relative min-h-screen cursor-default bg-background text-text-secondary"
+        transition:animate="slide"
     >
-        <!-- transition:animate="slide" -->
+        <!-- The sideones must be darker than the body -->
         <!--
         'before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full',
         'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',

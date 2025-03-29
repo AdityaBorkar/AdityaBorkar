@@ -1,8 +1,15 @@
 {
-  "type": "module",
-  "workspaces": ["apps/*"],
-  "dependencies": {
-    "@biomejs/biome": "^1.9.4"
-  },
-  "trustedDependencies": ["@biomejs/biome", "@vercel/speed-insights", "esbuild", "sharp"]
+	"type": "module",
+	"workspaces": [
+		"apps/*"
+	],
+	"dependencies": {
+		"@biomejs/biome": "^2.0.0-beta.1"
+	},
+	"trustedDependencies": [
+		"@biomejs/biome",
+		"@vercel/speed-insights",
+		"esbuild",
+		"sharp"
+	]
 }

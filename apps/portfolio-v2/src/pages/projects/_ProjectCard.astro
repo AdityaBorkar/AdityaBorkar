@@ -1,10 +1,10 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
-interface Props extends CollectionEntry<"projects"> {}
+interface Props extends CollectionEntry<'projects'> {}
 
 const {
-  data: { title, description, hero_image, tags },
+	data: { title, description, hero_image, tags },
 } = Astro.props;
 
 // onMouseMove={(e) => {

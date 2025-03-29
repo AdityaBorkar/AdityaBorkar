@@ -1,36 +1,36 @@
 [
-  {
-    "id": "AIESEC",
-    "logo": "logo/aiesec.png",
-    "className": "py-1"
-  },
-  {
-    "id": "VeryFirstTale",
-    "logo": "logo/vft.webp"
-  },
-  {
-    "id": "Platipie",
-    "logo": "logo/platipie.svg"
-  },
-  {
-    "id": "Raspberry Pi Foundation",
-    "logo": "logo/rpf.svg"
-  },
-  {
-    "id": "AIESECa",
-    "logo": "logo/aiesec.png",
-    "className": "py-1"
-  },
-  {
-    "id": "VeryFirstTalea",
-    "logo": "logo/vft.webp"
-  },
-  {
-    "id": "Platipiea",
-    "logo": "logo/platipie.svg"
-  },
-  {
-    "id": "Raspberry Pi Foundationa",
-    "logo": "logo/rpf.svg"
-  }
+	{
+		"id": "AIESEC",
+		"logo": "logo/aiesec.png",
+		"className": "py-1"
+	},
+	{
+		"id": "VeryFirstTale",
+		"logo": "logo/vft.webp"
+	},
+	{
+		"id": "Platipie",
+		"logo": "logo/platipie.svg"
+	},
+	{
+		"id": "Raspberry Pi Foundation",
+		"logo": "logo/rpf.svg"
+	},
+	{
+		"id": "AIESECa",
+		"logo": "logo/aiesec.png",
+		"className": "py-1"
+	},
+	{
+		"id": "VeryFirstTalea",
+		"logo": "logo/vft.webp"
+	},
+	{
+		"id": "Platipiea",
+		"logo": "logo/platipie.svg"
+	},
+	{
+		"id": "Raspberry Pi Foundationa",
+		"logo": "logo/rpf.svg"
+	}
 ]

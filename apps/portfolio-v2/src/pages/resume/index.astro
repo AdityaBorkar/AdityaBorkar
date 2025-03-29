@@ -1,14 +1,14 @@
 ---
-import fs from "node:fs";
-import path from "node:path";
+import fs from 'node:fs';
+import path from 'node:path';
 
-const filePath = path.resolve("./public/resume.pdf");
+const filePath = path.resolve('./public/resume.pdf');
 const file = await fs.promises.readFile(filePath);
 return new Response(file, {
-    headers: {
-        "Content-Type": "application/pdf",
-        "Content-Disposition": 'inline; filename="resume.pdf"',
-    },
+	headers: {
+		'Content-Type': 'application/pdf',
+		'Content-Disposition': 'inline; filename="resume.pdf"',
+	},
 });
 
 // TODO: Add canonical url

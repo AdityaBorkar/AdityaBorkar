@@ -1,11 +1,11 @@
 [
-  { "id": "JavaScript", "logo": "logo/javascript.png" },
-  { "id": "TypeScript", "logo": "logo/typescript.png" },
-  { "id": "React.js", "logo": "logo/reactjs.png" },
-  { "id": "Million.js", "logo": "logo/millionjs.jpg" },
-  { "id": "SolidStart", "logo": "logo/solidstart.svg" },
-  { "id": "AWS", "logo": "logo/aws.png" },
-  { "id": "CloudFlare", "logo": "logo/cloudflare.png" },
-  { "id": "Vercel", "logo": "logo/vercel.svg" },
-  { "id": "Google Cloud", "logo": "logo/googlecloud.svg" }
+	{ "id": "JavaScript", "logo": "logo/javascript.png" },
+	{ "id": "TypeScript", "logo": "logo/typescript.png" },
+	{ "id": "React.js", "logo": "logo/reactjs.png" },
+	{ "id": "Million.js", "logo": "logo/millionjs.jpg" },
+	{ "id": "SolidStart", "logo": "logo/solidstart.svg" },
+	{ "id": "AWS", "logo": "logo/aws.png" },
+	{ "id": "CloudFlare", "logo": "logo/cloudflare.png" },
+	{ "id": "Vercel", "logo": "logo/vercel.svg" },
+	{ "id": "Google Cloud", "logo": "logo/googlecloud.svg" }
 ]

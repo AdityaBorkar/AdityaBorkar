@@ -1,17 +1,17 @@
 ---
-import { getImage } from "@/lib/utils";
-import BentoImageReact from "@/pages/about/_BentoImageReact";
+import { getImage } from '@/lib/utils';
+import BentoImageReact from '@/pages/about/_BentoImageReact';
 
 interface Props {
-  src: string;
-  alt?: string;
-  caption: string;
-  wrapperClass?: string;
+	src: string;
+	alt?: string;
+	caption: string;
+	wrapperClass?: string;
 }
 
 const img = await getImage(Astro.props.src);
-const fullPath = img.default.src.split("/");
-const relativePath = fullPath.slice(-3).join("/");
+const fullPath = img.default.src.split('/');
+const relativePath = fullPath.slice(-3).join('/');
 
 // TODO: Make bite-sized videos and play them on hover
 

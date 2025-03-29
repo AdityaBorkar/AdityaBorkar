@@ -1,16 +1,15 @@
 ---
-import { useRef } from "react";
-import Image from "next/image";
+import debounce from 'debounce';
+import Image from 'next/image';
+import { useRef } from 'react';
 // import { HiLink, HiOutlineFolderOpen } from 'react-icons/hi2'
-import { BiLink } from "react-icons/bi";
+import { BiLink } from 'react-icons/bi';
 // import Lottie from '@lottielab/lottie-player/react'
-import { toast } from "sonner";
-import debounce from "debounce";
-
-import LottieFilesLogo from "@/lib/logo/lottiefiles_for_white.svg";
-import WinkingFace from "@/lib/res/winking_face.gif";
-import { handleJsonUrl } from "./handleJsonUrl";
-import { handleHtmlUrl } from "./handleHtmlUrl";
+import { toast } from 'sonner';
+import LottieFilesLogo from '@/lib/logo/lottiefiles_for_white.svg';
+import WinkingFace from '@/lib/res/winking_face.gif';
+import { handleHtmlUrl } from './handleHtmlUrl';
+import { handleJsonUrl } from './handleJsonUrl';
 
 // Universal Example - https://cdn.lottielab.com/l/3Sy1ZqR8c4P6dz.json
 
@@ -19,33 +18,33 @@ const ErrorRef = useRef<HTMLDivElement>(null);
 const DownloadButtonRef = useRef<HTMLAnchorElement>(null);
 
 async function handleUrlChange(e: React.ChangeEvent<HTMLInputElement>) {
-  if (!ErrorRef.current || !DownloadButtonRef.current) return;
+	if (!ErrorRef.current || !DownloadButtonRef.current) return;
 
-  const url = e.target.value;
-  if (!url) return;
-  if (
-    !url.startsWith("https://cdn.lottielab.com/l/") &&
-    !url.endsWith(".json") &&
-    !url.endsWith(".html")
-  ) {
-    ErrorRef.current.style.visibility = "visible";
-  } else {
-    ErrorRef.current.style.visibility = "hidden";
-    const { name, json } = url.endsWith(".json")
-      ? await handleJsonUrl(url)
-      : await handleHtmlUrl(url);
+	const url = e.target.value;
+	if (!url) return;
+	if (
+		!url.startsWith('https://cdn.lottielab.com/l/') &&
+		!url.endsWith('.json') &&
+		!url.endsWith('.html')
+	) {
+		ErrorRef.current.style.visibility = 'visible';
+	} else {
+		ErrorRef.current.style.visibility = 'hidden';
+		const { name, json } = url.endsWith('.json')
+			? await handleJsonUrl(url)
+			: await handleHtmlUrl(url);
 
-    const blob = new Blob([JSON.stringify(json)], {
-      type: "application/json",
-    });
-    const downloadUrl = URL.createObjectURL(blob);
-    DownloadButtonRef.current.href = downloadUrl;
-    DownloadButtonRef.current.download = `${name}.json`;
-    DownloadButtonRef.current.click();
-    URL.revokeObjectURL(downloadUrl);
+		const blob = new Blob([JSON.stringify(json)], {
+			type: 'application/json',
+		});
+		const downloadUrl = URL.createObjectURL(blob);
+		DownloadButtonRef.current.href = downloadUrl;
+		DownloadButtonRef.current.download = `${name}.json`;
+		DownloadButtonRef.current.click();
+		URL.revokeObjectURL(downloadUrl);
 
-    toast.success("Compressed JSON file successfully!");
-  }
+		toast.success('Compressed JSON file successfully!');
+	}
 }
 
 // Card / Grid View

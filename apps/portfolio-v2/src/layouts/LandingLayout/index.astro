@@ -1,64 +1,77 @@
 ---
-import type { Thing, WithContext } from "schema-dts";
-
-import RootLayout from "../RootLayout.astro";
-import FooterLink from "./FooterLink.astro";
-
-import GitHubIcon from "@/assets/icons/GitHub.svg";
-import TwitterIcon from "@/assets/icons/Twitter.svg";
-import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
-import AiAssistant from "@/components/AiAssistant.astro";
-import Navbar from "./Navbar.astro";
-import Theme from "./Theme.astro";
+import type { Thing, WithContext } from 'schema-dts';
+import GitHubIcon from '@/assets/icons/GitHub.svg';
+import LinkedinIcon from '@/assets/icons/LinkedIn.svg';
+import TwitterIcon from '@/assets/icons/Twitter.svg';
+import AiAssistant from '@/components/AiAssistant.astro';
+import RootLayout from '../RootLayout.astro';
+import FooterLink from './FooterLink.astro';
+import Navbar from './Navbar.astro';
+import Theme from './Theme.astro';
 
 interface Props {
-  title: string;
-  description: string;
-  keywords: string[];
-  schemaMarkup?: WithContext<Thing>[];
+	title: string;
+	description: string;
+	keywords: string[];
+	schemaMarkup?: WithContext<Thing>[];
 }
 
 // TODO: Shift view transitions to animate
 ---
 
 <RootLayout {...Astro.props}>
-  <!-- TODO: Animate Header only on Theme Change -->
-  <header
-    transition:persist
-    transition:animate="none"
-    class:list={[
-      "w-[75vw] max-w-[54rem] md:w-[85vw]",
-      "sticky top-8 z-50 mx-auto flex select-none flex-row mt-4  justify-between rounded-full border border-border/10 px-2 bg-bg-primary/50 shadow-bg-tertiary/10 shadow-md backdrop-blur-xl",
-    ]}
-  >
-    <a
-      href="/"
-      class="my-2 font-bold flex flex-row items-center text-text-primary"
-    >
-      <div
-        class="inline-block rounded-full border-2 border-border px-2 py-0 text-xl tracking-wider"
-      >
-        A/B
-      </div>
-      <div class="ml-2 inline-block align-bottom text-2xl">Adi.</div>
-    </a>
-
-    <Navbar />
-
-    <Theme />
-  </header>
+  <Navbar />
 
   <slot />
 
-  <footer class="mx-[5vw] rounded-4xl bg-emerald-700 h-[50vh] mt-16"></footer>
+  <footer class="mx-[5vw] rounded-4xl *:px-8 bg-neutral-950 mt-16">
+    <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
+    <div class="h-[30vh] border-b !px-0 border-bg-primary"></div>
+    <div class="flex flex-row gap-8 py-8 justify-around">
+      <div class="">
+        <div class="mb-3 font-medium text-bg-tertiary/60">Me</div>
+        <FooterLink href="/">Home</FooterLink>
+        <FooterLink href="/about">About</FooterLink>
+        <FooterLink href="/contact">Contact</FooterLink>
+      </div>
+      <div class="">
+        <div class="mb-3 font-medium text-bg-tertiary/60">Work</div>
+        <FooterLink href="/projects">Projects</FooterLink>
+        <FooterLink href="/labs">Labs</FooterLink>
+        <!-- <FooterLink href="/blog">Blog</FooterLink> -->
+      </div>
+      <div class="">
+        <div class="mb-3 shrink-0 font-medium text-bg-tertiary/60">
+          Services
+        </div>
+        <FooterLink href="/services">Product Engineer</FooterLink>
+        <FooterLink href="/services">AI Engineer</FooterLink>
+      </div>
+    </div>
+    <div class="flex flex-row pb-6 justify-around">
+      <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
+      <FooterLink href="https://x.com/adityab_tech">
+        <TwitterIcon class="size-5 -mt-1 inline-block fill-bg-secondary/70" />
+        Twitter (X)
+      </FooterLink>
+      <FooterLink href="https://linkedin.com/in/adityab_tech">
+        <LinkedinIcon class="size-5 -mt-1 inline-block fill-bg-secondary/70" />
+        LinkedIn
+      </FooterLink>
+      <FooterLink href="https://github.com/AdityaBorkar">
+        <GitHubIcon class="size-5 -mt-1 inline-block fill-bg-secondary/70" />
+        GitHub
+      </FooterLink>
+    </div>
+  </footer>
 
   <footer
-    class="py-12 text-center opacity-40 text-text-primary hover:opacity-100 transition-opacity duration-500"
+    class="py-6 md:py-12 text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
   >
     Designed & Developed with ❤️ by Aditya Borkar
   </footer>
 
-  <footer class="text-base hidden py-4 bg-text-primary text-bg-tertiary">
+  <footer class="text-base hidden md:py-4 bg-text-primary text-bg-tertiary">
     <div class="mx-auto pt-12 flex max-w-[56rem] flex-row justify-between">
       <div class="w-fit">
         <div class="mr-[5vw] w-fit text-center text-bg-primary">
@@ -125,12 +138,11 @@ interface Props {
   </footer>
 
   <!-- TODO: Design Review -->
-  <!--
-  <div
-    class="h-[8rem] bg-gradient-to-t from-background to-transparent w-screen fixed bottom-0 left-0"
+  <!-- TODO: Disable Gradients in the footer. -->
+  <!-- <div
+    class="h-[12rem] md:h-[8rem] bg-gradient-to-t from-background to-transparent w-screen fixed bottom-0 left-0"
   >
-  </div>
-  -->
+  </div> -->
 
   <AiAssistant />
 </RootLayout>

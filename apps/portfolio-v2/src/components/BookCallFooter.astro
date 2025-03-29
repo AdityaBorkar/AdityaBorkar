@@ -1,9 +1,11 @@
 ---
-import CursorBubble from "./CursorBubble.astro";
+import CursorBubble from './CursorBubble.astro';
+
+// Adopt Vision OS Design = https://www.figma.com/design/O29ixqfOkH0VVQRGvED74A/Apple-Design-Resources---visionOS-(Community)?node-id=487-15472&p=f&t=L9Lz4VIvfQPsbK4Q-0
 ---
 
-<section class="relative pb-48 pt-72 max-w-[64rem] mx-auto">
-  <div class="relative px-24">
+<section class="relative pb-24 md:pb-48 pt-48 md:pt-72 max-w-[64rem] mx-auto">
+  <div class="relative px-8 md:px-24">
     <CursorBubble
       class="-top-[15%] right-16 bg-purple-500"
       fillColor="fill-purple-500"
@@ -24,7 +26,7 @@ import CursorBubble from "./CursorBubble.astro";
       fillColor="fill-emerald-500"
       text="Customers"
     />
-    <div class="text-center text-5xl font-semibold leading-normal">
+    <div class="text-center text-3xl md:text-5xl font-semibold leading-normal">
       {"Let's"}
       <span class="font-sans-serif font-normal italic tracking-tight">
         discuss
@@ -41,8 +43,8 @@ import CursorBubble from "./CursorBubble.astro";
 
   <button
     type="button"
-    class="mx-auto mt-36 block rounded-lg hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 transition-all duration-300 cursor-pointer px-12 py-4 text-xl font-semibold text-background"
+    class="mx-auto uppercase font-bold mt-36 block rounded-2xl hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 transition-all duration-300 cursor-pointer px-12 py-4 text-xl text-background"
   >
-    Book a call
+    Book a Call
   </button>
 </section>
