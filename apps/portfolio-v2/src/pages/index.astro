@@ -109,8 +109,10 @@ for (let i = 0; i < 150; i++) {
           "magic-fade-down delay-300",
         ]}
       >
-        Product Engineer. <br class="md:hidden" />
-        OSS Maintainer. <br /> Full Stack Web Developer.
+        Product Engineer.
+        <!-- <br class="md:hidden" /> OSS Maintainer.  -->
+        <br />
+        Full Stack Web Developer.
       </div>
 
       <div
@@ -490,37 +492,44 @@ for (let i = 0; i < 150; i++) {
   </ButtonLink>
 
   <Heading icon="Atom" label="Projects"> Selected Works </Heading>
-  <Section class="grid w-full grid-cols-2 gap-4 md:grid-cols-3 md:gap-8">
+  <Section
+    class:list={["grid w-full grid-cols-1 gap-6", "md:grid-cols-3 md:gap-8"]}
+  >
     {
       Projects.map(({ data: project, id }) => (
         <a
           href={`/projects/${id}`}
           class:list={[
-            "rounded-2xl border border-border/10 bg-bg-primary px-4 py-2",
-            "md:px-8 md:py-6",
+            "rounded-2xl border border-border/10 bg-bg-primary pl-4 pr-2 py-2",
+            "md:px-8 md:py-6 max-md:grid max-md:grid-cols-2 max-md:gap-4",
           ]}
         >
-          <div
-            class:list={[
-              "text-base font-semibold text-text-primary",
-              "md:text-xl",
-              // "magic-fade-down delay-1000",
-            ]}
-          >
-            {project.title}
+          <div>
+            <div
+              class:list={[
+                "text-lg font-semibold text-text-primary",
+                "max-md:my-2 md:text-xl",
+                // "magic-fade-down delay-1000",
+              ]}
+            >
+              {project.title}
+            </div>
+            <p
+              class:list={[
+                "mt-1 text-xs text-text-tertiary line-clamp-3",
+                "md:mt-2 md:text-sm",
+              ]}
+            >
+              {project.description}
+            </p>
           </div>
-          <p
-            class:list={[
-              "mt-2 text-xs font-medium text-text-secondary",
-              "md:text-base line-clamp-3",
-            ]}
-          >
-            {project.description}
-          </p>
           <Image
             src={getImage("illustrations/laptop-with-notes.png")}
             alt=""
-            class="mx-auto mt-4 block h-24 w-full md:h-72 object-cover"
+            class:list={[
+              "mx-auto bg-background rounded-xl block h-36 w-full object-cover",
+              "md:mt-4 md:h-72",
+            ]}
           />
         </a>
       ))
@@ -571,9 +580,10 @@ for (let i = 0; i < 150; i++) {
       "md:flex md:flex-row md:flex-wrap md:items-center md:justify-evenly md:gap-8",
     ]}
   >
+    <!-- HIGHLIGHT cursor bg -->
     {
       Testimonials.map(({ data: testimonial }) => (
-        <div class="group h-fit flex-[1_0_30%] rounded-3xl border border-border/20 bg-white px-6 py-5 dark:bg-black">
+        <div class="group h-fit flex-[1_0_30%] rounded-3xl border border-border/20 bg-background px-6 py-5">
           <div class="flex flex-row items-center justify-between">
             <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
               <Icon

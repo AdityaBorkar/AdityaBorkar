@@ -1,6 +1,7 @@
 {
 	"name": "portfolio-v2",
 	"type": "module",
+	"license": "CC BY-NC 4.0",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "astro dev",

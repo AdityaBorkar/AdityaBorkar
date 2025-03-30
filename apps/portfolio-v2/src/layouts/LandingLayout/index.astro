@@ -5,10 +5,13 @@ import GitHubIcon from "@/assets/icons/GitHub.svg";
 import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
 import TwitterIcon from "@/assets/icons/Twitter.svg";
 import AiAssistant from "@/components/AiAssistant.astro";
+import RefreshIcon from "@/assets/icons/Refresh.svg";
 
 import RootLayout from "../RootLayout.astro";
 import FooterLink from "./FooterLink.astro";
 import Navbar from "./Navbar.astro";
+import Button from "@/components/ui/Button.astro";
+import GenerativeArt from "./GenerativeArt.astro";
 
 interface Props {
   title: string;
@@ -33,44 +36,65 @@ interface Props {
 
   <slot />
 
-  <footer class="mx-[5vw] rounded-4xl *:px-8 bg-bg-primary mt-16">
-    <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
-    <div class="h-[30vh] border-b !px-0 border-bg-primary"></div>
-    <div class="flex flex-row gap-8 py-8 justify-around">
-      <div class="">
-        <div class="mb-3 font-medium text-bg-tertiary/60">Me</div>
-        <FooterLink href="/">Home</FooterLink>
-        <FooterLink href="/about">About</FooterLink>
-        <FooterLink href="/contact">Contact</FooterLink>
-      </div>
-      <div class="">
-        <div class="mb-3 font-medium text-bg-tertiary/60">Work</div>
-        <FooterLink href="/projects">Projects</FooterLink>
-        <FooterLink href="/labs">Labs</FooterLink>
-        <!-- <FooterLink href="/blog">Blog</FooterLink> -->
-      </div>
-      <div class="">
-        <div class="mb-3 shrink-0 font-medium text-bg-tertiary/60">
-          Services
-        </div>
-        <FooterLink href="/services">Product Engineer</FooterLink>
-        <FooterLink href="/services">AI Engineer</FooterLink>
-      </div>
+  <footer
+    class="mx-[5vw] rounded-4xl *:px-8 bg-bg-primary mt-16 md:grid grid-cols-2"
+  >
+    <div
+      class:list={[
+        "h-[35vh] !px-0 border-border/10 relative",
+        "max-md:h-[25vh] max-md:border-b border-r",
+      ]}
+    >
+      <Button
+        variant="secondary"
+        size="sm"
+        class:list={["absolute bottom-2 right-2"]}
+      >
+        <RefreshIcon class="size-5 text-text-quarternary" />
+      </Button>
+      <GenerativeArt />
+      <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
     </div>
-    <div class="flex flex-row pb-6 justify-around">
-      <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
-      <FooterLink href="https://x.com/adityab_tech">
-        <TwitterIcon class="size-5 -mt-1 inline-block fill-bg-secondary/70" />
-        Twitter (X)
-      </FooterLink>
-      <FooterLink href="https://linkedin.com/in/adityab_tech">
-        <LinkedinIcon class="size-5 -mt-1 inline-block fill-bg-secondary/70" />
-        LinkedIn
-      </FooterLink>
-      <FooterLink href="https://github.com/AdityaBorkar">
-        <GitHubIcon class="size-5 -mt-1 inline-block fill-bg-secondary/70" />
-        GitHub
-      </FooterLink>
+    <div>
+      <div class="flex flex-row gap-8 py-8 justify-between md:pr-[20%]">
+        <div class="">
+          <div class="mb-3 font-medium text-neutral-500">Me</div>
+          <FooterLink href="/">Home</FooterLink>
+          <FooterLink href="/about">About</FooterLink>
+          <FooterLink href="/contact">Contact</FooterLink>
+        </div>
+        <div class="">
+          <div class="mb-3 font-medium text-neutral-500">Work</div>
+          <FooterLink href="/projects">Projects</FooterLink>
+          <FooterLink href="/labs">Labs</FooterLink>
+          <!-- <FooterLink href="/blog">Blog</FooterLink> -->
+        </div>
+        <div class="">
+          <div class="mb-3 shrink-0 font-medium text-neutral-500">Services</div>
+          <FooterLink href="/services">Product Engineer</FooterLink>
+          <FooterLink href="/services">AI Engineer</FooterLink>
+        </div>
+      </div>
+      <div
+        class:list={[
+          "flex flex-row pb-6 justify-between",
+          "md:justify-normal gap-8",
+        ]}
+      >
+        <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
+        <FooterLink href="https://x.com/adityab_tech">
+          <TwitterIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+          Twitter (X)
+        </FooterLink>
+        <FooterLink href="https://linkedin.com/in/adityab_tech">
+          <LinkedinIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+          LinkedIn
+        </FooterLink>
+        <FooterLink href="https://github.com/AdityaBorkar">
+          <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+          GitHub
+        </FooterLink>
+      </div>
     </div>
 
     <!-- <div class="w-fit">
@@ -97,6 +121,8 @@ interface Props {
     class="py-6 md:py-12 text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
   >
     Designed & Developed with ❤️ by Aditya Borkar
+    <br />
+    Copyright © CC BY-NC 4.0
   </footer>
 
   <!-- <footer class="text-base hidden md:py-4 bg-text-primary text-bg-tertiary">

@@ -1,0 +1,62 @@
+---
+
+---
+
+<!-- CSS Paint API Polyfill -->
+<script type="module" src="https://unpkg.com/css-paint-polyfill"></script>
+
+<div class="worklet-canvas bg-background"></div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (CSS && CSS.paintWorklet) {
+            CSS.paintWorklet.addModule("/css-worklet/bauhaus-pattern.js");
+            document.documentElement.style.setProperty(
+                "--pattern-seed",
+                String(Math.floor(Math.random() * 10000)),
+            );
+        } else {
+            console.warn("CSS Paint API is not supported in this browser");
+        }
+    });
+</script>
+
+<style>
+    @property --pattern-seed {
+        syntax: "<number>";
+        initial-value: 1000;
+        inherits: true;
+    }
+
+    @property --pattern-colors {
+        syntax: "<color>#";
+        initial-value: #2d58b5, #f43914, #f9c50e, #ffecdc;
+        inherits: true;
+    }
+
+    @property --pattern-size {
+        syntax: "<number>";
+        initial-value: 1024;
+        inherits: true;
+    }
+
+    @property --pattern-detail {
+        syntax: "<number>";
+        initial-value: 16;
+        inherits: true;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .worklet-canvas {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        background-color: #18111d;
+        background-image: paint(bauhausPattern);
+    }
+</style>

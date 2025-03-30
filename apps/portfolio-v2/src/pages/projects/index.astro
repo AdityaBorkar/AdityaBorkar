@@ -1,18 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
-import ProjectCard from '@/components/ProjectCard.astro';
-import Icon from '@/components/ui/Icon.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getSchemaMarkup } from '@/lib/utils';
+import { getCollection } from "astro:content";
 
-const title = 'Projects';
-const description = 'Projects';
-const keywords = ['projects'];
-const SchemaMarkup = [getSchemaMarkup('person')];
+import ProjectCard from "./_ProjectCard.astro";
+import Icon from "@/components/ui/Icon.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getSchemaMarkup } from "@/lib/utils";
 
-const AllProjects = await getCollection('projects');
+const title = "Projects";
+const description = "Projects";
+const keywords = ["projects"];
+const SchemaMarkup = [getSchemaMarkup("person")];
+
+const AllProjects = await getCollection("projects");
 const AllCategories = [
-	...new Set(AllProjects.flatMap((project) => project.data.categories)),
+  ...new Set(AllProjects.flatMap((project) => project.data.categories)),
 ];
 
 // TODO: Add a Background to hero section
