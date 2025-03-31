@@ -157,6 +157,15 @@ https://ui-experiment-02.vercel.app/
 https://ui-experiments-green.vercel.app/#
 https://crafted.is/
 
+https://motion-primitives.com/docs/dock
+https://www.prompt-kit.com/
+https://ibelick.com/
+
+https://ibelick.com/blog/create-spotlight-border-with-react-css
+https://ibelick.com/blog/create-modern-spotlight-effect-with-react-css
+https://ibelick.com/blog/create-shooting-star-border-tailwind-css
+https://ibelick.com/blog/create-infinite-slider-with-tailwind-css
+
 ## 27th February:
 
 - Accessibility

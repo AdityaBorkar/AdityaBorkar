@@ -3,17 +3,19 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import BentoDiv from "@/components/BentoDiv.astro";
-import BookCallFooter from "@/components/BookCallFooter.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 import Icon from "@/components/ui/Icon.astro";
 import Marquee from "@/components/ui/Marquee.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { cn, getImage, getSchemaMarkup } from "@/lib/utils";
+import { getImage, getSchemaMarkup } from "@/lib/utils";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 import Heading from "./home/_Heading.astro";
 import Tag from "./home/_Tag.astro";
 import MarqueeImage from "./home/_MarqueeImage.astro";
 import Section from "./home/_Section.astro";
+import { IS_AVAILABLE_NOW, SOCIALS } from "cms/constants";
+import TestimonialSection from "@/components/sections/Testimonials.astro";
+import BookCta from "@/components/sections/BookCta.astro";
 
 const FEATURED_PROJECTS = [
   "Platipie",
@@ -30,8 +32,6 @@ const FEATURED_BLOGS = [
   // TODO: Featured Only (2 Most Viewed and 1 Recent)
 ];
 
-const IS_AVAILABLE_NOW = true;
-
 const Projects = (await getCollection("projects")).filter((project) =>
   FEATURED_PROJECTS.includes(project.data.title),
 );
@@ -40,7 +40,6 @@ const Projects = (await getCollection("projects")).filter((project) =>
 // );
 const Mockups = await getCollection("mockups");
 const Technologies = await getCollection("technologies");
-const Testimonials = await getCollection("testimonials");
 
 const Mockups1 = Mockups.slice(0, Mockups.length / 2);
 const Mockups2 = Mockups.slice(Mockups.length / 2, Mockups.length);
@@ -134,25 +133,25 @@ for (let i = 0; i < 150; i++) {
           "magic-fade-down delay-700",
         ]}
       >
-        <a target="_blank" href="https://github.com/AdityaBorkar">
+        <a target="_blank" href={SOCIALS.github}>
           <Icon
             icon="GitHub"
             class="size-6 hover:fill-text-primary fill-text-quarternary"
           />
         </a>
-        <a target="_blank" href="https://twitter.com/adityab_tech">
+        <a target="_blank" href={SOCIALS.x}>
           <Icon
             icon="Twitter"
             class="size-6 hover:fill-text-primary fill-text-quarternary"
           />
         </a>
-        <a target="_blank" href="https://linkedin.com/in/aditya-borkar">
+        <a target="_blank" href={SOCIALS.linkedin}>
           <Icon
             icon="LinkedIn"
             class="size-6 hover:fill-text-primary fill-text-quarternary"
           />
         </a>
-        <a href="mailto:hi@adityab.tech" class="mt-0.5">
+        <a href={`mailto:${SOCIALS.email}`} class="mt-0.5">
           <Icon
             icon="Mail"
             class="size-5 hover:text-text-primary text-text-quarternary"
@@ -574,62 +573,7 @@ for (let i = 0; i < 150; i++) {
   -->
 
   <Heading icon="UserCircle" label="Testimonials">What People Speak</Heading>
-  <Section
-    class:list={[
-      "grid grid-cols-1 gap-4",
-      "md:flex md:flex-row md:flex-wrap md:items-center md:justify-evenly md:gap-8",
-    ]}
-  >
-    <!-- HIGHLIGHT cursor bg -->
-    {
-      Testimonials.map(({ data: testimonial }) => (
-        <div class="group h-fit flex-[1_0_30%] rounded-3xl border border-border/20 bg-background px-6 py-5">
-          <div class="flex flex-row items-center justify-between">
-            <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
-              <Icon
-                icon="Star"
-                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-              />
-              <Icon
-                icon="Star"
-                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-              />
-              <Icon
-                icon="Star"
-                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-              />
-              <Icon
-                icon="Star"
-                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-              />
-              <Icon
-                icon="Star"
-                class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-              />
-            </div>
-            {/* {testimonial.project && (
-              <a
-                href={testimonial.project.url}
-                class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-bg-primary"
-              >
-                Project: {testimonial.project.label}
-                <ArrowUpRightIcon class="size-3 ml-0.5 -mt-0.5 inline-block" />
-              </a>
-            )} */}
-          </div>
+  <TestimonialSection />
 
-          <p class="mt-4 text-pretty text-xs md:text-sm">{testimonial.text}</p>
-
-          <div class="mt-4">
-            <div class="font-medium text-text-primary">{testimonial.id}</div>
-            <div class="text-text-tertiary leading-tight">
-              {testimonial.role}
-            </div>
-          </div>
-        </div>
-      ))
-    }
-  </Section>
-
-  <BookCallFooter />
+  <BookCta />
 </LandingLayout>

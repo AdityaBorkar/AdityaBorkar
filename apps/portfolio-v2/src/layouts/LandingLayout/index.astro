@@ -12,6 +12,7 @@ import FooterLink from "./FooterLink.astro";
 import Navbar from "./Navbar.astro";
 import Button from "@/components/ui/Button.astro";
 import GenerativeArt from "./GenerativeArt.astro";
+import { SOCIALS } from "cms/constants";
 
 interface Props {
   title: string;
@@ -23,6 +24,8 @@ interface Props {
 
 <RootLayout {...Astro.props}>
   <Navbar />
+
+  <!-- Change Cursor to Figma Cursor -->
 
   <!-- TODO: Disable Gradients in the footer. -->
   <!-- <div
@@ -37,12 +40,12 @@ interface Props {
   <slot />
 
   <footer
-    class="mx-[5vw] rounded-4xl *:px-8 bg-bg-primary mt-16 md:grid grid-cols-2"
+    class="mx-[5vw] md:mx-auto relative z-40 max-w-[64rem] rounded-4xl *:px-8 bg-bg-primary mt-16 md:grid grid-cols-2"
   >
     <div
       class:list={[
         "h-[35vh] !px-0 border-border/10 relative",
-        "max-md:h-[25vh] max-md:border-b border-r",
+        "max-md:h-[25vh] max-md:border-b md:border-r",
       ]}
     >
       <Button
@@ -82,15 +85,15 @@ interface Props {
         ]}
       >
         <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
-        <FooterLink href="https://x.com/adityab_tech">
+        <FooterLink href={SOCIALS.x}>
           <TwitterIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
           Twitter (X)
         </FooterLink>
-        <FooterLink href="https://linkedin.com/in/adityab_tech">
+        <FooterLink href={SOCIALS.linkedin}>
           <LinkedinIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
           LinkedIn
         </FooterLink>
-        <FooterLink href="https://github.com/AdityaBorkar">
+        <FooterLink href={SOCIALS.github}>
           <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
           GitHub
         </FooterLink>
@@ -118,7 +121,7 @@ interface Props {
   </footer>
 
   <footer
-    class="py-6 md:py-12 text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
+    class="py-6 md:py-12 bg-inherit z-40 relative text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
   >
     Designed & Developed with ❤️ by Aditya Borkar
     <br />

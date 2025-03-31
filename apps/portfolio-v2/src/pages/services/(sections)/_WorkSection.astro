@@ -1,6 +1,19 @@
 ---
-import Heading from '../(components)/_Heading.astro';
-import Section from '../(components)/_Section.astro';
+import Image from "astro/components/Image.astro";
+import Heading from "../(components)/_Heading.astro";
+import Section from "../(components)/_Section.astro";
+import { getCollection } from "astro:content";
+import { getImage } from "@/lib/assets";
+const FEATURED_PROJECTS = [
+    "Platipie",
+    "Vasundhara",
+    "Hooop Cloud",
+    "Blog Platform",
+];
+
+const Projects = (await getCollection("projects")).filter((project) =>
+    FEATURED_PROJECTS.includes(project.data.title),
+);
 
 // TODO: SHOW MOBILE MOCKUPS WITH HANDS ON THE WORK SECTION
 // Relax, Talk with the client, Keep it minimal, focus on Product Development and Business Outcomes.
@@ -9,3 +22,57 @@ import Section from '../(components)/_Section.astro';
 <Heading label="Works"> Featured Projects </Heading>
 
 <Section>{/* TODO: Project Showcase (Miniature) */}</Section>
+
+<Section
+    class:list={["grid w-full grid-cols-1 gap-6", "md:grid-cols-3 md:gap-8"]}
+>
+    {
+        Projects.map(({ data: project, id }) => (
+            <a
+                href={`/projects/${id}`}
+                class:list={[
+                    "rounded-2xl border border-border/10 bg-bg-primary pl-4 pr-2 py-2",
+                    "md:px-8 md:py-6 max-md:grid max-md:grid-cols-2 max-md:gap-4",
+                ]}
+            >
+                <div>
+                    <div
+                        class:list={[
+                            "text-lg font-semibold text-text-primary",
+                            "max-md:my-2 md:text-xl",
+                            // "magic-fade-down delay-1000",
+                        ]}
+                    >
+                        {project.title}
+                    </div>
+                    <p
+                        class:list={[
+                            "mt-1 text-xs text-text-tertiary line-clamp-3",
+                            "md:mt-2 md:text-sm",
+                        ]}
+                    >
+                        {project.description}
+                    </p>
+                </div>
+                {/* TODO: IMAGE SLIDER */}
+                {/* all slide one-by-one (300ms delay) to next image */}
+                {/* image 2 must be business impact */}
+                <Image
+                    src={getImage("illustrations/laptop-with-notes.png")}
+                    alt=""
+                    class:list={[
+                        "mx-auto bg-background rounded-xl block h-36 w-full object-cover",
+                        "md:mt-4 md:h-72",
+                    ]}
+                />
+            </a>
+        ))
+    }
+</Section>
+
+<div
+    class="text-center text-sm text-text-quarternary py-3 mt-4 px-5 rounded-full bg-bg-primary w-fit mx-auto"
+>
+    <!-- Cursor Icon -->
+    Click on project to view details
+</div>

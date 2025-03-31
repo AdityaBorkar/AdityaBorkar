@@ -1,36 +1,63 @@
 ---
-import Icon from '@/components/ui/Icon.astro';
+import Icon from "@/components/ui/Icon.astro";
 ---
 
 <div
-    class="fixed border flex flex-row justify-around border-border/10 shadow-lg rounded-full py-3 text-center w-[20rem] bg-background left-[calc(50%-10rem)] hover:bottom-6 -bottom-6 z-50"
+    class:list={[
+        "fixed bottom-4 left-0 flex items-center justify-center w-full z-30",
+        "md:hidden",
+    ]}
 >
-    <Icon
-        icon="ArrowUp"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    />
-    <Icon
-        icon="HandHeart"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    />
-    <Icon
-        icon="Flower"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    />
-    <Icon
-        icon="Briefcase"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    />
-    <Icon
-        icon="HandVictory"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    />
-    <!-- <Icon
-        icon="Currency"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    /> -->
-    <Icon
-        icon="QuestionMark"
-        class="size-6 fill-text-tertiary hover:fill-text-primary"
-    />
+    <div
+        class="text-center text-sm text-text-secondary px-6 py-2 border border-border/10 rounded-full backdrop-blur-lg"
+    >
+        On this Page
+    </div>
+</div>
+
+<div
+    class:list={[
+        "fixed border flex flex-row justify-around border-border/10 shadow-lg rounded-full py-3 text-center w-[20rem] backdrop-blur-md left-[calc(50%-10rem)] hover:bottom-6 -bottom-6 z-50",
+        "max-md:bottom-6 max-md:justify-normal max-md:gap-4 max-md:px-4 w-fit",
+        "max-md:hidden",
+    ]}
+>
+    <a href="#top">
+        <Icon
+            icon="ArrowUp"
+            class="size-6 fill-text-tertiary hover:fill-text-primary"
+        />
+    </a>
+    <a href="#benefits">
+        <Icon
+            icon="HandHeart"
+            class="size-6 fill-text-tertiary hover:fill-text-primary"
+        />
+    </a>
+    <a href="#services">
+        <Icon
+            icon="Flower"
+            class="size-6 fill-text-tertiary hover:fill-text-primary"
+        />
+    </a>
+    <a href="#work">
+        <Icon
+            icon="Briefcase"
+            class="size-6 fill-text-tertiary hover:fill-text-primary"
+        />
+    </a>
+    <a href="#testimonials">
+        <Icon
+            icon="HandVictory"
+            class="size-6 fill-text-tertiary hover:fill-text-primary"
+        />
+    </a>
+    <button>Call</button>
+    <button>AI</button>
+    <!-- <a href="#pricing">
+        <Icon
+            icon="Currency"
+            class="size-6 fill-text-tertiary hover:fill-text-primary"
+        />
+    </a> -->
 </div>

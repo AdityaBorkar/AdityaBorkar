@@ -26,6 +26,7 @@
   - Accessibility
   - Unlighthouse
   - bundle analyzers/visualizers
+  - Footer: Generate Image and Social IDs 
 
 - Test if the following things are working:
   - Signed Exchanges using Cloudflare

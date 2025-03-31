@@ -1,5 +1,6 @@
 // @ts-check
 
+import basicSsl from '@vitejs/plugin-basic-ssl';
 import react from '@astrojs/react';
 import MillionLint from '@million/lint';
 import tailwindcss from '@tailwindcss/vite';
@@ -14,7 +15,10 @@ export default defineConfig({
 		// MillionLint.astro()
 	],
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss(), basicSsl()],
+		server: {
+			https: true,
+		},
 	},
 	experimental: {
 		responsiveImages: true,

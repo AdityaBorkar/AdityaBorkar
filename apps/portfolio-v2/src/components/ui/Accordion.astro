@@ -1,10 +1,10 @@
 ---
-import Icon from './Icon.astro';
+import Icon from "./Icon.astro";
 
 interface Props {
-	title: string;
-	name: string;
-	open?: boolean;
+    title: string;
+    name: string;
+    open?: boolean;
 }
 
 const { title, name, open } = Astro.props;
@@ -16,7 +16,7 @@ const { title, name, open } = Astro.props;
     open={open}
 >
     <summary
-        class="relative block py-4 text-xl font-semibold text-text-primary"
+        class="relative block py-4 max-md:text-base text-xl font-semibold text-text-primary"
     >
         {title}
         <Icon

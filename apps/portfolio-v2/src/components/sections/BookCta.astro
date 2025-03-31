@@ -1,26 +1,28 @@
 ---
-import CursorBubble from "./CursorBubble.astro";
+import CursorBubble from "@/components/CursorBubble.astro";
 ---
 
-<section class="relative pb-36 md:pb-48 pt-56 md:pt-72 max-w-[64rem] mx-auto">
+<section class="relative pb-32 md:pb-48 pt-56 md:pt-72 max-w-[64rem] mx-auto">
   <div class="relative px-8 md:px-24">
     <CursorBubble
-      class="-top-[15%] right-16 bg-purple-500"
+      class:list={["-top-[15%] max-md:-top-12 right-16 bg-purple-600"]}
       fillColor="fill-purple-500"
       text="Product"
     />
     <CursorBubble
-      class="left-32 top-[135%] bg-sky-500"
+      class:list={["left-32 top-[135%] bg-sky-600"]}
       fillColor="fill-sky-500"
       text="Technology"
     />
     <CursorBubble
-      class="-top-8 left-48 bg-orange-500"
+      class:list={[
+        "-top-8 left-48 max-md:-top-16 max-md:left-12 bg-orange-600",
+      ]}
       fillColor="fill-orange-500"
       text="Artificial Intelligence"
     />
     <CursorBubble
-      class="right-48 top-[120%] bg-emerald-500"
+      class:list={["right-48 max-md:right-12 top-[120%] bg-emerald-600"]}
       fillColor="fill-emerald-500"
       text="Customers"
     />
@@ -33,7 +35,7 @@ import CursorBubble from "./CursorBubble.astro";
       <span class="font-sans-serif font-normal italic tracking-tight">
         ideas
       </span>
-      {"and figure out if we are a great"}
+      {"and figure out how we are a great"}
       <span class="font-sans-serif font-normal italic tracking-tight">fit</span>
       {"for each-other."}
     </div>
@@ -43,6 +45,6 @@ import CursorBubble from "./CursorBubble.astro";
     type="button"
     class="mx-auto uppercase font-bold mt-36 block rounded-2xl hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 transition-all duration-300 cursor-pointer px-12 py-4 text-xl text-background"
   >
-    Book a Call
+    Schedule Meeting
   </button>
 </section>

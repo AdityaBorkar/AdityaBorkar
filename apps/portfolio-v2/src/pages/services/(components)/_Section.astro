@@ -1,12 +1,12 @@
 ---
 interface Props {
-	class?: string;
+    class?: string;
 }
 ---
 
 <section
     class:list={[
-        "relative max-w-[64rem] mx-auto opacity-100",
+        "relative max-w-[64rem] mx-auto max-md:px-4 opacity-100",
         Astro.props.class,
     ]}
 >

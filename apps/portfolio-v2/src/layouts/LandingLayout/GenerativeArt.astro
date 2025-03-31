@@ -1,11 +1,20 @@
 ---
+// Animate: top left to bottom right
+// animate for 3 seconds continuously
+// keep the button rotating and disable for 3 seconds
+// fix rounded corners
 
+// use svg so that morphing can be done.
 ---
 
 <!-- CSS Paint API Polyfill -->
 <script type="module" src="https://unpkg.com/css-paint-polyfill"></script>
 
-<div class="worklet-canvas bg-background"></div>
+<div
+    class="worklet-canvas bg-background"
+    style="background-image: paint(bauhausPattern);"
+>
+</div>
 
 <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
@@ -44,19 +53,5 @@
         syntax: "<number>";
         initial-value: 16;
         inherits: true;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .worklet-canvas {
-        width: 100%;
-        height: 100%;
-        min-height: 100vh;
-        background-color: #18111d;
-        background-image: paint(bauhausPattern);
     }
 </style>

@@ -1,11 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import Icon from '@/components/ui/Icon.astro';
-import Marquee from '@/components/ui/Marquee.astro';
-import { getImage } from '@/lib/assets';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Icon from "@/components/ui/Icon.astro";
+import Marquee from "@/components/ui/Marquee.astro";
+import { getImage } from "@/lib/assets";
 
-const Clients = await getCollection('clients');
+const Clients = await getCollection("clients");
 
 // TODO - Make component out of `LinkButton`
 ---
@@ -46,7 +46,7 @@ const Clients = await getCollection('clients');
     // })
 </script>
 
-<section class="flex h-screen flex-col items-center justify-center">
+<section class="flex h-screen flex-col items-center justify-center hidden">
     {/* vision / product / services / organization */}
 
     <div class="relative">

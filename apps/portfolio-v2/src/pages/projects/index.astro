@@ -5,6 +5,8 @@ import ProjectCard from "./_ProjectCard.astro";
 import Icon from "@/components/ui/Icon.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
 import { getSchemaMarkup } from "@/lib/utils";
+import Section from "../home/_Section.astro";
+import BookCta from "@/components/sections/BookCta.astro";
 
 const title = "Projects";
 const description = "Projects";
@@ -34,24 +36,25 @@ const AllCategories = [
   description={description}
   schemaMarkup={SchemaMarkup}
 >
-  <div class="mx-auto max-w-[64rem] pb-48">
-    <h1 class="mt-36 text-5xl font-bold">Selected Projects</h1>
-    <div
-      class="mt-12 max-w-[70%] text-balance text-base text-text-secondary/50"
+  <Section>
+    <h1 class="mt-16 md:mt-36 text-3xl md:text-5xl font-bold">
+      Selected Projects
+    </h1>
+    <p
+      class:list={[
+        "mt-8 text-sm text-text-tertiary",
+        "md:mt-12 md:max-w-[70%] md:text-balance md:text-base",
+      ]}
     >
-      <p>
-        I create handcrafted products and signature projects that make a
-        difference.
-      </p>
-      <p>
-        My work empowers businesses to serve better products, enhance
-        efficiency, and boost profitability through technology. It includes
-        open-source contributions that support fellow engineers and developers
-        in creating better software.
-      </p>
-    </div>
+      <!-- TODO: Highlight keywords -->
+      I create handcrafted products and signature projects that make a difference.
+      <br class="hidden md:block" />
+      My work empowers businesses to serve better products, enhance efficiency, and
+      boost profitability through technology. It includes open-source contributions
+      that support fellow engineers and developers in creating better software.
+    </p>
 
-    <div class="mt-24 flex flex-row gap-4">
+    <div class="mt-12 md:mt-24 flex flex-row gap-4">
       <div class="shrink-0 py-1 text-text-secondary">
         <Icon icon="Filter" class="-mt-1 mr-1 inline-block size-5" />
         Filter:
@@ -76,18 +79,10 @@ const AllCategories = [
       </div>
     </div>
 
-    <div class="mt-12 grid grid-cols-2 gap-12">
+    <div class="mt-12 grid md:grid-cols-2 grid-cols-1 gap-12">
       {AllProjects.map((project) => <ProjectCard {...project} />)}
     </div>
+  </Section>
 
-    {
-      /* <div
-        ref={PointerDivRef}
-        class="pointer-events-none absolute top-0 z-20 hidden rounded-full border border-neutral-700 px-4 py-2 text-sm text-neutral-300 backdrop-blur transition-none"
-        style={{ display: 'none' }}
-      >
-        Click to open project
-      </div> */
-    }
-  </div>
+  <BookCta />
 </LandingLayout>

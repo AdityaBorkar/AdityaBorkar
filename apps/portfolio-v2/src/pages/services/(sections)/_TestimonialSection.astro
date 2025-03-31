@@ -1,50 +1,47 @@
 ---
-import { getCollection } from 'astro:content';
-import Icon from '@/components/ui/Icon.astro';
-import Heading from '../(components)/_Heading.astro';
-import Section from '../(components)/_Section.astro';
-
-const Testimonials = await getCollection('testimonials');
+import Heading from "../(components)/_Heading.astro";
+import Section from "../(components)/_Section.astro";
+import Testimonials from "@/components/sections/Testimonials.astro";
 
 const benefits = [
-	{
-		title: 'Full Stack <br/> Development',
-		svg: '/assets/illustrations/full-stack.webm',
-	},
-	{
-		title: 'AI <br/> Development',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'MVP <br/> Development',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'Custom Tech <br /> Solutions',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: '3+ years of <br/> Expertise',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: '100% Client Satisfaction',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'Regular Updates & Timely Delivery',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'Flexible Timezone & Work Hours',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
+    {
+        title: "Full Stack <br/> Development",
+        svg: "/assets/illustrations/full-stack.webm",
+    },
+    {
+        title: "AI <br/> Development",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "MVP <br/> Development",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Custom Tech <br /> Solutions",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "3+ years of <br/> Expertise",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "100% Client Satisfaction",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Regular Updates & Timely Delivery",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Flexible Timezone & Work Hours",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
 ];
 ---
 
 <Heading label="Testimonials">Why people work with me? </Heading>
-<Section class="grid grid-cols-2 gap-x-16">
-    <div>
+<Section class="grid md:grid-cols-2 gap-x-16 gap-y-8">
+    <div class="rounded-2xl border border-border/20 bg-bg-primary p-4">
         <div>Strong Technical Foundations</div>
         <div>Experience with Databases</div>
         <div>Version Control</div>
@@ -83,13 +80,11 @@ Constant Project Delays */
         the big challenges you face building the entire product while also tackling
         your “here‑and‑now” development and optimization needs.
     </div>
-    <div>
-        <!-- <img
+    <!-- <img
             src="/resources/pic (4).jpeg"
             alt="Lights"
             class="mb-6 w-full rounded-3xl object-cover"
         /> -->
-    </div>
     {
         /* Our Mission
 We create Webflow sites that are on their league of their own for ambitious startups and enterprises.
@@ -100,14 +95,16 @@ Our Values
 Our Vision
 To be the leading Webflow agency with great people, clients & products. */
     }
-    <div>
+    <div class="rounded-2xl border border-border/20 bg-bg-primary p-4">
         Self-motivation and ability to work independently Collaboration skills
         for working with other team members or clients Basic understanding of
         business goals and how technology supports them Ability to suggest
         solutions that align with project objectives
     </div>
 
-    <div class="rounded-2xl border border-border/20 bg-white p-4">
+    <div
+        class="rounded-2xl border border-border/20 bg-bg-primary p-4 max-md:mb-8"
+    >
         <div class="mb-4 text-xs font-semibold uppercase text-text-secondary">
             My Philosophy
         </div>
@@ -119,6 +116,9 @@ To be the leading Webflow agency with great people, clients & products. */
         </div>
     </div>
 </Section>
+
+<Testimonials />
+
 <!-- // Just think of me as your creative bestie. 👯 As a business owner myself, I understand that you can’t do it all. I want to take all things “design” off your plate so you can focus on what you do best. I only work with a handful of clients at a time so that I’m able to dedicate the time and care needed to do my best work.
 // You feel comfortable jumping into complex topics immediately
   // Good understanding of APIs and how to properly build them for long-term success
@@ -126,57 +126,6 @@ To be the leading Webflow agency with great people, clients & products. */
   // A motivated person who enjoys working on complex technical problems who does not need to be micro-managed
   // Someone who is looking to grow with us and our product
  -->
-<Section
-    class="flex flex-row flex-wrap items-center justify-evenly gap-8 max-w-[64rem] mx-auto"
->
-    <!-- SCROLL BASED TOOLBAR -->
-    {
-        Testimonials.map(({ data: testimonial }) => (
-            <div class="group h-fit flex-[1_0_30%] rounded-2xl border border-border/20 bg-white px-6 py-4 dark:bg-black">
-                <div class="flex flex-row items-center justify-between">
-                    <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                    </div>
-                    {/* {testimonial.project && (
-              <a
-                href={testimonial.project.url}
-                class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-bg-primary"
-              >
-                Project: {testimonial.project.label}
-                <ArrowUpRightIcon class="size-3 ml-0.5 -mt-0.5 inline-block" />
-              </a>
-            )} */}
-                </div>
-
-                <p class="mt-2 text-pretty text-sm">{testimonial.text}</p>
-
-                <div class="mt-4">
-                    <div class="font-medium">{testimonial.id}</div>
-                    <div class="text-text-secondary">{testimonial.role}</div>
-                </div>
-            </div>
-        ))
-    }
-</Section>
 
 <!--
 Problem-Solving: Ability to design and implement solutions to complex problems.

@@ -1,8 +1,8 @@
 ---
 interface Props {
-	text: string;
-	fillColor: string;
-	class?: string;
+  text: string;
+  fillColor: string;
+  class?: string;
 }
 
 const { text, fillColor } = Astro.props;
@@ -13,6 +13,8 @@ const { text, fillColor } = Astro.props;
 
   for (const bubble of document.querySelectorAll("[data-figma-cursor")) {
     bubble.addEventListener("mouseover", (e) => {
+      if (window.innerWidth < 768) return;
+
       const randomTop = Math.round(
         Math.random() < 0.5
           ? Math.random() * 30 - 50

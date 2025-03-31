@@ -1,10 +1,10 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
-interface Props extends CollectionEntry<'projects'> {}
+interface Props extends CollectionEntry<"projects"> {}
 
 const {
-	data: { title, description, hero_image, tags },
+  data: { title, description, hero_image, tags, featured, open_source },
 } = Astro.props;
 
 // onMouseMove={(e) => {
@@ -29,24 +29,40 @@ const {
   href={`/projects/${title.toLowerCase().replace(/[\s\W]+/g, "-")}`}
   class="group relative rounded-3xl border border-border/20 bg-background p-4 transition-all hover:shadow-lg"
 >
-  <div class="h-64 rounded-xl">
+  <div class="h-56 rounded-xl relative">
     <img
       src={hero_image}
       alt={`Visual Representation of ${title}`}
-      class="group-hover:zoom-105 mx-auto h-full rounded-xl bg-bg-primary text-center"
+      class="group-hover:zoom-105 mx-auto h-full text-text-quarternary rounded-xl bg-bg-primary text-center"
     />
+    {
+      (featured || open_source) && (
+        <div
+          class:list={[
+            "absolute top-2 right-2 uppercase text-xs py-1 px-2 rounded-md",
+            featured && "text-yellow-200 bg-yellow-950",
+            open_source && "text-green-200 bg-green-950",
+          ]}
+        >
+          {featured && "Featured"}
+          {open_source && "Open Source"}
+        </div>
+      )
+    }
   </div>
   <div class="cursor-pointer px-2 pb-2 pt-4">
     <div class="cursor-pointer text-base font-semibold">
       {title}
     </div>
-    <div class="mt-2 cursor-pointer text-text-primary">
+    <div class="mt-2 cursor-pointer text-text-secondary">
       {description}
     </div>
-    <ul class="mt-4 flex cursor-pointer flex-row flex-wrap gap-x-1 gap-y-2">
+    <ul
+      class="mt-4 flex cursor-pointer flex-row flex-wrap md:gap-x-1 md:gap-y-2 gap-1"
+    >
       {
         tags.map((tag) => (
-          <li class="cursor-pointer rounded-full bg-bg-primary px-2.5 py-1 text-xs">
+          <li class="cursor-pointer rounded-full bg-bg-primary px-2.5 py-1 text-xs text-text-tertiary">
             {tag}
           </li>
         ))
