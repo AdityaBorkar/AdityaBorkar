@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getImage } from "@/lib/assets";
 import Heading from "../(components)/_Heading.astro";
 import Section from "../(components)/_Section.astro";
+import { PRICING } from "@/cms/constants";
 
 const Benefits = [
     // {
@@ -35,6 +36,10 @@ const Benefits = [
     },
     {
         title: "Flexible Timezone & Work Hours",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Flexible Payment Terms",
         svg: "/assets/illustrations/3d-chatbot-head.webm",
     },
 ];
@@ -113,7 +118,7 @@ const CurrencyConversion = [
                 >
                     Hourly
                 </div>
-                USD 25-40
+                USD {PRICING}
             </div>
             <div
                 class="ml-auto max-md:mt-8 w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"

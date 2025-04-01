@@ -20,3 +20,5 @@ export const CONTACT_FORM_ETA = {
 		WORKING_HOURS_END: 23,
 	},
 };
+
+export const PRICING = '35-60';

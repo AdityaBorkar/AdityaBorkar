@@ -32,66 +32,6 @@
 	--color-text-tertiary: var(--color-neutral-600);
 	--color-text-quarternary: var(--color-neutral-500);
 	--color-border: var(--color-neutral-900);
-
-	/* --animate-scroll: scroll 30s linear infinite;
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-33.33%);
-    }
-  } */
-
-	/* --animate-blur: blur 10s linear infinite;
-  @keyframes blur {
-    0% {
-      filter: blur(0px);
-    }
-    100% {
-      filter: blur(10px);
-    }
-  } */
-
-	/* @keyframes apple-wobble {
-    0% {
-        transform: rotate(1deg);
-        animation-timing-function: ease-in;
-    }
-
-    50% {
-        transform: rotate(-1.5deg);
-        animation-timing-function: ease-out;
-    }
-} */
-
-	/* @keyframes shine {
-    0% {
-        @apply left-[-150px];
-    }
-
-    30% {
-        @apply left-[100%];
-    }
-
-    100% {
-        @apply left-[100%];
-    }
-}
-
-.shine-effect {
-    clip-path: border-box;
-}
-
-.shine-effect:before {
-    @apply top-0 -left-[150px] absolute w-[150px] h-full;
-    content: '';
-    background-image: linear-gradient(120deg,
-            rgba(255, 255, 255, 0) 30%,
-            rgba(255, 255, 255, .5),
-            rgba(255, 255, 255, 0) 70%);
-    animation: shine 5s infinite ease-in-out;
-} */
 }
 
 @layer theme {
@@ -121,18 +61,6 @@
 		scroll-behavior: smooth;
 		/* scrollbar-color: ; */
 		/* scrollbar-track-color: ; */
-	}
-
-	body::-webkit-scrollbar {
-		/* required - the "base" of the bar - mostly for setting width */
-	}
-
-	body::-webkit-scrollbar-track {
-		/* the "track" of the bar - great for customizing "background" colors */
-	}
-
-	body::-webkit-scrollbar-thumb {
-		/* the actual draggable element, the star of the show! */
 	}
 }
 
@@ -235,6 +163,18 @@
 			transition-delay: 1ms !important;
 		}
 	}
+
+	body::-webkit-scrollbar {
+		/* required - the "base" of the bar - mostly for setting width */
+	}
+
+	body::-webkit-scrollbar-track {
+		/* the "track" of the bar - great for customizing "background" colors */
+	}
+
+	body::-webkit-scrollbar-thumb {
+		/* the actual draggable element, the star of the show! */
+	}
 }
 
 @layer base {
@@ -310,3 +250,85 @@
 		mask-position: 80% 0%;
 	}
 }
+
+/* effect-shine */
+.effect-shine {
+	-webkit-mask-image: linear-gradient(
+		-75deg,
+		rgba(0, 0, 0, 0.7) 30%,
+		#000 50%,
+		rgba(0, 0, 0, 0.7) 70%
+	);
+	-webkit-mask-size: 200%;
+	animation: shine 2s infinite;
+}
+
+@-webkit-keyframes shine {
+	from {
+		-webkit-mask-position: 150%;
+	}
+
+	to {
+		-webkit-mask-position: -50%;
+	}
+}
+
+/* --animate-scroll: scroll 30s linear infinite;
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  } */
+
+/* --animate-blur: blur 10s linear infinite;
+  @keyframes blur {
+    0% {
+      filter: blur(0px);
+    }
+    100% {
+      filter: blur(10px);
+    }
+  } */
+
+/* @keyframes apple-wobble {
+    0% {
+        transform: rotate(1deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(-1.5deg);
+        animation-timing-function: ease-out;
+    }
+} */
+
+/* @keyframes shine {
+    0% {
+        @apply left-[-150px];
+    }
+
+    30% {
+        @apply left-[100%];
+    }
+
+    100% {
+        @apply left-[100%];
+    }
+}
+
+.shine-effect {
+    clip-path: border-box;
+}
+
+.shine-effect:before {
+    @apply top-0 -left-[150px] absolute w-[150px] h-full;
+    content: '';
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, .5),
+            rgba(255, 255, 255, 0) 70%);
+    animation: shine 5s infinite ease-in-out;
+} */

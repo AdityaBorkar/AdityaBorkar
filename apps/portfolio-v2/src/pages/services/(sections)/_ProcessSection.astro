@@ -1,13 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-import Image from 'astro/components/Image.astro';
-import Accordion from '@/components/ui/Accordion.astro';
-import { getImage } from '@/lib/assets';
-import Heading from '../(components)/_Heading.astro';
-import ProcessDiv from '../(components)/_ProcessDiv.astro';
-import Section from '../(components)/_Section.astro';
+import { getCollection } from "astro:content";
+import Image from "astro/components/Image.astro";
+import Accordion from "@/components/ui/Accordion.astro";
+import { getImage } from "@/lib/assets";
+import Heading from "../(components)/_Heading.astro";
+import ProcessDiv from "../(components)/_ProcessDiv.astro";
+import Section from "../(components)/_Section.astro";
 
-const Clients = await getCollection('clients');
+const Clients = await getCollection("clients");
+
+// Make this a card
 ---
 
 <!-- 

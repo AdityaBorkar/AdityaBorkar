@@ -3,52 +3,52 @@
 		"id": "Sanjay B.",
 		"role": "Business Owner, Vasundhara",
 		"project": { "label": "Vasundhara", "url": "projects/vasundhara" },
-		"text": "Rahul is an exceptional product engineer who consistently delivers high-quality solutions. His attention to detail and ability to meet deadlines are impressive. He's a valuable asset to our team and a pleasure to work with. 5 stars!"
+		"text": "Aditya took on a major project to revamp our platform, and he exceeded every expectation. His deep understanding of both back-end architecture and front-end user design was key to delivering a product that was both functional, scalable and delightful to use! We are very happy with the results."
 	},
 	{
-		"id": "Mukund M.",
-		"role": "Accountant, Freelance",
-		"project": { "label": "Vasundhara", "url": "projects/vasundhara" },
-		"text": "I've had the pleasure of working with Emily on several projects, and she never fails to amaze me with her technical expertise. Her innovative approach to problem-solving is impressive. She's a true collaborator and team player. Highly recommended!"
+		"id": "Devesh Sharma",
+		"role": "Digital Marketing, Freelance",
+		"project": { "label": "Durgabari US", "url": "projects/durgabari-us" },
+		"text": "Aditya B. joined our team at the time of crisis when our existing developers left the project. He was able to hit the ground running and delivered a product in record time. He is a great communicator and very easy to work with. Highly recommended!"
 	},
 	{
-		"id": "Onkar J.",
+		"id": "Onkar Jadhav",
 		"role": "Product Designer, Freelance",
 		"project": { "label": "Platipie", "url": "projects/platipie" },
-		"text": "Aditya Borkar is something about lorem ipsum and something about why latin is the default language. I mean, we need an english equivalent of lorem ipsum."
+		"text": "I have worked with Aditya on multiple projects, his dedication and commitment to the project is commendable. He is a great team player and his technical expertise is second to none. He thinks three steps ahead and is always looking for ways to improve the product."
 	},
 	{
-		"id": "Harsh S.",
-		"role": "Founder, Cerebral Law Firm",
-		"text": "I've worked with several product engineers, but David stands out for his exceptional communication skills and ability to distill complex concepts into actionable insights. His work is top-notch, and he's a joy to work with. Highly recommended!"
+		"id": "Gopal Singh",
+		"role": "Partner, Cerebral Law Firm",
+		"text": "Working with Aditya was a great experience. He quickly understood our business requirements and prioritized the features needed for an MVP and helped us test Product-Market-Fit. He is a great tool and immensely valuable as a founding engineer."
 	},
 	{
-		"id": "Sneh P.",
+		"id": "Sneh Patel",
 		"role": "Operations Manager, Natraj Buildicon",
 		"project": { "label": "Amy", "url": "projects/amy" },
-		"text": "Ajay is a rockstar product engineer who knows his stuff inside out. He's always willing to lend a hand and share his knowledge with the team. His positive attitude and energy are contagious. A true asset to our company!"
+		"text": "Aditya B. helped us navigate the best tech for the solution, and enhanced our existing application with ease. His ability to work with the existing tech and building new features on top of it really helped our business grow in no time! Highly Recommended!"
 	},
 	{
-		"id": "Nishad K.",
+		"id": "Nishad Kinhikar",
 		"role": "Editor-in-Chief, VeryFirstTale",
 		"project": { "label": "VeryFirstTale", "url": "projects/veryfirsttale" },
-		"text": "Sarah is an outstanding product engineer who consistently pushes the boundaries of innovation. Her passion for her work is evident in everything she does. She's a true leader and a valuable resource for our team. 5 stars, without a doubt!",
+		"text": "I highly recommend Aditya for any product engineering needs. His technical expertise and dedication to delivering high-quality solutions are unmatched. He helped us in multiple domains of our project, his generalist approach is a plus point.",
 		"proof": {
 			"name": "LinkedIn",
 			"url": "https://linkedin.com/in/adityab-tech"
 		}
 	},
 	{
-		"id": "Alifiya P.",
-		"role": "Chief Art Officer, VeryFirstTale",
-		"text": "Sarah is an outstanding product engineer who consistently pushes the boundaries of innovation. Her passion for her work is evident in everything she does. She's a true leader and a valuable resource for our team. 5 stars, without a doubt!",
+		"id": "Arpeta Rao",
+		"role": "Marketing Manager, Europa Assistance",
+		"text": "Aditya is a great product engineer who helped our in-house team to enhance our existing application with pixel perfect design. His attention to detail and collaboration with our team made the project a great success.",
 		"proof": {
-			"name": "LinkedIn",
-			"url": "https://linkedin.com/in/adityab-tech"
+			"name": "",
+			"url": ""
 		}
 	},
 	{
-		"id": "Disha C.",
+		"id": "Disha Chakraborty",
 		"role": "Team Leader, AIESEC in Navi Mumbai",
 		"text": "Aditya is one of the most efficient team players! He is very sincere and resilient. He will definitely be an asset to a project assigned in and around his forte. I wish him good luck in future endeavours.",
 		"proof": {

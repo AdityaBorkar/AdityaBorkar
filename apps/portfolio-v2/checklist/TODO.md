@@ -166,6 +166,12 @@ https://ibelick.com/blog/create-modern-spotlight-effect-with-react-css
 https://ibelick.com/blog/create-shooting-star-border-tailwind-css
 https://ibelick.com/blog/create-infinite-slider-with-tailwind-css
 
+https://codepen.io/h7w/pen/bGGOyyj
+
+https://sharuco.lndev.me/
+https://ui.lndev.me/components/vercel-toolbar
+https://hextastudio.com/#pricing
+
 ## 27th February:
 
 - Accessibility

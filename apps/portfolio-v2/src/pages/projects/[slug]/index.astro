@@ -1,136 +1,166 @@
 ---
+import { render, getCollection } from "astro:content";
+
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import Section from "@/pages/home/_Section.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import BookCta from "@/components/sections/BookCta.astro";
+
 // import { HiChevronRight } from 'react-icons/hi2'
 // import { LuEye, LuGithub, LuGlobe } from 'react-icons/lu'
 
-// index: z.number().optional(),
-//     title: z.string(),
-//     description: z.string(),
-//     hero_image: z.string().nullable(),
-//     categories: z.array(z.string()),
-//     tags: z.array(z.string()),
-//     preview_link: z.string().nullable(),
-//     github_link: z.string().nullable(),
-
-export function getStaticPaths() {
-  const projects = [
-    {
-      name: "Hooop.cloud",
-      slug: "hooop-cloud",
-      description:
-        "Hooop.cloud is a serverless management platform that allows you to manage your serverless applications in one place.",
-      image: "/projects/hooop.png",
-      url: "https://hooop.cloud",
-      tags: ["Cloudflare", "Serverless", "Management"],
-    },
-    {
-      name: "Platipie",
-      slug: "platipie",
-      description:
-        "Platipie is a platform that allows you to create and manage your own websites and applications.",
-      image: "/projects/platipie.png",
-      url: "https://platipie.com",
-      tags: ["Webflow", "JavaScript", "TypeScript"],
-    },
-    {
-      name: "Cloud",
-      slug: "cloud",
-      description:
-        "Cloud is a platform that allows you to create and manage your own websites and applications.",
-      image: "/projects/cloud.png",
-      url: "https://cloud.com",
-      tags: ["Cloudflare", "Serverless", "Management"],
-    },
-  ];
-
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: { project },
   }));
 }
 
-const { slug } = Astro.params;
 const { project } = Astro.props;
 if (!project) return Astro.redirect("/404");
 
-const { name, description, image, url, tags } = project;
+const {
+  title,
+  tags,
+  description,
+  hero_image,
+  preview_link,
+  categories,
+  github_link,
+  // featured,
+  // open_source,
+} = project.data;
+// console.log(project.rendered.metadata.headings);
 
 const SchemaMarkup = [];
 
-console.log({ project });
+const { Content } = await render(project);
 ---
 
 <LandingLayout
-  title={project.name}
-  keywords={project.tags}
-  description={project.description}
+  title={title}
+  keywords={tags}
+  description={description}
   schemaMarkup={SchemaMarkup}
 >
+  <!-- Breadcrumb -->
   <div
-    class="mx-auto mb-8 mt-24 grid max-w-[64rem] grid-cols-[auto_20rem] gap-8"
+    class="flex mx-auto max-w-[64rem] flex-row gap-2 text-sm mb-12 mt-12 max-md:px-4 md:mt-24 text-text-tertiary"
+  >
+    <a
+      href="/projects"
+      class="rounded-full bg-bg-primary/50 px-4 py-2 text-xs font-medium text-text-tertiary hover:bg-bg-primary"
+    >
+      <!-- <HiChevronRight
+      className="inline-block size-3 stroke-1 align-[-1px]"
+    /> -->
+      Back to All Projects</a
+    >
+  </div>
+
+  <Section
+    class:list={[
+      "grid border-b border-border/20 pb-16",
+      "md:grid-cols-[auto_18rem] md:grid-rows-[1fr_auto] md:auto-rows-max md:gap-x-8",
+    ]}
   >
     <div>
-      <!-- Breadcrumb -->
-      <div class="flex flex-row gap-2 text-sm text-text-tertiary">
-        <a href="/projects">Projects</a>
-        <span>
-          <!-- <HiChevronRight
-            className="inline-block size-3 stroke-1 align-[-1px]"
-          /> -->
-        </span>
-        <a href={`/projects/${project.slug}`}>{project.name}</a>
-      </div>
+      <h1 class="mb-4 text-left text-3xl font-bold md:text-5xl">
+        {title}
+      </h1>
 
-      <h1 class="mb-4 mt-8 text-left text-5xl font-bold">{project.name}</h1>
-
-      <p class="mb-4 text-left text-base text-text-secondary">
-        {project.description}
+      <p class="text-left md:text-base text-sm text-text-tertiary">
+        {description}
       </p>
+    </div>
+    <div></div>
 
+    <div class="max-md:contents">
       <img
-        src={project.image}
-        alt={project.name}
-        class="my-16 min-h-96 w-full rounded-xl border border-border/50 object-cover"
+        src={hero_image}
+        alt={title}
+        class="my-4 md:my-8 aspect-video rounded-xl border border-border/10 object-cover"
       />
-
-      <div class="mt-8">CONTENT</div>
-    </div>
-
-    <div
-      class="mt-56 flex h-fit flex-col gap-4 rounded-xl border border-border/20 bg-white *:px-4 dark:bg-black"
-    >
-      <div class="py-4 text-sm font-medium">BUSINESS OUTCOME</div>
-      <div class="grid grid-cols-2 gap-2 text-center">
-        <a
-          href={project.url}
-          target="_blank"
-          class="rounded-md bg-bg-tertiary py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
-        >
-          <!-- <LuGlobe className="inline-block size-4 stroke-2 align-[-3px]" /> -->
-          Live Preview
-        </a>
-        <a
-          href={project.url}
-          target="_blank"
-          class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
-        >
-          <!-- <LuEye className="inline-block size-4 stroke-2 align-[-3px]" /> -->
-          Quick Peek
-        </a>
-        <!-- <a
-          href={project.url}
-          target="_blank"
-          class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
-        >
-          <LuGithub className="inline-block size-4 stroke-2 align-[-3px]" />
-          View Code
-        </a> -->
-      </div>
-      <div class="border-t border-border/20 pt-4">
-        Looking for consultation? Looking for an engineer (or team) to build
-        your project?
-        <a href="/contact" class="my-2 block">Contact</a>
+      <div class="order-2 prose min-w-full dark:prose-invert">
+        <Content />
       </div>
     </div>
-  </div>
+
+    <div class="">
+      <div
+        class="md:sticky mt-4 md:mt-8 md:top-[max(25vh,10rem)] flex flex-col gap-4 text-text-tertiary font-normal"
+      >
+        <div class="grid grid-cols-2 gap-4 text-center">
+          <ButtonLink
+            variant="secondary"
+            size="md"
+            href={preview_link}
+            target="_blank"
+          >
+            <!-- class="rounded-md bg-bg-tertiary py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary" -->
+            <!-- <LuGlobe className="inline-block size-4 stroke-2 align-[-3px]" /> -->
+            Live Preview
+          </ButtonLink>
+          <ButtonLink
+            variant="secondary"
+            size="md"
+            href={preview_link}
+            target="_blank"
+          >
+            <!-- class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary" -->
+            <!-- <LuEye className="inline-block size-4 stroke-2 align-[-3px]" /> -->
+            Quick Peek
+          </ButtonLink>
+          <!-- <a
+              href={project.url}
+              target="_blank"
+              class="rounded-md bg-bg-tertiary px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-bg-secondary"
+            >
+              <LuGithub className="inline-block size-4 stroke-2 align-[-3px]" />
+              View Code
+            </a> -->
+        </div>
+        <div
+          class="py-4 pb-4 text-sm font-medium px-4 rounded-xl border border-border/20"
+        >
+          <div
+            class="grid grid-cols-[1fr_4fr] max-md:grid-cols-[1fr_3fr_1fr_3fr] gap-y-2 items-center text-base"
+          >
+            <span
+              class="text-2xl -mt-0.5 font-semibold text-center text-text-secondary"
+            >
+              2x
+            </span>
+            <div>Revenue</div>
+            <span
+              class="text-2xl -mt-0.5 font-semibold text-center text-text-secondary"
+            >
+              2x
+            </span>
+            <div>Revenue</div>
+            <span
+              class="text-2xl -mt-0.5 font-semibold text-center text-text-secondary"
+            >
+              10x
+            </span>
+            <div>Customer Retention</div>
+          </div>
+        </div>
+        <div
+          class="py-4 pb-4 text-sm font-medium px-4 rounded-xl border border-border/20"
+        >
+          <div>Client: Vasundhara Transport Service</div>
+          <div class="my-6">LOGO</div>
+        </div>
+        <!-- <div class="border p-4 rounded-xl border-border/20">
+          Looking for consultation? Looking for an engineer (or team) to build
+          your project?
+          <a href="/contact" class="my-2 block">Contact</a>
+        </div> -->
+      </div>
+    </div>
+  </Section>
+
+  <BookCta />
 </LandingLayout>

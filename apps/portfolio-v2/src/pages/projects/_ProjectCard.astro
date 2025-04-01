@@ -27,13 +27,13 @@ const {
 
 <a
   href={`/projects/${title.toLowerCase().replace(/[\s\W]+/g, "-")}`}
-  class="group relative rounded-3xl border border-border/20 bg-background p-4 transition-all hover:shadow-lg"
+  class="group relative rounded-3xl border border-border/10 bg-bg-primary/50 p-4 transition-all hover:shadow-lg"
 >
-  <div class="h-56 rounded-xl relative">
+  <div class="h-56 md:h-64 rounded-xl relative">
     <img
       src={hero_image}
       alt={`Visual Representation of ${title}`}
-      class="group-hover:zoom-105 mx-auto h-full text-text-quarternary rounded-xl bg-bg-primary text-center"
+      class="group-hover:zoom-105 mx-auto h-full text-text-quarternary rounded-xl bg-bg-secondary text-center"
     />
     {
       (featured || open_source) && (
@@ -62,7 +62,7 @@ const {
     >
       {
         tags.map((tag) => (
-          <li class="cursor-pointer rounded-full bg-bg-primary px-2.5 py-1 text-xs text-text-tertiary">
+          <li class="cursor-pointer rounded-full bg-bg-secondary px-2.5 py-1 text-xs text-text-tertiary">
             {tag}
           </li>
         ))

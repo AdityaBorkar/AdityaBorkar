@@ -7,6 +7,7 @@ import LandingLayout from "@/layouts/LandingLayout/index.astro";
 import { getSchemaMarkup } from "@/lib/utils";
 import Section from "../home/_Section.astro";
 import BookCta from "@/components/sections/BookCta.astro";
+import InlineBold from "@/components/ui/InlineBold.astro";
 
 const title = "Projects";
 const description = "Projects";
@@ -28,6 +29,8 @@ const AllCategories = [
 
 // TODO: Remove "Frontend Development" and "MAD" from categories
 // Filter Animation
+
+// Copywriting - less marketing words and more impact words
 ---
 
 <LandingLayout
@@ -47,11 +50,13 @@ const AllCategories = [
       ]}
     >
       <!-- TODO: Highlight keywords -->
-      I create handcrafted products and signature projects that make a difference.
+      I craft products and signature projects that make a difference.
       <br class="hidden md:block" />
-      My work empowers businesses to serve better products, enhance efficiency, and
-      boost profitability through technology. It includes open-source contributions
-      that support fellow engineers and developers in creating better software.
+      My work empowers businesses to serve <InlineBold
+        >better products, enhance efficiency, and boost profitability</InlineBold
+      > through technology. It includes <InlineBold
+        >open-source contributions</InlineBold
+      > that support fellow engineers and developers in creating better software.
     </p>
 
     <div class="mt-12 md:mt-24 flex flex-row gap-4">

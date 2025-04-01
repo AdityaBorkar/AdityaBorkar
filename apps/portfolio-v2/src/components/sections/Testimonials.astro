@@ -4,6 +4,12 @@ import Icon from "@/components/ui/Icon.astro";
 import { getCollection } from "astro:content";
 
 const items = await getCollection("testimonials");
+
+// TODO: HIGHLIGHT cursor bg
+
+// Future Improvements:
+// 1. Link to project case study
+// 2. Link to testimonial source
 ---
 
 <Section
@@ -12,42 +18,30 @@ const items = await getCollection("testimonials");
         "md:flex md:flex-row md:flex-wrap md:items-center md:justify-evenly md:gap-8",
     ]}
 >
-    <!-- HIGHLIGHT cursor bg -->
     {
         items.map(({ data: testimonial }) => (
-            <div class="group h-fit flex-[1_0_30%] rounded-3xl border border-border/20 bg-background px-6 py-5">
-                <div class="flex flex-row items-center justify-between">
-                    <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter">
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                        <Icon
-                            icon="Star"
-                            class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
-                        />
-                    </div>
-                    {/* {testimonial.project && (
-          <a
-            href={testimonial.project.url}
-            class="w-fit rounded-full border border-border/20 px-2 py-1 text-xs font-medium text-text-tertiary hover:bg-bg-primary"
-          >
-            Project: {testimonial.project.label}
-            <ArrowUpRightIcon class="size-3 ml-0.5 -mt-0.5 inline-block" />
-          </a>
-        )} */}
+            <div class="group h-fit flex-[1_0_30%] rounded-3xl border border-border/10 bg-bg-primary/50 px-6 py-5">
+                <div class="w-fit flex flex-row gap-1 text-xl tracking-tighter effect-shine">
+                    <Icon
+                        icon="Star"
+                        class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                    />
+                    <Icon
+                        icon="Star"
+                        class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                    />
+                    <Icon
+                        icon="Star"
+                        class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                    />
+                    <Icon
+                        icon="Star"
+                        class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                    />
+                    <Icon
+                        icon="Star"
+                        class="size-4 text-yellow-600 fill-yellow-500 stroke-1"
+                    />
                 </div>
 
                 <p class="mt-4 text-pretty text-xs md:text-sm">
