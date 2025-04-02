@@ -1,28 +1,11 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
-interface Props extends CollectionEntry<"projects"> {}
+interface Props extends CollectionEntry<'projects'> {}
 
 const {
-  data: { title, description, hero_image, tags, featured, open_source },
+	data: { title, description, hero_image, tags, featured, open_source },
 } = Astro.props;
-
-// onMouseMove={(e) => {
-//   if (!PointerDivRef.current) return
-//   // TODO: Translate on Page Scroll
-//   // TODO: TranslateX depends on Page Width
-//   PointerDivRef.current.style.transform = `translateY(${e.pageY - 20}px) translateX(${e.pageX - 220}px)`
-// }}
-// onMouseEnter={() => {
-//   if (!PointerDivRef.current) return
-//   PointerDivRef.current.style.display = 'block'
-// }}
-// onMouseLeave={() => {
-//   if (!PointerDivRef.current) return
-//   PointerDivRef.current.style.display = 'none'
-// }}
-
-// TODO: [Animation] On hover release small bubbles/sparkles in the background
 ---
 
 <a
@@ -40,8 +23,10 @@ const {
         <div
           class:list={[
             "absolute top-2 right-2 uppercase text-xs py-1 px-2 rounded-md",
-            featured && "text-yellow-200 bg-yellow-950",
-            open_source && "text-green-200 bg-green-950",
+            featured &&
+              "text-yellow-200 bg-yellow-950 border border-yellow-900",
+            open_source &&
+              "text-green-200 bg-green-950 border border-green-900",
           ]}
         >
           {featured && "Featured"}

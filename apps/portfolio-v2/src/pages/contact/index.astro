@@ -1,25 +1,25 @@
 ---
-import ScheduleMeetBtn from "@/components/ScheduleMeetBtn.astro";
-import Button from "@/components/ui/Button.astro";
-import Input from "@/components/ui/Input.astro";
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { getSchemaMarkup } from "@/lib/utils";
+import ScheduleMeetBtn from '@/components/ScheduleMeetBtn.astro';
+import Button from '@/components/ui/Button.astro';
+import Input from '@/components/ui/Input.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { getSchemaMarkup } from '@/lib/utils';
 
-const title = "Contact";
+const title = 'Contact';
 const description =
-  "Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
+	"Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
 const keywords = [
-  "contact me",
-  "collaborate with me",
-  "project consultation",
-  "podcast guest",
-  "public speaking",
-  "business inquiries",
-  "partnership opportunities",
-  "freelance projects",
-  "hire a developer",
+	'contact me',
+	'collaborate with me',
+	'project consultation',
+	'podcast guest',
+	'public speaking',
+	'business inquiries',
+	'partnership opportunities',
+	'freelance projects',
+	'hire a developer',
 ];
-const SchemaMarkup = [getSchemaMarkup("person"), getSchemaMarkup("contact")];
+const SchemaMarkup = [getSchemaMarkup('person'), getSchemaMarkup('contact')];
 
 // TODO - Schedule call with form parameters
 // TODO - Add form validation
@@ -28,7 +28,7 @@ const SchemaMarkup = [getSchemaMarkup("person"), getSchemaMarkup("contact")];
 // TODO - Add form thank you message (TOAST)
 // TODO - Open Graph Image
 
-const errors = { username: "", email: "", password: "" };
+const errors = { username: '', email: '', password: '' };
 
 // if (Astro.request.method === "POST") {
 //   try {

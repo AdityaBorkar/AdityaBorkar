@@ -39,3 +39,5 @@
   - LangSmith
   - CrUX Report
   - Google Search Console Reports <https://support.google.com/webmasters/answer/9133276>
+
+// Copywriting - less marketing words and more impact words

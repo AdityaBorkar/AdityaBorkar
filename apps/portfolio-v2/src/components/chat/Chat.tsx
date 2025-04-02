@@ -224,9 +224,9 @@ export default function Chat({ firstName }: { firstName: string }) {
 					</button>
 				</div>
 				<div className="py-2 text-center text-text-tertiary text-xs opacity-75">
-					Responses are AI generated and may not be true.
+					Everyone makes mistakes, including this AI.
 					<br className="md:hidden" />
-					Verify with Aditya Borkar directly.
+					Make sure to double-check important information.
 				</div>
 			</footer>
 		</>

@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
 interface Props {
-    src: ImageMetadata | Promise<{ default: ImageMetadata }>;
-    alt: string;
-    href: string;
+	src: ImageMetadata | Promise<{ default: ImageMetadata }>;
+	alt: string;
+	href: string;
 }
 
 const { src, alt, href } = Astro.props;

@@ -1,7 +1,7 @@
 import type { calendar_v3 } from '@googleapis/calendar';
+import { CONTACT_FORM_ETA } from 'cms/constants';
 import { google } from 'googleapis';
 import serviceAccount from '@/../gcloud-service-account-key.json';
-import { CONTACT_FORM_ETA } from 'cms/constants';
 
 const CALENDAR_ID = 'aditya.borkar.programs@gmail.com';
 

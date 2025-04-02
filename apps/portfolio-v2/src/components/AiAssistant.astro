@@ -1,16 +1,23 @@
 ---
+import RoundMessage from '@/assets/icons/RoundMessage.svg';
 import Chat from './chat';
 
 // popovertarget="my-popover"
 // popovertargetaction="show"
 
-// hide if cookie is not accepted
+const COOKIE_ACCEPTED = true;
 ---
 
 <button
-    class="fixed bottom-8 right-8 hidden px-6 shadow-lg py-3 rounded-full border border-border/20 bg-background text-text-primary cursor-pointer"
+    class:list={[
+        "fixed z-40 bottom-4 right-4 px-3 shadow-lg py-3 rounded-full border border-border/20 bg-background text-text-tertiary cursor-pointer",
+        "md:bottom-8 md:right-8 md:px-6",
+        !COOKIE_ACCEPTED && "!hidden",
+    ]}
 >
-    Ask AI Assistant
+    <!-- TODO: EXPERIMENT: Morph with Bot.svg -->
+    <RoundMessage class="inline-block size-5 -mt-1" />
+    <!-- Ask AI -->
 </button>
 
-<!-- <Chat client:only="react" /> -->
+<Chat client:only="react" />

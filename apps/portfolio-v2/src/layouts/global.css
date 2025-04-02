@@ -49,11 +49,11 @@
 	}
 
 	*::selection {
-		@apply bg-amber-400/50 text-black;
+		@apply bg-emerald-400/50 text-black;
 	}
 
 	.dark *::selection {
-		@apply bg-amber-500/50 text-white;
+		@apply bg-emerald-500/40 text-white;
 	}
 
 	html {

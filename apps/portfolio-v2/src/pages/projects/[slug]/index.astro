@@ -1,35 +1,34 @@
 ---
-import { render, getCollection } from "astro:content";
-
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import Section from "@/pages/home/_Section.astro";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
-import BookCta from "@/components/sections/BookCta.astro";
+import { getCollection, render } from 'astro:content';
+import BookCta from '@/components/sections/BookCta.astro';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import Section from '@/pages/home/_Section.astro';
 
 // import { HiChevronRight } from 'react-icons/hi2'
 // import { LuEye, LuGithub, LuGlobe } from 'react-icons/lu'
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
 }
 
 const { project } = Astro.props;
-if (!project) return Astro.redirect("/404");
+if (!project) return Astro.redirect('/404');
 
 const {
-  title,
-  tags,
-  description,
-  hero_image,
-  preview_link,
-  categories,
-  github_link,
-  // featured,
-  // open_source,
+	title,
+	tags,
+	description,
+	hero_image,
+	preview_link,
+	categories,
+	github_link,
+	// featured,
+	// open_source,
 } = project.data;
 // console.log(project.rendered.metadata.headings);
 
@@ -46,7 +45,7 @@ const { Content } = await render(project);
 >
   <!-- Breadcrumb -->
   <div
-    class="flex mx-auto max-w-[64rem] flex-row gap-2 text-sm mb-12 mt-12 max-md:px-4 md:mt-24 text-text-tertiary"
+    class="flex mx-auto max-w-[64rem] flex-row gap-2 text-sm mb-6 mt-12 max-md:px-4 md:mt-24 text-text-tertiary"
   >
     <a
       href="/projects"
@@ -80,9 +79,9 @@ const { Content } = await render(project);
       <img
         src={hero_image}
         alt={title}
-        class="my-4 md:my-8 aspect-video rounded-xl border border-border/10 object-cover"
+        class="mt-4 md:my-8 aspect-video rounded-xl border border-border/10 object-cover"
       />
-      <div class="order-2 prose min-w-full dark:prose-invert">
+      <div class="order-2 max-md:mt-8 prose min-w-full dark:prose-invert">
         <Content />
       </div>
     </div>

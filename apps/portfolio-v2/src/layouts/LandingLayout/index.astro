@@ -1,24 +1,22 @@
 ---
-import type { Thing, WithContext } from "schema-dts";
-
-import GitHubIcon from "@/assets/icons/GitHub.svg";
-import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
-import TwitterIcon from "@/assets/icons/Twitter.svg";
-import AiAssistant from "@/components/AiAssistant.astro";
-import RefreshIcon from "@/assets/icons/Refresh.svg";
-
-import RootLayout from "../RootLayout.astro";
-import FooterLink from "./FooterLink.astro";
-import Navbar from "./Navbar.astro";
-import Button from "@/components/ui/Button.astro";
-import GenerativeArt from "./GenerativeArt.astro";
-import { SOCIALS } from "cms/constants";
+import { SOCIALS } from 'cms/constants';
+import type { Thing, WithContext } from 'schema-dts';
+import GitHubIcon from '@/assets/icons/GitHub.svg';
+import LinkedinIcon from '@/assets/icons/LinkedIn.svg';
+import RefreshIcon from '@/assets/icons/Refresh.svg';
+import TwitterIcon from '@/assets/icons/Twitter.svg';
+import AiAssistant from '@/components/AiAssistant.astro';
+import Button from '@/components/ui/Button.astro';
+import RootLayout from '../RootLayout.astro';
+import FooterLink from './FooterLink.astro';
+import GenerativeArt from './GenerativeArt.astro';
+import Navbar from './Navbar.astro';
 
 interface Props {
-  title: string;
-  description: string;
-  keywords: string[];
-  schemaMarkup?: WithContext<Thing>[];
+	title: string;
+	description: string;
+	keywords: string[];
+	schemaMarkup?: WithContext<Thing>[];
 }
 ---
 
