@@ -72,6 +72,12 @@ https://www.lakshb.dev/colophon
 https://www.lakshb.dev/ai
 TODO - RESPOND TO EVERY DAMN TAP
 
+https://leonardomontini.dev/contributions/
+
+https://ui.jln.dev/
+
+https://playground.rombo.co/
+
 Make a list of websites that inspired you to make this website AND then write a blog post about it and email the people who inspired you.
 
 

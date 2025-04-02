@@ -25,13 +25,13 @@ const { label, id, placeholder, type = 'text' } = Astro.props;
 ---
 
 <div>
-    <label for={id} class="mb-1 block font-medium text-text-primary">
-        {label}
-    </label>
-    <input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        class="block w-full rounded-md border border-border/10 bg-bg-primary px-4 py-2 placeholder:text-text-tertiary"
-    />
+	<label for={id} class="mb-1 block font-medium text-text-primary">
+		{label}
+	</label>
+	<input
+		id={id}
+		type={type}
+		placeholder={placeholder}
+		style={{ display: "none" }}
+	/>
 </div>

@@ -101,6 +101,14 @@ const errors = { username: '', email: '', password: '' };
       </div>
       <div class="max-md:col-span-2">
         <Input
+          id="contactForm_name"
+          label="Your Phone"
+          placeholder="9820748096"
+        />
+        {errors.username && <p>{errors.username}</p>}
+      </div>
+      <div class="max-md:col-span-2">
+        <Input
           id="contactForm_email"
           type="email"
           label="Your Email:"

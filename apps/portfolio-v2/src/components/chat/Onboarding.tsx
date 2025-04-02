@@ -14,7 +14,7 @@ export default function Onboarding({
 
 	return (
 		<main className="h-fit grow px-10">
-			<div className="mx-auto mt-16 mb-24 max-w-96">
+			<div className="mx-auto mt-48 mb-24 max-w-96 max-md:mt-[25vh]">
 				<h4 className="font-semibold text-2xl text-text-primary">
 					{/* <Image src={Greeting.src} alt="Good Evening" width={24} height={24} /> */}
 					{greeting},
@@ -43,10 +43,15 @@ export default function Onboarding({
 					/>
 					<button
 						type="button"
-						className="rounded-full bg-emerald-700 px-4 py-3 font-semibold text-white hover:bg-green-800"
+						className="rounded-full bg-emerald-700 px-4 py-3 font-semibold text-white hover:bg-emerald-800"
 						onClick={() => {
 							const firstName = firstNameRef.current?.value;
-							if (firstName) setFirstName(firstName);
+							if (firstName) {
+								// What if the firstName is same?
+								// What if you want to edit the name?
+								window.localStorage.setItem('chat-firstName', firstName);
+								setFirstName(firstName);
+							}
 						}}
 					>
 						Chat

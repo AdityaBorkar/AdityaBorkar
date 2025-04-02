@@ -1,17 +1,15 @@
 import ReactLenis, { type LenisRef } from 'lenis/react';
-import {
-	cancelFrame,
-	frame,
-	motion,
-	useMotionValueEvent,
-	useTransform,
-	useVelocity,
-} from 'motion/react';
-import { useScroll } from 'motion/react';
-import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'motion/react';
+import { useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import Message from './chat/Message';
-import { TypingIndicator } from './chat/TypingIndicator';
+import { ImagesMessage } from './messages/ImagesMessage';
+import { ProjectMessage } from './messages/ProjectMessage';
+import { SkillMessage } from './messages/SkillMessage';
+import { SocialMessage } from './messages/SocialMessage';
+import { StickerMessage } from './messages/StickerMessage';
+import { TestimonialMessage } from './messages/TestimonialMessage';
+import { TextMessage } from './messages/TextMessage';
+import { TypingIndicator } from './messages/TypingIndicator';
 
 type MessageType = {
 	id: string;
@@ -19,7 +17,23 @@ type MessageType = {
 	content: ContentType[];
 };
 
-type ContentType = { sticker: string } | { text: string } | { media: string };
+type ContentType = { text: string };
+// | { type: 'project', name: string, preview_img: string }
+// | { type: 'sticker', sticker: string }
+// | { type: 'social', custom: string };
+// | { type: 'skill', audio: string }
+// | { type: 'images', images: string[] }
+// | { type: 'testimonial', quote: string, name: string, designation: string }
+
+const components = {
+	text: TextMessage,
+	// skill: SkillMessage,
+	// social: SocialMessage,
+	// images: ImagesMessage,
+	// sticker: StickerMessage,
+	// project: ProjectMessage,
+	// testimonial: TestimonialMessage,
+};
 
 export default function Chat({ firstName }: { firstName: string }) {
 	// TODO: Store chat messages in localStorage for retrieval
@@ -31,10 +45,9 @@ export default function Chat({ firstName }: { firstName: string }) {
 			id: 'cuid2',
 			role: 'assistant',
 			content: [
-				{ text: `Hola, Good Evening! ${firstName}` },
-				{ sticker: '👋' },
+				{ text: `Hello, Good Evening! ${firstName}` },
 				{
-					text: 'I am a chatbot designed and developed by Aditya Borkar as a side project. It is aimed to be conversational and help you with your queries. It has access to limited information about me. The project is still experimental.',
+					text: "I am Aditya Borkar's AI assistant, I will help you with your queries and try my best to help you. (Note - I have limited access to Aditya's personal and work information.)",
 				},
 			],
 			//   Add Sticker and coldplay music
@@ -44,7 +57,6 @@ export default function Chat({ firstName }: { firstName: string }) {
 			role: 'user',
 			content: [
 				{ text: 'What is your name?' },
-				{ sticker: '👋' },
 				{
 					text: 'I want to design a full stack application with lots of dynamic elements. Can you get the work done within one hour?',
 				},
@@ -60,173 +72,140 @@ export default function Chat({ firstName }: { firstName: string }) {
 				{
 					text: 'You are boring me now!  full stack application with lots of dynamic elements. Can you get the  better. Entertain me man!',
 				},
-			],
-		},
-		{
-			id: 'cuidas5',
-			role: 'user',
-			content: [
-				{ text: 'What is your name?' },
-				{ sticker: '👋' },
-				{
-					text: 'I want to design a full stack application with lots of dynamic elements. Can you get the work done within one hour?',
-				},
-				{
-					text: 'You are boring me now! Come up with something better. Entertain me man!',
-				},
-			],
-		},
-		{
-			id: 'csui2d5',
-			role: 'assistant',
-			content: [
-				{
-					text: 'You are boring me now!  full stack application with lots of dynamic elements. Can you get the  better. Entertain me man!',
-				},
-			],
-		},
-		{
-			id: 'cuiadas5',
-			role: 'user',
-			content: [
-				{ text: 'What is your name?' },
-				{ sticker: '👋' },
-				{
-					text: 'I want to design a full stack application with lots of dynamic elements. Can you get the work done within one hour?',
-				},
-				{
-					text: 'You are boring me now! Come up with something better. Entertain me man!',
-				},
-			],
-		},
-		{
-			id: 'csufi2d5',
-			role: 'assistant',
-			content: [
-				{
-					text: 'You are boring me now!  full stack application with lots of dynamic elements. Can you get the  better. Entertain me man!',
-				},
-			],
-		},
-		{
-			id: 'cuasidas5',
-			role: 'user',
-			content: [
-				{ text: 'What is your name?' },
-				{ sticker: '👋' },
-				{
-					text: 'I want to design a full stack application with lots of dynamic elements. Can you get the work done within one hour?',
-				},
-				{
-					text: 'You are boring me now! Come up with something better. Entertain me man!',
-				},
-			],
-		},
-		{
-			id: 'csaaui2d5',
-			role: 'assistant',
-			content: [
-				{
-					text: 'You are boring me now!  full stack application with lots of dynamic elements. Can you get the  better. Entertain me man!',
-				},
+				// { type: 'project', name: 'Amy', preview_img: '' },
 			],
 		},
 	]);
 
 	const lenisRef = useRef<LenisRef>(null);
-	const scrollRef = useRef<HTMLDivElement>(null);
-	const { scrollYProgress } = useScroll({ container: scrollRef });
-	// const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-	const velocity = useVelocity(scrollYProgress);
-	const absoluteVelocity = useTransform(() => Math.abs(velocity.get()));
-	// const gap = useTransform(absoluteVelocity, [0, 10], ['4px', '64px'])
-	// useEffect(() => {
-	//   gap.on('change', latest => {
-	//     console.log('gap: ', latest)
-	//   })
-	// }, [absoluteVelocity])
+	const inputRef = useRef<HTMLInputElement>(null);
+	const sendButtonRef = useRef<HTMLButtonElement>(null);
 
-	useEffect(() => {
-		//   function update(data: { timestamp: number }) {
-		//     console.log('data: ', data)
-		//     const time = data.timestamp
-		// lenisRef.current?.lenis?.raf(time)
-		lenisRef.current?.lenis?.on('scroll', () => {
-			console.log('OKay');
+	function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+		e.stopPropagation();
+		const input = inputRef.current;
+		const sendButton = sendButtonRef.current;
+		const container = lenisRef.current?.wrapper;
+		if (!input || !container || !sendButton) return;
+
+		const text = input.value;
+		if (!text) return;
+		input.value = '';
+
+		setMessages((messages) => [
+			...messages,
+			{ id: Math.random().toString(), role: 'user', content: [{ text }] },
+		]);
+		// TODO: Stream and then scrollToBottom()
+
+		scrollToBottom();
+	}
+
+	function scrollToBottom() {
+		const container = lenisRef.current?.wrapper;
+		if (!container) return;
+		container.scrollTo({
+			top: container.scrollHeight + 500,
+			behavior: 'smooth',
 		});
-		absoluteVelocity.on('change', (latest) => {
-			console.log('absoluteVelocity: ', latest);
-		});
-		//   }
-		//   frame.update(update, true)
-		//   return () => cancelFrame(update)
-	}, [absoluteVelocity.on]);
+	}
+
+	// TODO: Adjust the gap between the messages when scrolling
 
 	return (
 		<>
 			<ReactLenis
 				ref={lenisRef}
 				options={{ autoRaf: true }}
-				className="h-full w-full overflow-auto"
-			>
-				<main
-					ref={scrollRef}
-					className={cn(
-						'grow overflow-auto bg-white px-4 pt-32 pb-24',
-						'md:px-8',
-					)}
-				>
-					{messages.map((message) => (
-						<Message
-							key={message.id}
-							content={message.content}
-							// gap={gap}
-							wrapperClass={
-								// ! TRY FLEXBOX
-								message.role === 'user'
-									? 'text-white bg-green-600 ml-auto'
-									: 'text-text-primary bg-bg-primary/80 mr-auto'
-							}
-						/>
-					))}
-					<TypingIndicator />
-				</main>
-			</ReactLenis>
-
-			<footer
 				className={cn(
-					'fixed bottom-0 w-full bg-white/80 px-4 pt-4 pb-16 backdrop-blur-3xl ',
-					'md:rounded-b-4xl md:pb-0',
+					'h-fit grow overflow-auto rounded-b-4xl px-4 pt-32 pb-12',
+					'max-md:pb-32 md:px-8',
 				)}
 			>
+				{messages.map((message) => (
+					// Existing message animation
+					// New Message Animation
+					<motion.div
+						key={message.id}
+						className="z-10 mb-4 flex flex-col gap-1"
+					>
+						{message.content.map((item) => {
+							if ('text' in item)
+								return (
+									<TextMessage
+										key={item.text}
+										role={message.role}
+										text={(item.text || '').toString()}
+									/>
+								);
+							// if ('type' in item && item.type === 'project')
+							// 	return (
+							// 		<ProjectMessage
+							// 			key={item.type}
+							// 			name={item.name}
+							// 			preview_img={item.preview_img}
+							// 		/>
+							// 	);
+						})}
+					</motion.div>
+				))}
+				<TypingIndicator />
+			</ReactLenis>
+
+			{/** biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+			<footer
+				className={cn(
+					'fixed bottom-0 w-full px-4 pt-4 backdrop-blur-xs dark:bg-background/70',
+					'max-md:pb-16 md:rounded-b-4xl',
+				)}
+				onClick={() => inputRef.current?.focus()}
+			>
 				<div className="flex flex-row items-center justify-center gap-2">
-					{/* <button
-              type='button'
-              className='py-3 px-4 rounded-full bg-bg-primary text-text-tertiary'
-            >
-              Mic
-            </button> */}
+					{/*
+					<button
+						type="button"
+						className="py-3 px-4 rounded-full bg-bg-primary text-text-tertiary"
+					>
+						Mic
+					</button>
+					*/}
 					{/* text-size-adjust */}
-					{/* Do not allow send until response is entered */}
 					<input
+						ref={inputRef}
 						type="search"
 						autoComplete="false"
 						autoCorrect="false"
 						autoCapitalize="false"
 						placeholder="Type your message here"
-						className="grow rounded-full bg-bg-primary px-5 py-3"
+						className="grow rounded-full bg-bg-primary/70 px-5 py-3"
+						onKeyUp={(e) => {
+							const input = inputRef.current;
+							const sendButton = sendButtonRef.current;
+							if (!sendButton || !input) return;
+							if (input.value.length > 0) {
+								sendButton.disabled = false;
+							} else {
+								sendButton.disabled = true;
+							}
+							if (e.key === 'Enter') {
+								e.preventDefault();
+								sendButton.click();
+							}
+						}}
 					/>
 					<button
+						ref={sendButtonRef}
 						type="button"
-						className="rounded-full bg-green-600 px-4 py-3 font-semibold text-white hover:bg-green-700 active:bg-green-800"
+						className="rounded-full bg-blue-600 px-4 py-3 font-semibold text-white transition-colors duration-300 hover:bg-blue-700 active:bg-blue-800 disabled:bg-blue-600/40"
+						onClick={handleSubmit}
 					>
 						Send
 					</button>
 				</div>
 				<div className="py-2 text-center text-text-tertiary text-xs opacity-75">
-					Everyone makes mistakes, including this AI.
+					{'Everyone makes mistakes, including this AI.'}
 					<br className="md:hidden" />
-					Make sure to double-check important information.
+					{' Make sure to double-check important information.'}
 				</div>
 			</footer>
 		</>
