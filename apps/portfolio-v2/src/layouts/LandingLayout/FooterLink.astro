@@ -1,6 +1,6 @@
 ---
 interface Props {
-	href: string;
+  href: string;
 }
 
 const { href } = Astro.props;
@@ -9,7 +9,7 @@ const { href } = Astro.props;
 <a
   href={href}
   target={href.startsWith("/") ? undefined : "_blank"}
-  class="mt-2 block w-fit shrink-0 hover:text-bg-primary text-text-secondary"
+  class="mt-2 block w-fit shrink-0 hover:text-text-primary text-text-secondary"
 >
   <slot />
 </a>

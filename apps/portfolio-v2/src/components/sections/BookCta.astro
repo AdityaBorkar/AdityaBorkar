@@ -1,5 +1,6 @@
 ---
-import CursorBubble from '@/components/CursorBubble.astro';
+import CursorBubble from "@/components/CursorBubble.astro";
+import ScheduleMeetBtn from "@/components/ScheduleMeetBtn.astro";
 ---
 
 <section class="relative pb-32 pt-56 md:pt-72 max-w-[64rem] mx-auto">
@@ -41,10 +42,9 @@ import CursorBubble from '@/components/CursorBubble.astro';
     </div>
   </div>
 
-  <button
-    type="button"
+  <ScheduleMeetBtn
     class="mx-auto uppercase font-bold mt-36 block rounded-2xl hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 transition-all duration-300 cursor-pointer px-12 py-4 text-xl text-background"
   >
     Schedule Meeting
-  </button>
+  </ScheduleMeetBtn>
 </section>

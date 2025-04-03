@@ -1,184 +1,180 @@
+# Checklist Roadmap
 
-# Checklist
+Proceed one thing at a time. Finish it and only then move to the next section.
 
-- Solve Million Lint Errors
-[-] Make sure that button, a, and label element content is unique and descriptive.
-[-] Replace 'title' attribute with tooltips: https://inclusive-components.design/tooltips-toggletips/
+[MAKE A FINAL CHECKLIST. ANALYZE ALL COMMENTS.]
+[COMMENTS ARE GATHERED IN THE CHECKLIST.]
+
+- Cal.com
+- Content Writing, SEO Writing, Schema Markup
+- Customize Scrollbar
+- Work on View Transitions
+- Create Lottie (but use SVG animations - motion.dev under the hood)
 - PWA Checklist (basics only)
-- /projects -> ProjectCard: Add impact of the product like (https://evilmartians.com/products)
-- Projects -> Tags in Images: Open Source / AI
 - Contact Form:
   - Associate input error messaging with the input it corresponds to.
   - Make sure that form input errors are displayed in list above the form after submission.
   - Make sure that error, warning, and success states are not visually communicated by just color.
+- Make sure that button, a, and label element content is unique and descriptive.
+- Replace 'title' attribute with tooltips: https://inclusive-components.design/tooltips-toggletips/
+- https://docs.astro.build/en/guides/integrations-guide/partytown/ (Analytics with Heatmaps)
+- https://docs.astro.build/en/guides/integrations-guide/sitemap/ (important for site search / seo)
+- Solve Million Lint Errors
+- Cloudflare connector.
+- Posthog for everything
+- Test if the following things are working:
+  - Signed Exchanges using Cloudflare
+  - Memory Leak Detection
+  - Enable Gzip or Brotli compression
 
-// https://docs.astro.build/en/guides/integrations-guide/vercel/
-// https://docs.astro.build/en/guides/integrations-guide/partytown/ (Analytics with Heatmaps)
-// https://docs.astro.build/en/guides/integrations-guide/sitemap/ (important for site search / seo)
+// Copywriting - less marketing words and more impact words. Be developer-focussed.
 
+1. About - About
+2. Footer Generative Art
+3. Services Popup
+4. Projects Filter
+5. Home - About
+6. About - Image Gallery
+7. Services
 
-// TODO: [Interactive Grid Item] strava.com stats and profile
-// TODO: [Interactive Grid Item] chess.com stats and profile
+Generate Content and Schema Markup.
 
-// - /projects -> ProjectCard: Add impact of the product like (<https://evilmartians.com/products>)
-// - use text-balance in blogs
-// - Customize Scrollbar
+Testing:
+- Dynamic Island
+- AI Chat
+- Theme Change Animation
+- Button, Popup Animations
+- Monitoring and Observability
 
-## ANIMATIONS
-
-Animation must be like dynamic island
-
-Shake mouse to make it look bigger
-
-iMessage like interface
-Scrolling effect
-Sending effect
-Receiving effect
-Squircle shape
-Reaction button
-
-When projects open in desktop, open them as apps animation
-caret-blue-700
-
-Use GIFs and emojis ocassionally
-
-Step 1: Enter your first name
-Step 2: calculate pricing for speech API.
-
-Add option for reaction and respond to it.
-Speak option
-Clear chat
-
-If you exhaust limits, ask to solve a smart ai based captcha
-client:visible for React component to load after the page loading is done
-
-https://x.com/jmtrivedi/status/1522605342894428160
-https://x.com/jmtrivedi/status/1521190109617410048
-origin must be the tap position, speed of the motion must matter
-
-luminosity;
-
-TODO: RESET POSITION OF NAV SHADOW
-TODO: THEME CHANGE ANIMATION
-TODO: INPUT TEXT ANIMATION
-TODO: BUTTONS
-todo: home - waht we do cards
-testimonials as slanted cards
-
-https://www.lakshb.dev/thoughts/hover-button
-https://github.com/lakshaybhushan
-https://www.websitecarbon.com/website/lakshb.dev/
-https://www.lakshb.dev/colophon
-https://www.lakshb.dev/ai
-TODO - RESPOND TO EVERY DAMN TAP
-
-https://leonardomontini.dev/contributions/
-
-https://ui.jln.dev/
-
-https://playground.rombo.co/
-
-Make a list of websites that inspired you to make this website AND then write a blog post about it and email the people who inspired you.
+Search for EU based Agencies, Singapore Based and top 100 agencies in SME sector
+Today - Get ready with Upwork Proposals
+Tomorrow Buy Upwork Premium and Bid on projects higher than $1000.
+Use up all your connects in 3 days with 11 proposals.
 
 
-- https://motion.dev/#section-5
-- https://github.com/magicuidesign/magicui/blob/main/registry/default/magicui/blur-fade.tsx
-- https://magicui.design/docs/components/blur-fade
-- hAPTIC fEEDBACK WHEREVER NECESSARY.
-- Customize Scrollbar
-- use text-balance in blogs
-- Animations and Transitions:
-  - Page View Transitions
-  - Apple-inspired animations
-    - Reveal slant-slide-up animation on viewport enter of cards
-    - Fade + slant-swipe-down apple-like animation on load for navbar
-    - Fade + slant-swipe-up apple-like animation on load for page
+• Networking: Engage on LinkedIn, Twitter, and relevant subreddits.
+• Cold Outreach: Send personalized pitches to startups and tech firms.
 
-- https://magicui.design/docs/components/script-copy-btn
-- https://magicui.design/docs/components/file-tree
-- https://magicui.design/docs/components/animated-circular-progress-bar
-- https://magicui.design/docs/components/tweet-card
-- https://magicui.design/docs/components/globe
-- https://magicui.design/docs/components/bento-grid
-- https://magicui.design/docs/components/number-ticker
-- https://magicui.design/docs/components/word-rotate
-- https://magicui.design/docs/components/typing-animation
-- https://magicui.design/docs/components/scroll-based-velocity
-- https://magicui.design/docs/components/morphing-text
-- https://magicui.design/docs/components/ripple
-- https://magicui.design/docs/components/meteors
-- https://magicui.design/docs/components/interactive-grid-pattern
-- https://magicui.design/docs/components/animated-grid-pattern
-- https://magicui.design/docs/components/flickering-grid
-- https://magicui.design/docs/components/warp-background
-+ https://magicui.design/docs/components/interactive-hover-button
-+ https://magicui.design/docs/components/shimmer-button
-+ https://magicui.design/docs/components/animated-subscribe-button
-+ https://magicui.design/docs/components/marquee
-- https://magicui.design/docs/components/animated-beam
-- https://magicui.design/docs/components/border-beam
-- https://magicui.design/docs/components/confetti
-- https://magicui.design/docs/components/scroll-progress
+LinkedIn & Twitter:
 
-- https://ui.aceternity.com/components/3d-pin
-- https://ui.aceternity.com/components/animated-tooltip
-- https://ui.aceternity.com/components/aurora-background
-- https://ui.aceternity.com/components/background-beams
+Target SaaS startups, CTOs, or tech leads. Use filters like "SaaS" + "technical co-founder" or "NextJS" in bios.
 
-- Device Mockups:
-  - https://21st.dev/designali-in/iphone-16-pro/default
-  - https://magicui.design/docs/components/iphone-15-pro
-  - https://21st.dev/designali-in/mac/default
-  - https://21st.dev/designali-in/macbook-pro/default
+Send personalized messages:
 
-- https://21st.dev/DavidHDev/splash-cursor/default
-- https://21st.dev/kokonutd/ai-voice-input/default
+Supplement your efforts by monitoring X for job postings using keywords like "hiring NextJS developer" and engaging in developer communities on Reddit, such as r/forhire. You can also reach out directly to potential clients via LinkedIn or email, showcasing your portfolio to demonstrate your capabilities. Building a personal website can further attract clients by establishing your authority in the field.
 
-https://21st.dev/serafim/splite/default
-https://21st.dev/aceternity/world-map/default
-https://21st.dev/DavidHDev/magnet-lines/default
-https://resend.com/
 
-https://21st.dev/aceternity/link-preview/default
-https://21st.dev/DavidHDev/bounce-cards/default
 
-Metor + Resend
+"Hi [Name], I noticed you’re building [product]. I specialize in multi-tenant apps with NextJS, which can reduce your dev time by 30%. I’d love to discuss how I can help—are you free for a 15-minute call this week?"
 
-https://21st.dev/cult-ui/3d-carousel/default
+Freelance Platforms: Apply to 10+ high-potential jobs daily on Upwork/Toptal. Focus on projects mentioning NextJS, AstroJS, or SaaS.
 
-https://21st.dev/cult-ui/logo-carousel/default
+Referrals: Message past clients, colleagues, or friends:
 
-https://21st.dev/anurag-mishra22/dock-two/default
-https://21st.dev/motion-primitives/dock/default
+"I’m taking on 2 projects this week to build NextJS apps at a discounted rate. Do you know anyone who needs a fast, reliable developer?"
 
-https://21st.dev/s/textarea
-https://21st.dev/originui
-https://21st.dev/s/input
-https://21st.dev/andrewlu0/filters
+Communities: Post in Slack/Discord groups (e.g., Indie Hackers, Dev communities):
 
-https://ui.lndev.me/components/
-https://khagwal.com/interactions/
+"Offering NextJS/AstroJS audits this week—free 30-min consult to optimize your app’s performance. DM me!"
 
-https://ui-experiment-02.vercel.app/
-https://ui-experiments-green.vercel.app/#
-https://crafted.is/
 
-https://motion-primitives.com/docs/dock
-https://www.prompt-kit.com/
-https://ibelick.com/
 
-https://ibelick.com/blog/create-spotlight-border-with-react-css
-https://ibelick.com/blog/create-modern-spotlight-effect-with-react-css
-https://ibelick.com/blog/create-shooting-star-border-tailwind-css
-https://ibelick.com/blog/create-infinite-slider-with-tailwind-css
+"I’m a NextJS specialist available for subcontracting. Can I help with your overflow work this week?"
 
-https://codepen.io/h7w/pen/bGGOyyj
 
-https://sharuco.lndev.me/
-https://ui.lndev.me/components/vercel-toolbar
-https://hextastudio.com/#pricing
+Subject: Quick NextJS fix for [Company]?
 
-## 27th February:
+Hi [Name],
+
+I’m [Your Name], a Full Stack Developer specializing in NextJS and multi-tenant apps. I noticed [specific detail about their project]. 
+
+I’ve helped clients like [Client X] reduce costs by 30% with optimized NextJS setups. I’m available this week to [solve specific problem] for you—would you be open to a quick chat?
+
+Best,
+[Your Name]
+
+
+---
+
+Key Metrics for 1 Week
+Send 100+ personalized messages (LinkedIn, Email, Twitter).
+
+Apply to 30+ freelance jobs.
+
+Offer 10 free consults to close 2-3 deals.
+
+Post 5+ pieces of micro-content to attract inbound leads.
+
+By combining urgency, specificity, and hyper-targeted outreach, you’ll maximize your chances of hitting the $1000 goal. Focus on clients with immediate needs and decision-making power. Good luck! 🚀
+
+
+Profile Creation and Optimization: A strong profile is crucial. It should include a clear bio, relevant skills, and a portfolio showcasing past projects. For instance, Upwork recommends including keywords like "NextJS developer" to improve visibility. A recent guide from October 2024 emphasizes using the word "you" more than "I" in profiles to focus on client needs, enhancing appeal.
+
+Job Applications: Apply to a high volume of jobs, especially those with budgets aligning with your $1000 goal. Data from a February 2025 article suggests that new freelancers might need to apply to 10-20 jobs daily to increase chances, given competition. Tailor proposals to each job, addressing specific client needs, as personalized proposals are more likely to succeed.
+
+Rate Strategy: Starting with lower rates can help secure initial projects. For example, accepting a $30/hour rate for 33 hours in a week could meet your goal, though aiming for $50/hour reduces this to 20 hours. This strategy is supported by a Quora discussion from July 2023, noting that lower rates can build reputation quickly.
+
+
+X (Twitter) Monitoring: Recent X posts indicate active hiring for NextJS developers. For example, an X post from March 31, 2025, by @iFlairWebTech
+ (iFlairWebTech) mentions services including NextJS, suggesting potential leads. Another from April 1, 2025, by @Remote_JobsNG
+ (Remote_JobsNG) lists a remote Next.js developer contract, which could be pursued.
+
+Reddit Engagement: Subreddits like r/forhire and r/nextjs are active for job postings. A September 2024 post in r/forhire (r/forhire) details a hiring need for a Next.js developer, offering a competitive pay rate. Engaging in these communities can uncover opportunities, though responses may require direct negotiation.
+
+
+LinkedIn and Email Campaigns: Identify potential clients, such as startups or tech companies, and reach out with a personalized pitch. Highlight your expertise and include a link to your portfolio. A February 2025 guide suggests that direct outreach can yield quick results, especially for niche skills like Multi-Tenant Applications.
+
+Building a Personal Brand: Create a professional website to showcase your work. For example, include case studies or GitHub repositories demonstrating NextJS projects. Content creation, such as blog posts on Medium about web development trends, can attract clients, as noted in a March 2025 article on personal branding for freelancers.
+
+Most dev agencies are outdated.
+
+- Awful/slow/no communication
+- Use old frameworks
+
+That’s why I decided to start my own development company 3 years ago.
+
+- We build with modern JavaScript stacks
+- Share all project docs
+- Talk to clients daily, and send weekly round-ups
+
+Happy clients are always my priority.
+
+---
+
+Getting back to EARNINGS CALL.
+
+1. Get done with the portfolio today in mobile and desktop mode
+2. Write content and generate cool images
+3. Generate available mockups
+4. Update client logos and testimonials
+5. Make a list of agencies MR, that you can approach on Twitter, Cold Email, Instagram, and GirHub.
+6. Give TopTal Test, Upwork and Contra Profile
+7. No source code sharing until the final payment comes in.
+
+---
+
+## Testing
+
+- Theme Color on browser tab
+- Animations
+- Generative CSS
+- Lighthouse
+- Accessibility
+
+AB Testing with Onkar
+
+1. Dark theme change with sharp or faded border
+2. Buttons Redesign
+3. Color Theme for entire website (green)
+4. Background color suggestion. solid is boring?
+5. Font Suggestions
+6. Logo suggestion
+7. Professional photo click
+8. Animations / Transitions / Lottie
+
+---
+
+## ACCESSIBILITY
 
 - Accessibility
   - <https://www.a11yproject.com/checklist/>
@@ -188,3 +184,16 @@ https://hextastudio.com/#pricing
 - Accessibility Checklist: <https://www.a11yproject.com/checklist/>
 - Guides: https://www.w3.org/WAI/ARIA/apg/ + https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html
 - https://www.a11yproject.com/checklist/
+
+---
+
+## Checklist for reserved time
+
+- About Section:
+  - [Interactive Grid Item] strava.com stats and profile
+  - [Interactive Grid Item] chess.com stats and profile
+- AI Assistant:
+  - Use GIFs and emojis ocassionally
+  - If you exhaust limits, ask to solve a smart ai based captcha
+  - client:visible for React component to load after the page loading is done
+- Make a list of websites that inspired you to make this website AND then write a blog post about it and email the people who inspired you. (Colophon)

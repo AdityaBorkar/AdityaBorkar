@@ -1,22 +1,22 @@
 ---
-import { SOCIALS } from 'cms/constants';
-import type { Thing, WithContext } from 'schema-dts';
-import GitHubIcon from '@/assets/icons/GitHub.svg';
-import LinkedinIcon from '@/assets/icons/LinkedIn.svg';
-import RefreshIcon from '@/assets/icons/Refresh.svg';
-import TwitterIcon from '@/assets/icons/Twitter.svg';
-import AiAssistant from '@/components/AiAssistant.astro';
-import Button from '@/components/ui/Button.astro';
-import RootLayout from '../RootLayout.astro';
-import FooterLink from './FooterLink.astro';
-import GenerativeArt from './GenerativeArt.astro';
-import Navbar from './Navbar.astro';
+import { SOCIALS } from "cms/constants";
+import type { Thing, WithContext } from "schema-dts";
+import GitHubIcon from "@/assets/icons/GitHub.svg";
+import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
+import RefreshIcon from "@/assets/icons/Refresh.svg";
+import TwitterIcon from "@/assets/icons/Twitter.svg";
+import AiAssistant from "@/components/AiAssistant.astro";
+import Button from "@/components/ui/Button.astro";
+import RootLayout from "../RootLayout.astro";
+import FooterLink from "./FooterLink.astro";
+import GenerativeArt from "./GenerativeArt.astro";
+import Navbar from "./Navbar.astro";
 
 interface Props {
-	title: string;
-	description: string;
-	keywords: string[];
-	schemaMarkup?: WithContext<Thing>[];
+  title: string;
+  description: string;
+  keywords: string[];
+  schemaMarkup?: WithContext<Thing>[];
 }
 ---
 
@@ -36,97 +36,108 @@ interface Props {
   <div class="pt-20"></div>
 
   <slot />
-
-  <footer
-    class="mx-[5vw] md:mx-auto relative z-40 max-w-[64rem] rounded-4xl *:px-8 bg-bg-primary mt-16 md:grid grid-cols-2"
-  >
+  <footer class="">
     <div
-      class:list={[
-        "h-[35vh] !px-0 border-border/10 relative",
-        "max-md:h-[25vh] max-md:border-b md:border-r",
-      ]}
+      class="mx-[5vw] md:mx-auto relative z-40 max-w-[64rem] rounded-4xl *:px-8 bg-bg-primary mt-16 md:grid grid-cols-2"
     >
-      <Button
-        variant="secondary"
-        size="sm"
-        class:list={["absolute bottom-2 right-2"]}
-      >
-        <RefreshIcon class="size-5 text-text-quarternary" />
-      </Button>
-      <GenerativeArt />
-      <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
-    </div>
-    <div>
-      <div class="flex flex-row gap-8 py-8 justify-between md:pr-[20%]">
-        <div class="">
-          <div class="mb-3 font-medium text-neutral-500">Me</div>
-          <FooterLink href="/">Home</FooterLink>
-          <FooterLink href="/about">About</FooterLink>
-          <FooterLink href="/contact">Contact</FooterLink>
-        </div>
-        <div class="">
-          <div class="mb-3 font-medium text-neutral-500">Work</div>
-          <FooterLink href="/projects">Projects</FooterLink>
-          <FooterLink href="/labs">Labs</FooterLink>
-          <!-- <FooterLink href="/blog">Blog</FooterLink> -->
-        </div>
-        <div class="">
-          <div class="mb-3 shrink-0 font-medium text-neutral-500">Services</div>
-          <FooterLink href="/services">Product Engineer</FooterLink>
-          <FooterLink href="/services">AI Engineer</FooterLink>
-        </div>
-      </div>
       <div
         class:list={[
-          "flex flex-row pb-6 justify-between",
-          "md:justify-normal gap-8",
+          "h-[35vh] !px-0 border-border/10 relative",
+          "max-md:h-[25vh] max-md:border-b md:border-r",
         ]}
       >
-        <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
-        <FooterLink href={SOCIALS.x}>
-          <TwitterIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
-          Twitter (X)
-        </FooterLink>
-        <FooterLink href={SOCIALS.linkedin}>
-          <LinkedinIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
-          LinkedIn
-        </FooterLink>
-        <FooterLink href={SOCIALS.github}>
-          <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
-          GitHub
-        </FooterLink>
+        <Button
+          variant="secondary"
+          size="sm"
+          class:list={["absolute bottom-2 right-2"]}
+        >
+          <RefreshIcon class="size-5 text-text-quarternary" />
+        </Button>
+        <GenerativeArt />
+        <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
+      </div>
+      <div>
+        <div class="flex flex-row gap-8 py-8 justify-between md:pr-[20%]">
+          <div class="">
+            <div class="mb-3 font-medium text-neutral-500">Me</div>
+            <FooterLink href="/">Home</FooterLink>
+            <FooterLink href="/about">About</FooterLink>
+            <FooterLink href="/contact">Contact</FooterLink>
+          </div>
+          <div class="">
+            <div class="mb-3 font-medium text-neutral-500">Work</div>
+            <FooterLink href="/projects">Projects</FooterLink>
+            <FooterLink href="/labs">Labs</FooterLink>
+            <!-- <FooterLink href="/blog">Blog</FooterLink> -->
+          </div>
+          <div class="">
+            <div class="mb-3 shrink-0 font-medium text-neutral-500">
+              Services
+            </div>
+            <FooterLink href="/services">Product Engineer</FooterLink>
+            <FooterLink href="/services">AI Engineer</FooterLink>
+          </div>
+        </div>
+        <div
+          class:list={[
+            "flex flex-row pb-6 justify-between",
+            "md:justify-normal gap-8",
+          ]}
+        >
+          <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
+          <FooterLink href={SOCIALS.x}>
+            <TwitterIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+            Twitter (X)
+          </FooterLink>
+          <FooterLink href={SOCIALS.linkedin}>
+            <LinkedinIcon
+              class="size-5 -mt-1 inline-block fill-text-tertiary"
+            />
+            LinkedIn
+          </FooterLink>
+          <FooterLink href={SOCIALS.github}>
+            <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+            GitHub
+          </FooterLink>
+        </div>
+        <!-- <div class="mr-[5vw] w-fit text-center text-bg-primary">
+          <a class="mt-2 block" href="mailto:hi@adityab.tech">hello@adityab.com</a
+          >
+        </div> -->
+        <a
+          href="/policy"
+          class="py-4 text-center md:text-left text-xs block w-fit mx-auto text-text-tertiary hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
+        >
+          Read Legal Policies
+        </a>
       </div>
     </div>
 
-    <!-- <div class="w-fit">
-    <div class="mr-[5vw] w-fit text-center text-bg-primary">
-      <div
-        class="w-fit rounded-md border-2 border-bg-primary/80 px-3 py-1 text-center font-medium uppercase tracking-wide"
+    <div
+      class="py-6 mx-[5vw] md:mx-auto py-12 bg-inherit z-40 relative text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
+    >
+      <!-- href="https://www.adityab.tech/eco-friendly" -->
+      <!-- A+ 0.095 -->
+      <!-- A	0.186 -->
+      <!-- https://ecograder.com/report/Rhbn0HP7jMeYxLH9oEQIwQxh -->
+      <!-- TODO: Introduce a per-page carbon footprint number / average number for all pages. -->
+      <a
+        target="_blank"
+        href="https://www.websitecarbon.com/website/aditya-borkar-vercel-app/"
+        class="hover:underline underline-offset-8 hover:text-emerald-400 cursor-alias"
       >
-        Aditya Borkar
-      </div>
-      <a class="mt-2 block" href="mailto:hi@adityab.tech"
-        >hello@adityab.com</a
-      >
+        This page is eco-friendly, consumes 100% Clean Energy and produces only
+        🍃 0.19g of CO2 on every visit.
+      </a>
+      <br /><br /><br />
+      Designed & Developed with ❤️ by Aditya Borkar
+      <br />
+      Copyright © CC BY-NC 4.0
     </div>
-  </div>
-  <a
-  href="/policy"
-  class="mt-8 py-4 text-center text-xs block w-fit mx-auto hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
->
-  Read Terms of Service, Privacy Policy, and Cookie Policy.
-</a> -->
   </footer>
+</RootLayout>
 
-  <footer
-    class="py-6 md:py-12 bg-inherit z-40 relative text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
-  >
-    Designed & Developed with ❤️ by Aditya Borkar
-    <br />
-    Copyright © CC BY-NC 4.0
-  </footer>
-
-  <!-- <footer class="text-base hidden md:py-4 bg-text-primary text-bg-tertiary">
+<!-- <footer class="text-base hidden md:py-4 bg-text-primary text-bg-tertiary">
     <div class="mx-auto pt-12 flex max-w-[56rem] flex-row justify-between">
       <div class="w-fit">
         <div class="mr-[5vw] w-fit text-center text-bg-primary">
@@ -191,4 +202,3 @@ interface Props {
       Read Terms of Service, Privacy Policy, and Cookie Policy.
     </a>
   </footer> -->
-</RootLayout>
