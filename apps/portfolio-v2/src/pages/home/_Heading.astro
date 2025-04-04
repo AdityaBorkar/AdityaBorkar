@@ -1,10 +1,10 @@
 ---
-import Icon from '@/components/ui/Icon.astro';
+import Icon from "@/components/ui/Icon.astro";
 
 interface Props {
-	icon: string;
-	label: string;
-	class?: string;
+    icon: string;
+    label: string;
+    class?: string;
 }
 
 const { icon, label, class: className } = Astro.props;
@@ -12,8 +12,8 @@ const { icon, label, class: className } = Astro.props;
 
 <div
     class:list={[
-        "mx-auto px-4 mb-2 mt-36 max-w-[64rem] text-base text-text-tertiary/60",
-        "md:px-0 md:mb-4 md:mt-48",
+        "mx-auto mb-2 mt-36 max-w-[64rem] text-base text-text-quaternary",
+        "max-md:px-4 md:mb-4 md:mt-48",
     ]}
 >
     <Icon icon={icon} class="inline size-4 align-[-1px] font-medium" />
@@ -22,8 +22,8 @@ const { icon, label, class: className } = Astro.props;
 
 <h3
     class:list={[
-        "text-3xl px-4 text-left mb-10 font-semibold mx-auto max-w-[64rem] text-text-primary",
-        "md:px-0 md:text-4xl md:mb-16",
+        "text-3xl text-left mb-10 font-semibold mx-auto max-w-[64rem] text-text-primary",
+        "max-md:px-4 md:text-4xl md:mb-16",
         className,
     ]}
 >

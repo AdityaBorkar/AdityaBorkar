@@ -1,17 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-import { getImage } from '@/lib/assets';
-import Icon from './ui/Icon.astro';
+import Icon from "@/components/ui/Icon.astro";
 
-type Props = {
-	image: string;
-};
+interface Props {
+  video: string;
+}
 
-const { image } = Astro.props;
-
-// Use framer motion to animate the card to open and close.
-// Use lottie as an image and process the animation on hover and animation2 on open.
-// {/* INTERACTIVE GIFS + ATTENTION GRABBING */}
+const { video } = Astro.props;
 ---
 
 <details
@@ -20,13 +14,20 @@ const { image } = Astro.props;
     "md:px-8 md:py-4",
     "hover:scale-105 hover:shadow-lg",
   ]}
+  onmouseover="this.children[0].children[0].play()"
+  onmouseout="this.children[0].children[0].pause()"
 >
   <summary>
-    <Image
-      src={getImage(image)}
-      alt=""
-      class="mx-auto mb-6 mt-2 block h-20 md:h-36 w-auto"
-    />
+    {
+      (
+        <video
+          src={video}
+          class:list={["mx-auto block h-auto object-cover w-full"]}
+          loop
+          muted
+        />
+      )
+    }
     <div
       class:list={[
         "text-left text-base font-semibold text-text-secondary",
@@ -35,6 +36,7 @@ const { image } = Astro.props;
     >
       <slot name="title" />
     </div>
+    <!-- @ts-expect-error -->
     <Icon
       icon="CirclePlus"
       class:list={[

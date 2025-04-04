@@ -1,6 +1,6 @@
 ---
-import RoundMessage from '@/assets/icons/RoundMessage.svg';
-import Chat from './chat';
+import RoundMessage from "@/assets/icons/RoundMessage.svg";
+import Chat from "./chat";
 
 const COOKIE_ACCEPTED = true;
 ---
@@ -8,7 +8,7 @@ const COOKIE_ACCEPTED = true;
 <button
     class:list={[
         "fixed z-40 bottom-4 right-4 px-3 shadow-lg py-3 rounded-full border border-border/20 bg-background text-text-tertiary cursor-pointer",
-        "md:bottom-8 md:right-8 md:px-6 md:z-50",
+        "md:bottom-8 md:right-8 md:px-6 md:z-50 md:hover:scale-110",
         !COOKIE_ACCEPTED && "!hidden",
     ]}
     onclick="document.getElementById('chat-dialog').showModal()"

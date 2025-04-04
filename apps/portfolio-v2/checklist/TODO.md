@@ -5,7 +5,7 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 [MAKE A FINAL CHECKLIST. ANALYZE ALL COMMENTS.]
 [COMMENTS ARE GATHERED IN THE CHECKLIST.]
 
-- Cal.com
+
 - Content Writing, SEO Writing, Schema Markup
 - Customize Scrollbar
 - Work on View Transitions
@@ -27,9 +27,19 @@ Proceed one thing at a time. Finish it and only then move to the next section.
   - Memory Leak Detection
   - Enable Gzip or Brotli compression
 
+- Replace WEBM with SVG Animations
+  - Product = Modules shipping
+  - MVP = Rough outprint by joining modules
+  - Tech Consult = Video Conferencing
+  - AI = Magic Wand
+  - Backend = Provision Servers and auto-scale
+  - Frontend = Scroll content with transitions
+  - Prototype = Rough outprint by joining modules
+
 // Copywriting - less marketing words and more impact words. Be developer-focussed.
 
 1. About - About
+
 2. Footer Generative Art
 3. Services Popup
 4. Projects Filter
@@ -165,7 +175,7 @@ AB Testing with Onkar
 
 1. Dark theme change with sharp or faded border
 2. Buttons Redesign
-3. Color Theme for entire website (green)
+3. Color Theme for entire website (emerald)
 4. Background color suggestion. solid is boring?
 5. Font Suggestions
 6. Logo suggestion
@@ -189,11 +199,32 @@ AB Testing with Onkar
 
 ## Checklist for reserved time
 
-- About Section:
-  - [Interactive Grid Item] strava.com stats and profile
-  - [Interactive Grid Item] chess.com stats and profile
 - AI Assistant:
   - Use GIFs and emojis ocassionally
   - If you exhaust limits, ask to solve a smart ai based captcha
   - client:visible for React component to load after the page loading is done
+- Cal.com - Toggle Dark and Light mode
+- Testimonials:
+  - Link to project case study
+  - Link to testimonial source
+  - On Hover - Bounce the stars one by one. No infinite, animate once.
+- About Section:
+  - [Interactive Grid Item] strava.com stats and profile
+  - [Interactive Grid Item] chess.com stats and profile
 - Make a list of websites that inspired you to make this website AND then write a blog post about it and email the people who inspired you. (Colophon)
+
+---
+
+
+https://supabase.com/
+https://icons8.com/icon/O9K5DaypaVKw/test-account
+
+https://icons8.com/icon/nx0HuqaBZBhz/signing-a-document
+https://icons8.com/icon/Ib8GqvgH9PZk/business-network
+https://icons8.com/icon/h1PEiUtLfJJa/client-management
+https://icons8.com/icon/2cDniXiayORP/documents
+https://icons8.com/icons/set/business--style-fluency-systems-regular--animated
+https://icons8.com/icons/set/office--style-fluency-systems-regular--animated
+https://icons8.com/icons/new--style-ios--animated
+https://icons8.com/icon/xndKlPiOWoOq/error
+https://icons8.com/icons/set/user-interface--style-fluency-systems-regular--os-windows--animated--technique-line

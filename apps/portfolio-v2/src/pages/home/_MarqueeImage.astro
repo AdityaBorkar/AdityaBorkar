@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
-	src: ImageMetadata | Promise<{ default: ImageMetadata }>;
-	alt: string;
-	href: string;
+    src: ImageMetadata | Promise<{ default: ImageMetadata }>;
+    alt: string;
+    href: string;
 }
 
 const { src, alt, href } = Astro.props;
@@ -13,7 +13,7 @@ const { src, alt, href } = Astro.props;
 <a
     href={href}
     class:list={[
-        "mx-2  block h-[12rem] w-[20rem] ",
+        "mx-2 block h-[12rem] w-[20rem] ",
         "md:h-[20rem] md:w-[36rem] md:mx-4",
     ]}
 >

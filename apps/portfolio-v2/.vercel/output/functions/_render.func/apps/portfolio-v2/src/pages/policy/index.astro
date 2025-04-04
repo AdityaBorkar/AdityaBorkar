@@ -1,0 +1,41 @@
+---
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { getSchemaMarkup } from '@/lib/utils';
+import CookiePolicy from './_cookie-policy.md';
+import PrivacyPolicy from './_privacy-policy.md';
+import TermsOfService from './_terms-of-service.md';
+
+const title = 'Policy';
+const description = 'Policy';
+const keywords = ['policy'];
+const SchemaMarkup = [getSchemaMarkup('person')];
+
+// https://tedawf.com/privacy
+
+// https://www.delhivery.com/terms-and-conditions
+// https://evilmartians.com/privacy
+// privacy#notice_at_collection
+// https://t3.chat/terms-of-service
+// https://t3.chat/privacy-policy
+
+// TODO: MAKE SURE ONLY ESSENTIAL COOKIES ARE STORED.
+
+// <!-- You should not transfer EU users' personal data outside the EU -->
+// <!-- COOKIES = cal.com / lottie / posthog / vercel / vercel speed insights / embeds -->
+// <!-- Third-Party Tools: Verify GDPR compliance for tools like analytics or embedded content (e.g., Google Analytics, YouTube). -->
+---
+
+<LandingLayout
+  title={title}
+  keywords={keywords}
+  description={description}
+  schemaMarkup={SchemaMarkup}
+>
+  <main
+    class="prose dark:prose-invert min-h-screen py-24 mx-auto max-w-[48rem]"
+  >
+    <PrivacyPolicy />
+    <CookiePolicy />
+    <TermsOfService />
+  </main>
+</LandingLayout>

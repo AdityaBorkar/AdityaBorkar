@@ -1,0 +1,6 @@
+{
+	"runtime": "nodejs22.x",
+	"handler": "apps/portfolio-v2/dist/server/entry.mjs",
+	"launcherType": "Nodejs",
+	"supportsResponseStreaming": true
+}
