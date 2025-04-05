@@ -11,7 +11,8 @@
 			"!**/node_modules/*",
 			"!**/.nx/cache/",
 			"!**/.nx/workspace-data/",
-			"!**/.all-contributorsrc"
+			"!**/.all-contributorsrc",
+			"!**/labs/*"
 		]
 	},
 	"formatter": {
@@ -34,6 +35,8 @@
 								":PACKAGE_WITH_PROTOCOL:"
 							],
 							[":ALIAS:", ":PATH:"]
+							// @/assets/
+							// TODO: Make astro a separate domain
 						]
 					}
 				}

@@ -1,48 +1,45 @@
 ---
-import { SOCIALS } from "cms/constants";
-import type { Thing, WithContext } from "schema-dts";
-import GitHubIcon from "@/assets/icons/GitHub.svg";
-import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
-import RefreshIcon from "@/assets/icons/Refresh.svg";
-import TwitterIcon from "@/assets/icons/Twitter.svg";
-import AiAssistant from "@/components/AiAssistant.astro";
-import Button from "@/components/ui/Button.astro";
-import RootLayout from "../RootLayout.astro";
-import FooterLink from "./FooterLink.astro";
-import GenerativeArt from "./GenerativeArt.astro";
-import Navbar from "./Navbar.astro";
+import type { ComponentProps } from 'astro/types';
+import { SOCIALS } from 'cms/constants';
+import GitHubIcon from '@/assets/icons/GitHub.svg';
+import LinkedinIcon from '@/assets/icons/LinkedIn.svg';
+import MailIcon from '@/assets/icons/Mail.svg';
+import RefreshIcon from '@/assets/icons/Refresh.svg';
+import TwitterIcon from '@/assets/icons/Twitter.svg';
+import AiAssistant from '@/components/AiAssistant.astro';
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import RootLayout from '../RootLayout.astro';
+import FooterLink from './FooterLink.astro';
+import GenerativeArt from './GenerativeArt.astro';
+import Navbar from './Navbar.astro';
 
-interface Props {
-  title: string;
-  description: string;
-  keywords: string[];
-  schemaMarkup?: WithContext<Thing>[];
+interface Props extends ComponentProps<typeof RootLayout> {
+	sustainability: {
+		co2: number;
+		link: string;
+	};
 }
+
+const { sustainability, ...seo } = Astro.props;
 ---
 
-<RootLayout {...Astro.props}>
+<RootLayout {...seo}>
   <Navbar />
-
-  <!-- Change Cursor to Figma Cursor -->
-
-  <!-- TODO: Disable Gradients in the footer. -->
-  <!-- <div
-    class="h-[12rem] md:h-[8rem] bg-gradient-to-t from-background to-transparent w-screen fixed bottom-0 left-0"
-  >
-  </div> -->
 
   <AiAssistant />
 
   <div class="pt-20"></div>
 
   <slot />
-  <footer class="">
+
+  <footer class="max-md:px-[5vw] relative z-40 bg-background">
     <div
-      class="mx-[5vw] md:mx-auto relative z-40 max-w-[64rem] rounded-4xl *:px-8 bg-bg-primary mt-16 md:grid grid-cols-2"
+      class="md:mx-auto max-w-[64rem] rounded-4xl bg-bg-primary mt-16 md:grid grid-cols-2"
     >
       <div
         class:list={[
-          "h-[35vh] !px-0 border-border/10 relative",
+          "border-border/10 relative",
           "max-md:h-[25vh] max-md:border-b md:border-r",
         ]}
       >
@@ -51,12 +48,11 @@ interface Props {
           size="sm"
           class:list={["absolute bottom-2 right-2"]}
         >
-          <RefreshIcon class="size-5 text-text-quarternary" />
+          <RefreshIcon class="size-5 text-text-quaternary" />
         </Button>
         <GenerativeArt />
-        <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
       </div>
-      <div>
+      <div class="px-8">
         <div class="flex flex-row gap-8 py-8 justify-between md:pr-[20%]">
           <div class="">
             <div class="mb-3 font-medium text-neutral-500">Me</div>
@@ -79,126 +75,51 @@ interface Props {
           </div>
         </div>
         <div
-          class:list={[
-            "flex flex-row pb-6 justify-between",
-            "md:justify-normal gap-8",
-          ]}
+          class:list={["grid grid-cols-[8rem_auto] pb-6 gap-y-1", "md:gap-x-4"]}
         >
-          <!-- <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div> -->
-          <FooterLink href={SOCIALS.x}>
-            <TwitterIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
-            Twitter (X)
+          <FooterLink href={SOCIALS.github} openInNewTab>
+            <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+            GitHub
           </FooterLink>
-          <FooterLink href={SOCIALS.linkedin}>
+          <FooterLink href={SOCIALS.x} openInNewTab>
+            <TwitterIcon class="size-5 inline-block fill-text-tertiary" />
+            X (Twitter)
+          </FooterLink>
+          <FooterLink href={SOCIALS.linkedin} openInNewTab>
             <LinkedinIcon
               class="size-5 -mt-1 inline-block fill-text-tertiary"
             />
             LinkedIn
           </FooterLink>
-          <FooterLink href={SOCIALS.github}>
-            <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
-            GitHub
+          <FooterLink href={`mailto:${SOCIALS.email}`}>
+            <MailIcon class="size-4 mr-1 inline-block text-text-tertiary" />
+            {SOCIALS.email}
           </FooterLink>
-        </div>
-        <!-- <div class="mr-[5vw] w-fit text-center text-bg-primary">
-          <a class="mt-2 block" href="mailto:hi@adityab.tech">hello@adityab.com</a
+          <a
+            href="/legal"
+            class="py-2 col-span-2 my-6 block w-fit text-xs text-text-tertiary hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
           >
-        </div> -->
-        <a
-          href="/policy"
-          class="py-4 text-center md:text-left text-xs block w-fit mx-auto text-text-tertiary hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
-        >
-          Read Legal Policies
-        </a>
+            Read Legal Terms
+          </a>
+        </div>
       </div>
     </div>
 
-    <div
-      class="py-6 mx-[5vw] md:mx-auto py-12 bg-inherit z-40 relative text-center text-text-tertiary/80 hover:text-text-tertiary transition-all duration-500"
+    <Section
+      class="py-12 bg-inherit z-40 relative text-center text-text-tertiary/80"
     >
-      <!-- href="https://www.adityab.tech/eco-friendly" -->
-      <!-- A+ 0.095 -->
-      <!-- A	0.186 -->
-      <!-- https://ecograder.com/report/Rhbn0HP7jMeYxLH9oEQIwQxh -->
-      <!-- TODO: Introduce a per-page carbon footprint number / average number for all pages. -->
       <a
         target="_blank"
-        href="https://www.websitecarbon.com/website/adityaborkar-com/"
+        href={`https://www.websitecarbon.com/website/adityab-tech/${sustainability.link}`}
         class="hover:underline underline-offset-8 hover:text-emerald-400 cursor-alias"
       >
         This page is eco-friendly, consumes 100% Clean Energy and produces only
-        🍃 0.19g of CO2 on every visit.
+        🍃 {sustainability.co2}g of CO2 on every visit.
       </a>
       <br /><br /><br />
       Designed & Developed with ❤️ by Aditya Borkar
       <br />
       Copyright © CC BY-NC 4.0
-    </div>
+    </Section>
   </footer>
 </RootLayout>
-
-<!-- <footer class="text-base hidden md:py-4 bg-text-primary text-bg-tertiary">
-    <div class="mx-auto pt-12 flex max-w-[56rem] flex-row justify-between">
-      <div class="w-fit">
-        <div class="mr-[5vw] w-fit text-center text-bg-primary">
-          <div
-            class="w-fit rounded-md border-2 border-bg-primary/80 px-3 py-1 text-center font-medium uppercase tracking-wide"
-          >
-            Aditya Borkar
-          </div>
-          <a class="mt-2 block" href="mailto:hi@adityab.tech"
-            >hello@adityab.com</a
-          >
-        </div>
-      </div>
-      <div class="flex flex-row gap-14">
-        <div>
-          <div class="mb-3 font-medium text-bg-tertiary/60">Me</div>
-          <FooterLink href="/">Home</FooterLink>
-          <FooterLink href="/about">About</FooterLink>
-          <FooterLink href="/contact">Contact</FooterLink>
-        </div>
-        <div>
-          <div class="mb-3 font-medium text-bg-tertiary/60">Work</div>
-          <FooterLink href="/projects">Projects</FooterLink>
-          <FooterLink href="/labs">Labs</FooterLink>
-          <FooterLink href="/blog">Blog</FooterLink>
-        </div>
-        <div>
-          <div class="mb-3 shrink-0 font-medium text-bg-tertiary/60">
-            Services
-          </div>
-          <FooterLink href="/services">Product Engineer</FooterLink>
-          <FooterLink href="/services">AI Engineer</FooterLink>
-        </div>
-        <div>
-          <div class="mb-3 font-medium text-bg-tertiary/60">Socials</div>
-          <FooterLink href="https://x.com/adityab_tech">
-            <TwitterIcon
-              class="size-5 -mt-1 inline-block fill-bg-secondary/70"
-            />
-            Twitter (X)
-          </FooterLink>
-          <FooterLink href="https://linkedin.com/in/adityab_tech">
-            <LinkedinIcon
-              class="size-5 -mt-1 inline-block fill-bg-secondary/70"
-            />
-            LinkedIn
-          </FooterLink>
-          <FooterLink href="https://github.com/AdityaBorkar">
-            <GitHubIcon
-              class="size-5 -mt-1 inline-block fill-bg-secondary/70"
-            />
-            GitHub
-          </FooterLink>
-        </div>
-      </div>
-    </div>
-
-    <a
-      href="/policy"
-      class="mt-8 py-4 text-center text-xs block w-fit mx-auto hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
-    >
-      Read Terms of Service, Privacy Policy, and Cookie Policy.
-    </a>
-  </footer> -->

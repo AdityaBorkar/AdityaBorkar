@@ -11,5 +11,5 @@ const { href, class: className, ...variantProps } = Astro.props;
 ---
 
 <a href={href} class:list={[buttonVariants({ ...variantProps }), className]}>
-    <slot />
+	<slot />
 </a>

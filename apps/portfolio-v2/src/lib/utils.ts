@@ -6,7 +6,13 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export const getSchemaMarkup = (type: keyof typeof SCHEMA_MARKUPS) =>
-	SCHEMA_MARKUPS[type];
+export const SchemaMarkup = {
+	get(type: keyof typeof SCHEMA_MARKUPS) {
+		return SCHEMA_MARKUPS[type];
+	},
+	generate(type: keyof typeof SCHEMA_MARKUPS) {
+		return SCHEMA_MARKUPS[type];
+	},
+};
 
 export { getImage, getSvg as getIcon } from './assets';

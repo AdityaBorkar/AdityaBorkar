@@ -5,7 +5,6 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 [MAKE A FINAL CHECKLIST. ANALYZE ALL COMMENTS.]
 [COMMENTS ARE GATHERED IN THE CHECKLIST.]
 
-
 - Content Writing, SEO Writing, Schema Markup
 - Customize Scrollbar
 - Work on View Transitions
@@ -27,6 +26,10 @@ Proceed one thing at a time. Finish it and only then move to the next section.
   - Memory Leak Detection
   - Enable Gzip or Brotli compression
 
+// TODO: Fetch from GitHub
+- TODO LIST ON THIS PAGE:
+  - Fade-in-Up Entry on Scroll
+  - Appear images with blur first (use blur-base64 technique)
 - Replace WEBM with SVG Animations
   - Product = Modules shipping
   - MVP = Rough outprint by joining modules
@@ -35,7 +38,10 @@ Proceed one thing at a time. Finish it and only then move to the next section.
   - Backend = Provision Servers and auto-scale
   - Frontend = Scroll content with transitions
   - Prototype = Rough outprint by joining modules
-
+- Projects:
+  - Add Impact of the product
+  - Add Tech Stack
+  - When did you work on them?
 // Copywriting - less marketing words and more impact words. Be developer-focussed.
 
 1. About - About
@@ -46,6 +52,26 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 5. Home - About
 6. About - Image Gallery
 7. Services
+
+// <!-- Change Cursor to Figma Cursor -->
+// <!-- TODO: Disable Gradients in the footer. -->
+// <!-- <div
+//   class="h-[12rem] md:h-[8rem] bg-gradient-to-t from-background to-transparent w-screen fixed bottom-0 left-0"
+// >
+// </div> -->
+
+
+        <!-- TODO: Insert Generative Artwork here with refresh button and svg morphing. -->
+
+              <!-- href="https://www.adityab.tech/eco-friendly" -->
+      <!-- A+ 0.095 -->
+      <!-- A	0.186 -->
+      <!-- https://ecograder.com/report/Rhbn0HP7jMeYxLH9oEQIwQxh -->
+      <!-- TODO: Introduce a per-page carbon footprint number / average number for all pages. -->
+
+// TODO: MAKE SURE ONLY ESSENTIAL COOKIES ARE STORED.
+// <!-- COOKIES = cal.com / lottie / posthog / vercel / vercel speed insights / embeds -->
+// <!-- Third-Party Tools: Verify GDPR compliance for tools like analytics or embedded content (e.g., Google Analytics, YouTube). -->
 
 Generate Content and Schema Markup.
 

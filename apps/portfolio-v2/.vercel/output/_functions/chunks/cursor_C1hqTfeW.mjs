@@ -1,5 +1,0 @@
-import { c as createSvgComponent } from './index_BR4l97ZW.mjs';
-
-const cursor = createSvgComponent({"meta":{"src":"/_astro/cursor.Cda7sLXm.svg","width":600,"height":600,"format":"svg"},"attributes":{"mode":"inline","width":"600","height":"600","viewBox":"0 0 600 600","fill":"none"},"children":"\n<circle cx=\"300\" cy=\"300\" r=\"300\" fill=\"url(#paint0_radial_238_3)\" />\n<defs>\n<radialGradient id=\"paint0_radial_238_3\" cx=\"0\" cy=\"0\" r=\"1\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"translate(300 300) rotate(7.87594) scale(302.857)\">\n<stop stop-color=\"#4A4A4A\" stop-opacity=\"0.3\" />\n<stop stop-color=\"#4A4A4A\" stop-opacity=\"0.3\" />\n<stop stop-color=\"#4A4A4A\" stop-opacity=\"0.3\" />\n<stop offset=\"0.0001\" stop-color=\"#4A4A4A\" stop-opacity=\"0.2\" />\n<stop offset=\"0.609375\" stop-color=\"#4A4A4A\" stop-opacity=\"0.204187\" />\n<stop offset=\"1\" stop-color=\"#4A4A4A\" stop-opacity=\"0\" />\n<stop offset=\"1\" stop-color=\"#272727\" stop-opacity=\"0\" />\n<stop offset=\"1\" stop-color=\"#4A4A4A\" stop-opacity=\"0\" />\n</radialGradient>\n</defs>\n"});
-
-export { cursor as default };

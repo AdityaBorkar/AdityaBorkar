@@ -1,0 +1,60 @@
+---
+import Section from '@/components/ui/Section.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { SchemaMarkup } from '@/lib/utils';
+import CookiePolicy from './_cookie-policy.mdx';
+import PrivacyPolicy from './_privacy-policy.mdx';
+import TermsOfService from './_terms-of-service.mdx';
+
+const title = 'Legal Terms';
+const description = 'Legal Terms';
+const keywords = ['legal', 'terms'];
+const schema_markup = [SchemaMarkup.get('person'), SchemaMarkup.get('person')];
+const sustainability = {
+	co2: 0.25,
+	link: 'adityab-tech',
+};
+---
+
+<LandingLayout
+  title={title}
+  keywords={keywords}
+  description={description}
+  schemaMarkup={schema_markup}
+  openGraph={{}}
+  sustainability={sustainability}
+>
+  <Section class:list={["py-24 "]}>
+    <div class="flex flex-row mx-auto w-fit gap-4">
+      <a
+        href="#privacy-policy"
+        class="font-medium py-2 px-6 rounded-lg bg-bg-primary"
+      >
+        Privacy Policy
+      </a>
+      <a
+        href="#terms-of-service"
+        class="font-medium py-2 px-6 rounded-lg bg-bg-primary"
+      >
+        Terms of Service
+      </a>
+      <a
+        href="#cookie-policy"
+        class="font-medium py-2 px-6 rounded-lg bg-bg-primary"
+      >
+        Cookie Policy
+      </a>
+    </div>
+  </Section>
+  <div class="prose dark:prose-invert min-h-screen mx-auto max-w-[48rem]">
+    <main id="privacy-policy">
+      <PrivacyPolicy />
+    </main>
+    <main id="terms-of-service">
+      <TermsOfService />
+    </main>
+    <main id="cookie-policy">
+      <CookiePolicy />
+    </main>
+  </div>
+</LandingLayout>
