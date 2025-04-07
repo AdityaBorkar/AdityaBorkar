@@ -1,18 +1,22 @@
 ---
 interface Props {
-	label: string;
-	class?: string;
+    label: string;
+    class?: string;
 }
 ---
 
 <h3
     class:list={[
-        "relative md:text-5xl text-3xl text-left mb-12 font-semibold mx-auto max-w-[64rem] opacity-100 max-md:px-6",
+        "relative text-3xl text-left mb-12 font-semibold mx-auto max-w-[64rem] opacity-100",
+        "md:text-5xl max-md:px-6",
         Astro.props.class,
     ]}
 >
     <div
-        class="mb-2 -ml-2 md:mb-4 mt-32 w-fit text-sm bg-clip-text text-transparent bg-gradient-to-br from-amber-500 to-amber-600 border border-border/20 rounded-full font-bold px-3 py-1 uppercase tracking-wider"
+        class:list={[
+            "mb-2 -ml-2 mt-32 w-fit text-sm bg-clip-text text-transparent bg-gradient-to-br from-amber-500 to-amber-600 border border-border/20 rounded-full font-bold px-3 py-1 uppercase tracking-wider",
+            "md:mb-4",
+        ]}
     >
         {Astro.props.label}
     </div>

@@ -5,8 +5,6 @@ interface Props {
 	duration?: string;
 	direction?: 'left' | 'right';
 }
-
-// TODO: Manual Horizontal Scroll Controls.
 ---
 
 <div
@@ -15,8 +13,8 @@ interface Props {
 >
   <div
     class="inline-flex flex-row flex-nowrap overflow-auto whitespace-nowrap animate-scroll data-[direction=right]:[animation-direction:reverse]"
-    data-direction={Astro.props.direction || "left"}
     style={`animation-duration: ${Astro.props.duration || "10s"};`}
+    data-direction={Astro.props.direction || "left"}
   >
     <slot />
   </div>

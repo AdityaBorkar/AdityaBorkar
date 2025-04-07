@@ -1,22 +1,24 @@
 ---
-import ButtonLink from '@/components/ui/ButtonLink.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import Section from './services/(components)/_Section.astro';
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Section from "@/components/ui/Section.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { SchemaMarkup } from "@/lib/schema-markup";
 
-// TODO: Analytics
-
-// TODO - SOFT 404
-// Fetch as Google Bot and make sure the site accurately returns 404 HTTPS only for googlebot
-// if from googlebot, return 404
-// 404 or 410 or redirect
-
-const title = '404 - Page Not Found';
+const title = "404 - Page Not Found";
 const description =
-	'The link you followed may be broken, or the page must not exist.';
-const keywords = ['404', 'Page Not Found'];
+  "The link you followed may be broken, or the page must not exist.";
+const keywords = ["404", "Page Not Found"];
+const open_graph = {};
+const schema_markup = SchemaMarkup.get("person");
+const seo = { title, description, keywords, open_graph, schema_markup };
+
+const sustainability = {
+  co2: 1,
+  link: "",
+};
 ---
 
-<LandingLayout title={title} description={description} keywords={keywords}>
+<LandingLayout {...seo} sustainability={sustainability}>
   <Section class="h-screen">
     <h2 class="text-3xl mt-48 font-semibold leading-relaxed">
       The link you followed may be broken,

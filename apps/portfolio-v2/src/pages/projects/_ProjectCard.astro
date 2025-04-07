@@ -1,36 +1,39 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
+import Image from "astro/components/Image.astro";
+import { getImage } from "@/lib/assets";
 
-interface Props extends CollectionEntry<'projects'> {}
+interface Props extends CollectionEntry<"projects"> {}
 
 const {
-	data: { title, description, hero_image, tags, featured, open_source },
+  id,
+  data: { title, description, hero_image, tags, hero_tag },
 } = Astro.props;
 ---
 
 <a
-  href={`/projects/${title.toLowerCase().replace(/[\s\W]+/g, "-")}`}
+  href={`/projects/${id}`}
   class="group relative rounded-3xl border border-border/10 bg-bg-primary/50 p-4 transition-all hover:shadow-lg"
 >
   <div class="h-56 md:h-64 rounded-xl relative">
-    <img
-      src={hero_image}
+    <Image
+      src={getImage(hero_image)}
       alt={`Visual Representation of ${title}`}
-      class="group-hover:zoom-105 mx-auto h-full text-text-quaternary rounded-xl bg-bg-secondary text-center"
+      class="group-hover:zoom-105 object-cover mx-auto h-full text-text-quaternary rounded-xl bg-bg-secondary text-center"
     />
     {
-      (featured || open_source) && (
+      hero_tag && (
         <div
           class:list={[
             "absolute top-2 right-2 uppercase text-xs py-1 px-2 rounded-md",
-            featured &&
+            hero_tag === "featured" &&
               "text-yellow-200 bg-yellow-950 border border-yellow-900",
-            open_source &&
+            hero_tag === "open_source" &&
               "text-green-200 bg-green-950 border border-green-900",
           ]}
         >
-          {featured && "Featured"}
-          {open_source && "Open Source"}
+          {hero_tag === "featured" && "Featured"}
+          {hero_tag === "open_source" && "Open Source"}
         </div>
       )
     }

@@ -3,15 +3,21 @@ import { getCollection } from 'astro:content';
 import BookCta from '@/components/sections/BookCta.astro';
 import Icon from '@/components/ui/Icon.astro';
 import InlineBold from '@/components/ui/InlineBold.astro';
+import Section from '@/components/ui/Section.astro';
 import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getSchemaMarkup } from '@/lib/utils';
-import Section from '../home/_Section.astro';
+import { SchemaMarkup } from '@/lib/utils';
 import ProjectCard from './_ProjectCard.astro';
 
 const title = 'Projects';
 const description = 'Projects';
 const keywords = ['projects'];
-const SchemaMarkup = [getSchemaMarkup('person')];
+const schema_markup = [SchemaMarkup.get('person')];
+const open_graph = {};
+const seo = { title, description, keywords, schema_markup, open_graph };
+const sustainability = {
+	co2: 1,
+	link: '',
+};
 
 const AllProjects = await getCollection('projects');
 const AllCategories = [
@@ -19,12 +25,7 @@ const AllCategories = [
 ];
 ---
 
-<LandingLayout
-  title={title}
-  keywords={keywords}
-  description={description}
-  schema_markup={SchemaMarkup}
->
+<LandingLayout {...seo} sustainability={sustainability}>
   <Section>
     <h1 class:list={["mt-16 text-3xl font-bold", "md:mt-36 md:text-5xl"]}>
       Selected Projects

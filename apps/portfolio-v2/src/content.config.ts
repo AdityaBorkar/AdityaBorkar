@@ -35,13 +35,25 @@ const projects = defineCollection({
 		index: z.number().optional(),
 		title: z.string(),
 		description: z.string(),
-		hero_image: z.string().nullable(),
-		categories: z.array(z.string()),
+		hero_image: z.string(),
+		hero_tag: z
+			.enum(['featured', 'open-source', 'work-in-progress'])
+			.nullable(),
+		filter_category: z.array(z.string()),
 		tags: z.array(z.string()),
-		preview_link: z.string().nullable(),
-		github_link: z.string().nullable(),
-		featured: z.boolean().optional(),
-		open_source: z.boolean().optional(),
+		links: z.object({
+			preview: z.string().optional(),
+			github: z.string().optional(),
+			video: z.string().optional(),
+		}),
+		benefits: z.array(
+			z.object({
+				metric: z.string({ coerce: true }),
+				label: z.string(),
+			}),
+		),
+		year: z.number(),
+		timeline: z.string(),
 	}),
 });
 

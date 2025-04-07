@@ -1,22 +1,19 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import type { Thing, WithContext } from 'schema-dts';
-import CookiePopup from '@/components/CookiePopup.astro';
-import Posthog from '@/components/Posthog.astro';
-import VercelToolbar from '@/components/VercelToolbar.astro';
-import { JsonLd } from '@/lib/jsonLd';
-import './global.css';
+import { ClientRouter } from "astro:transitions";
+import type { Thing, WithContext } from "schema-dts";
+import CookiePopup from "@/components/CookiePopup.astro";
+import Posthog from "@/components/Posthog.astro";
+import { JsonLd } from "@/lib/jsonLd";
+import "./global.css";
 
 interface Props {
-	title: string;
-	description: string;
-	keywords: string[];
-	schemaMarkup?: WithContext<Thing>[];
+    title: string;
+    description: string;
+    keywords: string[];
+    schemaMarkup?: WithContext<Thing>[];
 }
 
 const { title, description, keywords, schemaMarkup = [] } = Astro.props;
-
-// Adopt Vision OS Design = https://www.figma.com/design/O29ixqfOkH0VVQRGvED74A/Apple-Design-Resources---visionOS-(Community)?node-id=487-15472&p=f&t=L9Lz4VIvfQPsbK4Q-0
 ---
 
 <html lang="en">
@@ -25,6 +22,7 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Accept-CH" content="Width, Downlink, Sec-CH-UA" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
         <!--
         themeColor	false	"#000000"	Browser theme color.
         colorScheme	false	"light"	Preferred color scheme.
@@ -74,11 +72,6 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         class="text-sm leading-normal antialiased relative min-h-screen cursor-default bg-background text-text-secondary"
         transition:animate="slide"
     >
-        <!-- The sideones must be darker than the body -->
-        <!--
-        'before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full',
-        'before:[background-image:radial-gradient(#cbd5e1,_transparent_3px)] before:[background-size:25px_25px]',
-        -->
         <slot />
 
         <CookiePopup />
@@ -86,15 +79,8 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         <script>
             import Lenis from "lenis";
             new Lenis({ autoRaf: true, lerp: 0.06 });
-
-            // TODO: Add Squircle CSS Worklet
-            // import 'css-paint-polyfill'
-            // import workletURL from "url-loader!<package-name>/worklet.js";
-            // const workletURL = ''
-            // CSS.paintWorklet.addModule(workletURL)
         </script>
 
         {process.env.NODE_ENV !== "development" && <Posthog />}
-        {process.env.NODE_ENV === "development" && <VercelToolbar />}
     </body>
 </html>

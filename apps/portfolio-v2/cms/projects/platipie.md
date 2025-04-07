@@ -1,8 +1,9 @@
 ---
 title: Platipie
 description: SaaS Platform for creating, managing and developing E-commerce stores on no-code platform (Webflow).
-hero_image: /assets/projects/platipie/preview.png
-categories:
+hero_image: projects/portfolio-website.png
+hero_tag: 
+filter_category:
   - Full Stack Development
   - Plugins & Extensions
   - Artificial Intelligence
@@ -12,8 +13,21 @@ tags:
   - Vertical Platform
   - E-Commerce
   - Webflow App
-preview_link: https://platipie.com
-github_link: https://github.com/platipie
+links:
+  preview: https://gem-finder.vercel.app/
+  github: https://github.com/aakash-durgabari/gem-finder
+timeline: < 1 month
+year: 2024
+benefits:
+  - 
+    metric: 3
+    label: Days Delivery
+  - 
+    metric: 100%
+    label: Handover
+  - 
+    metric: 100%
+    label: Knowledge Transfer
 ---
 
 Hello World

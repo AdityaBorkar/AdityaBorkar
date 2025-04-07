@@ -4,7 +4,7 @@ export const IS_AVAILABLE_NOW = true;
 
 export const SOCIALS = {
 	email: 'hello@adityab.tech',
-	// discord: 'adityab#0001',
+	discord: 'adityab.tech',
 	x: 'https://x.com/adityab_tech',
 	github: 'https://github.com/AdityaBorkar',
 	linkedin: 'https://linkedin.com/in/adityab_tech',

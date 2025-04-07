@@ -10,20 +10,15 @@ const title = 'Legal Terms';
 const description = 'Legal Terms';
 const keywords = ['legal', 'terms'];
 const schema_markup = [SchemaMarkup.get('person'), SchemaMarkup.get('person')];
+const open_graph = {};
+const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
 	co2: 0.25,
 	link: 'adityab-tech',
 };
 ---
 
-<LandingLayout
-  title={title}
-  keywords={keywords}
-  description={description}
-  schemaMarkup={schema_markup}
-  openGraph={{}}
-  sustainability={sustainability}
->
+<LandingLayout {...seo} sustainability={sustainability}>
   <Section class:list={["py-24 "]}>
     <div class="flex flex-row mx-auto w-fit gap-4">
       <a

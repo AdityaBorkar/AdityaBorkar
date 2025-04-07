@@ -1,7 +1,7 @@
 ---
 import BookCta from '@/components/sections/BookCta.astro';
 import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getSchemaMarkup } from '@/lib/utils';
+import { SchemaMarkup } from '@/lib/utils';
 import Dock from './(components)/_Dock.astro';
 import AboveTheFold from './(sections)/_AboveTheFold.astro';
 import FaqSection from './(sections)/_FaqSection.astro';
@@ -14,15 +14,16 @@ import WorkSection from './(sections)/_WorkSection.astro';
 const title = 'Services';
 const description = 'Services';
 const keywords = ['Services'];
-const SchemaMarkup = [getSchemaMarkup('person')];
+const schema_markup = [SchemaMarkup.get('person')];
+const open_graph = {};
+const seo = { title, description, keywords, schema_markup, open_graph };
+const sustainability = {
+	co2: 1,
+	link: '',
+};
 ---
 
-<LandingLayout
-  title={title}
-  keywords={keywords}
-  description={description}
-  schema_markup={SchemaMarkup}
->
+<LandingLayout {...seo} sustainability={sustainability}>
   <!-- <AboveTheFold /> -->
 
   <ServicesSection />

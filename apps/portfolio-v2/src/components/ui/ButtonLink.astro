@@ -5,11 +5,16 @@ import { buttonVariants } from './Button.astro';
 interface Props extends VariantProps<typeof buttonVariants> {
 	href: string;
 	class?: string;
+	target?: '_blank' | '_self';
 }
 
-const { href, class: className, ...variantProps } = Astro.props;
+const { href, class: className, target, ...variantProps } = Astro.props;
 ---
 
-<a href={href} class:list={[buttonVariants({ ...variantProps }), className]}>
+<a
+	href={href}
+	target={target}
+	class:list={[buttonVariants({ ...variantProps }), className]}
+>
 	<slot />
 </a>

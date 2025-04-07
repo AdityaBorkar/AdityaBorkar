@@ -1,5 +1,5 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
+	"$schema": "../../node_modules/wrangler/config-schema.json",
 	"name": "portfolio-website",
 	"main": "./dist/_worker.js/index.js",
 	// Update to today's date
@@ -13,5 +13,4 @@
 		"enabled": true
 	}
 }
-
 // https://docs.astro.build/en/guides/deploy/cloudflare/

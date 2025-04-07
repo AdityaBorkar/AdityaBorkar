@@ -2,7 +2,7 @@
 
 import { motion, useDomEvent, useScroll } from 'motion/react';
 import { useRef, useState } from 'react';
-import { SpringTransition } from '@/lib/transitions';
+// import { SpringTransition } from '@/lib/transitions';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -31,7 +31,7 @@ export default function BentoImageReact({ alt, src, caption }: Props) {
 		>
 			<motion.div
 				animate={{ opacity: isOpen ? 1 : 0 }}
-				transition={SpringTransition}
+				// transition={SpringTransition}
 				onClick={() => setOpen(false)}
 				className={cn(
 					'pointer-events-none fixed inset-0 z-40 opacity-0 backdrop-blur-2xl',
@@ -42,7 +42,7 @@ export default function BentoImageReact({ alt, src, caption }: Props) {
 				layout
 				draggable="false"
 				transition={{
-					default: SpringTransition,
+					// default: SpringTransition,
 					zIndex: { delay: isOpen ? 0 : 0.7 },
 					// TODO: Solve the delay issue caused by opening another image instantly
 				}}

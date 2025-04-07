@@ -1,12 +1,15 @@
 ---
-import CursorBubble from '@/components/CursorBubble.astro';
-import ScheduleMeetBtn from '@/components/ScheduleMeetBtn.astro';
+import CalMeetButton from '@/components/CalMeetButton.astro';
+import CursorBubble from '@/components/ui/CursorBubble.astro';
+import Section from '../ui/Section.astro';
 ---
 
-<section class="relative pb-32 pt-56 md:pt-72 max-w-[64rem] mx-auto">
-  <div class="relative px-8 md:px-24">
+<Section
+  class:list={["relative pb-32 pt-56 max-w-[64rem] mx-auto", "md:pt-72"]}
+>
+  <div class:list={["relative px-8", "md:px-24"]}>
     <CursorBubble
-      class:list={["-top-[15%] max-md:-top-12 right-16 bg-purple-600"]}
+      class:list={["-top-[15%] right-16 bg-purple-600", "max-md:-top-12"]}
       fillColor="fill-purple-500"
       text="Product"
     />
@@ -17,17 +20,23 @@ import ScheduleMeetBtn from '@/components/ScheduleMeetBtn.astro';
     />
     <CursorBubble
       class:list={[
-        "-top-8 left-48 max-md:-top-16 max-md:left-12 bg-orange-600",
+        "-top-8 left-48 bg-orange-600",
+        "max-md:-top-16 max-md:left-12",
       ]}
       fillColor="fill-orange-500"
       text="Artificial Intelligence"
     />
     <CursorBubble
-      class:list={["right-48 max-md:right-12 top-[120%] bg-green-600"]}
+      class:list={["right-48 top-[120%] bg-green-600", "max-md:right-12"]}
       fillColor="fill-emerald-500"
       text="Customers"
     />
-    <div class="text-center text-3xl md:text-5xl font-semibold leading-normal">
+    <div
+      class:list={[
+        "text-center text-3xl font-semibold leading-normal",
+        "md:text-5xl",
+      ]}
+    >
       {"Let's"}
       <span class="font-sans-serif font-normal italic tracking-tight">
         discuss
@@ -42,9 +51,9 @@ import ScheduleMeetBtn from '@/components/ScheduleMeetBtn.astro';
     </div>
   </div>
 
-  <ScheduleMeetBtn
-    class="mx-auto uppercase font-bold mt-36 block rounded-2xl hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 transition-all duration-300 cursor-pointer px-12 py-4 text-xl text-background"
+  <CalMeetButton
+    class="mx-auto uppercase font-bold mt-36 block rounded-2xl hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 cursor-pointer px-12 py-4 text-xl text-background"
   >
     Schedule Meeting
-  </ScheduleMeetBtn>
-</section>
+  </CalMeetButton>
+</Section>

@@ -3,6 +3,7 @@
 import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import MillionLint from '@million/lint';
 import tailwindcss from '@tailwindcss/vite';
 import basicSsl from '@vitejs/plugin-basic-ssl';
@@ -13,7 +14,8 @@ export default defineConfig({
 	adapter: cloudflare({
 		imageService: 'cloudflare',
 	}),
-	integrations: [react(), mdx(), MillionLint.astro()],
+	site: 'https://adityab.tech',
+	integrations: [react(), mdx(), MillionLint.astro(), sitemap()],
 	vite: {
 		plugins: [tailwindcss(), basicSsl()],
 	},

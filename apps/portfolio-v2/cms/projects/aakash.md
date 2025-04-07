@@ -1,8 +1,9 @@
 ---
 title: Aakash
-description: Realtime AI Chatbot that provides requested data and recommends business decisions.
-hero_image: 
-categories:
+description: Realtime AI Chatbot that provides requested data from and recommends business decisions.
+hero_image: projects/portfolio-website.png
+hero_tag: # featured
+filter_category:
   - Artificial Intelligence
 tags:
   - AI Chatbot
@@ -13,9 +14,21 @@ tags:
   - Function Calling
   - Gemini Flash 2.0
   - Claude 3.7 Thinking
-preview_link: chat.vasundhara.cc
-github_link: 
-
+links:
+  preview: https://gem-finder.vercel.app/
+  github: https://github.com/aakash-durgabari/gem-finder
+timeline: 4 months
+year: 2024
+benefits:
+  - 
+    metric: 3
+    label: Days Delivery
+  - 
+    metric: 100%
+    label: Handover
+  - 
+    metric: 100%
+    label: Knowledge Transfer
 ---
 
 ## Problem Statement
