@@ -1,8 +1,8 @@
 ---
 interface Props {
-	text: string;
-	fillColor: string;
-	class?: string;
+  text: string;
+  fillColor: string;
+  class?: string;
 }
 
 const { text, fillColor } = Astro.props;
@@ -10,25 +10,37 @@ const { text, fillColor } = Astro.props;
 
 <script>
   import { animate } from "motion/mini";
+  import { spring } from "motion";
 
   for (const bubble of document.querySelectorAll("[data-figma-cursor")) {
     bubble.addEventListener("mouseover", (e) => {
       if (window.innerWidth < 768) return;
 
-      const randomTop = Math.round(
-        Math.random() < 0.5
-          ? Math.random() * 30 - 50
-          : Math.random() * 50 + 100,
-      );
-      const randomLeft = Math.round(
-        Math.random() < 0.5 ? Math.random() * 21 : Math.random() * 21 + 80,
-      );
+      const { randomTop, randomLeft } = getRandomPosition();
+      // const currentTop = bubble.getBoundingClientRect().top;
+      // const currentLeft = bubble.getBoundingClientRect().left;
+      // console.log(currentTop, currentLeft);
+      // console.log(randomTop, randomLeft);
+
       animate(
         bubble,
         { top: `${randomTop}%`, left: `${randomLeft}%` },
-        { duration: 0.3 },
+        { duration: 0.6, type: spring, bounce: 0.3 },
       );
     });
+  }
+
+  function getRandomPosition() {
+    // const range = {
+    //   tl: ,tr:
+    // }
+    const randomTop = Math.round(
+      Math.random() < 0.5 ? Math.random() * 30 - 50 : Math.random() * 50 + 100,
+    );
+    const randomLeft = Math.round(
+      Math.random() < 0.5 ? Math.random() * 21 : Math.random() * 21 + 80,
+    );
+    return { randomTop, randomLeft };
   }
 </script>
 
@@ -36,7 +48,7 @@ const { text, fillColor } = Astro.props;
   data-figma-cursor
   class:list={[
     "absolute whitespace-nowrap font-medium z-10 tracking-wide text-sm py-1 px-2 rounded-full text-white w-fit h-fit",
-    "ease-in-out duration-500",
+    "will-change-[transform,opacity,filter] transform-origin-center transform-[translate(calc(var(--animate-x)*var(--animate-mass)),calc(var(--animate-y)*var(--animate-mass)))]",
     Astro.props.class,
   ]}
 >
@@ -54,6 +66,7 @@ const { text, fillColor } = Astro.props;
       <path
         d="M5.25436 3.56954L4.29956 3.00533L4.509 4.09442L7.009 17.0944L7.25595 18.3786L7.92875 17.2572L10.8254 12.4295L16.1316 10.9824L17.2726 10.6712L16.2544 10.0695L5.25436 3.56954Z"
         stroke="white"
+        stroke-width="1.2"
         stroke-linecap="square"></path>
     </g>
     <defs>

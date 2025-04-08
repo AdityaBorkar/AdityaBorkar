@@ -13,13 +13,20 @@ const {
 
 <a
   href={`/projects/${id}`}
-  class="group relative rounded-3xl border border-border/10 bg-bg-primary/50 p-4 transition-all hover:shadow-lg"
+  class:list={[
+    "group rounded-3xl border border-border/10 bg-bg-primary/50 p-4 transition-all",
+    "hover:scale-105 hover:shadow-lg",
+  ]}
 >
-  <div class="h-56 md:h-64 rounded-xl relative">
+  <div class="h-56 md:h-64 relative">
     <Image
       src={getImage(hero_image)}
       alt={`Visual Representation of ${title}`}
-      class="group-hover:zoom-105 object-cover mx-auto h-full text-text-quaternary rounded-xl bg-bg-secondary text-center"
+      class:list={[
+        "block object-cover mx-auto h-full rounded-xl bg-bg-secondary text-text-quaternary",
+        "group-hover:scale-105 group-hover:rounded-2xl group-hover:-mt-1",
+        "transition-all duration-300 ease-in-out",
+      ]}
     />
     {
       hero_tag && (
@@ -28,25 +35,31 @@ const {
             "absolute top-2 right-2 uppercase text-xs py-1 px-2 rounded-md",
             hero_tag === "featured" &&
               "text-yellow-200 bg-yellow-950 border border-yellow-900",
-            hero_tag === "open_source" &&
+            hero_tag === "open-source" &&
               "text-green-200 bg-green-950 border border-green-900",
+            hero_tag === "work-in-progress" &&
+              "text-blue-200 bg-blue-950 border border-blue-900",
           ]}
         >
           {hero_tag === "featured" && "Featured"}
-          {hero_tag === "open_source" && "Open Source"}
+          {hero_tag === "open-source" && "Open Source"}
+          {hero_tag === "work-in-progress" && "Work in Progress"}
         </div>
       )
     }
   </div>
   <div class="cursor-pointer px-2 pb-2 pt-4">
-    <div class="cursor-pointer text-base font-semibold">
+    <div class="cursor-pointer text-base font-semibold text-text-primary">
       {title}
     </div>
     <div class="mt-2 cursor-pointer text-text-secondary">
       {description}
     </div>
     <ul
-      class="mt-4 flex cursor-pointer flex-row flex-wrap md:gap-x-1 md:gap-y-2 gap-1"
+      class:list={[
+        "mt-4 flex cursor-pointer flex-row flex-wrap gap-1",
+        "md:gap-x-1 md:gap-y-2",
+      ]}
     >
       {
         tags.map((tag) => (

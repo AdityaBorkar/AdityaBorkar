@@ -244,6 +244,7 @@ AB Testing with Onkar
   - If you exhaust limits, ask to solve a smart ai based captcha
   - client:visible for React component to load after the page loading is done
 - Cal.com - Toggle Dark and Light mode
+- ios audio cues
 - Testimonials:
   - Add photos / videos of real people.
   - Link to project case study

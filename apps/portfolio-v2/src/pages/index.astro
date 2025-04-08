@@ -1,63 +1,63 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import { HOMEPAGE, IS_AVAILABLE_NOW, SOCIALS } from 'cms/constants';
-import BookCta from '@/components/sections/BookCta.astro';
-import TestimonialSection from '@/components/sections/Testimonials.astro';
-import ButtonLink from '@/components/ui/ButtonLink.astro';
-import Heading from '@/components/ui/Heading.astro';
-import Icon from '@/components/ui/Icon.astro';
-import InlineBold from '@/components/ui/InlineBold.astro';
-import Section from '@/components/ui/Section.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getImage, SchemaMarkup } from '@/lib/utils';
-import ProjectCard from './home/_ProjectCard.astro';
-import ServiceCard from './home/_ServiceCard.astro';
-import Tag from './home/_Tag.astro';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { HOMEPAGE, IS_AVAILABLE_NOW, SOCIALS } from "cms/constants";
+import BookCta from "@/components/sections/BookCta.astro";
+import TestimonialSection from "@/components/sections/Testimonials.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Heading from "@/components/ui/Heading.astro";
+import Icon from "@/components/ui/Icon.astro";
+import InlineBold from "@/components/ui/InlineBold.astro";
+import Section from "@/components/ui/Section.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getImage, SchemaMarkup } from "@/lib/utils";
+import ProjectCard from "./home/_ProjectCard.astro";
+import ServiceCard from "./home/_ServiceCard.astro";
+import Tag from "./home/_Tag.astro";
 
-const Mockups = await getCollection('mockups');
+const Mockups = await getCollection("mockups");
 const Mockups1 = Mockups.slice(0, Mockups.length / 2);
 const Mockups2 = Mockups.slice(Mockups.length / 2, Mockups.length);
 
-const Technologies = await getCollection('technologies');
+const Technologies = await getCollection("technologies");
 const Technologies1 = Technologies.slice(0, Technologies.length / 2);
 const Technologies2 = Technologies.slice(
-	Technologies.length / 2,
-	Technologies.length,
+  Technologies.length / 2,
+  Technologies.length,
 );
 
 const GitHubDots = [];
 for (let i = 0; i < 150; i++) {
-	const random = Math.floor(Math.random() * 3);
-	GitHubDots.push(random);
+  const random = Math.floor(Math.random() * 3);
+  GitHubDots.push(random);
 }
 
-const Projects = (await getCollection('projects')).filter((project) =>
-	HOMEPAGE.PROJECTS.includes(project.data.title),
+const Projects = (await getCollection("projects")).filter((project) =>
+  HOMEPAGE.PROJECTS.includes(project.data.title),
 );
 
-const BlogPosts = (await getCollection('blogs')).filter((blog) =>
-	HOMEPAGE.BLOGS.includes(blog.data.title),
+const BlogPosts = (await getCollection("blogs")).filter((blog) =>
+  HOMEPAGE.BLOGS.includes(blog.data.title),
 );
 
 // SEO:
 
-const title = 'Aditya Borkar - Expert Product Engineer';
+const title = "Aditya Borkar - Expert Product Engineer";
 const description =
-	'Showcasing the work of Aditya Borkar, a Mumbai-based product engineer and full-stack developer, specializing in web development, internal communications, and front-end development.';
+  "Showcasing the work of Aditya Borkar, a Mumbai-based product engineer and full-stack developer, specializing in web development, internal communications, and front-end development.";
 const keywords = [
-	'about',
-	'product engineer',
-	'full-stack developer',
-	'web development',
-	'user interface',
-	'user interaction',
-	'',
+  "about",
+  "product engineer",
+  "full-stack developer",
+  "web development",
+  "user interface",
+  "user interaction",
+  "",
 ];
-const schema_markup = [SchemaMarkup.get('person')];
+const schema_markup = [SchemaMarkup.get("person")];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
-const sustainability = { co2: 0.25, link: 'adityab-tech' };
+const sustainability = { co2: 0.25, link: "adityab-tech" };
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
@@ -189,13 +189,13 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
 
       <div
         class:list={[
-          "mt-6 w-fit px-4 text-center text-sm text-text-secondary",
+          "mt-6 w-fit px-4 flex flex-row gap-2 items-center text-center text-sm text-text-secondary",
           "magic-fade-down delay-1200",
         ]}
       >
         <div
           class:list={[
-            "relative mr-2 inline-block size-3 rounded-full ",
+            "relative inline-block size-3 rounded-full ",
             IS_AVAILABLE_NOW ? "bg-green-500" : "bg-orange-500",
           ]}
         >
@@ -208,7 +208,9 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
           >
           </div>
         </div>
-        {IS_AVAILABLE_NOW ? "Open for Work" : "Limited Availability"}
+        <div>
+          {IS_AVAILABLE_NOW ? "Open for Work" : "Limited Availability"}
+        </div>
       </div>
     </div>
   </Section>

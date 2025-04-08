@@ -1,5 +1,6 @@
 ---
 import CalMeetButton from "@/components/CalMeetButton.astro";
+import BookCta from "@/components/sections/BookCta.astro";
 import Button from "@/components/ui/Button.astro";
 import Input from "@/components/ui/Input.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
@@ -174,9 +175,8 @@ const errors = { username: "", email: "", password: "" };
         {" or "}
         <CalMeetButton
           class="font-medium underline underline-offset-4 hover:underline-offset-8 cursor-pointer"
-        >
-          Schedule a call
-        </CalMeetButton>
+          text="Schedule a call"
+        />
       </div>
       <div>Social Links + Discord User ID Link</div>
     </div>
@@ -184,6 +184,8 @@ const errors = { username: "", email: "", password: "" };
     <!-- Your message has been sent. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three</span> hours. -->
     <!-- TODO - 3 hours during working hours and 12 hours during non-working hours and 24 hours during non-working days -->
   </main>
+
+  <BookCta />
 
   <script>
     import { actions } from "astro:actions";

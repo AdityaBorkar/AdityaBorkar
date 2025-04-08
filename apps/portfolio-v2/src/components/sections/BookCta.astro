@@ -1,20 +1,25 @@
 ---
-import CalMeetButton from '@/components/CalMeetButton.astro';
-import CursorBubble from '@/components/ui/CursorBubble.astro';
-import Section from '../ui/Section.astro';
+import CalMeetButton from "@/components/CalMeetButton.astro";
+import CursorBubble from "@/components/ui/CursorBubble.astro";
+import Section from "../ui/Section.astro";
 ---
 
 <Section
-  class:list={["relative pb-32 pt-56 max-w-[64rem] mx-auto", "md:pt-72"]}
+  id="book-cta"
+  class:list={["relative pb-32 pt-56 !max-w-full", "md:pt-72"]}
 >
-  <div class:list={["relative px-8", "md:px-24"]}>
+  <div class:list={["relative px-8 max-w-[56rem] mx-auto", "md:px-24"]}>
     <CursorBubble
-      class:list={["-top-[15%] right-16 bg-purple-600", "max-md:-top-12"]}
+      class:list={[
+        "-top-[15%] right-16 bg-purple-600",
+        "max-md:-top-12",
+        "[--animate-mass:0.4]",
+      ]}
       fillColor="fill-purple-500"
       text="Product"
     />
     <CursorBubble
-      class:list={["left-32 top-[135%] bg-sky-600"]}
+      class:list={["left-32 top-[135%] bg-sky-600", "[--animate-mass:0.8]"]}
       fillColor="fill-sky-500"
       text="Technology"
     />
@@ -22,12 +27,17 @@ import Section from '../ui/Section.astro';
       class:list={[
         "-top-8 left-48 bg-orange-600",
         "max-md:-top-16 max-md:left-12",
+        "[--animate-mass:1.4]",
       ]}
       fillColor="fill-orange-500"
       text="Artificial Intelligence"
     />
     <CursorBubble
-      class:list={["right-48 top-[120%] bg-green-600", "max-md:right-12"]}
+      class:list={[
+        "right-48 top-[120%] bg-green-600",
+        "max-md:right-12",
+        "[--animate-mass:0.6]",
+      ]}
       fillColor="fill-emerald-500"
       text="Customers"
     />
@@ -53,7 +63,32 @@ import Section from '../ui/Section.astro';
 
   <CalMeetButton
     class="mx-auto uppercase font-bold mt-36 block rounded-2xl hover:rounded-xl bg-gradient-to-b from-text-secondary to-text-primary hover:scale-105 cursor-pointer px-12 py-4 text-xl text-background"
-  >
-    Schedule Meeting
-  </CalMeetButton>
+    text="Schedule Meeting"
+  />
 </Section>
+
+<script>
+  import { frame } from "motion";
+
+  const div = document.querySelector("#book-cta");
+  const cursors = div?.querySelectorAll("[data-figma-cursor]");
+
+  div?.addEventListener("mousemove", (event) => {
+    const { innerWidth, innerHeight } = window;
+    if (innerWidth < 768) return;
+
+    // Calculate movement percentage relative to window center
+    const { clientX, clientY } = event as MouseEvent;
+    const moveXPercent = Math.round((clientX / innerWidth - 0.5) * 150);
+    const moveYPercent = Math.round((clientY / innerHeight - 0.5) * 600);
+
+    cursors?.forEach((cursor) => {
+      frame.render(() => {
+        // @ts-expect-error
+        cursor.style.setProperty("--animate-x", `${moveXPercent}%`);
+        // @ts-expect-error
+        cursor.style.setProperty("--animate-y", `${moveYPercent}%`);
+      });
+    });
+  });
+</script>

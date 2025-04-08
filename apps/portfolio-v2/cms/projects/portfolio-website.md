@@ -20,15 +20,35 @@ links:
   preview: https://adityab.tech/
   github: https://github.com/AdityaBorkar/AdityaBorkar
 timeline: < 1 month
-year: 2024
+year: 2025
 benefits:
   - 
-    metric: 3
-    label: Days Delivery
+    metric: "[Cool Img]"
+    label: Website
   - 
-    metric: 100%
-    label: Handover
+    metric: Happy
+    label: Clients
   - 
     metric: 100%
     label: Knowledge Transfer
 ---
+
+## Problem Statement
+
+I needed a portfolio website to showcase my work and skills. And attract potential clients and visitors like you! Enjoy!
+
+## Tech Stack
+
+- TypeScript
+- Astro.js
+- Tailwind CSS
+- React
+- Animations using Lenis.js and Framer Motion (Motion)
+- SEO Optimized using Astro.js and Cloudflare
+- MDX for content
+- Cloudflare for hosting
+
+## Solution
+
+I built this website using Astro.js, Tailwind CSS, and React. It's a static site that is hosted on Cloudflare Pages.
+
