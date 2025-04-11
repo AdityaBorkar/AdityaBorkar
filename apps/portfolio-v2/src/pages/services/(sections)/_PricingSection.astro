@@ -1,57 +1,57 @@
 ---
-import { Image } from 'astro:assets';
-import { PRICING } from 'cms/constants';
-import { getImage } from '@/lib/assets';
-import Heading from '../(components)/_Heading.astro';
-import Section from '../(components)/_Section.astro';
+import { Image } from "astro:assets";
+import { PRICING } from "cms/constants";
+import Section from "@/components/ui/Section.astro";
+import { getImage } from "@/lib/assets";
+import Heading from "../(components)/_Heading.astro";
 
 const Benefits = [
-	// {
-	//     title: "Full Stack <br/> Development",
-	//     svg: "/assets/illustrations/full-stack.webm",
-	// },
-	// {
-	//     title: "AI <br/> Development",
-	//     svg: "/assets/illustrations/3d-chatbot-head.webm",
-	// },
-	// {
-	//     title: "MVP <br/> Development",
-	//     svg: "/assets/illustrations/3d-chatbot-head.webm",
-	// },
-	{
-		title: 'Custom Tech <br /> Solutions',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: '3+ years of <br/> Expertise',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: '100% Client Satisfaction',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'Regular Updates & Timely Delivery',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'Flexible Timezone & Work Hours',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
-	{
-		title: 'Flexible Payment Terms',
-		svg: '/assets/illustrations/3d-chatbot-head.webm',
-	},
+    // {
+    //     title: "Full Stack <br/> Development",
+    //     svg: "/assets/illustrations/full-stack.webm",
+    // },
+    // {
+    //     title: "AI <br/> Development",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    // {
+    //     title: "MVP <br/> Development",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    {
+        title: "Custom Tech <br /> Solutions",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "3+ years of <br/> Expertise",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "100% Client Satisfaction",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Regular Updates & Timely Delivery",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Flexible Timezone & Work Hours",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
+    {
+        title: "Flexible Payment Terms",
+        svg: "/assets/illustrations/3d-chatbot-head.webm",
+    },
 ];
 
 const CurrencyConversion = [
-	{ rate: '3.70', currency: 'AED (Arab Emirates Dirham)' },
-	{ rate: '1.65', currency: 'AUD (Australian Dollar)' },
-	{ rate: '0.85', currency: 'GBP (British Pound)' },
-	{ rate: '1.50', currency: 'CAD (Canadian Dollar)' },
-	{ rate: '0.95', currency: 'EUR (Euro)' },
-	{ rate: '80.00', currency: 'INR (Indian Rupee)' },
-	{ rate: '1.35', currency: 'SGD (Singapore Dollar)' },
+    { rate: "3.70", currency: "AED (Arab Emirates Dirham)" },
+    { rate: "1.65", currency: "AUD (Australian Dollar)" },
+    { rate: "0.85", currency: "GBP (British Pound)" },
+    { rate: "1.50", currency: "CAD (Canadian Dollar)" },
+    { rate: "0.95", currency: "EUR (Euro)" },
+    { rate: "80.00", currency: "INR (Indian Rupee)" },
+    { rate: "1.35", currency: "SGD (Singapore Dollar)" },
 ];
 // <!-- Transparent PRicing -->
 ---

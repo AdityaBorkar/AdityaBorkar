@@ -13,11 +13,25 @@ export default defineConfig({
 	output: 'server',
 	adapter: cloudflare({
 		imageService: 'cloudflare',
+		platformProxy: {
+			enabled: true,
+		},
 	}),
 	site: 'https://adityab.tech',
 	integrations: [react(), mdx(), MillionLint.astro(), sitemap()],
 	vite: {
+		// @ts-expect-error
 		plugins: [tailwindcss(), basicSsl()],
+		ssr: {
+			external: ['node:fs', 'node:path'],
+		},
+		resolve: {
+			// Use react-dom/server.edge instead of react-dom/server.browser for React 19.
+			// Without this, MessageChannel from node:worker_threads needs to be polyfilled.
+			alias: import.meta.env.PROD
+				? { 'react-dom/server': 'react-dom/server.edge' }
+				: undefined,
+		},
 	},
 	prefetch: {
 		defaultStrategy: 'hover',

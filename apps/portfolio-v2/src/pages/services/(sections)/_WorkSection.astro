@@ -1,19 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
-import Image from 'astro/components/Image.astro';
-import { getImage } from '@/lib/assets';
-import Heading from '../(components)/_Heading.astro';
-import Section from '../(components)/_Section.astro';
+import { getCollection } from "astro:content";
+import Image from "astro/components/Image.astro";
+import Section from "@/components/ui/Section.astro";
+import { getImage } from "@/lib/assets";
+import Heading from "../(components)/_Heading.astro";
 
 const FEATURED_PROJECTS = [
-	'Platipie',
-	'Vasundhara',
-	'Hooop Cloud',
-	'Blog Platform',
+    "Platipie",
+    "Vasundhara",
+    "Hooop Cloud",
+    "Blog Platform",
 ];
 
-const Projects = (await getCollection('projects')).filter((project) =>
-	FEATURED_PROJECTS.includes(project.data.title),
+const Projects = (await getCollection("projects")).filter((project) =>
+    FEATURED_PROJECTS.includes(project.data.title),
 );
 
 // TODO: SHOW MOBILE MOCKUPS WITH HANDS ON THE WORK SECTION
