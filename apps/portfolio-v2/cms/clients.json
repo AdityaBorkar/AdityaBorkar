@@ -17,20 +17,36 @@
 		"logo": "logo/rpf.svg"
 	},
 	{
-		"id": "AIESECa",
-		"logo": "logo/aiesec.png",
+		"id": "Natraj Buildicon",
+		"logo": "logo/natraj-buildicon.png",
 		"className": "py-1"
 	},
 	{
-		"id": "VeryFirstTalea",
-		"logo": "logo/vft.webp"
+		"id": "Hooop Cloud",
+		"logo": "logo/hooop-cloud.webp"
 	},
 	{
-		"id": "Platipiea",
-		"logo": "logo/platipie.svg"
+		"id": "GrocyGo",
+		"logo": "logo/grocygo.svg"
 	},
 	{
-		"id": "Raspberry Pi Foundationa",
-		"logo": "logo/rpf.svg"
+		"id": "Byre",
+		"logo": "logo/byre.svg"
+	},
+	{
+		"id": "SyncSink",
+		"logo": "logo/syncsink.svg"
+	},
+	{
+		"id": "Vasundhara",
+		"logo": "logo/vasundhara.svg"
+	},
+	{
+		"id": "Europa Assistance",
+		"logo": "logo/europa-assistance.svg"
+	},
+	{
+		"id": "Durgabari US",
+		"logo": "logo/durgabari-us.svg"
 	}
 ]

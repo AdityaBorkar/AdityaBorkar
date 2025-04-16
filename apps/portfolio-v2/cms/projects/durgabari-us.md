@@ -27,6 +27,10 @@ benefits:
   - 
     metric: 100%
     label: Knowledge Transfer
+testimonial:
+  - poc_name:
+  - poc_role:
+  - text:
 ---
 
 ## Problem Statement
@@ -53,6 +57,13 @@ The existing code was not following the best practices. I made the following cha
 Along with the above changes, a high-level vulnerability was detected. The previous developer had EXPOSED the API Secrets of Google Sheets API. I rotated the keys and refactored the code to avoid such vulnerabilities.
 
 After completion of the project, I submitted a website report that advised the agency for further improvements and upgradation to the website. However, the agency was very happy with the work done and denied the need for further improvements.
+
+## Key Features Implemented
+
+
+- 
+- 
+- 
 
 ## Results
 

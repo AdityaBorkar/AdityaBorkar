@@ -30,4 +30,8 @@ benefits:
     label: Knowledge Transfer
 ---
 
-Hello World
+MVP or e-commerce development in Webflow.
+
+## Multiple Approaches - Managing Pros and Cons
+
+Shopify does not provide an official integration for Webflow. We assume they shall not create one - because it because Shopify and it's no-code builder clases with Webflow E-commerce and Webflow no-code builder

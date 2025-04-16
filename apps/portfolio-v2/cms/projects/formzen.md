@@ -1,33 +1,45 @@
 ---
 title: Formzen
-description: Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.
-hero_image: projects/portfolio-website.png
+description: Form Library that provides abstractions to make Tanstack Forms and React Hook Forms simpler to use.
+hero_image: projects/formzen.png
 hero_tag: open-source
 filter_category:
   - Library
 tags:
   - Open Source
-  - "SaaS: Software-as-a-Service"
-  - Developer Tool
-  - Platform
-  - TypeScript
-  - MQTT
-  - SST
-  - Pulumi
-  - IaaC
+  - Library
+  - NPM
+  - JSR
+  - React Hook Form
+  - Tanstack Forms
 links:
-  preview: https://replocal.app
-  github: https://github.com/aakash-durgabari/formzen
-timeline: < 2 months
-year: 2024
+  preview: https://formzen.adityab.tech
+  github: https://github.com/AdityaBorkar/formzen
+timeline: < 1 month
+year: 2025
 benefits:
   - 
-    metric: 3
-    label: Days Delivery
+    metric: NA
+    label: Open Source
+  - 
+    metric: 1k+
+    label: Total Downloads
   - 
     metric: 100%
-    label: Handover
-  - 
-    metric: 100%
-    label: Knowledge Transfer
+    label: Monthly Visits
 ---
+
+## Problem Statement
+
+Using forms have become simpler over time by some of the great libraries - Tanstack Forms and React Hook Forms. But, the amount of code that needs to be written becomes immense in a larger form. To solve this sole problem and enhance the developer experience to the next level, we decided to build a library.
+
+## Unique Features
+
+- Common API for both libraries
+- Component Library Integration
+- Rendering based on conditions:
+  <Form.Div if={condition}>
+
+## Result
+
+- Open Source Form Library that will help developers build complex forms in less time.
