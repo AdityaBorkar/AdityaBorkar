@@ -1,4 +1,7 @@
 {
+	"files.trimTrailingWhitespace": true,
+	"files.trimFinalNewlines": false,
+	"files.insertFinalNewline": true,
 	"typescript.preferences.importModuleSpecifier": "non-relative",
 	"javascript.preferences.importModuleSpecifier": "non-relative",
 	"cSpell.words": [
@@ -6,6 +9,7 @@
 		"adityab",
 		"Bento",
 		"Borkar",
+		"bunx",
 		"Hooop",
 		"Platipie",
 		"Vasundhara",
