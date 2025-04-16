@@ -1,113 +1,74 @@
 ---
 title: BluntJS
 description: Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.
-hero_image: projects/portfolio-website.png  
+hero_image: projects/bluntjs.png  
 hero_tag: work-in-progress
 filter_category:
   - Library
 tags:
   - Open Source
-  - "SaaS: Software-as-a-Service"
+  - React
+  - Meta Framework
   - Developer Tool
-  - Platform
   - TypeScript
-  - MQTT
   - SST
-  - Pulumi
-  - IaaC
 links:
-  preview: https://www.durgabarius.org/
-  video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  preview: https://bluntjs.adityab.tech/
+  github: https://github.com/AdityaBorkar/bluntjs
 timeline: < 3 months
-year: 2024
+year: 2025
 benefits:
   - 
     metric: 3
-    label: Days Delivery
+    label: Open Source
   - 
     metric: 100%
-    label: Handover
+    label: React Meta-Framework
   - 
     metric: 100%
-    label: Knowledge Transfer
+    label: Next.js Alternative
 ---
 
 ## Problem Statement
 
-Client/User Needs: Explain the problem or business requirement you aimed to solve.
-Challenges: Constraints like tight deadlines, scalability needs, or technical limitations.
-Rising sentiment against Next.js.
+While the API design and the framework itself is still popular, but the technical debt around it like no support alternate linting libraries and build tools, slower HMR than Vite, file-based routing. The lock-in with Vercel as a platform for optimizations and hosting inhibits it as a choice.
+
+Along with that it lacks support for proper Middleware Support, Websockets, Server-Sent Events.
+
+PS: I still love Next.js as a product and the things Team Vercel build are a source of inspiration for us.
+
+## Key Features Implemented:
+
+MPA Design
+SPA Design from a HTTP Route
+
+export const config = {
+  prerender: true
+  spa: true
+}
+
+export const config = {
+  spa: true
+}
 
 ## Solution
 
-4. Technologies & Tools
-Frontend: React, Angular, HTML/CSS, etc.
-Backend: Node.js, Django, Ruby on Rails, etc.
-Database: PostgreSQL, MongoDB, Firebase, etc.
-APIs/Integrations: REST, GraphQL, third-party services.
-DevOps: Docker, AWS, CI/CD pipelines.
-Testing: Jest, Cypress, Selenium.
-Other Tools: Git, Figma, Jira.
+While there are a pleothora of options that can be taken forward, the stack that I love is:
 
+- Bun as a node.js Replacement
+- Bun as a Package Manager and Monorepo Management
+- Bun as a HTTP Server
+- Bun plugins to build file-based routing and code-based routing
+- Built-in template for SST.
+- Biome for linting, formatting, and sorting imports
+- Arktype for Schema Validation
+- Next-safe-actions for React Server Actions
+- Route Completions and API Schema Support for Fetch.
+- Bring in any external API with fetch schema support using Swagger.
 
-## Results
-List the project’s key objectives (e.g., "Build a responsive web app with real-time chat").
-Define success metrics (e.g., "Reduce page load time by 40%").
+After that, we identified that VoidZero is making significant investment in the space through tools like Rolldown, Vite, etc. So, we decided to further add support for it. Vite is more stable than Bun, hence, this can be seen as a plug-in replacement for Next.js for users where stability is more important.
 
----
+## Result
 
-5. Development Process
-Planning: Wireframes, user stories, or architecture diagrams.
-Workflow: Agile, Scrum, or Kanban methodologies.
-Collaboration: How you worked with designers, PMs, or clients.
-Key Decisions: Trade-offs (e.g., choosing a serverless architecture).
+The project is a work-in-progress and estimated to launch in May 2025. You can track the progress on our [Github Repository](https://github.com/AdityaBorkar/bluntjs)
 
-6. Key Features Implemented
-Highlight 2–3 complex features you built, e.g.:
-User authentication with OAuth.
-Real-time updates using WebSockets.
-API integrations (e.g., payment gateways).
-Responsive design for mobile-first experiences.
-
-7. Challenges & Solutions
-Technical Hurdles: Performance bottlenecks, cross-browser issues, etc.
-How You Solved Them: Code snippets, debugging strategies, or workflow adjustments.
-
-8. Results & Impact
-Quantitative Metrics: Improved load times, user growth, reduced server costs.
-User Feedback: Testimonials or increased engagement.
-Post-Launch: Maintenance, updates, or scalability improvements.
-
-9. Lessons Learned
-What Went Well: Successful strategies or tools.
-What You’d Improve: Technical debt, testing coverage, or team communication.
-
-10. Visuals & Media
-Screenshots/UI Demos: Before/after comparisons, GIFs, or video walkthroughs.
-Diagrams: System architecture, database schema, or workflow charts.
-Code Snippets: Clean, annotated examples of critical logic (e.g., API endpoints, algorithms).
-
-11. Code Samples (Optional)
-Link to a GitHub repository (if public) with a README explaining setup and key components.
-
-12. Testimonials (Optional)
-Quotes from clients, managers, or teammates about your contributions.
-
-13. Call to Action
-Encourage visitors to reach out (e.g., "Interested in collaborating? Contact me!").
-
-Optional Additions
-Live Demo: Embedded demo or interactive prototype.
-
-Accessibility/SEO: How you addressed WCAG guidelines or optimized SEO.
-
-Future Plans: Potential enhancements or iterations.
-
-Tips for Presentation
-Keep it concise but detailed enough to showcase depth.
-Use visuals to break up text.
-Focus on outcomes over technical jargon.
-
-Tailor case studies to roles you’re targeting (e.g., emphasize APIs for backend-heavy jobs).
-
-By structuring your case studies this way, you’ll demonstrate your technical expertise, problem-solving skills, and ability to deliver real-world solutions.
