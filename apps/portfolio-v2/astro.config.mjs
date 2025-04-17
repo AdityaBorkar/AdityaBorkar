@@ -20,7 +20,6 @@ export default defineConfig({
 	site: 'https://adityab.tech',
 	integrations: [react(), mdx(), MillionLint.astro(), sitemap()],
 	vite: {
-		// @ts-expect-error
 		plugins: [tailwindcss(), basicSsl()],
 		ssr: {
 			external: ['node:fs', 'node:path'],
