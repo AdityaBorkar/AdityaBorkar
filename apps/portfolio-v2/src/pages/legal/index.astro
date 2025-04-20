@@ -1,20 +1,20 @@
 ---
-import Section from '@/components/ui/Section.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { SchemaMarkup } from '@/lib/utils';
-import CookiePolicy from './_cookie-policy.mdx';
-import PrivacyPolicy from './_privacy-policy.mdx';
-import TermsOfService from './_terms-of-service.mdx';
+import Section from "@/components/ui/Section.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { SchemaMarkup } from "@/lib/utils";
+import CookiePolicy from "./_cookie-policy.mdx";
+import PrivacyPolicy from "./_privacy-policy.mdx";
+import TermsOfService from "./_terms-of-service.mdx";
 
-const title = 'Legal Terms';
-const description = 'Legal Terms';
-const keywords = ['legal', 'terms'];
-const schema_markup = [SchemaMarkup.get('person'), SchemaMarkup.get('person')];
+const title = "Legal Terms";
+const description = "Legal Terms";
+const keywords = ["legal", "terms"];
+const schema_markup = [SchemaMarkup.get("webpage/plain")];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
-	co2: 0.25,
-	link: 'adityab-tech',
+  co2: 0.25,
+  link: "adityab-tech",
 };
 ---
 

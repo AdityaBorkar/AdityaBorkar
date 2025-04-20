@@ -16,7 +16,3 @@
 - HSTS Preload: Enabled
 - Certificate Transparency Monitoring: Enabled
 - Custom Rule: Compression Algorithm (Precedence: ZStandard, Brotli, Gzip)
-
-## To be implemented:
-
-- Automatic Signed Exchanges (SXGs)

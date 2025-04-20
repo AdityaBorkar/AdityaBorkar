@@ -33,7 +33,12 @@ const {
 
 const { Content } = await render(project);
 
-const schema_markup = [SchemaMarkup.get("person")];
+const schema_markup = [
+  SchemaMarkup.generate("webpage/page"),
+  SchemaMarkup.get("software/mobile-app"),  SchemaMarkup.get("software/web-app"),
+  SchemaMarkup.get("software/software-app"),
+  SchemaMarkup.get("software/software-source-code"),
+];
 const open_graph = {};
 const seo = { title, description, keywords: tags, schema_markup, open_graph };
 const sustainability = {

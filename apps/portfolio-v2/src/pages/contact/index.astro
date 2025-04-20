@@ -13,15 +13,16 @@ const keywords = [
   "contact me",
   "collaborate with me",
   "project consultation",
-  "podcast guest",
-  "public speaking",
   "business inquiries",
   "partnership opportunities",
   "freelance projects",
   "hire a developer",
 ];
 const open_graph = {};
-const schema_markup = [SchemaMarkup.get("person"), SchemaMarkup.get("contact")];
+const schema_markup = [
+  SchemaMarkup.get("contact"),
+  SchemaMarkup.get("webpage/contact"),
+];
 const sustainability = {
   co2: 1,
   link: "/",
@@ -193,8 +194,8 @@ const errors = { username: "", email: "", password: "" };
     const button = document.querySelector("button");
     button?.addEventListener("click", async () => {
       // Show alert pop-up with greeting from action
-      const { data, error } = await actions.getGreeting({ name: "Houston" });
-      if (!error) alert(data);
+      // const { data, error } = await actions.getGreeting({ name: "Houston" });
+      // if (!error) alert(data);
     });
   </script>
 </LandingLayout>

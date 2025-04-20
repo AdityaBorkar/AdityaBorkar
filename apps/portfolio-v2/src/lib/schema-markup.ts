@@ -1,29 +1,67 @@
-import {
-	Contact_AdityaBorkar,
-	Person_AdityaBorkar,
-} from 'cms/schema-markup/person';
+import type { WithContext, Thing } from 'schema-dts';
 
-const SCHEMA_MARKUPS = {
-	// Organization
-	person: Person_AdityaBorkar,
-	contact: Contact_AdityaBorkar,
-	//   SameAs (within Person or ContactPoint)
-	//   Specify your social media profiles or professional links for better verification.
-	// SocialMediaPosting (if social media links are provided)
-	//   Logo
+// Define all available schema markup types based on files in cms/schema-markup
+export type SchemaMarkupType =
+	// Root files
+	| 'person'
+	| 'website'
+	| 'contact'
+	| 'interaction-counter'
+	| 'product'
+	| 'work'
+	| 'business'
+	| 'services'
+	| 'certification'
 
-	// Email
-	// Telephone
-	// PostalAddress
-	// Place (optional, for location data)
-	// GeoCoordinates (optional, if location details are shared)
-} as const;
+	// AMP
+	| 'amp/story'
+
+	// Blog
+	| 'blog/article'
+	| 'blog/blog-post'
+	| 'blog/blog'
+	| 'blog/comment'
+	| 'blog/how-to'
+
+	// Documents
+	| 'documents/index'
+	| 'documents/note'
+	| 'documents/presentation'
+	| 'documents/spreadsheet'
+	| 'documents/text'
+
+	// Software
+	| 'software/api-reference'
+	| 'software/computer-lang'
+	| 'software/mobile-app'
+	| 'software/software-app'
+	| 'software/software-source-code'
+	| 'software/web-app'
+
+	// Webpage
+	| 'webpage/about'
+	| 'webpage/collection'
+	| 'webpage/contact'
+	| 'webpage/faq'
+	| 'webpage/page'
+	| 'webpage/profile'
+	| 'webpage/qa';
 
 export const SchemaMarkup = {
-	get(type: keyof typeof SCHEMA_MARKUPS) {
-		return SCHEMA_MARKUPS[type];
+	async get<T extends SchemaMarkupType>(type: T): Promise<WithContext<Thing>> {
+		try {
+			// const module = await import(`cms/schema-markup/${type}`);
+			// return module.default;
+			return {};
+		} catch (error) {
+			console.error(`Failed to load schema markup for type: ${type}`, error);
+			throw error;
+		}
 	},
-	generate(type: keyof typeof SCHEMA_MARKUPS) {
-		return SCHEMA_MARKUPS[type];
+
+	async generate<T extends SchemaMarkupType>(
+		type: T,
+	): Promise<WithContext<Thing>> {
+		return this.get(type);
 	},
 };

@@ -36,10 +36,6 @@ const Projects = (await getCollection("projects")).filter((project) =>
   HOMEPAGE.PROJECTS.includes(project.data.title),
 );
 
-const BlogPosts = (await getCollection("blogs")).filter((blog) =>
-  HOMEPAGE.BLOGS.includes(blog.data.title),
-);
-
 // SEO:
 
 const title = "Aditya Borkar - Expert Product Engineer";
@@ -54,7 +50,14 @@ const keywords = [
   "user interaction",
   "",
 ];
-const schema_markup = [SchemaMarkup.get("person")];
+const schema_markup = [
+  SchemaMarkup.get("website"),
+  SchemaMarkup.get("business"),
+  SchemaMarkup.get("services"),
+  SchemaMarkup.get("work"),
+  SchemaMarkup.get("person"),
+  // SchemaMarkup.get("webpage/collection"),
+];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = { co2: 0.25, link: "adityab-tech" };
@@ -94,6 +97,7 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
         <!-- <br class="md:hidden" /> OSS Maintainer.  -->
         <br />
         Full Stack Web Developer.
+        <!-- AI Engineer -->
       </div>
 
       <div
@@ -157,7 +161,7 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
           class="inline-block h-6 w-fit"
         />
         {" India with"}
-        <InlineBold>3+ years of experience</InlineBold>
+        <InlineBold>4+ years of experience</InlineBold>
         {" in creating "}
         <InlineBold>high-quality products</InlineBold>
         {" with "}

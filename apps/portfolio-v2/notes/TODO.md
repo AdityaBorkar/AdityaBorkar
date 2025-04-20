@@ -1,5 +1,62 @@
 # Checklist Roadmap
 
+## Checklist
+
+- Implement:
+  - Automatic Signed Exchanges (SXGs)
+- SEO and HTML Head Metadata
+
+
+
+// TODO: Scan and avoid Keyword Stuffing
+// TODO: Add DATE CREATED AND DATE MODIFIED
+
+// Added WebPage schema to help search engines understand:
+// Page context within your site
+// Relationship to your main website
+// Primary purpose of the page
+
+// ### Structured Data (google.com)
+// - FAQ
+// - Breadcrumb
+// - Article, Discussion forum
+// - Product, Software app, Review snippet
+// - Site links search box
+// - Image metadata
+//   +- Speakable
+// - Video
+
+// contact: Contact_AdityaBorkar,
+//   SameAs (within Person or ContactPoint)
+//   Specify your social media profiles or professional links for better verification.
+// SocialMediaPosting (if social media links are provided)
+//   Logo
+// Organization
+
+Use Clip Path for better contrast
+https://rdsx.dev/
+
+TARGET THE BELOW PEOPLE
+
+https://rauno.me/craft/depth
+- Spatial Tooltip
+- Staggered Text
+- https://rauno.me/craft/logo-carousel
+- https://rauno.me/craft/exclusion-tabs
+- https://rauno.me/craft/vanish-input
+
+Less content and more focus on the content
+https://wojtek.im/ GITHUB REPLICATION
+
+Take inspiration and build domain management for webflow
+https://www.uilabs.dev/?ref=wojtek.im
+
+https://jasonyuan.design/?ref=wojtek.im
+Projects zoom spring like the above website
+
+
+---
+
 Proceed one thing at a time. Finish it and only then move to the next section.
 
 - Fetch Contributions from GitHub
@@ -10,11 +67,9 @@ Proceed one thing at a time. Finish it and only then move to the next section.
   - Make sure that form input errors are displayed in list above the form after submission.
   - Make sure that error, warning, and success states are not visually communicated by just color.
 
-
 ## Content
 
 - Content Writing, SEO Writing, Schema Markup
-Generate Content and Schema Markup.
 - Copywriting - less marketing words and more impact words. Be developer-focussed.
 - Projects:
   - Add Impact of the product
@@ -37,7 +92,7 @@ Generate Content and Schema Markup.
 ## Utilities
 
 - Schema Markup
-- Contact FOrm Server Action
+- Contact Form Server Action
 
 ## Components
 
@@ -181,7 +236,7 @@ https://playground.rombo.co/
     - Reveal slant-slide-up animation on viewport enter of cards
     - Fade + slant-swipe-down apple-like animation on load for navbar
     - Fade + slant-swipe-up apple-like animation on load for page
-    
+
 ---
 
 
@@ -236,6 +291,9 @@ AB Testing with Onkar
 
 ## Checklist for reserved time
 
+- Domain Authority
+  - Cross Posting Blogs
+  - Get 1000+ backlinks
 - 404
   - Redesign 404 page
   - Hard 404s for googlebot
@@ -260,10 +318,9 @@ AB Testing with Onkar
 
 ---
 
+## Icons
 
-https://supabase.com/
 https://icons8.com/icon/O9K5DaypaVKw/test-account
-
 https://icons8.com/icon/nx0HuqaBZBhz/signing-a-document
 https://icons8.com/icon/Ib8GqvgH9PZk/business-network
 https://icons8.com/icon/h1PEiUtLfJJa/client-management
@@ -273,3 +330,12 @@ https://icons8.com/icons/set/office--style-fluency-systems-regular--animated
 https://icons8.com/icons/new--style-ios--animated
 https://icons8.com/icon/xndKlPiOWoOq/error
 https://icons8.com/icons/set/user-interface--style-fluency-systems-regular--os-windows--animated--technique-line
+
+---
+
+## Blogs
+
+- https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+- https://developers.google.com/search/docs/appearance/google-discover
+- https://developers.google.com/search/docs/appearance/google-images
+- https://developers.google.com/search/docs/appearance/video

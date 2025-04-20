@@ -11,7 +11,11 @@ import ProjectCard from "./_ProjectCard.astro";
 const title = "Projects";
 const description = "Projects";
 const keywords = ["projects"];
-const schema_markup = [SchemaMarkup.get("person")];
+const schema_markup = [
+  SchemaMarkup.get("work"),
+  SchemaMarkup.get("product"),
+  SchemaMarkup.get("webpage/collection"),
+];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {

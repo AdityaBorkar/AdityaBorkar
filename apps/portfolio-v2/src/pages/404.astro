@@ -2,25 +2,18 @@
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 import Section from "@/components/ui/Section.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { SchemaMarkup } from "@/lib/schema-markup";
 
 const title = "404 - Page Not Found";
-const description =
-  "The link you followed may be broken, or the page must not exist.";
-const keywords = ["404", "Page Not Found"];
+const description = "";
+const keywords = [] as never[];
 const open_graph = {};
-const schema_markup = SchemaMarkup.get("person");
+const schema_markup = [] as never[];
 const seo = { title, description, keywords, open_graph, schema_markup };
-
-const sustainability = {
-  co2: 1,
-  link: "",
-};
 ---
 
-<LandingLayout {...seo} sustainability={sustainability}>
-  <Section class="h-screen">
-    <h2 class="text-3xl mt-48 font-semibold leading-relaxed">
+<LandingLayout {...seo}>
+  <Section class="min-h-[85vh] flex flex-col justify-center items-center">
+    <h2 class="text-3xl font-semibold leading-relaxed text-center">
       The link you followed may be broken,
       <br /> or the page must not exist.
     </h2>

@@ -3,11 +3,13 @@ export const PRICING = '25-55';
 export const IS_AVAILABLE_NOW = true;
 
 export const SOCIALS = {
+	image: 'https://adityab.tech/aditya-borkar.png',
 	email: 'hello@adityab.tech',
 	discord: 'adityab.tech',
 	x: 'https://x.com/adityab_tech',
 	github: 'https://github.com/AdityaBorkar',
 	linkedin: 'https://linkedin.com/in/adityab_tech',
+	strava: 'https://strava.com/athletes/aditya-borkar',
 };
 
 export const CONTACT_FORM_ETA = {
@@ -24,11 +26,10 @@ export const CONTACT_FORM_ETA = {
 };
 
 export const HOMEPAGE = {
-	PROJECTS: ['Platipie', 'Vasundhara', 'Hooop Cloud', 'Amy', 'Blog Platform'],
-	BLOGS: [
-		'Cloudflare Tunnels with SST',
-		'Android Apps with Webflow',
-		'Creating HTML Emails with Webflow',
-		'Sitemaps for Astro.js',
+	PROJECTS: [
+		'Platipie',
+		'GeM Finder',
+		'Webflow Eject',
+		'PDF Generation - Europ Assistance',
 	],
 };

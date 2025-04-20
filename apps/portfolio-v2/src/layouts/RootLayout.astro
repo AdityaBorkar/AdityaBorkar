@@ -5,15 +5,23 @@ import CookiePopup from "@/components/CookiePopup.astro";
 import Posthog from "@/components/Posthog.astro";
 import { JsonLd } from "@/lib/jsonLd";
 import "./global.css";
+import { Font } from "astro:assets";
 
 interface Props {
     title: string;
     description: string;
     keywords: string[];
-    schemaMarkup?: WithContext<Thing>[];
+    open_graph: Record<string, string>;
+    schema_markup?: WithContext<Thing>[];
 }
 
-const { title, description, keywords, schemaMarkup = [] } = Astro.props;
+const {
+    title,
+    description,
+    keywords,
+    open_graph = {},
+    schema_markup = [],
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -32,7 +40,7 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         <meta name="keywords" content={keywords?.join(", ")} />
         <script
             type="application/ld+json"
-            set:html={schemaMarkup.map(JsonLd).join("\n")}
+            set:html={schema_markup.map(JsonLd).join("\n")}
         />
         <!-- Open Graph -->
         <!--
@@ -44,6 +52,7 @@ const { title, description, keywords, schemaMarkup = [] } = Astro.props;
         twitter.card	false	"summary"	Format of Twitter share card. See all types here.
         -->
         <ClientRouter />
+        <Font cssVariable="--font-inter" preload />
         <script data-astro-rerun type="module" is:inline>
             const doc = document.documentElement;
             window
