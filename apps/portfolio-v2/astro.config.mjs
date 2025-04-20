@@ -36,8 +36,6 @@ export default defineConfig({
 		defaultStrategy: 'hover',
 	},
 	experimental: {
-		svg: true,
 		clientPrerender: true,
-		responsiveImages: true,
 	},
 });

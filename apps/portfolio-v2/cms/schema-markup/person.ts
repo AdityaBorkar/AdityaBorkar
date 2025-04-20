@@ -56,6 +56,7 @@ import { SOCIALS } from './socials';
 //     }
 //   }
 // ]}
+
 export const Person_AdityaBorkar: WithContext<Person> = {
 	'@id': 'https://adityaborkar.com/about',
 	'@context': 'https://schema.org',
@@ -168,29 +169,43 @@ export const Person_AdityaBorkar: WithContext<Person> = {
 	// 'potentialAction'
 };
 
-export const Contact_AdityaBorkar: WithContext<ContactPoint> = {
-	'@id': 'https://adityaborkar.com/contact',
-	'@context': 'https://schema.org',
-	'@type': 'ContactPoint',
-	name: 'Contact',
-	url: 'https://adityaborkar.com/contact',
-	email: SOCIALS.email,
-	// telephone
-	// areaServed: 'US',
-	// contactOption: 'TollFree',
-	availableLanguage: ['English'],
-	contactType: 'Customer Service',
-};
+// ### Structured Data (google.com)
 
-// * for creative work:
-// const ContactPage_AdityaBorkar: WithContext<ContactPage> = {
-//   '@id': 'https://adityaborkar.com/contact',
-//   '@context': 'https://schema.org',
-//   '@type': 'ContactPage',
-//   name: 'Contact',
+// - <https://developers.google.com/search/docs/appearance/structured-data/carousels-beta>
+// - FAQ
+// - Profile page
+// - Breadcrumb
+// - Article, Discussion forum
+// - Product, Software app, Review snippet
+// - Site links search box
+// - Image metadata
+//   +- Speakable
+// - Video
 
-//   email: socials.email,
-//   url: 'https://adityaborkar.com/contact',
+// ### Site
 
-//   // telephone
-// }
+// - Site Maps (<https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview>)
+// - <https://developers.google.com/search/docs/appearance/site-names>
+// - <https://developers.google.com/search/docs/crawling-indexing/url-structure>
+// - <https://developers.google.com/search/docs/crawling-indexing/links-crawlable> [ALWAYS USE a href for links!]
+// - <https://developers.google.com/search/docs/appearance/favicon-in-search>
+// - <https://developers.google.com/search/blog/2021/07/customer-support>
+
+// ### Pages
+
+// - <https://developers.google.com/search/docs/appearance/title-link>
+// - <https://developers.google.com/search/docs/appearance/publication-dates>
+// - <https://developers.google.com/search/docs/appearance/sitelinks>
+// - <https://developers.google.com/search/docs/appearance/snippet>
+// - <https://developers.google.com/search/docs/appearance/featured-snippets>
+// - Support Google AMP because abroad internets are slower. (<https://developers.google.com/search/docs/crawling-indexing/amp>)
+
+// ### Blogs
+
+// - <https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls>
+// - <https://developers.google.com/search/docs/appearance/google-discover>
+
+// ### Multi-media
+
+// - <https://developers.google.com/search/docs/appearance/google-images>
+// - <https://developers.google.com/search/docs/appearance/video>
