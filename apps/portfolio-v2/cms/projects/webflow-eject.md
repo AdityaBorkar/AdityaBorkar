@@ -1,8 +1,8 @@
 ---
 title: Webflow Eject
 description: A service that converts Webflow projects to Astro.js on click on "Publish" button.
-hero_image: projects/portfolio-website.png
-hero_tag: 
+hero_image: projects/webflow-eject.png
+hero_tag:
 filter_category:
   - Library
   - Frontend Development
@@ -22,13 +22,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---

@@ -1,7 +1,7 @@
 ---
 title: Hoop Cloud
 description: A cloud-based solution for managing sports teams and events.
-hero_image: projects/portfolio-website.png
+hero_image: projects/hooop-cloud.png
 hero_tag: open-source
 filter_category:
   - Dev Tooling
@@ -19,7 +19,7 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Open Source
 ---
@@ -31,12 +31,12 @@ While using SST, it is a great developer experience, but it lacks  certain funct
 ## Key Features Implemented
 
 - GitHub bot that responds to pull requests
-- 
+-
 
 ## Features Planned for Future:
 
 - MCP Server
-- 
+-
 
 ## Result
 

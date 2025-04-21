@@ -1,8 +1,8 @@
 ---
 title: Hoop Cloud
 description: A cloud-based solution for managing sports teams and events.
-hero_image: projects/portfolio-website.png  
-hero_tag: 
+hero_image: projects/steal-lottie.png
+hero_tag:
 filter_category:
   - Full Stack Development
   - Platform Engineering
@@ -16,13 +16,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---

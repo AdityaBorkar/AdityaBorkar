@@ -54,6 +54,9 @@ https://www.uilabs.dev/?ref=wojtek.im
 https://jasonyuan.design/?ref=wojtek.im
 Projects zoom spring like the above website
 
+---
+
+ MDX Images zoom using figma like circular spot zoom
 
 ---
 

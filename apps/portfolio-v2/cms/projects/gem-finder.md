@@ -1,7 +1,7 @@
 ---
 title: GeM Finder
 description: Google Chrome Extension to navigate the GeM website and get personalized bids.
-hero_image: projects/portfolio-website.png
+hero_image: projects/gem-finder.png
 hero_tag: featured
 filter_category:
   - Plugins & Extensions
@@ -18,13 +18,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---

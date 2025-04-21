@@ -1,7 +1,7 @@
 ---
 title: Aakash Chatbot
 description: Realtime AI Chatbot that provides requested data from and recommends business decisions.
-hero_image: projects/portfolio-website.png
+hero_image: projects/aakash.png
 hero_tag: # featured
 filter_category:
   - Artificial Intelligence
@@ -20,16 +20,16 @@ links:
 timeline: 4 months
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Power of AI
   -
     metric: SVG
     label: Multilingual AI
-  - 
+  -
     metric: 95%
     label: AI Accuracy
-  - 
+  -
     metric: +25%
     label: Work Productivity
 ---
@@ -65,7 +65,7 @@ Along with that, the application was also integrated with external APIs to fetch
 
 ## Tech Stack
 
-- 
+-
 
 ## Result
 

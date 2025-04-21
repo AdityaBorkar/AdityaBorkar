@@ -1,8 +1,8 @@
 ---
 title: Platipie
 description: SaaS Platform for creating, managing and developing E-commerce stores on no-code platform (Webflow).
-hero_image: projects/portfolio-website.png
-hero_tag: 
+hero_image: projects/platipie.png
+hero_tag:
 filter_category:
   - Full Stack Development
   - Plugins & Extensions
@@ -19,13 +19,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---

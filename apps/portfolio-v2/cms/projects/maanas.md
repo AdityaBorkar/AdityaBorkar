@@ -1,8 +1,8 @@
 ---
 title: Maanas
 description: A mental health application providing resources and support.
-hero_image: projects/portfolio-website.png
-hero_tag: 
+hero_image: projects/maanas.png
+hero_tag:
 filter_category:
   - Full Stack Development
   - Artificial Intelligence
@@ -15,13 +15,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---

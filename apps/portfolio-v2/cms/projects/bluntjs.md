@@ -1,7 +1,7 @@
 ---
 title: BluntJS
 description: Library for creating realtime offline-first applications with PWA, Service Workers, IndexedDB.
-hero_image: projects/bluntjs.png  
+hero_image: projects/bluntjs.png
 hero_tag: work-in-progress
 filter_category:
   - Library
@@ -18,13 +18,13 @@ links:
 timeline: < 3 months
 year: 2025
 benefits:
-  - 
+  -
     metric: 3
     label: Open Source
-  - 
+  -
     metric: 100%
     label: React Meta-Framework
-  - 
+  -
     metric: 100%
     label: Next.js Alternative
 ---

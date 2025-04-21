@@ -1,8 +1,8 @@
 ---
 title: Amy
 description: Google Add-on for Google Sheets to synchronize dates with Google Calendar with event customization.
-hero_image: projects/portfolio-website.png
-hero_tag: 
+hero_image: projects/amy.png
+hero_tag:
 filter_category:
   - Plugins & Extensions
 tags:
@@ -17,13 +17,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---
