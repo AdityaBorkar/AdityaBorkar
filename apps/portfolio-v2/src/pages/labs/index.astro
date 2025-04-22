@@ -1,0 +1,72 @@
+---
+import Section from "@/components/ui/Section.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { SchemaMarkup } from "@/lib/schema-markup";
+
+const EXPERIMENTS = [
+    {
+        slug: "anchor-positioning",
+        title: "Anchor Positioning",
+        description:
+            "Anchor positioning is a technique used to position elements relative to the element.",
+    },
+    {
+        slug: "text-cipher-animation",
+        title: "Text Cipher Animation",
+        description:
+            "A text cipher animation is a technique used to animate text.",
+    },
+];
+
+const title = "Labs";
+const description = "Labs";
+const keywords = ["labs"];
+const schema_markup = await Promise.all([
+    SchemaMarkup.get("webpage/collection"),
+]);
+const open_graph = {};
+const seo = { title, description, keywords, schema_markup, open_graph };
+const sustainability = {
+    co2: 0,
+    link: "",
+};
+
+// TODO - CHANGE LAYOUT
+// TEXT CIPHER ANIMATION - https://rauno.me/projects
+---
+
+<LandingLayout {...seo} sustainability={sustainability}>
+    <Section>
+        <h1 class="mt-20 text-4xl font-bold">Labs</h1>
+        <p class="mt-4">
+            I showcase my collection of experiments and ideas here.
+        </p>
+    </Section>
+
+    <Section class="mt-12 flex justify-between">
+        <div>Search</div>
+        <div>Filter</div>
+        <div>Sort</div>
+        <div>View</div>
+    </Section>
+
+    <Section class="mt-8 divide-y divide-border/20 border-y border-border/20">
+        {
+            EXPERIMENTS.map((experiment) => (
+                <a
+                    href={`/labs/${experiment.slug}`}
+                    class="block py-4 group hover:bg-bg-primary px-8 transition-colors"
+                >
+                    <h4 class="text-2xl font-bold text-text-secondary group-hover:text-text-primary transition-colors">
+                        {experiment.title}
+                    </h4>
+                    <p class="text-text-tertiary group-hover:text-text-secondary transition-colors">
+                        {experiment.description}
+                    </p>
+                </a>
+            ))
+        }
+    </Section>
+
+    <div class="min-h-[40vh]"></div>
+</LandingLayout>

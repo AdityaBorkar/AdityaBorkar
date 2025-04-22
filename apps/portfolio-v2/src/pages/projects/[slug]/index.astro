@@ -1,53 +1,62 @@
 ---
-import { getCollection, render } from "astro:content";
-import Image from "astro/components/Image.astro";
-import BookCta from "@/components/sections/BookCta.astro";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
-import Section from "@/components/ui/Section.astro";
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { getImage } from "@/lib/assets";
-import { SchemaMarkup } from "@/lib/schema-markup";
+import { getCollection, render } from 'astro:content';
+import Image from 'astro/components/Image.astro';
+import BookCta from '@/components/sections/BookCta.astro';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Section from '@/components/ui/Section.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { getImage } from '@/lib/assets';
+import { SchemaMarkup } from '@/lib/schema-markup';
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
 }
 
 const { project } = Astro.props;
-if (!project) return Astro.redirect("/404");
+if (!project) return Astro.redirect('/404');
 
 const {
-  title,
-  tags,
-  description,
-  hero_image,
-  links,
-  categories,
-  timeline,
-  benefits,
+	title,
+	tags,
+	description,
+	hero_image,
+	links,
+	filter_category,
+	timeline,
+	year,
+	benefits,
+	testimonial,
 } = project.data;
 // console.log(project.rendered.metadata.headings);
 
 const { Content } = await render(project);
 
 const schema_markup = [
-  SchemaMarkup.generate("webpage/page"),
-  SchemaMarkup.get("software/mobile-app"),  SchemaMarkup.get("software/web-app"),
-  SchemaMarkup.get("software/software-app"),
-  SchemaMarkup.get("software/software-source-code"),
+	SchemaMarkup.generate('webpage/page'),
+	SchemaMarkup.get('software/mobile-app'),
+	SchemaMarkup.get('software/web-app'),
+	SchemaMarkup.get('software/software-app'),
+	SchemaMarkup.get('software/software-source-code'),
 ];
 const open_graph = {};
 const seo = { title, description, keywords: tags, schema_markup, open_graph };
 const sustainability = {
-  co2: 1,
-  link: "",
+	co2: 1,
+	link: '',
 };
 
 export const prerender = true;
 ---
+
+<!-- <style>
+  .prose {
+    li
+  }
+</style> -->
 
 <LandingLayout {...seo} sustainability={sustainability}>
   <!-- Breadcrumb -->
@@ -96,7 +105,7 @@ export const prerender = true;
       />
       <div
         class:list={[
-          "order-2 max-md:mt-8 prose min-w-full dark:prose-invert",
+          "order-2 max-md:mt-8 leading-snug prose prose-neutral min-w-full dark:prose-invert",
           "md:order-1",
         ]}
       >
@@ -182,15 +191,20 @@ export const prerender = true;
 </div>
 <div class="text-sm font-medium">
   <div>Year</div>
-  <div class="mt-2 text-text-primary">2024</div>
+  <div class="mt-2 text-text-primary">{year}</div>
 </div>
         </div>
-        <div
-          class="p-4 rounded-xl border border-border/20"
-        >
-  <div class="text-sm text-text-tertiary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</div>
-  <div class="mt-2 text-text-primary">Aditya Borkar</div>
-        </div>
+        {
+          testimonial && (
+
+          <div
+            class="p-4 rounded-xl border border-border/20"
+          >
+    <div class="text-sm text-text-tertiary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</div>
+    <div class="mt-2 text-text-primary">Aditya Borkar</div>
+          </div>
+          )
+        }
       </div>
     </div>
   </Section>

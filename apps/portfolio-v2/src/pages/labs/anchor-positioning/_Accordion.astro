@@ -1,0 +1,17 @@
+---
+interface Props extends HTMLDetailsElement {
+  summary: string;
+  anchorName: string;
+  summaryClass?: string;
+}
+
+const { summary, anchorName, summaryClass, classList, ...props } = Astro.props;
+---
+
+<!-- style={{ anchorName }} -->
+<details {...props} class:list={["rounded", classList]}>
+  <summary class:list={["py-4 px-8", summaryClass]}>
+    {summary}
+  </summary>
+  <slot />
+</details>

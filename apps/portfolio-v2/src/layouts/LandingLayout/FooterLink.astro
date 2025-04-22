@@ -1,7 +1,7 @@
 ---
 interface Props {
-	href: string;
-	openInNewTab?: boolean;
+  href: string;
+  openInNewTab?: boolean;
 }
 
 const { href, openInNewTab = false } = Astro.props;
@@ -10,7 +10,7 @@ const { href, openInNewTab = false } = Astro.props;
 <a
   href={href}
   target={openInNewTab ? "_blank" : undefined}
-  class="mt-2 gap-1.5 flex flex-row items-center w-fit shrink-0 hover:text-text-primary text-text-secondary"
+  class="mt-2 gap-1.5 flex flex-row items-center w-fit shrink-0 group-hover:text-text-tertiary hover:text-text-primary text-text-secondary"
 >
   <slot />
 </a>

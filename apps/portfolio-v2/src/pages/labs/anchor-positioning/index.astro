@@ -1,0 +1,223 @@
+---
+import LabsLayout from "@/layouts/LabsLayout/index.astro";
+import Accordion from "./_Accordion.astro";
+
+const [showOverlays, setShowOverlays] = [false, () => false];
+
+// TODO - Auto width adjustment like webflow for better UX for resizing
+// const [width, setWidth] = useState(0);
+// useEffect(() => {
+// 	setWidth(window.innerWidth);
+// }, []);
+
+const title = "Anchor Positioning";
+const description = "Anchor Positioning";
+const keywords = ["anchor positioning"];
+const open_graph = {};
+const seo = { title, description, keywords, open_graph };
+---
+
+<LabsLayout {...seo}>
+    <h1 class="text-5xl font-bold">Anchor Positioning</h1>
+    <p class="text-xl mt-4">
+        This is a demo using anchor positioning feature and zero-js.
+        <br />
+        Polyfill has been added to the page for unsupported browsers.
+    </p>
+
+    <div class="mx-auto min-h-screen w-screen max-w-[96rem] px-16 font-medium">
+        <header class="py-16">
+            <p>
+                You Browser Supports Anchor Positioning: (detected using CSS /
+                JS)
+            </p>
+            <input
+                id="show-overlays"
+                type="checkbox"
+                defaultChecked={showOverlays}
+                onChange={() => setShowOverlays(!showOverlays)}
+            />
+            <label htmlFor="show-overlays">Show Overlays</label>
+
+            <div>
+                Tip: You can use GAP or margins in between the grid according to
+                your use-case
+            </div>
+        </header>
+
+        {/* TABS */}
+        <div class="grid grid-cols-[1fr_1fr_0.7fr] gap-48">
+            <div class="flex flex-col gap-12">
+                <Accordion
+                    open
+                    name="faqs-accordion"
+                    summary="Code vs No-Code?"
+                    anchorName="--anchor-faqs-accordion-1"
+                    class:list={["text-purple-900"]}
+                    summaryClass="bg-purple-200"
+                >
+                    <div class="py-4 px-8 bg-purple-100">
+                        No-code is the best excuse to not learn code.
+                    </div>
+                </Accordion>
+                <Accordion
+                    name="faqs-accordion"
+                    summary="Do you love free software (FOSS)?"
+                    anchorName="--anchor-faqs-accordion-2"
+                    class:list={["text-orange-900"]}
+                    summaryClass="bg-orange-200"
+                >
+                    <div class="py-4 px-8 bg-orange-100">
+                        Of course, I am broke and I want everyone to be like me.
+                    </div>
+                </Accordion>
+                <Accordion
+                    name="faqs-accordion"
+                    summary="What is your favorite color?"
+                    anchorName="--anchor-faqs-accordion-3"
+                    class:list={["text-green-900"]}
+                    summaryClass="bg-green-200"
+                >
+                    <div class="py-4 px-8 bg-green-100">Rebecca Purple 💜</div>
+                </Accordion>
+            </div>
+
+            <div class="flex justify-center gap-16 items-center">
+                <div
+                    class:list={[
+                        "border rounded-4xl min-h-48 w-full",
+                        "bg-blue-100 border-blue-500 text-blue-900",
+                        "flex justify-center items-center text-center",
+                    ]}
+                    style={{
+                        anchorName: "--anchor-faqs-point",
+                        positionTryOptions: "flip-block",
+                    }}
+                >
+                    POINT
+                    <br />
+                    <br />
+                    BOX
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center">
+                <div
+                    style={{
+                        anchorName: "--anchor-faqs-aside",
+                    }}
+                    class:list={[
+                        "w-full mx-auto bg-zinc-100 border-zinc-500 border rounded-2xl min-h-96 text-zinc-900",
+                        "flex justify-center items-center",
+                    ]}
+                >
+                    ASIDE BOX
+                </div>
+            </div>
+        </div>
+
+        {/* CONNECTION LINES */}
+        {/* TODO - BOX TOP-BOTTOM AUTO FIGURE OUT */}
+        <div>
+            <div
+                class="absolute z-20 bg-green-500 min-h-2 -mt-1"
+                style={{
+                    top: "min(anchor(--anchor-faqs-point center), anchor(--anchor-faqs-aside center))",
+                    right: "anchor(--anchor-faqs-aside left)",
+                    bottom: "anchor(--anchor-faqs-aside center)",
+                    left: "anchor(--anchor-faqs-point left)",
+                }}
+            >
+            </div>
+            <div
+                class:list={[
+                    "absolute z-20",
+                    showOverlays && "bg-purple-500/20",
+                ]}
+                style={{
+                    top: "anchor(--anchor-faqs-accordion-1 center)",
+                    right: "anchor(--anchor-faqs-point left)",
+                    bottom: "anchor(--anchor-faqs-point center)",
+                    left: "anchor(--anchor-faqs-accordion-1 right)",
+                }}
+            >
+                <svg
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    class="w-full h-full mt-0.5"
+                >
+                    <title>Line</title>
+                    <path
+                        d="M 0,2 L 40,2 L 80,98 L 100,98"
+                        class="stroke-purple-500"
+                        vector-effect="non-scaling-stroke"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        fill="none"></path>
+                </svg>
+            </div>
+            <div
+                class:list={[
+                    "absolute min-h-4 z-30",
+                    showOverlays && "bg-red-500/20",
+                ]}
+                style={{
+                    // top: 'min(anchor(--anchor-faqs-point center), anchor(--anchor-faqs-accordion-2 center))',
+                    top: "anchor(--anchor-faqs-point center)",
+                    right: "anchor(--anchor-faqs-point left)",
+                    bottom: "anchor(--anchor-faqs-accordion-2 center)",
+                    // bottom:
+                    // 	'max(anchor(--anchor-faqs-point center), anchor(--anchor-faqs-accordion-2 center))',
+                    left: "anchor(--anchor-faqs-accordion-2 right)",
+                }}
+            >
+                <svg
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    class="w-full h-full -mt-0.5"
+                >
+                    <title>Line</title>
+                    <path
+                        d="M 0,98 L 40,98 L 80,2 L 100,2"
+                        class="stroke-red-500"
+                        vector-effect="non-scaling-stroke"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        fill="none"></path>
+                </svg>
+            </div>
+            <div
+                class:list={["absolute z-20", showOverlays && "bg-pink-500/20"]}
+                style={{
+                    top: "anchor(--anchor-faqs-point center)",
+                    right: "anchor(--anchor-faqs-point left)",
+                    bottom: "anchor(--anchor-faqs-accordion-3 center)",
+                    left: "anchor(--anchor-faqs-accordion-3 right)",
+                }}
+            >
+                <svg
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    class="w-full h-full -mt-0.5"
+                >
+                    <title>Line</title>
+                    <path
+                        d="M 0,98 L 40,98 L 80,2 L 100,2"
+                        class="stroke-pink-500"
+                        vector-effect="non-scaling-stroke"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        fill="none"></path>
+                </svg>
+            </div>
+        </div>
+
+        <script is:inline>
+            if (!("anchorName" in document.documentElement.style))
+                import("https://unpkg.com/@oddbird/css-anchor-positioning");
+        </script>
+    </div>
+</LabsLayout>

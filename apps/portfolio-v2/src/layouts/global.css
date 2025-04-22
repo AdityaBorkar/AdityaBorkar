@@ -21,7 +21,7 @@
 
 @theme {
 	--font-sans-serif: "Lora", serif;
-
+	--font-pixelify: "Pixelify Sans", sans-serif;
 	--color-background: #fdfff4; /* var(--color-neutral-100); */
 	--color-bg-primary: var(--color-neutral-200);
 	--color-bg-secondary: var(--color-neutral-300);

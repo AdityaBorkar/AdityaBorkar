@@ -11,11 +11,11 @@ import ProjectCard from "./_ProjectCard.astro";
 const title = "Projects";
 const description = "Projects";
 const keywords = ["projects"];
-const schema_markup = [
+const schema_markup = await Promise.all([
   SchemaMarkup.get("work"),
   SchemaMarkup.get("product"),
   SchemaMarkup.get("webpage/collection"),
-];
+]);
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
@@ -25,7 +25,7 @@ const sustainability = {
 
 const AllProjects = await getCollection("projects");
 const AllCategories = [
-  ...new Set(AllProjects.flatMap((project) => project.data.categories)),
+  ...new Set(AllProjects.flatMap((project) => project.data.filter_category)),
 ];
 ---
 
@@ -36,17 +36,16 @@ const AllCategories = [
     </h1>
     <p
       class:list={[
-        "mt-8 text-sm text-text-tertiary",
-        "md:mt-12 md:max-w-[70%] md:text-balance md:text-base",
+        "mt-8 text-sm text-text-tertiary text-balance leading-relaxed",
+        "md:mt-12 md:max-w-[70%] md:text-base",
       ]}
     >
       I craft products and signature projects that make a difference.
       <br class="hidden md:block" />
       My work empowers businesses to serve <InlineBold
         >better products, enhance efficiency, and boost profitability</InlineBold
-      > through technology. It includes <InlineBold
-        >open-source contributions</InlineBold
-      > that support fellow engineers and developers in creating better software.
+      >. It includes <InlineBold>open-source contributions</InlineBold> that support
+      fellow engineers and developers in creating better software.
     </p>
 
     <div class:list={["mt-12 flex items-center flex-row gap-4", "md:mt-16"]}>
@@ -57,6 +56,12 @@ const AllCategories = [
         Filter by Category
       </div>
       <div
+        class="shrink-0 py-2.5 text-text-secondary px-4 rounded-full bg-bg-primary border border-border/10"
+      >
+        <Icon icon="Filter" class="-mt-0.5 mr-1 inline-block size-4" />
+        Card View
+      </div>
+      <!-- <div
         class="flex flex-grow flex-row flex-nowrap overflow-auto whitespace-nowrap gap-2"
       >
         {
@@ -73,7 +78,7 @@ const AllCategories = [
             </button>
           ))
         }
-      </div>
+      </div> -->
     </div>
 
     <div class="mt-12 grid md:grid-cols-2 grid-cols-1 gap-12">

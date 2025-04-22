@@ -1,0 +1,28 @@
+---
+import type { ComponentProps } from "astro/types";
+import RootLayout from "../RootLayout.astro";
+// import Navbar from "@/components/ui/Navbar.astro";
+import AiAssistant from "@/components/AiAssistant.astro";
+import "./index.css";
+
+interface Props extends ComponentProps<typeof RootLayout> {
+    sustainability?: {
+        co2: number;
+        link: string;
+    };
+}
+
+const { sustainability, ...seo } = Astro.props;
+---
+
+<RootLayout {...seo}>
+    <!-- <Navbar /> -->
+
+    <AiAssistant />
+
+    <div class="pt-20"></div>
+
+    <div class="mx-auto max-w-[96rem] px-16">
+        <slot />
+    </div>
+</RootLayout>

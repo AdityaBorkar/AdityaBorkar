@@ -31,6 +31,7 @@ export default defineConfig({
 	prefetch: { defaultStrategy: 'hover' },
 	experimental: {
 		clientPrerender: true,
+		contentIntellisense: true,
 		fonts: [
 			{
 				name: 'Inter',

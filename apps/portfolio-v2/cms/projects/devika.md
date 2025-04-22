@@ -1,7 +1,7 @@
 ---
-title: PDF Generation - Europ Assistance
+title: Devika
 description: A service that generates PDF documents for customers regarding their international travel.
-hero_image: projects/europ-assistance.png
+hero_image: projects/devika.png
 hero_tag:
 filter_category:
   - Backend Development
