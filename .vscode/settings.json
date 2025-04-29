@@ -12,8 +12,10 @@
 		"bunx",
 		"Hooop",
 		"Platipie",
+		"strava",
 		"Vasundhara",
 		"Vercel",
+		"vite",
 		"Webflow"
 	],
 	"astro.content-intellisense": true,

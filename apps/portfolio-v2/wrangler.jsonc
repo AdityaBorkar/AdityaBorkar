@@ -3,7 +3,7 @@
 	"name": "portfolio-website",
 	"main": "./dist/_worker.js/index.js",
 	// Update to today's date
-	"compatibility_date": "2025-04-05",
+	"compatibility_date": "2025-04-25",
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
@@ -15,10 +15,11 @@
 		"enabled": true
 	},
 	"workers_dev": false,
+	"preview_urls": false,
 	"routes": [
 		{
 			"pattern": "adityab.tech",
-			"custom_domain": true
+			"custom_domain": true,
 		}
-	]
+	],
 }

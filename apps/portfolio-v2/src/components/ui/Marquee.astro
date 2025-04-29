@@ -1,21 +1,53 @@
 ---
 interface Props {
-	id?: string;
-	class?: string;
-	duration?: string;
-	direction?: 'left' | 'right';
+  id?: string;
+  class?: string;
+  duration?: string;
+  reverse?: boolean;
+  vertical?: boolean;
+  pauseOnHover?: boolean;
+  repeat?: number;
 }
+
+const {
+  repeat = 4,
+  vertical = false,
+  reverse = false,
+  pauseOnHover = false,
+  class: className,
+  duration = "10s",
+} = Astro.props;
 ---
 
+<style is:global></style>
+
+<!-- id={Astro.props.id} -->
+
 <div
-  id={Astro.props.id}
-  class:list={["overflow-hidden cursor-grab", Astro.props.class]}
+  class:list={[
+    "group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)]",
+    vertical ? "flex-col" : "flex-row",
+    className,
+  ]}
+  style={`--duration: ${duration}`}
 >
-  <div
-    class="inline-flex flex-row flex-nowrap overflow-auto whitespace-nowrap animate-scroll data-[direction=right]:[animation-direction:reverse]"
-    style={`animation-duration: ${Astro.props.duration || "10s"};`}
-    data-direction={Astro.props.direction || "left"}
-  >
-    <slot />
-  </div>
+  {
+    Array(repeat)
+      .fill(0)
+      .map((_) => (
+        <div
+          class:list={[
+            "flex shrink-0 justify-around [gap:var(--gap)]",
+            {
+              "animate-marquee flex-row": !vertical,
+              "animate-marquee-vertical flex-col": vertical,
+              "[animation-direction:reverse]": reverse,
+              "group-hover:[animation-play-state:paused]": pauseOnHover,
+            },
+          ]}
+        >
+          <slot />
+        </div>
+      ))
+  }
 </div>

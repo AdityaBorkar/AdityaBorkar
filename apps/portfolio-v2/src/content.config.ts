@@ -89,8 +89,8 @@ const testimonials = defineCollection({
 	}),
 });
 
-const technologies = defineCollection({
-	loader: file('./cms/technologies.json'),
+const tech_stack = defineCollection({
+	loader: file('./cms/tech_stack.json'),
 	schema: z.object({
 		id: z.string(),
 		logo: z.string(),
@@ -103,5 +103,5 @@ export const collections = {
 	clients,
 	mockups,
 	testimonials,
-	technologies,
+	tech_stack,
 };

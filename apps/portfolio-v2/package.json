@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
-		"preview": "wrangler dev ./dist",
+		"preview": "bunx astro build && wrangler dev ./dist/_worker.js/index.js",
 		"astro": "astro",
 		"deploy": "bunx astro build && bunx wrangler deploy"
 	},
@@ -36,6 +36,6 @@
 		"@types/react-dom": "^19.1.2",
 		"@vercel/toolbar": "^0.1.36",
 		"@vitejs/plugin-basic-ssl": "^2.0.0",
-		"wrangler": "^4.12.0"
+		"wrangler": "^4.13.2"
 	}
 }
