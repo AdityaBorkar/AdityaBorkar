@@ -7,9 +7,11 @@ import Heading from "../(components)/_Heading.astro";
 
 const FEATURED_PROJECTS = [
     "Platipie",
-    "Vasundhara",
-    "Hooop Cloud",
-    "Blog Platform",
+    "Formzen",
+    "Amy",
+    "Maanas",
+    "Devika",
+    "Webflow Eject",
 ];
 
 const Projects = (await getCollection("projects")).filter((project) =>
@@ -33,10 +35,18 @@ const Projects = (await getCollection("projects")).filter((project) =>
                 href={`/projects/${id}`}
                 class:list={[
                     "rounded-2xl border border-border/10 bg-bg-primary pl-4 pr-2 py-2",
-                    "md:px-8 md:py-6 max-md:grid max-md:grid-cols-2 max-md:gap-4",
+                    "md:px-4 md:py-4 max-md:grid max-md:grid-cols-2 max-md:gap-4",
                 ]}
             >
-                <div>
+                <Image
+                    src={getImage(project.hero_image)}
+                    alt=""
+                    class:list={[
+                        "mx-auto bg-background rounded-xl block h-36 w-full object-cover",
+                        "md:w-full md:h-auto",
+                    ]}
+                />
+                <div class="px-2 pt-4">
                     <div
                         class:list={[
                             "text-lg font-semibold text-text-primary",
@@ -55,17 +65,6 @@ const Projects = (await getCollection("projects")).filter((project) =>
                         {project.description}
                     </p>
                 </div>
-                {/* TODO: IMAGE SLIDER */}
-                {/* all slide one-by-one (300ms delay) to next image */}
-                {/* image 2 must be business impact */}
-                <Image
-                    src={getImage("illustrations/laptop-with-notes.png")}
-                    alt=""
-                    class:list={[
-                        "mx-auto bg-background rounded-xl block h-36 w-full object-cover",
-                        "md:mt-4 md:h-72",
-                    ]}
-                />
             </a>
         ))
     }
@@ -74,6 +73,5 @@ const Projects = (await getCollection("projects")).filter((project) =>
 <div
     class="text-center text-sm text-text-quaternary py-3 mt-4 px-5 rounded-full bg-bg-primary w-fit mx-auto"
 >
-    <!-- Cursor Icon -->
-    Click on project to view details
+    View All Projects
 </div>

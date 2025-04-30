@@ -354,6 +354,7 @@
 	);
 	-webkit-mask-size: 200%;
 	animation: shine 2s infinite;
+	animation-delay: 300ms;
 }
 
 @-webkit-keyframes shine {

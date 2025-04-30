@@ -56,7 +56,19 @@ Projects zoom spring like the above website
 
 ---
 
+
  MDX Images zoom using figma like circular spot zoom
+
+Animations:
+- All links must hae a left-to-right underline hover animation.
+- Testimonials Animation: Aceternity Card Glowing Animation
+- Button = hero variant
+
+- GitHub
+- Numbers Animation
+- Photo Gallery
+- AI Button
+- Footer Generative Art
 
 ---
 

@@ -8,14 +8,16 @@ interface Props {
 const { video } = Astro.props;
 ---
 
-<details
+<!--
+onmouseover="this.children[0].children[0].play()"
+onmouseout="this.children[0].children[0].pause()"
+-->
+<div
   class:list={[
     "relative px-4 py-2 cursor-pointer rounded-3xl border border-border/10 bg-bg-primary transition-all duration-300",
     "md:px-8 md:py-4",
     "hover:scale-105 hover:shadow-lg",
   ]}
-  onmouseover="this.children[0].children[0].play()"
-  onmouseout="this.children[0].children[0].pause()"
 >
   <summary>
     {
@@ -47,4 +49,4 @@ const { video } = Astro.props;
   </summary>
 
   <slot />
-</details>
+</div>

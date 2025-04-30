@@ -89,8 +89,24 @@ const testimonials = defineCollection({
 	}),
 });
 
-const tech_stack = defineCollection({
-	loader: file('./cms/tech_stack.json'),
+const tech_stack_1 = defineCollection({
+	loader: file('./cms/tech-stack/1.json'),
+	schema: z.object({
+		id: z.string(),
+		logo: z.string(),
+	}),
+});
+
+const tech_stack_2 = defineCollection({
+	loader: file('./cms/tech-stack/2.json'),
+	schema: z.object({
+		id: z.string(),
+		logo: z.string(),
+	}),
+});
+
+const tech_stack_3 = defineCollection({
+	loader: file('./cms/tech-stack/3.json'),
 	schema: z.object({
 		id: z.string(),
 		logo: z.string(),
@@ -103,5 +119,7 @@ export const collections = {
 	clients,
 	mockups,
 	testimonials,
-	tech_stack,
+	tech_stack_1,
+	tech_stack_2,
+	tech_stack_3,
 };

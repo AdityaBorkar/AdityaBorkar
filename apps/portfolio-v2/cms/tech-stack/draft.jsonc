@@ -1,0 +1,58 @@
+[
+	{
+		"id": "Google Cloud",
+		"logo": "logo/googlecloud.svg"
+	},
+	{
+		"id": "CockroachDB",
+		"logo": "logo/cockroachdb.png"
+	},
+	{
+		"id": "NeonDB",
+		"logo": "logo/neondb.png"
+	},
+	{
+		"id": "Github Actions",
+		"logo": "logo/githubactions.svg"
+	},
+	{
+		"id": "React PDF",
+		"logo": "logo/reactpdf.png"
+	},
+	{
+		"id": "Mux",
+		"logo": "logo/mux.png"
+	}
+]
+// "Socket.io",
+// "GitHub Copilot",
+// "Lemon Squeezy",
+// "Better Auth",
+// "Discord.js",
+// "Headless UI",
+// "Magic UI",
+// "Node.js",
+// "Radix UI",
+// "React Router",
+// "shadcn/ui",
+// "Tus.io"
+// { "id:": "tRPC", "logo": "logo/trpc.astro" },
+// { "id:": "React Query", "logo": "logo/react-query.astro" },
+// { "id:": "Remotion", "logo": "logo/remotion.astro" },
+// { "id": "Atlassian", "logo": "logo/atlassian.astro" },
+// { "id:": "Firebase", "logo": "logo/firebase.astro" },
+// { "id:": "Stripe", "logo": "logo/stripe.astro" },
+// { "id": "Zod", "logo": "logo/zod.astro" },
+// { "id": "nuqs", "logo": "logo/nuqs.astro" },
+// { "id": "GitHub", "logo": "logo/github.astro" },
+// { "id": "Ngrok", "logo": "logo/ngrok.astro" },
+// { "id": "Ubuntu", "logo": "logo/ubuntu.astro" },
+// { "id": "Hoppscotch", "logo": "logo/hoppscotch.astro" },
+// { "id": "Swagger", "logo": "logo/swagger.astro" },
+// { "id": "Twilio", "logo": "logo/twilio.astro" },
+// { "id": "Algolia", "logo": "logo/algolia.astro" },
+// { "id": "CSS (New)", "logo": "logo/css.astro" },
+// { "id": "Go", "logo": "logo/go.astro" },
+// { "id": "Plasmo", "logo": "logo/plasmo.astro" },
+// { "id": "Million", "logo": "logo/million.astro" },
+// { "id": "TanStack", "logo": "logo/tanstack.astro" },

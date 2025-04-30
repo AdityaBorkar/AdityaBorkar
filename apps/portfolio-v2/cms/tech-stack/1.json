@@ -1,0 +1,18 @@
+[
+	{ "id": "Anthropic", "logo": "logo/anthropic.astro" },
+	{ "id": "DeepSeek", "logo": "logo/deepseek.astro" },
+	{ "id": "Gemini", "logo": "logo/gemini.astro" },
+	{ "id": "OpenAI", "logo": "logo/openai.astro" },
+	{ "id": "Claude AI", "logo": "logo/claude-ai.astro" },
+	{ "id": "Hugging Face", "logo": "logo/hugging-face.astro" },
+	{ "id": "Perplexity AI", "logo": "logo/perplexity-ai.astro" },
+	{ "id": "Python", "logo": "logo/python.astro" },
+	{ "id": "PowerShell", "logo": "logo/powershell.astro" },
+	{ "id": "Cursor", "logo": "logo/cursor.astro" },
+	{ "id": "Git", "logo": "logo/git.astro" },
+	{ "id": "NPM", "logo": "logo/npm.astro" },
+	{ "id": "Pnpm", "logo": "logo/pnpm.astro" },
+	{ "id": "TypeScript", "logo": "logo/typescript.astro" },
+	{ "id": "Markdown", "logo": "logo/markdown.astro" },
+	{ "id": "Raspberry Pi", "logo": "logo/raspberry-pi.astro" }
+]

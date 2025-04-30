@@ -55,19 +55,29 @@ const { sustainability, ...seo } = Astro.props;
       <div class="px-8">
         <div class="flex flex-row gap-8 py-8 justify-between md:pr-[20%]">
           <div class="">
-            <div class="mb-3 font-medium text-neutral-500">Me</div>
+            <div
+              class="mb-3 font-medium text-text-quaternary group-hover:text-text-quaternary/70"
+            >
+              Me
+            </div>
             <FooterLink href="/">Home</FooterLink>
             <FooterLink href="/about">About</FooterLink>
             <FooterLink href="/contact">Contact</FooterLink>
           </div>
           <div class="">
-            <div class="mb-3 font-medium text-neutral-500">Work</div>
+            <div
+              class="mb-3 font-medium text-text-quaternary group-hover:text-text-quaternary/70"
+            >
+              Work
+            </div>
             <FooterLink href="/projects">Projects</FooterLink>
             <FooterLink href="/labs">Labs</FooterLink>
             <!-- <FooterLink href="/blog">Blog</FooterLink> -->
           </div>
           <div class="">
-            <div class="mb-3 shrink-0 font-medium text-neutral-500">
+            <div
+              class="mb-3 shrink-0 font-medium text-text-quaternary group-hover:text-text-quaternary/70"
+            >
               Services
             </div>
             <FooterLink href="/services">Product Engineer</FooterLink>
@@ -78,26 +88,32 @@ const { sustainability, ...seo } = Astro.props;
           class:list={["grid grid-cols-[8rem_auto] pb-6 gap-y-1", "md:gap-x-4"]}
         >
           <FooterLink href={SOCIALS.github} openInNewTab>
-            <GitHubIcon class="size-5 -mt-1 inline-block fill-text-tertiary" />
+            <GitHubIcon
+              class="size-5 -mt-0.5 inline-block fill-text-tertiary group-hover/link:fill-text-secondary"
+            />
             GitHub
           </FooterLink>
           <FooterLink href={SOCIALS.x} openInNewTab>
-            <TwitterIcon class="size-5 inline-block fill-text-tertiary" />
+            <TwitterIcon
+              class="size-5 inline-block fill-text-tertiary group-hover/link:fill-text-secondary"
+            />
             X (Twitter)
           </FooterLink>
           <FooterLink href={SOCIALS.linkedin} openInNewTab>
             <LinkedinIcon
-              class="size-5 -mt-1 inline-block fill-text-tertiary"
+              class="size-5 -mt-1 inline-block fill-text-tertiary group-hover/link:fill-text-secondary"
             />
             LinkedIn
           </FooterLink>
           <FooterLink href={`mailto:${SOCIALS.email}`}>
-            <MailIcon class="size-4 mr-1 inline-block text-text-tertiary" />
+            <MailIcon
+              class="size-4 mx-0.5 inline-block text-text-tertiary group-hover/link:text-text-secondary"
+            />
             {SOCIALS.email}
           </FooterLink>
           <a
             href="/legal"
-            class="py-2 col-span-2 my-6 block w-fit text-xs text-text-tertiary hover:underline starting:underline-offset-0 underline-offset-4 decoration-bg-tertiary/50 hover:underline-offset-8"
+            class="py-2 col-span-2 my-6 block w-fit text-xs text-text-tertiary hover:text-text-secondary"
           >
             Read Legal Terms
           </a>

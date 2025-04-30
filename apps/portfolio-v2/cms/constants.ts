@@ -1,4 +1,7 @@
-export const PRICING = '25-55';
+export const PRICING = {
+	HOURLY: '25-55',
+	MONTHLY: '2200',
+};
 
 export const IS_AVAILABLE_NOW = true;
 

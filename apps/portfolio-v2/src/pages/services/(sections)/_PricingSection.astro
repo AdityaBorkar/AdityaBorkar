@@ -43,43 +43,40 @@ const Benefits = [
         svg: "/assets/illustrations/3d-chatbot-head.webm",
     },
 ];
-
-const CurrencyConversion = [
-    { rate: "3.70", currency: "AED (Arab Emirates Dirham)" },
-    { rate: "1.65", currency: "AUD (Australian Dollar)" },
-    { rate: "0.85", currency: "GBP (British Pound)" },
-    { rate: "1.50", currency: "CAD (Canadian Dollar)" },
-    { rate: "0.95", currency: "EUR (Euro)" },
-    { rate: "80.00", currency: "INR (Indian Rupee)" },
-    { rate: "1.35", currency: "SGD (Singapore Dollar)" },
-];
-// <!-- Transparent PRicing -->
 ---
 
 <Heading label="Pricing">How much does it cost?</Heading>
 <Section>
-    <div class="grid md:grid-cols-[auto_20rem] max-md:grid-cols-2 gap-4">
+    <div
+        class:list={[
+            "grid gap-4",
+            "md:grid-cols-[auto_20rem] max-md:grid-cols-2",
+        ]}
+    >
         <div
-            class="row-span-2 max-md:col-span-2 rounded-2xl bg-bg-primary px-8 py-6"
+            class:list={[
+                "row-span-2 rounded-2xl bg-bg-primary px-8 py-6",
+                "max-md:col-span-2",
+            ]}
         >
             <div
-                class="grid grid-cols-3 max-md:grid-cols-2 gap-y-8 text-text-primary text-center"
+                class:list={[
+                    "grid grid-cols-3 gap-y-8 text-text-primary text-center",
+                    "max-md:grid-cols-2",
+                ]}
             >
                 {
                     Benefits.map((benefit) => (
                         <div>
-                            {/* <video
-                                src={benefit.svg}
-                                autoplay
-                                loop
-                                class="size-24 mx-auto hover:scale-200 transition-all"
-                            /> */}
                             <Image
                                 src={getImage(
                                     "illustrations/client-trophy.png",
                                 )}
                                 alt=""
-                                class="size-28 max-md:size-12 mx-auto"
+                                class:list={[
+                                    "size-28 mx-auto",
+                                    "max-md:size-12",
+                                ]}
                             />
                             <div set:html={benefit.title} />
                         </div>
@@ -87,60 +84,76 @@ const CurrencyConversion = [
                 }
             </div>
             <ul
-                class="text-text-tertiary ml-4 mt-8 *:pt-1 list-disc max-md:text-xs"
+                class:list={[
+                    "text-text-tertiary ml-4 mt-8 *:pt-1 list-disc",
+                    "max-md:text-xs",
+                ]}
             >
                 <li>Billed on milestones, hourly, or fixed price basis.</li>
                 <li>We request for 50% upfront payment.</li>
                 <li>We support payments in multiple currencies.</li>
-                <!--
-                <div popover>
-                    {
-                        CurrencyConversion.map((currency) => (
-                            <div>
-                                1 USD = {currency.rate} {currency.currency}
-                            </div>
-                        ))
-                    }
-                    <div>
-                        These rates are exclusively for reference. Actual rates
-                        shall be applicable as per the quote / invoice.
-                    </div>
-                </div>
-                -->
             </ul>
         </div>
         <div
-            class="bg-bg-primary flex flex-col justify-between rounded-2xl px-8 py-6 max-md:px-4 max-md:py-4 border border-border/20"
+            class:list={[
+                "bg-bg-primary flex flex-col justify-between rounded-2xl px-8 py-6 border border-border/20",
+                "max-md:px-4 max-md:py-4",
+            ]}
         >
-            <div class="text-2xl md:text-4xl text-text-secondary font-semibold">
+            <div
+                class:list={[
+                    "text-2xl text-text-secondary font-semibold",
+                    "md:text-4xl",
+                ]}
+            >
                 <div
-                    class="max-md:text-xs text-sm text-text-quaternary uppercase tracking-wide mb-2"
+                    class:list={[
+                        "text-sm text-text-quaternary uppercase tracking-wide mb-2",
+                        "max-md:text-xs",
+                    ]}
                 >
-                    Hourly
+                    Hourly Rate
                 </div>
-                USD {PRICING}
+                USD {PRICING.HOURLY}
             </div>
             <div
-                class="ml-auto max-md:mt-8 w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"
+                class:list={[
+                    "ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium",
+                    "max-md:mt-8",
+                ]}
             >
                 Book a call
             </div>
         </div>
         <div
-            class="bg-bg-primary flex flex-col justify-between rounded-2xl px-8 py-6 max-md:px-4 max-md:py-4 border border-border/20"
+            class:list={[
+                "bg-bg-primary flex flex-col justify-between rounded-2xl px-8 py-6 border border-border/20",
+                "max-md:px-4 max-md:py-4",
+            ]}
         >
-            <div class="text-2xl md:text-4xl text-text-secondary font-semibold">
+            <div
+                class:list={[
+                    "text-2xl text-text-secondary font-semibold",
+                    "md:text-4xl",
+                ]}
+            >
                 <div
-                    class="max-md:text-xs text-sm text-text-quaternary uppercase tracking-wide mb-2"
+                    class:list={[
+                        "text-sm text-text-quaternary uppercase tracking-wide mb-2",
+                        "max-md:text-xs",
+                    ]}
                 >
-                    Fixed Price
+                    Monthly Retainer
                 </div>
-                Custom
+                USD {PRICING.MONTHLY}
             </div>
             <div
-                class="ml-auto max-md:mt-8 w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium"
+                class:list={[
+                    "ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium",
+                    "max-md:mt-8",
+                ]}
             >
-                Request Quote
+                Book a call
             </div>
         </div>
     </div>

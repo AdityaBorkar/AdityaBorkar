@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-  repeat = 4,
+  repeat = 2,
   vertical = false,
   reverse = false,
   pauseOnHover = false,
@@ -18,10 +18,6 @@ const {
   duration = "10s",
 } = Astro.props;
 ---
-
-<style is:global></style>
-
-<!-- id={Astro.props.id} -->
 
 <div
   class:list={[

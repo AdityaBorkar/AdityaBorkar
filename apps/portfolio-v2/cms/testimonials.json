@@ -1,15 +1,15 @@
 [
 	{
-		"id": "Sanjay B.",
-		"role": "Business Owner, Vasundhara",
-		"project": { "label": "Vasundhara", "url": "projects/vasundhara" },
-		"text": "Aditya took on a major project to revamp our platform, and he exceeded every expectation. His deep understanding of both back-end architecture and front-end user design was key to delivering a product that was both functional, scalable and delightful to use! We are very happy with the results."
-	},
-	{
 		"id": "Devesh Sharma",
 		"role": "Digital Marketing, Freelance",
 		"project": { "label": "Durgabari US", "url": "projects/durgabari-us" },
 		"text": "Aditya B. joined our team at the time of crisis when our existing developers left the project. He was able to hit the ground running and delivered a product in record time. He is a great communicator and very easy to work with. Highly recommended!"
+	},
+	{
+		"id": "Sanjay B.",
+		"role": "Business Owner, Vasundhara",
+		"project": { "label": "Vasundhara", "url": "projects/vasundhara" },
+		"text": "Aditya took on a major project to revamp our platform, and he exceeded every expectation. His deep understanding of both back-end architecture and front-end user design was key to delivering a product that was both functional, scalable and delightful to use! We are very happy with the results."
 	},
 	{
 		"id": "Onkar Jadhav",

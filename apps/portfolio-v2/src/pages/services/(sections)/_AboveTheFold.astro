@@ -1,11 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import Icon from '@/components/ui/Icon.astro';
-import Marquee from '@/components/ui/Marquee.astro';
-import { getImage } from '@/lib/assets';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Icon from "@/components/ui/Icon.astro";
+import Marquee from "@/components/ui/Marquee.astro";
+import { getImage } from "@/lib/assets";
 
-const Clients = await getCollection('clients');
+const Clients = await getCollection("clients");
 
 // TODO - Make component out of `LinkButton`
 ---
@@ -46,7 +46,7 @@ const Clients = await getCollection('clients');
     // })
 </script>
 
-<section class="flex h-screen flex-col items-center justify-center hidden">
+<section class="flex h-screen flex-col items-center justify-center">
     {/* vision / product / services / organization */}
 
     <div class="relative">
@@ -71,9 +71,8 @@ const Clients = await getCollection('clients');
             </span>
             {" with an "}
             <br />
-            {" Expert "}
             <span class="font-sans-serif italic font-normal">
-                Product Engineer
+                Expert Product Engineer
             </span>
         </h1>
         <Image
@@ -122,7 +121,7 @@ const Clients = await getCollection('clients');
             class="absolute bottom-0 left-0 top-0 z-10 h-full w-56 bg-gradient-to-r from-background"
         >
         </div>
-        <Marquee duration="10s">
+        <!-- <Marquee duration="10s">
             {
                 Clients.map(({ data: client }) => (
                     <Image
@@ -136,6 +135,6 @@ const Clients = await getCollection('clients');
                     />
                 ))
             }
-        </Marquee>
+        </Marquee> -->
     </div>
 </section>
