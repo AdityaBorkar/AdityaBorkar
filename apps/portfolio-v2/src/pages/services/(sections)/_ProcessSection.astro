@@ -1,111 +1,89 @@
 ---
-import { getCollection } from "astro:content";
-import Image from "astro/components/Image.astro";
-import Accordion from "@/components/ui/Accordion.astro";
 import Section from "@/components/ui/Section.astro";
-import { getImage } from "@/lib/assets";
 import Heading from "../(components)/_Heading.astro";
 import ProcessDiv from "../(components)/_ProcessDiv.astro";
-
-const Clients = await getCollection("clients");
-
-// Make this a card
+import ProcessCard from "@/pages/services/(components)/_ProcessCard.astro";
 ---
 
-<!--
-// Agile Methodology: Familiarity with agile development practices.
-// Problem-Solving Skills: Ability to troubleshoot and solve complex issues efficiently.
-// Continuous Learning: Willingness to stay updated with the latest technologies and industry trends.
-// Documentation: Maintaining clear and comprehensive documentation throughout the process.
-// Collaboration: Effective communication with team members and stakeholders.
-// QA management
+<Section class="" id="process">
+    <Heading label="Process" heading="How I Build Your Idea" />
 
-<div>Optimization</div>
-<div>Documentation</div>
-<div>Pre-Release</div>
--->
-<div class="h-[300vh] relative">
-    <Section class="sticky top-32 left-0">
-        <Heading label="Process"> How We Build </Heading>
+    <div class="mt-48 flex flex-col gap-[30vh]">
+        <ProcessCard tag="Phase 1" title="Discovery Stage" class="">
+            You are able to do this smoothly and efficiently via the Contact
+            Request or a Video Meeting. The information you provide really helps
+            me to understand whether I am the right person for your vision. If I
+            believe that my skill-set is certain to fulfill the project, I will
+            send you my pricing and schedule a video call to discuss the project
+            scope in detail. I strive to get back to every project request
+            within 48 hours.
+        </ProcessCard>
 
-        <div class="grid grid-cols-2 gap-16">
-            <aside>
-                <Image
-                    src={getImage("illustrations/chat-whiteboard.png")}
-                    alt="Example"
-                    class="mt-8 p-8 w-full h-fit rounded-2xl"
-                />
-            </aside>
+        <ProcessCard tag="Phase 2" title="Scope & Proposal" class="mt-4">
+            The main aim of this video call is to establish trust and
+            understanding on both sides. We will discuss precise goals,
+            timeframes & requirements, clarify any questions and plot out a
+            clear and actionable plan going forwards. My favourite part of these
+            calls is meeting people passionate about their project, with grand
+            ideas for manifesting it online.
+            <!-- Scope, Development Plan and Estimate -->
+            Once I have a clear understanding of your project scope, I will create
+            an individual proposal for you. I love working closely with internal
+            design teams, or fleshing out compelling branding & storytelling ideas
+            myself. I charge on a per-project basis, rather than by the hour. This
+            keeps everything transparent and straightforward, as you have a comprehensive
+            overview of the costs and timeline.
+        </ProcessCard>
 
-            <main>
-                <Accordion title="Discovery Stage" name="process" open>
-                    We prioritize understanding your needs and problems and
-                    defining tailor-made solutions that drive your business
-                    growth. The workflow usually goes:
+        <ProcessCard tag="Phase 3" title="Design & Construction">
+            If both parties are content with the proposal, I start my lofi
+            playlist and get to work. I often begin with some rough pencil
+            sketches / UX flowcharts before moving onto the more rigorous
+            code-crunching, copywriting and style mockup elements. You’ll always
+            be kept up to date—clear, responsive communication is at the heart
+            of everything I do.
 
-                    <div class="grid grid-cols-2 gap-2 mt-4">
-                        <ProcessDiv serial="1" class="col-span-2 bg-amber-100">
-                            Get to know your business and project
-                        </ProcessDiv>
-                        <ProcessDiv serial="2" class="bg-amber-100">
-                            R&D
-                        </ProcessDiv>
-                        <ProcessDiv serial="3" class="bg-amber-100">
-                            Scope of Work
-                            <!-- PRD Development -->
-                            <!-- Business analyst
-                            and Project Manager set up a meeting with the customer to
-                            gather all the information like what the customer wants to
-                            build, who will be the end-user, what is the purpose of the
-                            product. -->
-                        </ProcessDiv>
-                        <ProcessDiv serial="4" class="col-span-2 bg-amber-100">
-                            Development Plan and Estimate
-                        </ProcessDiv>
-                    </div>
-                </Accordion>
-
-                <Accordion title="Design & Development" name="process">
-                    We develop your product in iterative substages, allowing for
+            <!-- We develop your product in iterative substages, allowing for
                     quicker testing, feedback and adjustments to align with your
-                    expectations and business needs.
-                    <!-- Writing clean, modular, and
+                    expectations and business needs. -->
+            <!-- Writing clean, modular, and
                     efficient code for both front-end and back-end. Implementing
                     unit tests, integration tests, and conducting thorough QA. -->
-                    <!-- In this phase, the requirement gathered in the SRS document
+            <!-- In this phase, the requirement gathered in the SRS document
                     is used as an input and software architecture that is used
                     for implementing system development is derived. Creating
                     architecture and design plans, including database schema and
                     UI/UX wireframes. -->
-                    <div class="grid grid-cols-2 gap-2 mt-4">
-                        <ProcessDiv serial="1">Product Design</ProcessDiv>
-                        <ProcessDiv serial="2">Software Architecture</ProcessDiv
-                        >
-                        <ProcessDiv serial="3">
-                            Mobile & Web Development
-                        </ProcessDiv>
-                        <ProcessDiv serial="4">
-                            Backend Development
-                        </ProcessDiv>
-                        <ProcessDiv serial="5" class="col-span-2">
-                            Deployment & Preview Releases
-                        </ProcessDiv>
-                        <ProcessDiv serial="6" class="col-span-2">
-                            Artificial Intelligence
-                        </ProcessDiv>
-                    </div>
-                </Accordion>
+            <div class="grid grid-cols-2 gap-2 mt-4">
+                <ProcessDiv serial="1">Product Design</ProcessDiv>
+                <ProcessDiv serial="2">Software Architecture</ProcessDiv>
+                <ProcessDiv serial="3"> Mobile & Web Development </ProcessDiv>
+                <ProcessDiv serial="4"> Backend Development </ProcessDiv>
+                <ProcessDiv serial="5" class="col-span-2">
+                    Deployment & Preview Releases
+                </ProcessDiv>
+                <ProcessDiv serial="6" class="col-span-2">
+                    Artificial Intelligence
+                </ProcessDiv>
+            </div>
+        </ProcessCard>
 
-                <Accordion title="Testing & Quality-Assurance" name="process">
-                    Testing starts once the coding is complete and the modules
-                    are released for testing. In this phase, the developed
-                    software is tested thoroughly and any defects found are
-                    assigned to developers to get them fixed. Retesting,
-                    regression testing is done until the point at which the
-                    software is as per the customer’s expectation. Testers refer
-                    SRS document to make sure that the software is as per the
-                    customer’s standard.
-                    <!-- Once the product is tested, it is deployed in the production
+        <ProcessCard tag="Phase 4" title="Launch & Handover">
+            Before launching a client website, I make sure to demonstrate its
+            speed, quality & potency via a series of stress-tests and
+            optimisation-checks. The site itself will be hosted on Webflow’s
+            lightning-quick servers. I only send accompanying design work via
+            channels which either do not compress at all, or utilise lossless
+            compression (eg: WeTransfer), ensuring the quality always remains
+            perfect. I want shipping-day to be a celebration, not a panic.
+            <!--  -->
+            Testing starts once the coding is complete and the modules are released
+            for testing. In this phase, the developed software is tested thoroughly
+            and any defects found are assigned to developers to get them fixed. Retesting,
+            regression testing is done until the point at which the software is as
+            per the customer’s expectation. Testers refer SRS document to make sure
+            that the software is as per the customer’s standard.
+            <!-- Once the product is tested, it is deployed in the production
                     environment or first UAT (User Acceptance testing) is done
                     depending on the customer expectation. In the case of UAT, a
                     replica of the production environment is created and the
@@ -113,42 +91,31 @@ const Clients = await getCollection("clients");
                     customer finds the application as expected, then sign off is
                     provided by the customer to go live. Setting up CI/CD
                     pipelines and managing deployment processes. -->
-                    <div class="grid grid-cols-2 gap-2 mt-4">
-                        <ProcessDiv serial="1" class="col-span-2">
-                            Optimization
-                        </ProcessDiv>
-                        <ProcessDiv serial="2">Testing</ProcessDiv>
-                        <ProcessDiv serial="3"> Quality Assurance </ProcessDiv>
-                    </div>
-                </Accordion>
+            <div class="grid grid-cols-2 gap-2 mt-4">
+                <ProcessDiv serial="1" class="col-span-2">
+                    Optimization
+                </ProcessDiv>
+                <ProcessDiv serial="2">Testing</ProcessDiv>
+                <ProcessDiv serial="3"> Quality Assurance </ProcessDiv>
+            </div>
+        </ProcessCard>
 
-                <Accordion title="Monitoring & Support" name="process">
-                    After the deployment of a product on the production
-                    environment, maintenance of the product i.e. if any issue
-                    comes up and needs to be fixed or any enhancement is to be
-                    done is taken care by the developers. Monitoring application
-                    performance, bug fixing, and updating software.
-                    <div class="grid grid-cols-2 gap-2 mt-4">
-                        <ProcessDiv serial="1">Documentation</ProcessDiv>
-                        <ProcessDiv serial="2">Education & Training</ProcessDiv>
-                        <ProcessDiv serial="3" class="col-span-2">
-                            Deployment & Scaling
-                        </ProcessDiv>
-                        <ProcessDiv serial="4" class="col-span-2">
-                            Ongoing Development
-                        </ProcessDiv>
-                    </div>
-                </Accordion>
-            </main>
-        </div>
-
-        <div class="my-12 text-center">PLUS SYMBOL</div>
-        <Accordion title="Iteration Velocity" name="process">
+        <ProcessCard tag="Phase 5" title="Monitoring & Support">
             After the deployment of a product on the production environment,
             maintenance of the product i.e. if any issue comes up and needs to
             be fixed or any enhancement is to be done is taken care by the
             developers. Monitoring application performance, bug fixing, and
             updating software.
-        </Accordion>
-    </Section>
-</div>
+            <div class="grid grid-cols-2 gap-2 mt-4">
+                <ProcessDiv serial="1">Documentation</ProcessDiv>
+                <ProcessDiv serial="2">Education & Training</ProcessDiv>
+                <ProcessDiv serial="3" class="col-span-2">
+                    Deployment & Scaling
+                </ProcessDiv>
+                <ProcessDiv serial="4" class="col-span-2">
+                    Ongoing Development
+                </ProcessDiv>
+            </div>
+        </ProcessCard>
+    </div>
+</Section>

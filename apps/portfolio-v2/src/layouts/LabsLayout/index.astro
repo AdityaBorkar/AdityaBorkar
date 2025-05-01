@@ -3,7 +3,7 @@ import type { ComponentProps } from "astro/types";
 import RootLayout from "../RootLayout.astro";
 // import Navbar from "@/components/ui/Navbar.astro";
 import AiAssistant from "@/components/AiAssistant.astro";
-import "./index.css";
+import { Font } from "astro:assets";
 
 interface Props extends ComponentProps<typeof RootLayout> {
     sustainability?: {
@@ -14,6 +14,8 @@ interface Props extends ComponentProps<typeof RootLayout> {
 
 const { sustainability, ...seo } = Astro.props;
 ---
+
+<Font cssVariable="--font-pixelify" preload />
 
 <RootLayout {...seo}>
     <!-- <Navbar /> -->

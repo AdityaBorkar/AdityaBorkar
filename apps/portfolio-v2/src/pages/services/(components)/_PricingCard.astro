@@ -1,0 +1,37 @@
+---
+interface Props {
+    title: string;
+    price: string;
+}
+
+const { title, price } = Astro.props;
+---
+
+<div
+    class:list={[
+        "bg-bg-primary/70 flex flex-col justify-between rounded-3xl px-6 py-4 border border-border/20",
+        "max-md:px-4 max-md:py-4",
+    ]}
+>
+    <div class:list={["text-2xl text-text-secondary font-bold", "md:text-4xl"]}>
+        <div
+            class:list={[
+                "text-sm text-text-quaternary uppercase font-medium tracking-tight mb-2",
+                "max-md:text-xs",
+            ]}
+        >
+            {title}
+        </div>
+        USD {price}
+    </div>
+    <!-- <CalMeetButton> -->
+    <div
+        class:list={[
+            "mt-12 translate-x-2 ml-auto w-fit block rounded-full bg-text-primary text-bg-primary px-4 py-2 text-sm font-medium",
+            "max-md:mt-8",
+        ]}
+    >
+        Book a call
+    </div>
+    <!-- </CalMeetButton> -->
+</div>

@@ -1,65 +1,32 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import Icon from "@/components/ui/Icon.astro";
 import Marquee from "@/components/ui/Marquee.astro";
 import { getImage } from "@/lib/assets";
+import CalMeetButton from "@/components/CalMeetButton.astro";
 
 const Clients = await getCollection("clients");
-
-// TODO - Make component out of `LinkButton`
 ---
 
-<script>
-    import { animate } from "motion/mini";
-    import { inView } from "motion";
-
-    const MagicFadeDownAnimation = (
-        element: Element,
-        entry: IntersectionObserverEntry,
-    ) => {
-        // console.log({ top: entry.boundingClientRect.top });
-        if (entry.boundingClientRect.top < window.innerHeight / 2) return;
-        // if (entry.boundingClientRect.bottom > window.innerHeight / 4) return;
-        animate(
-            element,
-            {
-                y: [500, 0],
-                opacity: [0, 1],
-                // filter: ["blur(10px)", "blur(0px)"],
-            },
-            { delay: 0.3, duration: 0.6 },
-        );
-    };
-
-    // inView("h3", MagicFadeDownAnimation, {
-    //   margin: "0px 0px -15% 0px",
-    //   amount: "all",
-    // });
-    // inView("section", MagicFadeDownAnimation, {
-    //   margin: "0px 0px -15% 0px",
-    // });
-
-    // Numbers
-    // animate(0, 100, {
-    //   onUpdate: latest => console.log(latest)
-    // })
-</script>
-
 <section class="flex h-screen flex-col items-center justify-center">
-    {/* vision / product / services / organization */}
-
     <div class="relative">
         <Image
-            src={getImage("illustrations/vr-headset-pro.png")}
             alt=""
-            class="absolute -left-16 -top-14 z-0 w-36 -rotate-12 -scale-x-100"
+            loading="eager"
+            src={getImage("illustrations/vr-headset-pro.png")}
+            class:list={[
+                "absolute -left-16 -top-13 z-0 w-36 -rotate-12 -scale-x-100",
+                "magic-fade-right delay-300 starting:rotate-[-24deg]",
+            ]}
         />
         <h1
-            class="relative z-10 text-center text-7xl font-bold leading-snug tracking-tight"
+            class:list={[
+                "relative z-10 text-center text-7xl font-bold text-text-primary leading-snug tracking-tight",
+                "magic-fade-down delay-300",
+            ]}
         >
             <span
-                class="bg-gradient-to-br via-fuchsia-700 to-pink-700 from-blue-700 bg-clip-text text-transparent"
+                class="bg-gradient-to-tl via-fuchsia-600 to-pink-600 from-blue-700 bg-clip-text text-transparent"
             >
                 Transform
             </span>
@@ -71,48 +38,58 @@ const Clients = await getCollection("clients");
             </span>
             {" with an "}
             <br />
-            <span class="font-sans-serif italic font-normal">
+            <span class="font-serif italic font-normal">
                 Expert Product Engineer
             </span>
         </h1>
-        <Image
-            src={getImage("illustrations/yellow-pencil.png")}
-            alt=""
-            class="absolute -bottom-24 -right-12 hidden h-12 rotate-[75deg] hover:scale-125"
-        />
+
+        <div
+            class:list={[
+                "text-center text-lg text-text-tertiary max-w-[32rem] mx-auto mt-16 mb-12",
+                "magic-fade-down delay-600",
+            ]}
+        >
+            Building web applications and websites that drive results and help
+            your business grow. No BS. Just Results.
+        </div>
     </div>
 
-    <div class="mt-16 flex flex-row gap-8">
-        <a
-            href="/contact"
-            class="bg-text-primary px-8 py-4 text-lg text-background shadow-lg group mx-auto block w-fit rounded-full font-semibold"
+    <div class:list={["flex flex-row gap-8", "magic-fade-down delay-800"]}>
+        <CalMeetButton
+            text="Schedule a Call"
+            class:list={[
+                "bg-text-primary px-8 py-4 text-lg text-background shadow-lg group mx-auto block w-fit rounded-full font-semibold",
+                "hover:scale-125 uppercase",
+            ]}
         >
-            Schedule a call
-            <Icon
-                icon="ArrowUpRight"
-                class="-mt-1 ml-2 hidden stroke-1 group-hover:inline starting:w-0 transition-all duration-300 starting:opacity-0"
-            />
-        </a>
+            Schedule a Call
+        </CalMeetButton>
+        <!--
         <a
             href="/contact"
             class="border border-border/20 px-8 py-4 text-lg text-text-secondary shadow-lg group mx-auto block w-fit rounded-full font-semibold"
         >
-            Read Pitch Deck
-            <!-- Use any one - Video Intro / Pitch.com / Figma Slides -->
-            <Icon
-                icon="ArrowUpRight"
-                class="-mt-1 ml-2 hidden stroke-1 group-hover:inline starting:w-0 transition-all duration-300 starting:opacity-0"
-            />
+            <Icon icon="ArrowUpRight" class="-mt-1 ml-2 stroke-1 inline" />
+            Watch Video Intro
         </a>
+        -->
     </div>
 
     <div
-        class="mb-8 mt-36 text-center font-semibold tracking-wide text-text-tertiary"
+        class:list={[
+            "mb-4 mt-28 text-center font-semibold tracking-wide text-text-tertiary",
+            "magic-fade-up delay-1500",
+        ]}
     >
-        WORKING WITH STARTUPS, AGENCIES, BUSINESSES AND NON-PROFITS - ACROSS THE
+        TRUSTED BY STARTUPS, AGENCIES, BUSINESSES AND NON-PROFITS - ACROSS THE
         GLOBE.
     </div>
-    <div class="relative max-w-[64rem] mx-auto">
+    <div
+        class:list={[
+            "relative max-w-[64rem] mx-auto",
+            "magic-fade-up delay-2000",
+        ]}
+    >
         <div
             class="absolute bottom-0 right-0 top-0 z-10 h-full w-56 bg-gradient-to-l from-background"
         >
@@ -121,20 +98,18 @@ const Clients = await getCollection("clients");
             class="absolute bottom-0 left-0 top-0 z-10 h-full w-56 bg-gradient-to-r from-background"
         >
         </div>
-        <!-- <Marquee duration="10s">
+        <Marquee duration="15s">
             {
                 Clients.map(({ data: client }) => (
                     <Image
+                        loading="eager"
                         alt={client.id}
                         title={client.id}
                         src={getImage(client.logo)}
-                        class:list={[
-                            "mx-8 h-9 w-fit hover:grayscale-0",
-                            client.className,
-                        ]}
+                        class:list={["mx-8 h-9 w-fit ", client.className]}
                     />
                 ))
             }
-        </Marquee> -->
+        </Marquee>
     </div>
 </section>

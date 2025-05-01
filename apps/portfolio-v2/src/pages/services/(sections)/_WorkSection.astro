@@ -4,6 +4,8 @@ import Image from "astro/components/Image.astro";
 import Section from "@/components/ui/Section.astro";
 import { getImage } from "@/lib/assets";
 import Heading from "../(components)/_Heading.astro";
+import Button from "@/components/ui/Button.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
 
 const FEATURED_PROJECTS = [
     "Platipie",
@@ -17,61 +19,63 @@ const FEATURED_PROJECTS = [
 const Projects = (await getCollection("projects")).filter((project) =>
     FEATURED_PROJECTS.includes(project.data.title),
 );
-
-// TODO: SHOW MOBILE MOCKUPS WITH HANDS ON THE WORK SECTION
-// Relax, Talk with the client, Keep it minimal, focus on Product Development and Business Outcomes.
 ---
 
-<Heading label="Works"> Featured Projects </Heading>
+<Section id="work">
+    <Heading
+        label="Works"
+        heading="Featured Projects"
+        caption="I take pride in building custom solutions that help founders turn their dreams into reality!"
+    />
 
-<Section>{/* TODO: Project Showcase (Miniature) */}</Section>
-
-<Section
-    class:list={["grid w-full grid-cols-1 gap-6", "md:grid-cols-3 md:gap-8"]}
->
-    {
-        Projects.map(({ data: project, id }) => (
-            <a
-                href={`/projects/${id}`}
-                class:list={[
-                    "rounded-2xl border border-border/10 bg-bg-primary pl-4 pr-2 py-2",
-                    "md:px-4 md:py-4 max-md:grid max-md:grid-cols-2 max-md:gap-4",
-                ]}
-            >
-                <Image
-                    src={getImage(project.hero_image)}
-                    alt=""
+    <div
+        class:list={[
+            "grid w-full grid-cols-1 gap-6",
+            "md:grid-cols-3 md:gap-8",
+        ]}
+    >
+        {
+            Projects.map(({ data: project, id }) => (
+                <a
+                    href={`/projects/${id}`}
                     class:list={[
-                        "mx-auto bg-background rounded-xl block h-36 w-full object-cover",
-                        "md:w-full md:h-auto",
+                        "rounded-2xl border border-border/10 bg-bg-primary/50 pl-4 pr-2 py-2 hover:scale-110",
+                        "md:px-2 md:py-2 max-md:grid max-md:grid-cols-2 max-md:gap-4",
                     ]}
-                />
-                <div class="px-2 pt-4">
-                    <div
+                >
+                    <Image
+                        src={getImage(project.hero_image)}
+                        alt=""
                         class:list={[
-                            "text-lg font-semibold text-text-primary",
-                            "max-md:my-2 md:text-xl",
-                            // "magic-fade-down delay-1000",
+                            "mx-auto bg-background rounded-xl block h-36 w-full object-cover",
+                            "md:w-full md:h-auto",
                         ]}
-                    >
-                        {project.title}
+                    />
+                    <div class="px-4 pt-4">
+                        <div
+                            class:list={[
+                                "text-base font-semibold text-text-primary",
+                                "max-md:my-2 md:text-lg",
+                                // "magic-fade-down delay-1000",
+                            ]}
+                        >
+                            {project.title}
+                        </div>
+                        <p
+                            class:list={[
+                                "max-md:mt-1 mb-2 text-xs text-text-tertiary line-clamp-3",
+                                "md:text-sm",
+                            ]}
+                        >
+                            {project.description}
+                        </p>
                     </div>
-                    <p
-                        class:list={[
-                            "mt-1 text-xs text-text-tertiary line-clamp-3",
-                            "md:mt-2 md:text-sm",
-                        ]}
-                    >
-                        {project.description}
-                    </p>
-                </div>
-            </a>
-        ))
-    }
-</Section>
+                </a>
+            ))
+        }
+    </div>
 
-<div
-    class="text-center text-sm text-text-quaternary py-3 mt-4 px-5 rounded-full bg-bg-primary w-fit mx-auto"
->
-    View All Projects
-</div>
+    <ButtonLink href="/projects" variant="hero" class:list={["mt-8"]}>
+        View All Projects
+    </ButtonLink>
+</Section>

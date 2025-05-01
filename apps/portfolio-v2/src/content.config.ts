@@ -1,31 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 
-const blogs = defineCollection({
-	loader: glob({
-		pattern: '**/!(wip-)*.md',
-		base: './cms/blog',
-	}),
-	schema: z.object({
-		title: z.string(),
-		date: z.date(),
-		// description: z.string(),
-		// index: z.number().optional(),
-		// group: z
-		//   .enum([
-		//     'getting-started',
-		//     'adapters/framework',
-		//     'adapters/client-db',
-		//     'adapters/server-db',
-		//     'adapters/pubsub',
-		//     'adapters/orm',
-		//     'comparisons',
-		//     'contributing',
-		//   ])
-		//   .optional(),
-	}),
-});
-
 const projects = defineCollection({
 	loader: glob({
 		pattern: '**/!(wip-)*.md',
@@ -114,7 +89,6 @@ const tech_stack_3 = defineCollection({
 });
 
 export const collections = {
-	blogs,
 	projects,
 	clients,
 	mockups,

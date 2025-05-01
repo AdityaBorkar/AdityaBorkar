@@ -10,22 +10,22 @@ import ProcessSection from "./(sections)/_ProcessSection.astro";
 import ServicesSection from "./(sections)/_ServicesSection.astro";
 import TestimonialSection from "./(sections)/_TestimonialSection.astro";
 import WorkSection from "./(sections)/_WorkSection.astro";
+import { Font } from "astro:assets";
 
 const title = "Services";
 const description = "Services";
 const keywords = ["Services"];
-const schema_markup = [
+const schema_markup = await Promise.all([
   SchemaMarkup.get("person"),
   SchemaMarkup.get("services"),
   SchemaMarkup.get("webpage/faq"),
-];
+]);
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
-const sustainability = {
-  co2: 1,
-  link: "",
-};
+const sustainability = { co2: 1, link: "" };
 ---
+
+<Font cssVariable="--font-lora" preload />
 
 <LandingLayout {...seo} sustainability={sustainability}>
   <AboveTheFold />

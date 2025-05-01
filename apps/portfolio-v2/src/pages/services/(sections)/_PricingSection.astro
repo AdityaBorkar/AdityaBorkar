@@ -1,9 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { PRICING } from "cms/constants";
 import Section from "@/components/ui/Section.astro";
-import { getImage } from "@/lib/assets";
 import Heading from "../(components)/_Heading.astro";
+import PricingCard from "@/pages/services/(components)/_PricingCard.astro";
 
 const Benefits = [
     // {
@@ -18,143 +17,127 @@ const Benefits = [
     //     title: "MVP <br/> Development",
     //     svg: "/assets/illustrations/3d-chatbot-head.webm",
     // },
+    // {
+    //     title: "Custom Tech <br /> Solutions",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    // {
+    //     title: "3+ years of <br/> Expertise",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    // {
+    //     title: "100% Client Satisfaction",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    // {
+    //     title: "Regular Updates & Timely Delivery",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    // {
+    //     title: "Flexible Timezone & Work Hours",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
+    // {
+    //     title: "Flexible Payment Terms",
+    //     svg: "/assets/illustrations/3d-chatbot-head.webm",
+    // },
     {
-        title: "Custom Tech <br /> Solutions",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
+        title: "Unlimited Revisions",
     },
     {
-        title: "3+ years of <br/> Expertise",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
+        title: "24-hour support response time",
     },
     {
-        title: "100% Client Satisfaction",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
+        title: "Private communication channel",
     },
     {
-        title: "Regular Updates & Timely Delivery",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
+        title: "Bespoke, Responsive-first Design",
     },
     {
-        title: "Flexible Timezone & Work Hours",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
+        title: "Secure, Privacy, Reliable and Scalable",
     },
     {
-        title: "Flexible Payment Terms",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
+        title: "Fast Load Times and Performant",
+    },
+    {
+        title: "ROI driven focus",
+    },
+    {
+        title: "Single Point of Contact",
+    },
+    {
+        title: "On-Time Delivery with 100% Satisfaction",
+    },
+    {
+        title: "Web Apps and SaaS Development",
+    },
+    {
+        title: "AI Apps development",
+    },
+    {
+        title: "Professional Integrations",
+    },
+    {
+        title: "Search Engine Optimization",
+    },
+    {
+        title: "CMS integration",
+    },
+    {
+        title: "Design + Development",
     },
 ];
 ---
 
-<Heading label="Pricing">How much does it cost?</Heading>
-<Section>
+<Section id="pricing">
+    <Heading
+        label="Pricing"
+        heading="How much does it cost?"
+        caption="We offer flexible and transparent pricing options to suit your project needs. Our pricing is based on the complexity of the project, the timeline, and the resources required."
+    />
+
     <div
         class:list={[
             "grid gap-4",
-            "md:grid-cols-[auto_20rem] max-md:grid-cols-2",
+            "md:grid-cols-[auto_22rem] max-md:grid-cols-2",
         ]}
     >
         <div
             class:list={[
-                "row-span-2 rounded-2xl bg-bg-primary px-8 py-6",
+                "row-span-3 rounded-2xl bg-bg-primary/50 border border-border/10 px-8 py-6",
                 "max-md:col-span-2",
             ]}
         >
             <div
                 class:list={[
-                    "grid grid-cols-3 gap-y-8 text-text-primary text-center",
+                    "grid grid-cols-2 gap-y-4 text-text-primary",
                     "max-md:grid-cols-2",
                 ]}
             >
                 {
                     Benefits.map((benefit) => (
                         <div>
-                            <Image
-                                src={getImage(
-                                    "illustrations/client-trophy.png",
-                                )}
-                                alt=""
-                                class:list={[
-                                    "size-28 mx-auto",
-                                    "max-md:size-12",
-                                ]}
-                            />
                             <div set:html={benefit.title} />
                         </div>
                     ))
                 }
             </div>
+        </div>
+
+        <PricingCard title="Hourly Rate" price={PRICING.HOURLY} />
+        <PricingCard title="Monthly Retainer" price={PRICING.MONTHLY} />
+
+        <div>
             <ul
                 class:list={[
-                    "text-text-tertiary ml-4 mt-8 *:pt-1 list-disc",
+                    "text-text-quaternary ml-6 mb-8 *:pt-1 list-disc",
                     "max-md:text-xs",
                 ]}
             >
                 <li>Billed on milestones, hourly, or fixed price basis.</li>
-                <li>We request for 50% upfront payment.</li>
                 <li>We support payments in multiple currencies.</li>
+                <li>We request for 50% upfront payment.</li>
             </ul>
-        </div>
-        <div
-            class:list={[
-                "bg-bg-primary flex flex-col justify-between rounded-2xl px-8 py-6 border border-border/20",
-                "max-md:px-4 max-md:py-4",
-            ]}
-        >
-            <div
-                class:list={[
-                    "text-2xl text-text-secondary font-semibold",
-                    "md:text-4xl",
-                ]}
-            >
-                <div
-                    class:list={[
-                        "text-sm text-text-quaternary uppercase tracking-wide mb-2",
-                        "max-md:text-xs",
-                    ]}
-                >
-                    Hourly Rate
-                </div>
-                USD {PRICING.HOURLY}
-            </div>
-            <div
-                class:list={[
-                    "ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium",
-                    "max-md:mt-8",
-                ]}
-            >
-                Book a call
-            </div>
-        </div>
-        <div
-            class:list={[
-                "bg-bg-primary flex flex-col justify-between rounded-2xl px-8 py-6 border border-border/20",
-                "max-md:px-4 max-md:py-4",
-            ]}
-        >
-            <div
-                class:list={[
-                    "text-2xl text-text-secondary font-semibold",
-                    "md:text-4xl",
-                ]}
-            >
-                <div
-                    class:list={[
-                        "text-sm text-text-quaternary uppercase tracking-wide mb-2",
-                        "max-md:text-xs",
-                    ]}
-                >
-                    Monthly Retainer
-                </div>
-                USD {PRICING.MONTHLY}
-            </div>
-            <div
-                class:list={[
-                    "ml-auto w-fit block rounded-full bg-bg-secondary text-text-primary px-4 py-2 text-sm font-medium",
-                    "max-md:mt-8",
-                ]}
-            >
-                Book a call
-            </div>
         </div>
     </div>
 </Section>

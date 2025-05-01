@@ -90,7 +90,7 @@ function Output() {
 						<p>
 							Loved the idea? Have a similar problem for a project? Let's talk
 							on Loved the idea? Have a similar problem for a project? Let's
-							talk on email (adityab.com) or schedule a call
+							talk on email or schedule a call
 						</p>
 					</div>
 

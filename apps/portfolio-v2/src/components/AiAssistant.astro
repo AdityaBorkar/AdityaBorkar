@@ -7,14 +7,14 @@ const COOKIE_ACCEPTED = true;
 
 <button
     class:list={[
-        "fixed z-40 bottom-5 right-5 px-3 shadow-lg py-3 rounded-full border border-border/20 bg-background/60 backdrop-blur-sm text-text-tertiary cursor-pointer",
-        "md:bottom-8 md:right-8 md:px-6 md:z-50 md:hover:scale-110",
+        "fixed z-40 bottom-5 right-5 px-3 shadow-md py-3 rounded-full border border-border/20 bg-bg-primary backdrop-blur-sm text-text-tertiary cursor-pointer",
+        "md:bottom-8 md:right-8 md:px-6 md:z-50 md:hover:scale-110 md:hover:shadow-lg",
         !COOKIE_ACCEPTED && "!hidden",
     ]}
     onclick="document.getElementById('chat-dialog').showModal()"
 >
     <RoundMessage class="inline-block size-5 -mt-1" />
-    <span class="max-md:hidden">Ask AI</span>
+    <span class="max-md:hidden font-semibold">Ask AI</span>
 </button>
 
 <Chat client:only="react" />

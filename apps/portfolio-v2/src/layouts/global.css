@@ -5,27 +5,13 @@
 
 @variant dark (&:where(.dark, .dark *));
 
-@font-face {
-	font-family: "Inter";
-	src: url("/fonts/InterVariable.woff2") format("woff");
-	font-display: swap;
-	font-optical-sizing: auto;
-}
-
-@font-face {
-	font-family: "Lora";
-	src: url("/fonts/LoraVariable.ttf") format("ttf");
-	font-display: swap;
-	font-optical-sizing: auto;
-}
-
 @theme {
-	--font-sans-serif: "Lora", serif;
-	--font-pixelify: "Pixelify Sans", sans-serif;
-	--color-background: #fdfff4; /* var(--color-neutral-100); */
-	--color-bg-primary: var(--color-neutral-200);
-	--color-bg-secondary: var(--color-neutral-300);
-	--color-bg-tertiary: var(--color-neutral-400);
+	--font-serif: var(--font-lora), serif;
+	--font-sans-serif: var(--font-inter), sans-serif;
+	--color-background: var(--color-neutral-200); /*#fdfff4;*/ /* var(--color-neutral-100); */
+	--color-bg-primary: var(--color-neutral-100);
+	--color-bg-secondary: var(--color-neutral-200);
+	--color-bg-tertiary: var(--color-neutral-300);
 	--color-text: var(--color-neutral-700);
 	--color-text-primary: var(--color-neutral-900);
 	--color-text-secondary: var(--color-neutral-700);
@@ -84,7 +70,7 @@
 
 	html {
 		scrollbar-gutter: stable;
-		font-family: "Inter", sans-serif;
+		font-family: var(--font-sans-serif);
 	}
 
 	a:focus,

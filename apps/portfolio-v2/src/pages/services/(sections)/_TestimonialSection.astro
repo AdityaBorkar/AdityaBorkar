@@ -2,136 +2,86 @@
 import Testimonials from "@/components/sections/Testimonials.astro";
 import Section from "@/components/ui/Section.astro";
 import Heading from "../(components)/_Heading.astro";
-
-const benefits = [
-    {
-        title: "Full Stack <br/> Development",
-        svg: "/assets/illustrations/full-stack.webm",
-    },
-    {
-        title: "AI <br/> Development",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-    {
-        title: "MVP <br/> Development",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-    {
-        title: "Custom Tech <br /> Solutions",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-    {
-        title: "3+ years of <br/> Expertise",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-    {
-        title: "100% Client Satisfaction",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-    {
-        title: "Regular Updates & Timely Delivery",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-    {
-        title: "Flexible Timezone & Work Hours",
-        svg: "/assets/illustrations/3d-chatbot-head.webm",
-    },
-];
 ---
 
-<Heading label="Testimonials">Why people work with me? </Heading>
-<Section class="grid md:grid-cols-2 gap-x-16 gap-y-8">
-    <div class="rounded-2xl border border-border/20 bg-bg-primary p-4">
-        <div>Strong Technical Foundations</div>
-        <div>Experience with Databases</div>
-        <div>Version Control</div>
-        <div>Soft Skills</div>
-        <div>Cultural Fit</div>
-        {
-            /*
-          // Technical Proficiency: Strong knowledge of both front-end (HTML, CSS, JavaScript frameworks) and back-end technologies (Node.js, Python, Ruby, Java).
-          // Experience with Databases: Proficiency in SQL and NoSQL databases.
-          // Version Control: Expertise in using version control systems like Git.
-          // Soft Skills: Good communication, teamwork, and project management skills.
-          // Cultural Fit: Alignment with the company's values and work culture.
-        */
-        }
-        {
-            /* right arrow
-Outdated CMS (Wordpress, Contentful, etc)
-right arrow
-Lack of Communication
-right arrow
-Performance and Quality Issues
-right arrow
-Lack in Availability
-right arrow
-Lack in Consultancy
-right arrow
-Messy CMS Setup
-right arrow
-Lack of Resources
-right arrow
-Lack of Design Capabilities
-right arrow
-Constant Project Delays */
-        }
-        We develop elegant, custom‑built solutions from start to finish that address
-        the big challenges you face building the entire product while also tackling
-        your “here‑and‑now” development and optimization needs.
-    </div>
-    <!-- <img
-            src="/resources/pic (4).jpeg"
-            alt="Lights"
-            class="mb-6 w-full rounded-3xl object-cover"
-        /> -->
-    {
-        /* Our Mission
-We create Webflow sites that are on their league of their own for ambitious startups and enterprises.
-Our Values
-1. Clients always come first.
-2. Get it done. No excuses.
-3. Stay humble, Be confident.
-Our Vision
-To be the leading Webflow agency with great people, clients & products. */
-    }
-    <div class="rounded-2xl border border-border/20 bg-bg-primary p-4">
-        Self-motivation and ability to work independently Collaboration skills
-        for working with other team members or clients Basic understanding of
-        business goals and how technology supports them Ability to suggest
-        solutions that align with project objectives
+<Section id="testimonials">
+    <Heading label="Testimonials" heading="Why people work with me?" />
+
+    <!-- <div class="grid md:grid-cols-2 gap-x-4 gap-y-4">
+        <div
+            class="mb-16 rounded-2xl border border-border/10 bg-bg-primary/50 p-4 max-md:mb-8"
+        >
+            <div
+                class="mb-4 text-xs font-semibold uppercase text-text-secondary"
+            >
+                My Work Philosophy
+            </div>
+            <div class="text-xl font-semibold">μεράκι - Meraki</div>
+            <div class="mt-0.5 text-sm">pronounced: meh-rah-kee</div>
+            <p class="mt-2 text-base">
+                The soul, creativity, or love put into something;<br /> putting your
+                essence in your work.
+            </p>
+        </div>
+
+        <div
+            class="rounded-2xl border border-border/20 bg-bg-primary p-4 row-span-2"
+        >
+            <ul>
+                <li>Self-motivation and ability to work independently</li>
+                <li>Collaboration</li>
+                <li>
+                    Problem-Solving: Ability to design and implement solutions
+                    to complex problems.
+                </li>
+                <li>
+                    Communication: Clear and effective communication with
+                    clients and team members.
+                </li>
+                <li>
+                    Time Management: Delivering work on time and managing
+                    multiple projects efficiently.
+                </li>
+                <li>
+                    Adaptability: Quickly learning new tools or methodologies as
+                    required.
+                </li>
+                <li>
+                    Client Collaboration: Understanding client requirements and
+                    providing valuable feedback or suggestions.
+                </li>
+                <li>
+                    Documentation: Creating detailed technical documentation for
+                    future reference.
+                </li>
+                <li>
+                    Cultural Fit: Alignment with the company's values and work
+                    culture.
+                </li>
+                <li>
+                    Soft Skills: Good communication, teamwork, and project
+                    management skills.
+                </li>
+            </ul>
+        </div>
+
+        <div class="rounded-2xl border border-border/20 bg-bg-primary p-4">
+            <div class="text-xl font-semibold">My Values</div>
+            <p class="mt-2 text-base">
+                1. Clients always come first.
+                <br />
+                2. Get it done. No excuses.
+                <br />
+                3. Stay humble, Be confident.
+                <br />
+                4. Respect time and resources.
+            </p>
+        </div>
     </div>
 
-    <div
-        class="rounded-2xl border border-border/20 bg-bg-primary p-4 max-md:mb-8"
-    >
-        <div class="mb-4 text-xs font-semibold uppercase text-text-secondary">
-            My Philosophy
-        </div>
-        <div class="text-xl font-semibold">μεράκι - Meraki</div>
-        <div class="mt-0.5 text-sm">pronounced: meh-rah-kee</div>
-        <div class="mt-2 text-base">
-            The soul, creativity, or love put into something; putting your
-            essence in your work.
-        </div>
-    </div>
+    <h3 class="text-4xl text-text-primary mt-16 mb-6 font-semibold">
+        Here's what my clients say
+    </h3> -->
+
+    <Testimonials />
 </Section>
-
-<Testimonials />
-
-<!-- // Just think of me as your creative bestie. 👯 As a business owner myself, I understand that you can’t do it all. I want to take all things “design” off your plate so you can focus on what you do best. I only work with a handful of clients at a time so that I’m able to dedicate the time and care needed to do my best work.
-// You feel comfortable jumping into complex topics immediately
-  // Good understanding of APIs and how to properly build them for long-term success
-  // A self-starter who works well independently as well as interdependently in a remote environment
-  // A motivated person who enjoys working on complex technical problems who does not need to be micro-managed
-  // Someone who is looking to grow with us and our product
- -->
-
-<!--
-Problem-Solving: Ability to design and implement solutions to complex problems.
-Communication: Clear and effective communication with clients and team members.
-Time Management: Delivering work on time and managing multiple projects efficiently.
-Adaptability: Quickly learning new tools or methodologies as required.
-Client Collaboration: Understanding client requirements and providing valuable feedback or suggestions.
-Documentation: Creating detailed technical documentation for future reference.
--->

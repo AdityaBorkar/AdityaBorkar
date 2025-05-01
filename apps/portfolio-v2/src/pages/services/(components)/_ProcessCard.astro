@@ -1,0 +1,43 @@
+---
+interface Props {
+    tag: string;
+    title: string;
+    class?: string;
+}
+---
+
+<script>
+    import { scroll, animate } from "motion";
+
+    const cards = document.querySelectorAll(".process-phase-card");
+    cards.forEach((card) => {
+        const animation = animate(card, { scale: [1, 0.8] });
+        scroll(animation, {
+            target: card,
+            offset: ["start 25vh", "start 15vh"],
+        });
+    });
+</script>
+
+<div
+    class:list={[
+        "process-phase-card",
+        "sticky top-[15vh] border border-border/10 rounded-2xl p-8 max-w-[44rem] mx-auto bg-bg-primary",
+        Astro.props.class,
+    ]}
+>
+    <div
+        class="text-sm border border-border/10 py-1 px-3 rounded-full w-fit text-text-tertiary"
+    >
+        <!-- Sparkle Icon -->
+        {Astro.props.tag}
+    </div>
+
+    <h5 class="mt-4 text-3xl font-bold text-text-primary">
+        {Astro.props.title}
+    </h5>
+
+    <p class="mt-6 text-text-secondary text-base">
+        <slot />
+    </p>
+</div>

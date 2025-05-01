@@ -1,0 +1,69 @@
+---
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+    href: string;
+    icon: string;
+    title: string;
+}
+---
+
+<script>
+    import { hover, press } from "motion";
+    import { animate } from "motion/mini";
+
+    const links = document.querySelectorAll(".dock-link");
+    links.forEach((link) => {
+        const title = link.querySelector(".title");
+
+        link.addEventListener("click", () => {
+            // @ts-expect-error
+            const element = document.querySelector(link.dataset.href);
+            const top = element?.offsetTop - 140;
+            window.scrollTo({ behavior: "smooth", top });
+            animate(link, { scale: [1, 0.9, 1] }, { duration: 0.3 });
+        });
+
+        press(link, (element) => {
+            animate(element, { scale: [1, 0.9, 1] }, { duration: 0.3 });
+            return;
+        });
+
+        if (title) {
+            hover(link, () => {
+                animate(
+                    title,
+                    { opacity: 1, y: 10, x: "-50%" },
+                    { duration: 0.3 },
+                );
+                return () =>
+                    animate(
+                        title,
+                        { opacity: [1, 0.2, 0], y: 2, x: "-50%" },
+                        { duration: 0.3 },
+                    );
+            });
+        }
+    });
+</script>
+
+<button
+    type="button"
+    data-href={Astro.props.href}
+    class="dock-link relative group/link bg-bg-primary origin-bottom p-2 size-10 rounded-lg duration-0 hover:border-border/20 border border-border/10"
+>
+    <div
+        class:list={[
+            // TODO: CENTER THIS
+            "title",
+            "absolute left-0 right-0 whitespace-pre -top-8 w-fit bg-text-primary text-bg-primary font-medium px-1.5 py-0.5 rounded",
+            "opacity-0",
+        ]}
+    >
+        {Astro.props.title}
+    </div>
+    <Icon
+        icon={Astro.props.icon}
+        class="size-full fill-text-quaternary group-hover/link:fill-text-primary"
+    />
+</button>

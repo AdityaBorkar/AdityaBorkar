@@ -37,6 +37,16 @@ export default defineConfig({
 				cssVariable: '--font-inter',
 				provider: fontProviders.google(),
 			},
+			{
+				name: 'Lora',
+				cssVariable: '--font-lora',
+				provider: fontProviders.google(),
+			},
+			{
+				name: 'Pixelify Sans',
+				cssVariable: '--font-pixelify',
+				provider: fontProviders.google(),
+			},
 		],
 	},
 });

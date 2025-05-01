@@ -2,24 +2,32 @@
 interface Props {
     label: string;
     class?: string;
+    heading?: string;
+    caption?: string;
 }
 ---
 
-<h3
+<div
+    set:html={Astro.props.label}
     class:list={[
-        "relative text-3xl text-left mb-12 font-semibold mx-auto max-w-[64rem] opacity-100",
+        "mb-2 -ml-2 mt-32 w-fit text-sm  text-transparent bg-gradient-to-br from-amber-500 to-amber-600 border border-border/20 rounded-full font-semibold px-3 py-1 uppercase tracking-wider",
+        "md:mb-4 !text-white",
+        // "bg-clip-text"
+    ]}
+/>
+
+<h3
+    set:html={Astro.props.heading}
+    class:list={[
+        "relative text-3xl text-left mb-6 font-bold text-text-primary",
         "md:text-5xl max-md:px-6",
         Astro.props.class,
     ]}
->
-    <div
-        class:list={[
-            "mb-2 -ml-2 mt-32 w-fit text-sm bg-clip-text text-transparent bg-gradient-to-br from-amber-500 to-amber-600 border border-border/20 rounded-full font-bold px-3 py-1 uppercase tracking-wider",
-            "md:mb-4",
-        ]}
-    >
-        {Astro.props.label}
-    </div>
+/>
 
-    <slot />
-</h3>
+<p
+    set:html={Astro.props.caption}
+    class:list={[
+        "mb-16 max-w-[48rem] text-balance text-base text-text-tertiary",
+    ]}
+/>

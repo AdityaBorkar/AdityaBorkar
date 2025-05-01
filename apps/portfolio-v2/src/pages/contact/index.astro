@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button.astro";
 import Input from "@/components/ui/Input.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
 import { SchemaMarkup } from "@/lib/utils";
+import { SOCIALS } from "cms/constants";
 
 const title = "Contact";
 const description =
@@ -96,7 +97,7 @@ const errors = { username: "", email: "", password: "" };
       <div class="max-md:col-span-2">
         <Input
           id="contactForm_name"
-          label="Your Name:"
+          label="Name of Company"
           placeholder="Harvey Specter"
         />
         {errors.username && <p>{errors.username}</p>}
@@ -104,19 +105,10 @@ const errors = { username: "", email: "", password: "" };
       <div class="max-md:col-span-2">
         <Input
           id="contactForm_name"
-          label="Your Phone"
-          placeholder="9820748096"
+          label="Age of Company"
+          placeholder="Harvey Specter"
         />
         {errors.username && <p>{errors.username}</p>}
-      </div>
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_email"
-          type="email"
-          label="Your Email:"
-          placeholder="harvey.specter@suits.com"
-        />
-        {errors.email && <p>{errors.email}</p>}
       </div>
       <div class="group relative col-span-2">
         <label
@@ -142,13 +134,30 @@ const errors = { username: "", email: "", password: "" };
           help me to understand your project better.
         </div>
       </div>
-      <div class="max-md:col-span-2">
+      <div class="max-md:col-span-2 col-span-2">
         <Input
           id="contactForm_phone"
           type="tel"
           label="Attach Files"
           placeholder="+91 9876543210"
         />
+      </div>
+      <div class="max-md:col-span-2">
+        <Input
+          id="contactForm_name"
+          label="Full Name"
+          placeholder="9820748096"
+        />
+        {errors.username && <p>{errors.username}</p>}
+      </div>
+      <div class="max-md:col-span-2">
+        <Input
+          id="contactForm_email"
+          type="email"
+          label="Contact Email"
+          placeholder="harvey.specter@suits.com"
+        />
+        {errors.email && <p>{errors.email}</p>}
       </div>
 
       <!-- Add Turnstile Captcha or Google Recaptcha -->
@@ -168,10 +177,10 @@ const errors = { username: "", email: "", password: "" };
         </p>
         {"Email me at"}
         <a
-          href="mailto:hi@adityab.com"
+          href={`mailto:${SOCIALS.email}`}
           class="font-medium underline underline-offset-4 hover:underline-offset-8"
         >
-          hello@adityab.com
+          {SOCIALS.email}
         </a>
         {" or "}
         <CalMeetButton

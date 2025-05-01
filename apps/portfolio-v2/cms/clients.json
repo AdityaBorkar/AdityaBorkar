@@ -17,36 +17,23 @@
 		"logo": "logo/rpf.svg"
 	},
 	{
-		"id": "Natraj Buildicon",
-		"logo": "logo/natraj-buildicon.png",
-		"className": "py-1"
-	},
-	{
-		"id": "Hooop Cloud",
-		"logo": "logo/hooop-cloud.webp"
-	},
-	{
 		"id": "GrocyGo",
-		"logo": "logo/grocygo.svg"
-	},
-	{
-		"id": "Byre",
-		"logo": "logo/byre.svg"
-	},
-	{
-		"id": "SyncSink",
-		"logo": "logo/syncsink.svg"
-	},
-	{
-		"id": "Vasundhara",
-		"logo": "logo/vasundhara.svg"
+		"logo": "logo/grocygo.png"
 	},
 	{
 		"id": "Europa Assistance",
-		"logo": "logo/europa-assistance.svg"
+		"logo": "logo/europ-assistance.png"
+	},
+	{
+		"id": "Byre",
+		"logo": "logo/byre.png"
 	},
 	{
 		"id": "Durgabari US",
-		"logo": "logo/durgabari-us.svg"
+		"logo": "logo/durgabarius.png"
+	},
+	{
+		"id": "Devika",
+		"logo": "logo/devika.svg"
 	}
 ]

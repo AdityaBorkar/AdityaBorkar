@@ -10,13 +10,16 @@
 		"Bento",
 		"Borkar",
 		"bunx",
+		"figtree",
 		"Hooop",
+		"pixelify",
 		"Platipie",
 		"strava",
 		"Vasundhara",
 		"Vercel",
 		"vite",
-		"Webflow"
+		"Webflow",
+		"μεράκι"
 	],
 	"astro.content-intellisense": true,
 	"editor.codeActionsOnSave": {

@@ -6,6 +6,7 @@
   - Automatic Signed Exchanges (SXGs)
 - SEO and HTML Head Metadata
 
+---
 
 
 // TODO: Scan and avoid Keyword Stuffing
@@ -57,7 +58,7 @@ Projects zoom spring like the above website
 ---
 
 
- MDX Images zoom using figma like circular spot zoom
+MDX Images zoom using figma like circular spot zoom
 
 Animations:
 - All links must hae a left-to-right underline hover animation.
@@ -154,7 +155,6 @@ Proceed one thing at a time. Finish it and only then move to the next section.
   - Skill Card
 - Projects
   - Filter
-  - Image Slideshow
   - Cursor Highlight Effect
 - Project Slug
   - Quick Peek, Preview Link
@@ -166,7 +166,7 @@ Proceed one thing at a time. Finish it and only then move to the next section.
   - Form
 - Chat
   - Link it to the footer, and add prompts like lakshb.dev
-
+  - Cookies
 - Remove all components from the page, and move to the components folder.
 - Test using React Scan
 - Solve Warnings, Astro Devtools, Million Lint errors
@@ -193,8 +193,7 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 - TODO LIST ON THIS PAGE:
   - Fade-in-Up Entry on Scroll
   - Appear images with blur first (use blur-base64 technique)
-
-- Test if the following things are working:
+- FX IMAGES
 
 ## Animations
 
@@ -237,8 +236,6 @@ https://ui.jln.dev/
 
 https://playground.rombo.co/
 
-
-
 - https://motion.dev/#section-5
 - https://github.com/magicuidesign/magicui/blob/main/registry/default/magicui/blur-fade.tsx
 - https://magicui.design/docs/components/blur-fade
@@ -251,85 +248,6 @@ https://playground.rombo.co/
     - Reveal slant-slide-up animation on viewport enter of cards
     - Fade + slant-swipe-down apple-like animation on load for navbar
     - Fade + slant-swipe-up apple-like animation on load for page
-
----
-
-
----
-
-## Testing
-
-- Theme Color on browser tab
-- Animations
-- Generative CSS
-- Lighthouse
-- Accessibility
-
-Testing:
-
-- Dynamic Island
-- AI Chat
-- Theme Change Animation
-- Button, Popup Animations
-- Monitoring and Observability
-
-AB Testing with Onkar
-
-1. Dark theme change with sharp or faded border
-2. Buttons Redesign
-3. Color Theme for entire website (emerald)
-4. Background color suggestion. solid is boring?
-5. Font Suggestions
-6. Logo suggestion
-7. Professional photo click
-8. Animations / Transitions / Lottie
-
-- Update Sustainability Links and Numbers
-- MAKE SURE ONLY ESSENTIAL COOKIES ARE STORED.
-- COOKIES = posthog / (embeds = cal.com / chess.com / strava.com )
-- Third-Party Tools: Verify GDPR compliance for tools like analytics or embedded content (e.g., Google Analytics, YouTube).
-
----
-
-## ACCESSIBILITY
-
-- Accessibility
-  - <https://www.a11yproject.com/checklist/>
-  - <https://www.w3.org/WAI/ARIA/apg/>
-  - <https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html>
-- Accessibility Modes: <https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/#filtered-display-mode>
-- Accessibility Checklist: <https://www.a11yproject.com/checklist/>
-- Guides: https://www.w3.org/WAI/ARIA/apg/ + https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html
-- https://www.a11yproject.com/checklist/
-
----
-
-## Checklist for reserved time
-
-- Domain Authority
-  - Cross Posting Blogs
-  - Get 1000+ backlinks
-- 404
-  - Redesign 404 page
-  - Hard 404s for googlebot
-- AI Assistant:
-  - Use GIFs and emojis ocassionally
-  - If you exhaust limits, ask to solve a smart ai based captcha
-  - client:visible for React component to load after the page loading is done
-- Cal.com - Toggle Dark and Light mode
-- ios audio cues
-- Testimonials:
-  - Add photos / videos of real people.
-  - Link to project case study
-  - Link to testimonial source
-  - On Hover - Bounce the stars one by one. No infinite, animate once.
-- About Section:
-  - [Interactive Grid Item] strava.com stats and profile
-  - [Interactive Grid Item] chess.com stats and profile
-- Make a list of websites that inspired you to make this website AND then write a blog post about it and email the people who inspired you. (Colophon)
-- /sustainability
-  - https://ecograder.com/report/Rhbn0HP7jMeYxLH9oEQIwQxh
-- After all optimizations, deploy to vercel and find issues from Vercel Toolbar.
 
 ---
 
