@@ -1,23 +1,23 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import Image from 'astro/components/Image.astro';
-import { getImage } from '@/lib/assets';
+import type { CollectionEntry } from "astro:content";
+import Image from "astro/components/Image.astro";
+import { getImage } from "@/lib/assets";
 
-interface Props extends CollectionEntry<'projects'> {
-	hideTags?: boolean;
+interface Props extends CollectionEntry<"projects"> {
+  hideTags?: boolean;
 }
 
 const {
-	id,
-	data: { title, description, hero_image, tags, hero_tag },
-	hideTags = false,
+  id,
+  data: { title, description, hero_image, tags, hero_tag },
+  hideTags = false,
 } = Astro.props;
 ---
 
 <a
   href={`/projects/${id}`}
   class:list={[
-    "group rounded-3xl border border-border/20 bg-bg-primary/50 p-4 transition-all",
+    "group rounded-3xl border border-border/20 bg-bg-primary/50 p-4 transition-all cursor-pointer",
     "hover:scale-105 hover:ring-2 hover:ring-border/10",
   ]}
 >
@@ -52,24 +52,24 @@ const {
     }
   </div>
   <div
-    class="cursor-pointer px-2 pb-2 pt-4 relative group-hover:translate-y-2 transition-transform duration-300 ease-in-out"
+    class="px-2 pb-2 pt-4 relative group-hover:translate-y-2 transition-transform duration-300 ease-in-out"
   >
-    <div class="cursor-pointer text-base font-semibold text-text-primary">
+    <div class="text-base font-semibold text-text-primary">
       {title}
     </div>
-    <div class="mt-2 cursor-pointer text-text-secondary/80">
+    <div class="mt-2 text-text-secondary/80">
       {description}
     </div>
     {
       !hideTags && (
         <ul
           class:list={[
-            "mt-4 flex cursor-pointer flex-row flex-wrap gap-1",
+            "mt-4 flex flex-row flex-wrap gap-1",
             "md:gap-x-1 md:gap-y-2",
           ]}
         >
           {tags.map((tag) => (
-            <li class="cursor-pointer rounded-full bg-bg-secondary px-2.5 py-1 text-xs text-text-tertiary">
+            <li class="rounded-full bg-bg-secondary px-2.5 py-1 text-xs text-text-tertiary">
               {tag}
             </li>
           ))}

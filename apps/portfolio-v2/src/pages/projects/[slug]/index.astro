@@ -25,11 +25,10 @@ const {
 	description,
 	hero_image,
 	links,
-	filter_category,
 	timeline,
 	year,
 	benefits,
-	testimonial,
+	// testimonial,
 } = project.data;
 // console.log(project.rendered.metadata.headings);
 
@@ -195,17 +194,17 @@ export const prerender = true;
   <div class="mt-2 text-text-primary">{year}</div>
 </div>
         </div>
-        {
+        <!-- {
           testimonial && (
 
           <div
             class="p-4 rounded-xl border border-border/20"
           >
-    <div class="text-sm text-text-tertiary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</div>
+    <div class="text-sm text-text-tertiary">Sample Testimonial.</div>
     <div class="mt-2 text-text-primary">Aditya Borkar</div>
           </div>
           )
-        }
+        } -->
       </div>
     </div>
   </Section>

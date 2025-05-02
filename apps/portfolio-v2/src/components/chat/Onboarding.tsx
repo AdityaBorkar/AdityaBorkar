@@ -1,4 +1,3 @@
-import { Image } from 'astro:assets';
 import { useRef } from 'react';
 
 export default function Onboarding({

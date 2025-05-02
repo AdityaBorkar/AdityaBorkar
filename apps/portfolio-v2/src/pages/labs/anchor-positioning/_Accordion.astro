@@ -1,15 +1,23 @@
 ---
-interface Props extends HTMLDetailsElement {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"details"> {
   summary: string;
   anchorName: string;
   summaryClass?: string;
 }
 
-const { summary, anchorName, summaryClass, classList, ...props } = Astro.props;
+const {
+  summary,
+  anchorName,
+  summaryClass,
+  class: className,
+  ...props
+} = Astro.props;
 ---
 
 <!-- style={{ anchorName }} -->
-<details {...props} class:list={["rounded", classList]}>
+<details {...props} class:list={["rounded", className]}>
   <summary class:list={["py-4 px-8", summaryClass]}>
     {summary}
   </summary>

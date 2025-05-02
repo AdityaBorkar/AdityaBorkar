@@ -1,16 +1,37 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<'input'> {
+interface Props extends HTMLAttributes<"input"> {
 	label: string;
+	class?: string;
+	wrapperClass?: string;
 }
 
-const { label, type = 'text', ...props } = Astro.props;
+const {
+	label,
+	type = "text",
+	class: className,
+	wrapperClass,
+	...props
+} = Astro.props;
 ---
 
-<div>
-	<label for={props.id} class="mb-1 block font-medium text-text-primary">
-		{label}
-	</label>
-	<input type={type} {...props} />
+<div class:list={[wrapperClass]}>
+	<div class="flex items-center justify-between mb-1">
+		<label for={props.name} class="font-medium text-text-primary">
+			{label}
+		</label>
+		<p class="text-xs text-red-600 dark:text-red-400 pr-2"></p>
+	</div>
+	<input
+		id={props.name}
+		type={type}
+		{...props}
+		class:list={[
+			"w-full bg-bg-primary rounded-lg border border-border/20 bg-background-primary px-3 py-2 text-sm text-text-primary",
+			"placeholder:text-text-tertiary/60",
+			"invalid:border-red-400 dark:invalid:border-red-900",
+			className,
+		]}
+	/>
 </div>

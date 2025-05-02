@@ -24,9 +24,9 @@ const sustainability = {
 };
 
 const AllProjects = await getCollection('projects');
-const AllCategories = [
-	...new Set(AllProjects.flatMap((project) => project.data.filter_category)),
-];
+// const AllCategories = [
+// 	...new Set(AllProjects.flatMap((project) => project.data.filter_category)),
+// ];
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>

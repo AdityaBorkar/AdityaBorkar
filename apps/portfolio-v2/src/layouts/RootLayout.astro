@@ -1,26 +1,26 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import type { Thing, WithContext } from 'schema-dts';
-import CookiePopup from '@/components/CookiePopup.astro';
-import Posthog from '@/components/Posthog.astro';
-import { JsonLd } from '@/lib/jsonLd';
-import './global.css';
-import { Font } from 'astro:assets';
+import { ClientRouter } from "astro:transitions";
+import type { Thing, WithContext } from "schema-dts";
+import CookiePopup from "@/components/CookiePopup.astro";
+import Posthog from "@/components/Posthog.astro";
+import { JsonLd } from "@/lib/jsonLd";
+import "./global.css";
+import { Font } from "astro:assets";
 
 interface Props {
-	title: string;
-	description: string;
-	keywords: string[];
-	open_graph: Record<string, string>;
-	schema_markup?: Promise<WithContext<Thing>>[] | WithContext<Thing>[];
+    title: string;
+    description: string;
+    keywords: string[];
+    open_graph: Record<string, string>;
+    schema_markup?: Promise<WithContext<Thing>>[] | WithContext<Thing>[];
 }
 
 const {
-	title,
-	description,
-	keywords,
-	open_graph = {},
-	schema_markup = [],
+    title,
+    description,
+    keywords,
+    // open_graph = {},
+    schema_markup = [],
 } = Astro.props;
 
 export const partial = true;
@@ -43,6 +43,7 @@ export const partial = true;
         <script
             type="application/ld+json"
             set:html={(await Promise.all(schema_markup)).map(JsonLd).join("\n")}
+            is:inline
         />
         <!-- Open Graph -->
         <!--
@@ -50,7 +51,7 @@ export const partial = true;
         facebook.url	false	"https://astro.build"	Page URL.
         facebook.type	false	"website"	Type of resource. See all types here.
         twitter.image	false	"/twitter.png"	Twitter share image.
-        twitter.site	false	"@astrodotbuild"	Twitter handle of publishing site.
+        twitter.site	false	"@"	Twitter handle of publishing site.
         twitter.card	false	"summary"	Format of Twitter share card. See all types here.
         -->
         <ClientRouter />
@@ -82,7 +83,6 @@ export const partial = true;
     </head>
     <body
         class="text-sm leading-normal antialiased relative min-h-screen cursor-default bg-background text-text-secondary"
-        transition:animate="slide"
     >
         <slot />
 

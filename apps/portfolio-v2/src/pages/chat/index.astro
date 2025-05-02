@@ -9,10 +9,9 @@ const keywords = ['chat', 'aditya borkar', 'aditya', 'borkar'];
 const schema_markup = [SchemaMarkup.get('webpage/page')];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
-const sustainability = { co2: 0.25, link: 'adityab-tech' };
 ---
 
-<RootLayout {...seo} sustainability={sustainability}>
+<RootLayout {...seo}>
     <Chat client:only="react" />
 </RootLayout>
 <!--

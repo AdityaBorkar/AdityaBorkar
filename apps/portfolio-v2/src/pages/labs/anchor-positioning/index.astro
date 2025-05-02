@@ -2,7 +2,7 @@
 import LabsLayout from "@/layouts/LabsLayout/index.astro";
 import Accordion from "./_Accordion.astro";
 
-const [showOverlays, setShowOverlays] = [false, () => false];
+const showOverlays = false;
 
 // TODO - Auto width adjustment like webflow for better UX for resizing
 // const [width, setWidth] = useState(0);
@@ -31,13 +31,9 @@ const seo = { title, description, keywords, open_graph };
                 You Browser Supports Anchor Positioning: (detected using CSS /
                 JS)
             </p>
-            <input
-                id="show-overlays"
-                type="checkbox"
-                defaultChecked={showOverlays}
-                onChange={() => setShowOverlays(!showOverlays)}
-            />
-            <label htmlFor="show-overlays">Show Overlays</label>
+            <input id="show-overlays" type="checkbox" />
+            <!-- onChange={() => setShowOverlays()} -->
+            <label for="show-overlays">Show Overlays</label>
 
             <div>
                 Tip: You can use GAP or margins in between the grid according to

@@ -15,7 +15,7 @@
 	--color-text: var(--color-neutral-800);
 	--color-text-primary: var(--color-slate-950);
 	--color-text-secondary: var(--color-slate-800);
-	--color-text-tertiary: var(--color-slate-700);
+	--color-text-tertiary: var(--color-slate-600);
 	--color-text-quaternary: var(--color-neutral-500);
 	--color-border: var(--color-neutral-900);
 }
@@ -31,7 +31,7 @@
 		--color-text-secondary: var(--color-neutral-300);
 		--color-text-tertiary: var(--color-neutral-400);
 		--color-text-quaternary: var(--color-neutral-500);
-		--color-border: var(--color-neutral-300);
+		--color-border: var(--color-neutral-400);
 	}
 
 	*::selection {
@@ -71,6 +71,19 @@
 	html {
 		scrollbar-gutter: stable;
 		font-family: var(--font-sans-serif);
+	}
+
+	a:active,
+	a:focus {
+		outline: none !important;
+		border: none !important;
+		text-decoration: none !important;
+		box-shadow: none !important;
+		-webkit-tap-highlight-color: transparent !important;
+		-webkit-user-select: none; /* Chrome/Safari */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* IE10+ */
+		user-select: none;
 	}
 
 	a:focus,

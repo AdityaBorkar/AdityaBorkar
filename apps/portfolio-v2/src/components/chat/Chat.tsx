@@ -1,13 +1,12 @@
 import ReactLenis, { type LenisRef } from 'lenis/react';
 import { motion } from 'motion/react';
-import { useRef, useState } from 'react';
+import { type MouseEvent, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ImagesMessage } from './messages/ImagesMessage';
-import { ProjectMessage } from './messages/ProjectMessage';
-import { SkillMessage } from './messages/SkillMessage';
-import { SocialMessage } from './messages/SocialMessage';
-import { StickerMessage } from './messages/StickerMessage';
-import { TestimonialMessage } from './messages/TestimonialMessage';
+// import { ProjectMessage } from './messages/ProjectMessage';
+// import { SkillMessage } from './messages/SkillMessage';
+// import { SocialMessage } from './messages/SocialMessage';
+// import { StickerMessage } from './messages/StickerMessage';
+// import { TestimonialMessage } from './messages/TestimonialMessage';
 import { TextMessage } from './messages/TextMessage';
 import { TypingIndicator } from './messages/TypingIndicator';
 
@@ -25,15 +24,15 @@ type ContentType = { text: string };
 // | { type: 'images', images: string[] }
 // | { type: 'testimonial', quote: string, name: string, designation: string }
 
-const components = {
-	text: TextMessage,
-	// skill: SkillMessage,
-	// social: SocialMessage,
-	// images: ImagesMessage,
-	// sticker: StickerMessage,
-	// project: ProjectMessage,
-	// testimonial: TestimonialMessage,
-};
+// const components = {
+// 	text: TextMessage,
+// 	// skill: SkillMessage,
+// 	// social: SocialMessage,
+// 	// images: ImagesMessage,
+// 	// sticker: StickerMessage,
+// 	// project: ProjectMessage,
+// 	// testimonial: TestimonialMessage,
+// };
 
 export default function Chat({ firstName }: { firstName: string }) {
 	// TODO: Store chat messages in localStorage for retrieval
@@ -81,7 +80,7 @@ export default function Chat({ firstName }: { firstName: string }) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const sendButtonRef = useRef<HTMLButtonElement>(null);
 
-	function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+	function handleSubmit(e: MouseEvent<HTMLButtonElement>) {
 		e.stopPropagation();
 		const input = inputRef.current;
 		const sendButton = sendButtonRef.current;

@@ -7,6 +7,7 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "bunx astro build && wrangler dev ./dist/_worker.js/index.js",
+		"check": "bun biome check . && bun astro check",
 		"astro": "astro",
 		"deploy": "bunx astro build && bunx wrangler deploy"
 	},
@@ -18,6 +19,7 @@
 		"@astrojs/sitemap": "^3.3.0",
 		"@googleapis/calendar": "^9.8.0",
 		"@tailwindcss/typography": "^0.5.16",
+		"arktype": "^2.1.20",
 		"astro": "5.7.4",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",

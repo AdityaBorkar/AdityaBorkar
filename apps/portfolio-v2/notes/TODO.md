@@ -58,30 +58,43 @@ Projects zoom spring like the above website
 ---
 
 
-MDX Images zoom using figma like circular spot zoom
+MDX:
+
+- Images lightbox
+
+---
 
 Animations:
-- All links must hae a left-to-right underline hover animation.
-- Testimonials Animation: Aceternity Card Glowing Animation
-- Button = hero variant
 
-- GitHub
+- View Transitions + Magic Fade Animations causes trouble in view transitions. Use Motion.dev for animations.
+
+- Testimonials Animation: Aceternity Card Glowing Animation
+
 - Numbers Animation
-- Photo Gallery
-- AI Button
-- Footer Generative Art
+- Photo Gallery and Lightbox
+- Cursors Animating Velocity
+
+- All links must hae a left-to-right underline hover animation.
+
+* Make Button look like 3D
+- CUSTOM: AI Button
+- SECONDARY: Resume Button, Filter Button for Projects
+- HERO: View More Button
 
 ---
 
 Proceed one thing at a time. Finish it and only then move to the next section.
 
 - Fetch Contributions from GitHub
+- GitHub Dots stagger animation and hover exit animation
+
 - Customize Scrollbar
 - PWA Checklist (basics only)
 - Contact Form:
   - Associate input error messaging with the input it corresponds to.
   - Make sure that form input errors are displayed in list above the form after submission.
   - Make sure that error, warning, and success states are not visually communicated by just color.
+  - Contact Form Server Action
 
 ## Content
 
@@ -108,7 +121,6 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 ## Utilities
 
 - Schema Markup
-- Contact Form Server Action
 
 ## Components
 

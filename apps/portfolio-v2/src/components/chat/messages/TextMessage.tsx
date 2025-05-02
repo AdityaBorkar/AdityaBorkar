@@ -18,7 +18,7 @@ export function TextMessage({
 			className={cn(
 				'w-fit text-balance rounded-2xl px-3 py-1.5 text-text-secondary empty:hidden',
 				role === 'user'
-					? 'ml-auto bg-blue-600/80 '
+					? 'ml-auto bg-blue-600/80 text-white'
 					: 'mr-auto bg-bg-secondary/80 ',
 			)}
 		>

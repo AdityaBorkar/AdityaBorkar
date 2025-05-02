@@ -1,70 +1,35 @@
 ---
-import { SOCIALS } from 'cms/constants';
-import CalMeetButton from '@/components/CalMeetButton.astro';
-import BookCta from '@/components/sections/BookCta.astro';
-import Button from '@/components/ui/Button.astro';
-import Input from '@/components/ui/Input.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { SchemaMarkup } from '@/lib/utils';
+import { SOCIALS } from "cms/constants";
+import CalMeetButton from "@/components/CalMeetButton.astro";
+import Button from "@/components/ui/Button.astro";
+import Input from "@/components/ui/Input.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { SchemaMarkup } from "@/lib/utils";
 
-const title = 'Contact';
+const title = "Contact";
 const description =
-	"Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
+  "Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
 const keywords = [
-	'contact me',
-	'collaborate with me',
-	'project consultation',
-	'business inquiries',
-	'partnership opportunities',
-	'freelance projects',
-	'hire a developer',
+  "contact me",
+  "collaborate with me",
+  "project consultation",
+  "business inquiries",
+  "partnership opportunities",
+  "freelance projects",
+  "hire a developer",
 ];
 const open_graph = {};
 const schema_markup = [
-	SchemaMarkup.get('contact'),
-	SchemaMarkup.get('webpage/contact'),
+  SchemaMarkup.get("contact"),
+  SchemaMarkup.get("webpage/contact"),
 ];
 const sustainability = {
-	co2: 1,
-	link: '/',
+  co2: 1,
+  link: "/",
 };
 const seo = { title, keywords, description, open_graph, schema_markup };
 
-// TODO - Schedule call with form parameters
-// TODO - Add form validation
-// TODO - Add form submission
 // TODO - Add form loading state
-// TODO - Add form thank you message (TOAST)
-
-const errors = { username: '', email: '', password: '' };
-
-// if (Astro.request.method === "POST") {
-//   try {
-//     const data = await Astro.request.formData();
-//     const name = data.get("username");
-//     const email = data.get("email");
-//     const password = data.get("password");
-//     // Do something with the data
-//     if (typeof name !== "string" || name.length < 1) {
-//       errors.username += "Please enter a username. ";
-//     }
-//     if (
-//       typeof email !== "string" ||
-//       false
-//       // !isValidEmail(email)
-//     ) {
-//       errors.email += "Email is not valid. ";
-//     }
-//     if (typeof password !== "string" || password.length < 6) {
-//       errors.password += "Password must be at least 6 characters. ";
-//     }
-//   } catch (error) {
-//     if (error instanceof Error) {
-//       console.error(error.message);
-//     }
-//   }
-// }
-
 // Drag and drop attach files, add a nice video, pdf, and image logo. Show a list of files attached with uploading animation. This must feel like ios
 ---
 
@@ -94,51 +59,44 @@ const errors = { username: '', email: '', password: '' };
       I usually reply within 24 hours.
     </p>
 
-    <form class="mt-8 grid grid-cols-2 gap-4 magic-fade-down delay-900">
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_name"
-          label="Full Name"
-          placeholder="9820748096"
-        />
-        {errors.username && <p>{errors.username}</p>}
-      </div>
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_email"
-          type="email"
-          label="Contact Email"
-          placeholder="harvey.specter@suits.com"
-        />
-        {errors.email && <p>{errors.email}</p>}
-      </div>
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_name"
-          label="Name of Company"
-          placeholder="Harvey Specter"
-        />
-        {errors.username && <p>{errors.username}</p>}
-      </div>
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_name"
-          label="Age of Company"
-          placeholder="Harvey Specter"
-        />
-        {errors.username && <p>{errors.username}</p>}
-      </div>
+    <form
+      class="mt-8 grid grid-cols-2 gap-4 magic-fade-down delay-900"
+      data-submitted=""
+    >
+      <Input
+        name="full_name"
+        label="Full Name"
+        placeholder="Steve Jobs"
+        wrapperClass="max-md:col-span-2"
+      />
+      <Input
+        name="email"
+        type="email"
+        label="Contact Email"
+        placeholder="harvey.specter@suits.com"
+        wrapperClass="max-md:col-span-2"
+      />
+      <Input
+        name="company_name"
+        label="Name of Company"
+        placeholder="Perplexity AI"
+        wrapperClass="max-md:col-span-2"
+      />
+      <Input
+        name="company_age"
+        label="Age of Company"
+        placeholder="Select"
+        wrapperClass="max-md:col-span-2"
+      />
       <div class="group relative col-span-2">
-        <label
-          for="contactForm_details"
-          class="mb-1 block font-medium text-text-primary"
-        >
+        <label for="details" class="mb-1 block font-medium text-text-primary">
           Tell me about your project:
         </label>
         <textarea
-          id="contactForm_details"
+          id="details"
+          name="details"
           placeholder="Feel free to write here..."
-          class="peer block h-64 w-full rounded-md bg-bg-primary px-4 py-2 border border-border/10 placeholder:text-text-tertiary group-hover:pb-24"
+          class="peer block h-64 w-full rounded-xl bg-bg-primary px-4 py-2 border border-border/20 placeholder:text-text-tertiary/60 group-hover:pb-24"
         ></textarea>
         <!-- TODO: Handle responsiveness -->
         <div
@@ -151,58 +109,106 @@ const errors = { username: '', email: '', password: '' };
           prototypes, existing websites, or sources of inspiration. This will
           help me to understand your project better.
         </div>
-      </div><div class="max-md:col-span-2 col-span-2">
-        <Input
-          id="contactForm_phone"
-          type="tel"
-          label="Attach Files"
-          placeholder="+91 9876543210"
-        />
       </div>
-
-      <!-- Add Turnstile Captcha or Google Recaptcha -->
-
-      <!-- TODO: Response collected successfully. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three hours</span>. -->
-
-      <div class="mt-4">
-        <Button type="submit" variant="primary" size="md">Submit Inquiry</Button
-        >
-      </div>
+      <Input
+        name="attachments"
+        type="tel"
+        label="Attach Files"
+        placeholder="+91 9876543210"
+        wrapperClass="max-md:col-span-2"
+      />
     </form>
 
-    <div class="mt-16 text-text-tertiary magic-fade-down delay-1200">
-      <div>
-        <p class="mb-2">
-          {"Prefer a more direct approach?  "}
-        </p>
-        {"Email me at"}
-        <a
-          href={`mailto:${SOCIALS.email}`}
-          class="font-medium text-text-secondary"
-        >
-          {SOCIALS.email}
-        </a>
-        {" or "}
-        <CalMeetButton
-          class="font-medium underline underline-offset-4 hover:underline-offset-8 cursor-pointer"
-          text="Schedule a call"
-        />
-      </div>
-      <div>Social Links + Discord User ID Link</div>
-    </div>
+    <!-- Add Turnstile Captcha or Google Recaptcha -->
 
-    <!-- Your message has been sent. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three</span> hours. -->
-    <!-- TODO - 3 hours during working hours and 12 hours during non-working hours and 24 hours during non-working days -->
+    <!-- TODO: Response collected successfully. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three hours</span>. -->
+
+    <div class="mt-4 col-span-2">
+      <Button type="submit" variant="primary" size="md" class:list={["mx-auto"]}
+        >Submit Inquiry</Button
+      >
+    </div>
   </main>
 
-  <script>
-    import { actions } from "astro:actions";
+  <div>
+    <p>
+      Your message has been sent. Expect a reply within <span
+        id="eta-text"
+        class="font-semibold underline underline-offset-4 decoration-dashed"
+      >
+        twenty-four
+      </span> hours.
+    </p>
+  </div>
 
-    const button = document.querySelector("button");
-    button?.addEventListener("click", async () => {
-      // Show alert pop-up with greeting from action
-      // const { data, error } = await actions.getGreeting({ name: "Houston" });
-      // if (!error) alert(data);
-    });
-  </script>
+  <div class="mt-16 text-text-tertiary magic-fade-down delay-1200">
+    <div>
+      <div class="mb-2">
+        {"Prefer a more direct approach?  "}
+        <CalMeetButton
+          class="mx-0.5 font-medium hover:text-text-primary px-2 py-1"
+          text="Schedule a call"
+        />
+        {"or"}
+      </div>
+      <a
+        href={`mailto:${SOCIALS.email}`}
+        class="mx-0.5 font-medium hover:text-text-primary border border-border/20 bg-bg-primary rounded-md px-2 py-1"
+        >{SOCIALS.email}</a
+      >
+      <!-- <div class="mt-1"></div> -->
+      <a
+        href={SOCIALS.x}
+        class="font-medium hover:text-text-primary border border-border/20 rounded-md px-2 py-1 bg-bg-primary mr-2"
+      >
+        Twitter
+      </a>
+      <a
+        href={SOCIALS.linkedin}
+        class="font-medium hover:text-text-primary border border-border/20 rounded-md px-2 py-1 bg-bg-primary"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
 </LandingLayout>
+
+<script>
+  import { actions } from "astro:actions";
+
+  const button = document.querySelectorAll("button[type='submit']");
+  button.forEach((button) => {
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      button.textContent = "Sending..."; // TODO: Add a loading spinner
+
+      const form = document.querySelector("form");
+      if (!form) return;
+
+      const formData = new FormData(form);
+      const response = await actions.contactForm(formData);
+      console.log(response);
+
+      button.disabled = false;
+      button.textContent = "Submit Inquiry";
+
+      if (response.error) {
+        const { fields } = response.error;
+        const ids = Object.keys(fields);
+        for (const id of ids) {
+          const input = document.getElementById(id);
+          const error_div = document.querySelector(`[for="${id}"] + p`);
+          if (!input || !error_div) continue;
+          const error = "Required"; // fields[id][0];
+          input.setCustomValidity(error || "");
+          error_div.textContent = error || "";
+        }
+        return;
+      }
+
+      form.setAttribute("data-submitted", "true");
+      const etaText = document.getElementById("eta-text");
+      if (etaText) etaText.textContent = response.data.eta;
+    });
+  });
+</script>

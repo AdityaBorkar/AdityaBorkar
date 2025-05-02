@@ -29,67 +29,69 @@ const { class: className, text } = Astro.props;
 </button>
 
 <script>
-  import { animate, stagger } from "motion";
+  // import { animate, stagger } from "motion";
 
-  const containers = document.querySelectorAll('[data-animate="text-roll"]');
-  containers.forEach((container) => {
-    // --- Animation Logic ---
+  // const containers = document.querySelectorAll('[data-animate="text-roll"]');
+  // containers.forEach((container) => {
+  //   // --- Animation Logic ---
 
-    const DURATION = 0.7; // Adjust timing for rotation
-    const STAGGER_DELAY = 0.04;
-    const BLUR_AMOUNT = "4px"; // Blur might need tweaking for rotation
-    const ROTATION_X_AMOUNT = -90; // Degrees to rotate from/to
-    const Z_DEPTH = -30; // Optional Z-depth for more 3D feel
+  //   const DURATION = 0.7; // Adjust timing for rotation
+  //   const STAGGER_DELAY = 0.04;
+  //   const BLUR_AMOUNT = "4px"; // Blur might need tweaking for rotation
+  //   const ROTATION_X_AMOUNT = -90; // Degrees to rotate from/to
+  //   const Z_DEPTH = -30; // Optional Z-depth for more 3D feel
 
-    const charSpans = container.childNodes;
-    if (charSpans.length === 0) return;
+  //   const charSpans = container.childNodes;
+  //   if (charSpans.length === 0) return;
 
-    container.addEventListener("mouseenter", () => {
-      animate(
-        charSpans, // Use querySelectorAll result
-        {
-          // Start rotated, blurred, slightly back in Z, and transparent
-          // End at normal rotation, focused, normal Z, and opaque
-          transform: [
-            `rotateX(${ROTATION_X_AMOUNT}deg) `, // translateZ(${Z_DEPTH}px)
-            "rotateX(0deg) translateZ(0px)",
-          ],
-          opacity: [0, 1],
-          filter: [`blur(${BLUR_AMOUNT})`, "blur(0px)"],
-        },
-        {
-          duration: DURATION,
-          delay: stagger(STAGGER_DELAY),
-          ease: [0.34, 1.56, 0.64, 1], // A spring-like ease often works well for rotations
-        },
-      );
-    });
+  //   container.addEventListener("mouseenter", () => {
+  //     animate(
+  //       charSpans, // Use querySelectorAll result
+  //       {
+  //         // Start rotated, blurred, slightly back in Z, and transparent
+  //         // End at normal rotation, focused, normal Z, and opaque
+  //         transform: [
+  //           `rotateX(${ROTATION_X_AMOUNT}deg) `, // translateZ(${Z_DEPTH}px)
+  //           "rotateX(0deg) translateZ(0px)",
+  //         ],
+  //         opacity: [0, 1],
+  //         filter: [`blur(${BLUR_AMOUNT})`, "blur(0px)"],
+  //       },
+  //       {
+  //         duration: DURATION,
+  //         delay: stagger(STAGGER_DELAY),
+  //         ease: [0.34, 1.56, 0.64, 1], // A spring-like ease often works well for rotations
+  //       },
+  //     );
+  //   });
 
-    // Exit Animation
-    container.addEventListener("mouseleave", () => {
-      animate(
-        charSpans, // Use querySelectorAll result
-        {
-          // Start normal, end rotated back the other way (or same way), blurred, back in Z, transparent
-          transform: [
-            "rotateX(0deg) translateZ(0px)",
-            `rotateX(${-ROTATION_X_AMOUNT}deg) `, // Rotate other direction translateZ(${Z_DEPTH}px)
-          ],
-          opacity: [1, 0],
-          filter: ["blur(0px)", `blur(${BLUR_AMOUNT})`],
-        },
-        {
-          duration: DURATION * 0.6,
-          delay: stagger(STAGGER_DELAY, { from: "last" }),
-          ease: [0.36, 0, 0.66, -0.56], // Ease-in counterpart
-        },
-      );
-    });
-  });
+  //   // Exit Animation
+  //   container.addEventListener("mouseleave", () => {
+  //     animate(
+  //       charSpans, // Use querySelectorAll result
+  //       {
+  //         // Start normal, end rotated back the other way (or same way), blurred, back in Z, transparent
+  //         transform: [
+  //           "rotateX(0deg) translateZ(0px)",
+  //           `rotateX(${-ROTATION_X_AMOUNT}deg) `, // Rotate other direction translateZ(${Z_DEPTH}px)
+  //         ],
+  //         opacity: [1, 0],
+  //         filter: ["blur(0px)", `blur(${BLUR_AMOUNT})`],
+  //       },
+  //       {
+  //         duration: DURATION * 0.6,
+  //         delay: stagger(STAGGER_DELAY, { from: "last" }),
+  //         ease: [0.36, 0, 0.66, -0.56], // Ease-in counterpart
+  //       },
+  //     );
+  //   });
+  // });
 </script>
 
 <!-- Contact Form: Collect only necessary data (e.g., name, email) with explicit user consent and explain its use. -->
 <script is:inline>
+  // @ts-nocheck
+
   (function (C, A, L) {
     let p = function (a, ar) {
       a.q.push(ar);

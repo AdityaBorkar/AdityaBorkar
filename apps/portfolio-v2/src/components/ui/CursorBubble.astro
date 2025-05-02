@@ -13,7 +13,7 @@ const { text, fillColor } = Astro.props;
   import { spring } from "motion";
 
   for (const bubble of document.querySelectorAll("[data-figma-cursor")) {
-    bubble.addEventListener("mouseover", (e) => {
+    bubble.addEventListener("mouseover", () => {
       if (window.innerWidth < 768) return;
 
       const { randomTop, randomLeft } = getRandomPosition();

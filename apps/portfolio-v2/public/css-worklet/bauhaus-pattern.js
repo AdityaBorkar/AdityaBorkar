@@ -143,7 +143,7 @@ class BauhausPattern {
 
 		const patternSize = props.get('--pattern-size').value;
 		const patternDetail = props.get('--pattern-detail').value;
-		const seed = props.get('--pattern-seed').value;
+		// const seed = props.get('--pattern-seed').value;
 		const colors = props.getAll('--pattern-colors').map((c) => c.toString());
 
 		// random.use(seedrandom(seed));
