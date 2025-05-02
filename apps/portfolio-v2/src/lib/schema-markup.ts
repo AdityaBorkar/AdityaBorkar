@@ -1,4 +1,4 @@
-import type { WithContext, Thing } from 'schema-dts';
+import type { Thing, WithContext } from 'schema-dts';
 
 // Define all available schema markup types based on files in cms/schema-markup
 export type SchemaMarkupType =
@@ -52,6 +52,7 @@ export const SchemaMarkup = {
 		try {
 			// const module = await import(`cms/schema-markup/${type}`);
 			// return module.default;
+			// @ts-expect-error WORK-IN-PROGRESS
 			return {};
 		} catch (error) {
 			console.error(`Failed to load schema markup for type: ${type}`, error);

@@ -1,4 +1,4 @@
-import { SOCIALS } from 'cms/schema-markup/socials';
+import { SOCIALS } from 'cms/constants';
 import type { ContactPoint, WithContext } from 'schema-dts';
 
 export const Contact_AdityaBorkar: WithContext<ContactPoint> = {

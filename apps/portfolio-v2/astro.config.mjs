@@ -18,7 +18,19 @@ export default defineConfig({
 	integrations: [react(), mdx(), sitemap()],
 	vite: {
 		plugins: [tailwindcss(), basicSsl()],
-		ssr: { external: ['node:fs', 'node:path'] },
+		ssr: {
+			external: [
+				'node:fs',
+				'node:path',
+				'fs',
+				'node:crypto',
+				'child_process',
+				'node:os',
+				'node:events',
+				'node:stream',
+				'node:util',
+			],
+		},
 		resolve: {
 			// Use react-dom/server.edge instead of react-dom/server.browser for React 19.
 			// Without this, MessageChannel from node:worker_threads needs to be polyfilled.

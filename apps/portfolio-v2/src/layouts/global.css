@@ -8,14 +8,14 @@
 @theme {
 	--font-serif: var(--font-lora), serif;
 	--font-sans-serif: var(--font-inter), sans-serif;
-	--color-background: var(--color-neutral-200); /*#fdfff4;*/ /* var(--color-neutral-100); */
-	--color-bg-primary: var(--color-neutral-100);
-	--color-bg-secondary: var(--color-neutral-200);
-	--color-bg-tertiary: var(--color-neutral-300);
-	--color-text: var(--color-neutral-700);
-	--color-text-primary: var(--color-neutral-900);
-	--color-text-secondary: var(--color-neutral-700);
-	--color-text-tertiary: var(--color-neutral-600);
+	--color-background: var(--color-neutral-200);
+	--color-bg-primary: var(--color-neutral-50);
+	--color-bg-secondary: var(--color-neutral-100);
+	--color-bg-tertiary: var(--color-neutral-200);
+	--color-text: var(--color-neutral-800);
+	--color-text-primary: var(--color-slate-950);
+	--color-text-secondary: var(--color-slate-800);
+	--color-text-tertiary: var(--color-slate-700);
 	--color-text-quaternary: var(--color-neutral-500);
 	--color-border: var(--color-neutral-900);
 }
@@ -308,7 +308,7 @@
     animation: shine 5s infinite ease-in-out;
 } */
 
-@utility magic-fade {
+/* @utility magic-fade {
 	@apply starting:blur-sm starting:opacity-0 duration-1500;
 }
 
@@ -322,7 +322,7 @@
 
 @utility magic-fade-right {
 	@apply starting:blur-sm starting:-translate-x-4 starting:opacity-0 duration-1000 ease-in-out;
-}
+} */
 
 @utility shiny-backdrop-effect {
 	@apply relative;

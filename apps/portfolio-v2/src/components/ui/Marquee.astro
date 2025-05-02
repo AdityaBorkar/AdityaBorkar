@@ -1,21 +1,21 @@
 ---
 interface Props {
-  id?: string;
-  class?: string;
-  duration?: string;
-  reverse?: boolean;
-  vertical?: boolean;
-  pauseOnHover?: boolean;
-  repeat?: number;
+	id?: string;
+	class?: string;
+	duration?: string;
+	reverse?: boolean;
+	vertical?: boolean;
+	pauseOnHover?: boolean;
+	repeat?: number;
 }
 
 const {
-  repeat = 2,
-  vertical = false,
-  reverse = false,
-  pauseOnHover = false,
-  class: className,
-  duration = "10s",
+	repeat = 2,
+	vertical = false,
+	reverse = false,
+	pauseOnHover = false,
+	class: className,
+	duration = '10s',
 } = Astro.props;
 ---
 

@@ -1,28 +1,25 @@
 ---
-import MenuIcon from "@/assets/icons/Menu.svg";
-import Theme from "./Theme.astro";
+import MenuIcon from '@/assets/icons/Menu.svg';
+import Theme from './Theme.astro';
 
 const NavItems = [
-    { link: "/", label: "Home" },
-    { link: "/about", label: "About" },
-    { link: "/services", label: "Services" },
-    { link: "/projects", label: "Projects" },
-    // { link: "/blog", label: "Blog" },
-    { link: "/contact", label: "Contact" },
+	{ link: '/', label: 'Home' },
+	{ link: '/about', label: 'About' },
+	{ link: '/services', label: 'Services' },
+	{ link: '/projects', label: 'Projects' },
+	// { link: "/blog", label: "Blog" },
+	{ link: '/contact', label: 'Contact' },
 ];
 
-const path = "";
-
-// TODO: Hide Navbar on scroll
-// TODO: Animate Header only on Theme Change
-// Disable transition:persist for THEME TOGGLE
+const path = '';
 ---
 
 <header
     id="primary-header"
     data-open=""
     class:list={[
-        "group/header rounded-3xl w-[80vw] max-w-[54rem] fixed top-4 z-50 mx-auto select-none mt-4 border border-border/10 px-2 bg-bg-primary/50 shadow-bg-tertiary/10 shadow-md backdrop-blur-3xl",
+        "group/header rounded-3xl w-[80vw] max-w-[54rem] fixed top-4 z-50 mx-auto select-none mt-4 border border-border/10 px-2 shadow-bg-tertiary/10 shadow-md backdrop-blur-lg",
+        "bg-bg-primary/50",
         "md:top-8 md:w-[85vw] md:left-[calc(50%-27rem)] max-md:left-[10vw]",
     ]}
     transition:persist
@@ -52,12 +49,12 @@ const path = "";
         </div>
 
         <nav
-            class="relative z-20 hidden flex-row items-center md:flex lg:gap-2"
+            class="relative z-20 hidden flex-row items-center md:flex"
             id="header-nav-wrapper"
         >
             <div
                 data-header-shadow
-                class="absolute right-0 -top-1 -z-10 h-9 w-20 rounded-full bg-bg-primary opacity-0 duration-300"
+                class="absolute right-0 -top-1 -z-10 h-9 w-20 rounded-full bg-bg-tertiary opacity-0 duration-300"
             >
             </div>
             {
@@ -66,9 +63,7 @@ const path = "";
                         data-header-link
                         href={link}
                         class:list={[
-                            "relative h-fit cursor-pointer rounded-full px-4 py-1 text-sm font-medium text-text-secondary hover:text-text-primary",
-                            // path === link &&
-                            //   'after:bg-bg-secondary after:absolute after:-bottom-1 after:left-[37.5%] after:h-2 after:w-1/4 after:rounded-md after:bg-amber-500 after:blur after:dark:bg-amber-800',
+                            "relative h-fit cursor-pointer rounded-full px-4 lg:px-5 py-1 text-sm font-medium text-text-secondary hover:text-text-primary active:ring-0",
                             path === link && "text-text-primary",
                             path === link &&
                                 "before:absolute before:-bottom-2.5 before:left-[10%] before:w-4/5 before:rounded-[4px] before:border-b before:border-amber-600",
@@ -119,8 +114,6 @@ const path = "";
                         class:list={[
                             "relative h-fit cursor-pointer rounded-full px-4 py-1 font-medium text-text-secondary hover:text-text-primary",
                             path === link && "text-text-primary",
-                            // path === link &&
-                            //   "after:bg-bg-secondary after:absolute after:-bottom-1 after:left-[37.5%] after:h-2 after:w-1/4 after:rounded-md after:bg-amber-500 after:blur after:dark:bg-amber-800",
                             path === link &&
                                 "before:absolute before:-bottom-2.5 before:left-[10%] before:w-4/5 before:rounded-[4px] before:border-b before:border-amber-600",
                             "text-lg",

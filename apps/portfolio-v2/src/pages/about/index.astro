@@ -1,77 +1,82 @@
 ---
-import { Image } from "astro:assets";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
-import Icon from "@/components/ui/Icon.astro";
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { getImage, SchemaMarkup } from "@/lib/utils";
-import BentoImage from "./_BentoImage.astro";
-import Heading from "./_Heading.astro";
-import Paragraph from "./_Paragraph.astro";
+import { Image } from 'astro:assets';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Icon from '@/components/ui/Icon.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { getImage, SchemaMarkup } from '@/lib/utils';
+import BentoImage from './_BentoImage.astro';
+import Heading from './_Heading.astro';
+import Paragraph from './_Paragraph.astro';
 
 // SEO:
 
 const title =
-  "Aditya Borkar - Freelance Product Engineer & Full-Stack Developer";
+	'Aditya Borkar - Freelance Product Engineer & Full-Stack Developer';
 const description =
-  "Meet Aditya Borkar, a passionate Product Developer and Full-Stack Engineer from Navi Mumbai. With expertise in web development, UX design, and AI, I create innovative solutions that help businesses thrive. Learn about my journey, projects and let's connect over coffee!";
+	"Meet Aditya Borkar, a passionate Product Developer and Full-Stack Engineer from Navi Mumbai. With expertise in web development, UX design, and AI, I create innovative solutions that help businesses thrive. Learn about my journey, projects and let's connect over coffee!";
 const keywords = [
-  // Core Professional Identity
-  "freelance product engineer",
-  "freelance full stack developer",
-  "remote developer india",
-  "hire product developer",
+	// Core Professional Identity
+	'freelance product engineer',
+	'freelance full stack developer',
+	'remote developer india',
+	'hire product developer',
 
-  // Expertise Areas
-  "web application development",
-  "custom software development",
-  "frontend development freelancer",
-  "backend development consultant",
-  "AI development services",
-  "UX engineering",
+	// Expertise Areas
+	'web application development',
+	'custom software development',
+	'frontend development freelancer',
+	'backend development consultant',
+	'AI development services',
+	'UX engineering',
 
-  // Technology Stack
-  "react developer for hire",
-  "nextjs expert",
-  "typescript developer",
-  "nodejs developer",
-  "aws certified developer",
+	// Technology Stack
+	'react developer for hire',
+	'nextjs expert',
+	'typescript developer',
+	'nodejs developer',
+	'aws certified developer',
 
-  // Service Types
-  "product development consulting",
-  "technical architecture consulting",
-  "MVP development",
-  "startup technology consultant",
-  "software modernization expert",
+	// Service Types
+	'product development consulting',
+	'technical architecture consulting',
+	'MVP development',
+	'startup technology consultant',
+	'software modernization expert',
 
-  // Location & Work Model
-  "indian freelance developer",
-  "navi mumbai developer",
-  "remote software consultant",
-  "offshore development partner",
+	// Location & Work Model
+	'indian freelance developer',
+	'navi mumbai developer',
+	'remote software consultant',
+	'offshore development partner',
 
-  // Qualifications & Trust Signals
-  "toptal vetted developer",
-  "google developer expert",
-  "aws certified engineer",
-  "medusa expert developer",
+	// Qualifications & Trust Signals
+	'toptal vetted developer',
+	'google developer expert',
+	'aws certified engineer',
+	'medusa expert developer',
 
-  // Industry Focus
-  "saas development",
-  "enterprise software development",
-  "startup product development",
-  "b2b software solutions",
+	// Industry Focus
+	'saas development',
+	'enterprise software development',
+	'startup product development',
+	'b2b software solutions',
 ];
 const schema_markup = [
-  SchemaMarkup.get("person"),
-  SchemaMarkup.get("webpage/about"),
+	SchemaMarkup.get('person'),
+	SchemaMarkup.get('webpage/about'),
 ];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
-const sustainability = { co2: 0.25, link: "adityab-tech" };
+const sustainability = { co2: 0.25, link: 'adityab-tech' };
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
-  <main class="mx-auto w-full px-4 md:w-[80vw] md:max-w-[48rem] py-20">
+  <main
+    class:list={[
+      "mx-auto w-full px-4 md:w-[80vw] md:max-w-[48rem] py-20",
+      "bg-background", // ? FIX FOR BACKDROP BLUR
+    ]}
+  >
     <div
       class="mb-8 flex flex-col justify-between md:items-center md:flex-row magic-fade-down delay-300"
     >

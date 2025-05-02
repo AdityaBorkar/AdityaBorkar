@@ -1,16 +1,16 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import Image from "astro/components/Image.astro";
-import { getImage } from "@/lib/assets";
+import type { CollectionEntry } from 'astro:content';
+import Image from 'astro/components/Image.astro';
+import { getImage } from '@/lib/assets';
 
-interface Props extends CollectionEntry<"projects"> {
-  hideTags?: boolean;
+interface Props extends CollectionEntry<'projects'> {
+	hideTags?: boolean;
 }
 
 const {
-  id,
-  data: { title, description, hero_image, tags, hero_tag },
-  hideTags = false,
+	id,
+	data: { title, description, hero_image, tags, hero_tag },
+	hideTags = false,
 } = Astro.props;
 ---
 

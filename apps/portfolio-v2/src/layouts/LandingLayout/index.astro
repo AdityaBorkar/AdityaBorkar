@@ -1,24 +1,24 @@
 ---
-import type { ComponentProps } from "astro/types";
-import { SOCIALS } from "cms/constants";
-import GitHubIcon from "@/assets/icons/GitHub.svg";
-import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
-import MailIcon from "@/assets/icons/Mail.svg";
-import RefreshIcon from "@/assets/icons/Refresh.svg";
-import TwitterIcon from "@/assets/icons/Twitter.svg";
-import AiAssistant from "@/components/AiAssistant.astro";
-import Button from "@/components/ui/Button.astro";
-import Section from "@/components/ui/Section.astro";
-import RootLayout from "../RootLayout.astro";
-import FooterLink from "./FooterLink.astro";
-import GenerativeArt from "./GenerativeArt.astro";
-import Navbar from "./Navbar.astro";
+import type { ComponentProps } from 'astro/types';
+import { SOCIALS } from 'cms/constants';
+import GitHubIcon from '@/assets/icons/GitHub.svg';
+import LinkedinIcon from '@/assets/icons/LinkedIn.svg';
+import MailIcon from '@/assets/icons/Mail.svg';
+import RefreshIcon from '@/assets/icons/Refresh.svg';
+import TwitterIcon from '@/assets/icons/Twitter.svg';
+import AiAssistant from '@/components/AiAssistant.astro';
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import RootLayout from '../RootLayout.astro';
+import FooterLink from './FooterLink.astro';
+import GenerativeArt from './GenerativeArt.astro';
+import Navbar from './Navbar.astro';
 
 interface Props extends ComponentProps<typeof RootLayout> {
-  sustainability?: {
-    co2: number;
-    link: string;
-  };
+	sustainability?: {
+		co2: number;
+		link: string;
+	};
 }
 
 const { sustainability, ...seo } = Astro.props;
@@ -130,7 +130,7 @@ const { sustainability, ...seo } = Astro.props;
             <a
               target="_blank"
               href={`https://www.websitecarbon.com/website/adityab-tech/${sustainability.link}`}
-              class="hover:underline underline-offset-8 hover:text-emerald-400 cursor-alias"
+              class="hover:underline underline-offset-8 dark:hover:text-emerald-400 hover:text-emerald-700 cursor-alias"
             >
               This page is eco-friendly, consumes 100% Clean Energy and produces
               only 🍃 {sustainability.co2}g of CO2 on every visit.

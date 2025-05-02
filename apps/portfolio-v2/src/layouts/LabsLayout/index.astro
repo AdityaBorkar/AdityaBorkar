@@ -1,15 +1,15 @@
 ---
-import type { ComponentProps } from "astro/types";
-import RootLayout from "../RootLayout.astro";
+import { Font } from 'astro:assets';
+import type { ComponentProps } from 'astro/types';
 // import Navbar from "@/components/ui/Navbar.astro";
-import AiAssistant from "@/components/AiAssistant.astro";
-import { Font } from "astro:assets";
+import AiAssistant from '@/components/AiAssistant.astro';
+import RootLayout from '../RootLayout.astro';
 
 interface Props extends ComponentProps<typeof RootLayout> {
-    sustainability?: {
-        co2: number;
-        link: string;
-    };
+	sustainability?: {
+		co2: number;
+		link: string;
+	};
 }
 
 const { sustainability, ...seo } = Astro.props;

@@ -1,25 +1,30 @@
 ---
-import Section from "@/components/ui/Section.astro";
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { SchemaMarkup } from "@/lib/utils";
-import CookiePolicy from "./_cookie-policy.mdx";
-import PrivacyPolicy from "./_privacy-policy.mdx";
-import TermsOfService from "./_terms-of-service.mdx";
+import Section from '@/components/ui/Section.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { SchemaMarkup } from '@/lib/utils';
+import CookiePolicy from './_cookie-policy.mdx';
+import PrivacyPolicy from './_privacy-policy.mdx';
+import TermsOfService from './_terms-of-service.mdx';
 
-const title = "Legal Terms";
-const description = "Legal Terms";
-const keywords = ["legal", "terms"];
-const schema_markup = [SchemaMarkup.get("webpage/plain")];
+const title = 'Legal Terms';
+const description = 'Legal Terms';
+const keywords = ['legal', 'terms'];
+const schema_markup = [SchemaMarkup.get('webpage/page')];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
-  co2: 0.25,
-  link: "adityab-tech",
+	co2: 0.25,
+	link: 'adityab-tech',
 };
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
-  <Section class:list={["py-24 "]}>
+  <Section
+    class:list={[
+      "pt-24",
+      "bg-background", // ? FIX FOR BACKDROP BLUR
+    ]}
+  >
     <div class="flex flex-row mx-auto w-fit gap-4">
       <a
         href="#privacy-policy"
@@ -41,7 +46,13 @@ const sustainability = {
       </a>
     </div>
   </Section>
-  <div class="prose dark:prose-invert min-h-screen mx-auto max-w-[48rem]">
+
+  <div
+    class:list={[
+      "prose dark:prose-invert py-16 min-h-screen mx-auto max-w-[48rem]",
+      "bg-background", // ? FIX FOR BACKDROP BLUR
+    ]}
+  >
     <main id="privacy-policy">
       <PrivacyPolicy />
     </main>

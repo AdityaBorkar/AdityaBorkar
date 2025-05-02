@@ -1,46 +1,48 @@
 ---
-import { getCollection } from "astro:content";
-import BookCta from "@/components/sections/BookCta.astro";
-import Icon from "@/components/ui/Icon.astro";
-import InlineBold from "@/components/ui/InlineBold.astro";
-import Section from "@/components/ui/Section.astro";
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { SchemaMarkup } from "@/lib/utils";
-import ProjectCard from "./_ProjectCard.astro";
+import { getCollection } from 'astro:content';
+import BookCta from '@/components/sections/BookCta.astro';
+import Icon from '@/components/ui/Icon.astro';
+import InlineBold from '@/components/ui/InlineBold.astro';
+import Section from '@/components/ui/Section.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { SchemaMarkup } from '@/lib/utils';
+import ProjectCard from './_ProjectCard.astro';
 
-const title = "Projects";
-const description = "Projects";
-const keywords = ["projects"];
-const schema_markup = await Promise.all([
-  SchemaMarkup.get("work"),
-  SchemaMarkup.get("product"),
-  SchemaMarkup.get("webpage/collection"),
-]);
+const title = 'Projects';
+const description = 'Projects';
+const keywords = ['projects'];
+const schema_markup = [
+	SchemaMarkup.get('work'),
+	SchemaMarkup.get('product'),
+	SchemaMarkup.get('webpage/collection'),
+];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
-  co2: 1,
-  link: "",
+	co2: 1,
+	link: '',
 };
 
-const AllProjects = await getCollection("projects");
+const AllProjects = await getCollection('projects');
 const AllCategories = [
-  ...new Set(AllProjects.flatMap((project) => project.data.filter_category)),
+	...new Set(AllProjects.flatMap((project) => project.data.filter_category)),
 ];
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
   <Section>
-    <h1 class:list={["mt-16 text-3xl font-bold", "md:mt-36 md:text-5xl"]}>
+    <h1 class:list={["pt-16 text-3xl font-bold", "md:pt-36 md:text-5xl"]}>
       Selected Projects
     </h1>
     <p
       class:list={[
         "mt-8 text-sm text-text-tertiary text-balance leading-relaxed",
-        "md:mt-12 md:max-w-[70%] md:text-base",
+        "md:mt-10 md:max-w-[60%] md:text-base",
       ]}
     >
-      I craft products and signature projects that make a difference.
+      <span class="inline-block italic md:mb-4">
+        I craft products and signature projects that make a difference.
+      </span>
       <br class="hidden md:block" />
       My work empowers businesses to serve <InlineBold
         >better products, enhance efficiency, and boost profitability</InlineBold

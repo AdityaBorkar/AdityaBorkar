@@ -1,14 +1,19 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import Marquee from "@/components/ui/Marquee.astro";
-import { getImage } from "@/lib/assets";
-import CalMeetButton from "@/components/CalMeetButton.astro";
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import CalMeetButton from '@/components/CalMeetButton.astro';
+import Marquee from '@/components/ui/Marquee.astro';
+import { getImage } from '@/lib/assets';
 
-const Clients = await getCollection("clients");
+const Clients = await getCollection('clients');
 ---
 
-<section class="flex h-screen flex-col items-center justify-center">
+<section
+    class:list={[
+        "flex h-screen flex-col items-center justify-center",
+        "bg-background", // ? FIX FOR BACKDROP BLUR
+    ]}
+>
     <div class="relative">
         <Image
             alt=""

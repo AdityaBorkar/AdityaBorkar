@@ -1,15 +1,15 @@
 ---
-import Chat from "@/components/chat/index.tsx";
-import RootLayout from "@/layouts/RootLayout.astro";
-import { SchemaMarkup } from "@/lib/utils";
+import Chat from '@/components/chat/index.tsx';
+import RootLayout from '@/layouts/RootLayout.astro';
+import { SchemaMarkup } from '@/lib/utils';
 
-const title = "Chat with Aditya Borkar";
-const description = "Chat with Aditya Borkar";
-const keywords = ["chat", "aditya borkar", "aditya", "borkar"];
-const schema_markup = [SchemaMarkup.get("webpage/page")];
+const title = 'Chat with Aditya Borkar';
+const description = 'Chat with Aditya Borkar';
+const keywords = ['chat', 'aditya borkar', 'aditya', 'borkar'];
+const schema_markup = [SchemaMarkup.get('webpage/page')];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
-const sustainability = { co2: 0.25, link: "adityab-tech" };
+const sustainability = { co2: 0.25, link: 'adityab-tech' };
 ---
 
 <RootLayout {...seo} sustainability={sustainability}>

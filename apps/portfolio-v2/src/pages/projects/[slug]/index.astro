@@ -62,8 +62,9 @@ export const prerender = true;
   <!-- Breadcrumb -->
   <div
     class:list={[
-      "flex mx-auto max-w-[64rem] flex-row gap-2 text-sm mb-6 mt-12 text-text-tertiary",
-      "max-md:px-4 md:mt-24",
+      "flex mx-auto max-w-[64rem] flex-row gap-2 text-sm pt-12 text-text-tertiary ",
+      "max-md:px-4 md:pt-24",
+      "bg-background", // ? FIX FOR BACKDROP BLUR
     ]}
   >
     <a
@@ -79,7 +80,7 @@ export const prerender = true;
 
   <Section
     class:list={[
-      "grid border-b border-border/20 pb-16",
+      "grid border-b border-border/20 pb-16 pt-6",
       "md:grid-cols-[auto_18rem] md:grid-rows-[1fr_auto] md:auto-rows-max md:gap-x-8",
     ]}
   >

@@ -1,32 +1,32 @@
 ---
-import CalMeetButton from "@/components/CalMeetButton.astro";
-import BookCta from "@/components/sections/BookCta.astro";
-import Button from "@/components/ui/Button.astro";
-import Input from "@/components/ui/Input.astro";
-import LandingLayout from "@/layouts/LandingLayout/index.astro";
-import { SchemaMarkup } from "@/lib/utils";
-import { SOCIALS } from "cms/constants";
+import { SOCIALS } from 'cms/constants';
+import CalMeetButton from '@/components/CalMeetButton.astro';
+import BookCta from '@/components/sections/BookCta.astro';
+import Button from '@/components/ui/Button.astro';
+import Input from '@/components/ui/Input.astro';
+import LandingLayout from '@/layouts/LandingLayout/index.astro';
+import { SchemaMarkup } from '@/lib/utils';
 
-const title = "Contact";
+const title = 'Contact';
 const description =
-  "Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
+	"Reach out to collaborate on innovative projects, insightful podcasts, engaging talks, expert consultations, and exciting collaborations. Let's create something amazing together!";
 const keywords = [
-  "contact me",
-  "collaborate with me",
-  "project consultation",
-  "business inquiries",
-  "partnership opportunities",
-  "freelance projects",
-  "hire a developer",
+	'contact me',
+	'collaborate with me',
+	'project consultation',
+	'business inquiries',
+	'partnership opportunities',
+	'freelance projects',
+	'hire a developer',
 ];
 const open_graph = {};
 const schema_markup = [
-  SchemaMarkup.get("contact"),
-  SchemaMarkup.get("webpage/contact"),
+	SchemaMarkup.get('contact'),
+	SchemaMarkup.get('webpage/contact'),
 ];
 const sustainability = {
-  co2: 1,
-  link: "/",
+	co2: 1,
+	link: '/',
 };
 const seo = { title, keywords, description, open_graph, schema_markup };
 
@@ -36,7 +36,7 @@ const seo = { title, keywords, description, open_graph, schema_markup };
 // TODO - Add form loading state
 // TODO - Add form thank you message (TOAST)
 
-const errors = { username: "", email: "", password: "" };
+const errors = { username: '', email: '', password: '' };
 
 // if (Astro.request.method === "POST") {
 //   try {
@@ -71,12 +71,13 @@ const errors = { username: "", email: "", password: "" };
 <LandingLayout {...seo} sustainability={sustainability}>
   <main
     class:list={[
-      "mx-auto my-12 md:my-36 w-full max-w-[36rem] max-md:px-4 max-md:text-sm",
+      "bg-background", // ? FIX FOR BACKDROP BLUR
+      "mx-auto py-24 md:mb-10 w-full max-w-[40rem] md:px-16 max-md:px-4 max-md:text-sm",
     ]}
   >
     <h2
       class:list={[
-        "mb-4  font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary magic-fade-down delay-300",
+        "mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary magic-fade-down delay-300",
         "text-4xl max-md:text-3xl",
       ]}
     >
@@ -94,6 +95,23 @@ const errors = { username: "", email: "", password: "" };
     </p>
 
     <form class="mt-8 grid grid-cols-2 gap-4 magic-fade-down delay-900">
+      <div class="max-md:col-span-2">
+        <Input
+          id="contactForm_name"
+          label="Full Name"
+          placeholder="9820748096"
+        />
+        {errors.username && <p>{errors.username}</p>}
+      </div>
+      <div class="max-md:col-span-2">
+        <Input
+          id="contactForm_email"
+          type="email"
+          label="Contact Email"
+          placeholder="harvey.specter@suits.com"
+        />
+        {errors.email && <p>{errors.email}</p>}
+      </div>
       <div class="max-md:col-span-2">
         <Input
           id="contactForm_name"
@@ -133,31 +151,13 @@ const errors = { username: "", email: "", password: "" };
           prototypes, existing websites, or sources of inspiration. This will
           help me to understand your project better.
         </div>
-      </div>
-      <div class="max-md:col-span-2 col-span-2">
+      </div><div class="max-md:col-span-2 col-span-2">
         <Input
           id="contactForm_phone"
           type="tel"
           label="Attach Files"
           placeholder="+91 9876543210"
         />
-      </div>
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_name"
-          label="Full Name"
-          placeholder="9820748096"
-        />
-        {errors.username && <p>{errors.username}</p>}
-      </div>
-      <div class="max-md:col-span-2">
-        <Input
-          id="contactForm_email"
-          type="email"
-          label="Contact Email"
-          placeholder="harvey.specter@suits.com"
-        />
-        {errors.email && <p>{errors.email}</p>}
       </div>
 
       <!-- Add Turnstile Captcha or Google Recaptcha -->
@@ -178,7 +178,7 @@ const errors = { username: "", email: "", password: "" };
         {"Email me at"}
         <a
           href={`mailto:${SOCIALS.email}`}
-          class="font-medium underline underline-offset-4 hover:underline-offset-8"
+          class="font-medium text-text-secondary"
         >
           {SOCIALS.email}
         </a>
@@ -194,8 +194,6 @@ const errors = { username: "", email: "", password: "" };
     <!-- Your message has been sent. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three</span> hours. -->
     <!-- TODO - 3 hours during working hours and 12 hours during non-working hours and 24 hours during non-working days -->
   </main>
-
-  <BookCta />
 
   <script>
     import { actions } from "astro:actions";
