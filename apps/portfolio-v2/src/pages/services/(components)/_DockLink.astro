@@ -1,10 +1,10 @@
 ---
-import Icon from '@/components/ui/Icon.astro';
+import Icon from "@/components/ui/Icon.astro";
 
 interface Props {
-	href: string;
-	icon: string;
-	title: string;
+    href: string;
+    icon: string;
+    title: string;
 }
 ---
 
@@ -50,7 +50,7 @@ interface Props {
 <button
     type="button"
     data-href={Astro.props.href}
-    class="dock-link relative group/link bg-bg-primary origin-bottom p-2 size-10 rounded-lg duration-0 hover:border-border/20 border border-border/10"
+    class="dock-link relative group/link bg-bg-primary origin-bottom p-2 size-10 rounded-full duration-0 hover:border-border/20 border border-border/10"
 >
     <div
         class:list={[

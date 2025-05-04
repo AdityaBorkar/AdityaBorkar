@@ -90,11 +90,6 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 
 - Customize Scrollbar
 - PWA Checklist (basics only)
-- Contact Form:
-  - Associate input error messaging with the input it corresponds to.
-  - Make sure that form input errors are displayed in list above the form after submission.
-  - Make sure that error, warning, and success states are not visually communicated by just color.
-  - Contact Form Server Action
 
 ## Content
 
@@ -174,8 +169,6 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 - Legal
   - Navigation
   - https://evilmartians.com/privacy
-- Contact
-  - Form
 - Chat
   - Link it to the footer, and add prompts like lakshb.dev
   - Cookies
@@ -202,12 +195,15 @@ Proceed one thing at a time. Finish it and only then move to the next section.
 - https://docs.astro.build/en/guides/integrations-guide/partytown/ (Analytics with Heatmaps)
 - https://docs.astro.build/en/guides/integrations-guide/sitemap/ (important for site search / seo)
 
-- TODO LIST ON THIS PAGE:
-  - Fade-in-Up Entry on Scroll
-  - Appear images with blur first (use blur-base64 technique)
-- FX IMAGES
+- Appear images with blur first (use blur-base64 technique)
 
 ## Animations
+
+https://www.fancycomponents.dev/docs/components/blocks/simple-marquee
+https://www.fancycomponents.dev/docs/components/blocks/stacking-cards
+https://www.fancycomponents.dev/docs/components/text/scramble-in
+https://cuicui.day/other/cursors
+https://cuicui.day/other/books
 
 luminosity;
 TODO: RESET POSITION OF NAV SHADOW

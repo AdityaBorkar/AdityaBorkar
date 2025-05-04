@@ -1,5 +1,5 @@
 ---
-import DockLink from './_DockLink.astro';
+import DockLink from "./_DockLink.astro";
 ---
 
 <!-- <div
@@ -9,7 +9,9 @@ import DockLink from './_DockLink.astro';
 <div
     id="dock"
     class:list={[
-        "mx-auto h-16 border flex flex-row gap-2 px-4 justify-around border-border/20 bg-bg-primary shadow-lg rounded-2xl py-3 text-center w-[20rem] left-[calc(50%-10rem)] hover:bottom-6 -bottom-6 z-50 translate-y-16 transition-all duration-300",
+        "fixed bottom-36 left-[calc(50%-32rem)] z-30",
+        // left-[calc(50%-10rem)] hover:bottom-6 -bottom-6 z-50 translate-y-16 transition-all duration-300
+        "mx-auto h-16 border flex flex-row gap-4 px-4 justify-around border-border/20 bg-bg-primary shadow-lg rounded-full py-3 text-center w-[20rem]",
         "max-md:bottom-6 max-md:justify-normal max-md:gap-4 max-md:px-4 w-fit",
         "max-md:hidden",
     ]}

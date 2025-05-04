@@ -1,0 +1,13 @@
+---
+interface Props {
+    label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div
+    class="mb-3 font-medium text-text-quaternary group-hover:text-text-quaternary/70 transition-all duration-300"
+>
+    {label}
+</div>

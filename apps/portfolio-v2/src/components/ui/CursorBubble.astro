@@ -1,8 +1,8 @@
 ---
 interface Props {
-	text: string;
-	fillColor: string;
-	class?: string;
+  text: string;
+  fillColor: string;
+  class?: string;
 }
 
 const { text, fillColor } = Astro.props;
@@ -47,7 +47,7 @@ const { text, fillColor } = Astro.props;
 <div
   data-figma-cursor
   class:list={[
-    "absolute whitespace-nowrap font-medium z-10 tracking-wide text-sm py-1 px-2 rounded-full text-white w-fit h-fit",
+    "absolute whitespace-nowrap font-medium z-10 tracking-wide text-sm py-1 px-2 rounded-full text-white w-fit h-fit select-none",
     "will-change-[transform,opacity,filter] transform-origin-center transform-[translate(calc(var(--animate-x)*var(--animate-mass)),calc(var(--animate-y)*var(--animate-mass)))]",
     Astro.props.class,
   ]}

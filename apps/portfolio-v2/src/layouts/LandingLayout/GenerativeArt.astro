@@ -1,4 +1,7 @@
 ---
+import Button from "@/components/ui/Button.astro";
+import RefreshIcon from "@/assets/icons/Refresh.svg";
+
 // Animate: top left to bottom right
 // animate for 3 seconds continuously
 // keep the button rotating and disable for 3 seconds
@@ -12,9 +15,24 @@
 ></script>
 
 <div
-    class="worklet-canvas bg-background"
-    style="background-image: paint(bauhausPattern);"
+    class:list={[
+        "border-border/10 relative",
+        "max-md:h-[25vh] max-md:border-b md:border-r",
+    ]}
 >
+    <Button
+        size="sm"
+        variant="secondary"
+        data-refresh-art
+        class:list={["absolute bottom-2 right-2"]}
+    >
+        <RefreshIcon class="size-5 text-text-tertiary" />
+    </Button>
+    <div
+        class="worklet-canvas bg-background"
+        style="background-image: paint(bauhausPattern);"
+    >
+    </div>
 </div>
 
 <script is:inline>

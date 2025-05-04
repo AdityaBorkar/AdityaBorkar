@@ -10,12 +10,17 @@ interface Props extends VariantProps<typeof buttonVariants> {
 const { type = "button", classList, ...variantProps } = Astro.props;
 
 export const buttonVariants = cva(
-	"block w-fit rounded-lg font-semibold text-background transition-all duration-300 active:scale-80",
+	[
+		"block w-fit select-none rounded-lg font-semibold text-background transition-all duration-300 active:scale-80",
+		"focus:ring-2 focus:ring-text-secondary focus:ring-offset-2 focus:ring-offset-background",
+	],
 	{
 		variants: {
 			variant: {
-				primary:
-					"bg-text-secondary/90 text-bg-primary hover:bg-text-secondary hover:text-bg-secondary active:bg-text-primary",
+				primary: [
+					"bg-text-secondary/90 text-bg-primary active:bg-text-primary",
+					"hover:bg-text-secondary hover:text-bg-secondary focus:bg-text-secondary focus:text-bg-secondary",
+				],
 				secondary:
 					"border border-border/20 bg-background text-text-primary hover:bg-text-secondary hover:text-bg-secondary",
 				hero: "!rounded-full mx-auto border-2 border-border bg-text-secondary px-6 py-3 text-bg-primary text-lg",

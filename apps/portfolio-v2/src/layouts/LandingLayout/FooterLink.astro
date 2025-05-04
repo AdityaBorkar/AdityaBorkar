@@ -2,15 +2,21 @@
 interface Props {
   href: string;
   openInNewTab?: boolean;
+  class?: string;
 }
 
-const { href, openInNewTab = false } = Astro.props;
+const { href, openInNewTab = false, class: className } = Astro.props;
 ---
 
 <a
   href={href}
   target={openInNewTab ? "_blank" : undefined}
-  class="mt-2 gap-1.5 flex flex-row items-center w-full shrink-0 group/link group-hover:text-text-tertiary hover:text-text-primary text-text-secondary"
+  class:list={[
+    "mt-2 gap-1.5 flex flex-row items-center shrink-0 group/link text-text-secondary",
+    "focus:text-text-primary hover:text-text-primary focus:font-medium hover:font-medium",
+    "group-hover:text-text-tertiary",
+    className,
+  ]}
 >
   <slot />
 </a>

@@ -1,28 +1,45 @@
 ---
-import type { ComponentProps } from 'astro/types';
-import { SOCIALS } from 'cms/constants';
-import GitHubIcon from '@/assets/icons/GitHub.svg';
-import LinkedinIcon from '@/assets/icons/LinkedIn.svg';
-import MailIcon from '@/assets/icons/Mail.svg';
-import RefreshIcon from '@/assets/icons/Refresh.svg';
-import TwitterIcon from '@/assets/icons/Twitter.svg';
-import AiAssistant from '@/components/AiAssistant.astro';
-import Button from '@/components/ui/Button.astro';
-import Section from '@/components/ui/Section.astro';
-import RootLayout from '../RootLayout.astro';
-import FooterLink from './FooterLink.astro';
-import GenerativeArt from './GenerativeArt.astro';
-import Navbar from './Navbar.astro';
+import type { ComponentProps } from "astro/types";
+import { SOCIALS } from "cms/constants";
+import GitHubIcon from "@/assets/icons/GitHub.svg";
+import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
+import MailIcon from "@/assets/icons/Mail.svg";
+import TwitterIcon from "@/assets/icons/Twitter.svg";
+import AiAssistant from "@/components/AiAssistant.astro";
+import Section from "@/components/ui/Section.astro";
+import RootLayout from "../RootLayout.astro";
+import FooterLink from "./FooterLink.astro";
+import GenerativeArt from "./GenerativeArt.astro";
+import Navbar from "./Navbar.astro";
+import FooterLinkHeading from "@/layouts/LandingLayout/FooterLinkHeading.astro";
 
 interface Props extends ComponentProps<typeof RootLayout> {
-	sustainability?: {
-		co2: number;
-		link: string;
-	};
+  sustainability?: {
+    co2: number;
+    link: string;
+  };
 }
 
 const { sustainability, ...seo } = Astro.props;
 ---
+
+<script>
+  import { animate } from "motion/mini";
+
+  document.querySelectorAll("[magic-fade]").forEach((element) => {
+    const type = element.getAttribute("magic-fade");
+    const delay = parseFloat(element.getAttribute("animate-delay") || "0");
+    animate(
+      element,
+      {
+        filter: ["blur(10px)", "blur(0px)"],
+        opacity: [0, 1],
+        translate: [type === "down" ? "0px 16px" : "0px -16px", "0px 0px"],
+      },
+      { duration: 0.6, ease: "easeOut", delay },
+    );
+  });
+</script>
 
 <RootLayout {...seo}>
   <Navbar />
@@ -33,59 +50,47 @@ const { sustainability, ...seo } = Astro.props;
 
   <slot />
 
-  <footer class="max-md:px-[5vw] relative z-40 bg-background">
+  <div
+    class="fixed bottom-0 left-0 right-0 w-full h-32 z-40 bg-gradient-to-t from-background via-background/90 via-25% to-transparent pointer-events-none"
+  >
+  </div>
+
+  <footer class="max-md:px-[5vw] relative z-30 bg-background">
     <div
       class="md:mx-auto max-w-[64rem] rounded-4xl bg-bg-primary group mt-16 md:grid grid-cols-2"
     >
-      <div
-        class:list={[
-          "border-border/10 relative",
-          "max-md:h-[25vh] max-md:border-b md:border-r",
-        ]}
-      >
-        <Button
-          variant="secondary"
-          size="sm"
-          class:list={["absolute bottom-2 right-2"]}
+      <GenerativeArt />
+      <div>
+        <div
+          class:list={[
+            "flex px-8 flex-row gap-8 py-8 justify-between",
+            "md:pr-[20%]",
+          ]}
         >
-          <RefreshIcon class="size-5 text-text-quaternary" />
-        </Button>
-        <GenerativeArt />
-      </div>
-      <div class="px-8">
-        <div class="flex flex-row gap-8 py-8 justify-between md:pr-[20%]">
-          <div class="">
-            <div
-              class="mb-3 font-medium text-text-quaternary group-hover:text-text-quaternary/70"
-            >
-              Me
-            </div>
+          <div class="w-full">
+            <FooterLinkHeading label="Me" />
             <FooterLink href="/">Home</FooterLink>
             <FooterLink href="/about">About</FooterLink>
             <FooterLink href="/contact">Contact</FooterLink>
           </div>
-          <div class="">
-            <div
-              class="mb-3 font-medium text-text-quaternary group-hover:text-text-quaternary/70"
-            >
-              Work
-            </div>
+          <div class="w-full">
+            <FooterLinkHeading label="Work" />
             <FooterLink href="/projects">Projects</FooterLink>
             <FooterLink href="/labs">Labs</FooterLink>
-            <!-- <FooterLink href="/blog">Blog</FooterLink> -->
           </div>
-          <div class="">
-            <div
-              class="mb-3 shrink-0 font-medium text-text-quaternary group-hover:text-text-quaternary/70"
+          <div class="w-full">
+            <FooterLinkHeading label="Services" />
+            <FooterLink href="/services" class="w-32"
+              >Product Engineer</FooterLink
             >
-              Services
-            </div>
-            <FooterLink href="/services">Product Engineer</FooterLink>
             <FooterLink href="/services">AI Engineer</FooterLink>
           </div>
         </div>
         <div
-          class:list={["grid grid-cols-[8rem_auto] pb-6 gap-y-1", "md:gap-x-4"]}
+          class:list={[
+            "grid grid-cols-[8rem_auto] px-8 pb-6 gap-y-1",
+            "md:gap-x-4",
+          ]}
         >
           <FooterLink href={SOCIALS.github} openInNewTab>
             <GitHubIcon
@@ -113,37 +118,43 @@ const { sustainability, ...seo } = Astro.props;
           </FooterLink>
           <a
             href="/legal"
-            class="py-2 col-span-2 my-6 block w-fit text-xs text-text-tertiary hover:text-text-secondary"
+            class:list={[
+              "py-2 col-span-2 my-6 block w-fit text-xs text-text-tertiary",
+              "hover:text-text-secondary focus:text-text-secondary focus:font-medium hover:font-medium",
+            ]}
           >
             Read Legal Terms
           </a>
         </div>
       </div>
     </div>
-
-    <Section
-      class="py-12 bg-inherit z-40 relative text-center text-text-tertiary/80"
-    >
-      {
-        sustainability && (
-          <>
-            <a
-              target="_blank"
-              href={`https://www.websitecarbon.com/website/adityab-tech/${sustainability.link}`}
-              class="hover:underline underline-offset-8 dark:hover:text-emerald-400 hover:text-emerald-700 cursor-alias"
-            >
-              This page is eco-friendly, consumes 100% Clean Energy and produces
-              only 🍃 {sustainability.co2}g of CO2 on every visit.
-            </a>
-            <br />
-            <br />
-            <br />
-          </>
-        )
-      }
-      Designed & Developed with ❤️ by Aditya Borkar
-      <br />
-      Copyright © CC BY-NC 4.0
-    </Section>
   </footer>
+
+  <Section
+    class="py-12 bg-inherit z-40 relative text-center text-text-tertiary/80"
+  >
+    {
+      sustainability && (
+        <>
+          <a
+            target="_blank"
+            href={`https://www.websitecarbon.com/website/adityab-tech/${sustainability.link}`}
+            class:list={[
+              "underline-offset-8 cursor-alias transition-all",
+              "hover:font-medium focus:font-medium hover:underline focus:underline dark:hover:text-emerald-400 hover:text-emerald-700 dark:focus:text-emerald-400 focus:text-emerald-700",
+            ]}
+          >
+            This page is eco-friendly, consumes 100% Clean Energy and produces
+            only 🍃 {sustainability.co2}g of CO2 on every visit.
+          </a>
+          <br />
+          <br />
+          <br />
+        </>
+      )
+    }
+    Designed & Developed with ❤️ by Aditya Borkar
+    <br />
+    Copyright © CC BY-NC 4.0
+  </Section>
 </RootLayout>

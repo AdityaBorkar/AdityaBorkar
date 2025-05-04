@@ -17,7 +17,7 @@ const path = Astro.url.pathname;
     id="primary-header"
     data-open=""
     class:list={[
-        "group/header rounded-3xl w-[80vw] max-w-[54rem] fixed top-4 z-50 mx-auto select-none mt-4 border border-border/10 px-2 shadow-bg-tertiary/10 shadow-md backdrop-blur-lg",
+        "group/header rounded-3xl w-[80vw] max-w-[54rem] fixed top-4 z-50 mx-auto select-none mt-4 border border-border/10 pr-2 shadow-bg-tertiary/10 shadow-md backdrop-blur-lg",
         "bg-bg-primary/50",
         "md:top-8 md:w-[85vw] md:left-[calc(50%-27rem)] max-md:left-[10vw]",
     ]}
@@ -25,7 +25,10 @@ const path = Astro.url.pathname;
     <div class="flex flex-row items-center justify-between">
         <a
             href="/"
-            class="my-2 font-bold flex flex-row items-center text-text-primary"
+            class:list={[
+                "py-2 px-2 font-bold flex flex-row items-center text-text-primary rounded-full",
+                "focus:bg-bg-secondary focus:ring-2 focus:ring-text-secondary",
+            ]}
         >
             <div
                 class="inline-block rounded-full border-2 border-border px-2 py-0 text-xl tracking-wider"
@@ -35,12 +38,11 @@ const path = Astro.url.pathname;
             <div class="ml-2 inline-block align-bottom text-2xl">Adi.</div>
         </a>
 
-        <!-- TODO: Dynamic Island Effect -->
-
-        <div class="flex flex-row items-center gap-2">
-            <Theme class:list={["md:absolute md:-right-14 md:top-1.5", ""]} />
+        <div class="flex flex-row items-center gap-2 md:hidden">
+            <!-- TODO: Dynamic Island Effect -->
+            <Theme />
             <MenuIcon
-                class="mr-2 block size-6 md:hidden"
+                class="mr-2 block size-6"
                 data-toggle-element="#primary-header"
             />
         </div>
@@ -60,7 +62,8 @@ const path = Astro.url.pathname;
                         data-header-link
                         href={link}
                         class:list={[
-                            "relative h-fit cursor-pointer rounded-full px-4 py-1 text-sm font-medium text-text-tertiary hover:text-text-secondary",
+                            "relative h-fit cursor-pointer rounded-full px-4 py-1 text-sm font-medium text-text-tertiary",
+                            "hover:text-text-secondary focus:text-text-secondary",
                             path === link && "text-text-primary",
                             "lg:px-5",
                         ]}
@@ -76,6 +79,17 @@ const path = Astro.url.pathname;
                 document
                     .querySelectorAll("[data-header-link]")
                     .forEach((element) => {
+                        element.addEventListener("focus", (e) => {
+                            const target = e.target as HTMLElement;
+                            if (!ShadowRef) return;
+                            ShadowRef.style.opacity = "1";
+                            ShadowRef.style.left = `${target.offsetLeft}px`;
+                            ShadowRef.style.width = `${target.offsetWidth}px`;
+                        });
+                        element.addEventListener("blur", (e) => {
+                            if (!ShadowRef) return;
+                            ShadowRef.style.opacity = "0";
+                        });
                         element.addEventListener("mouseover", (e) => {
                             const target = e.target as HTMLElement;
                             if (!ShadowRef) return;
@@ -94,6 +108,8 @@ const path = Astro.url.pathname;
                     });
             </script>
         </nav>
+
+        <Theme class:list={["md:absolute md:-right-14 md:top-1.5", ""]} />
     </div>
 
     <nav

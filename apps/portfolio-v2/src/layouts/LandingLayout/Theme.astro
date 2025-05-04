@@ -9,16 +9,18 @@ interface Props {
 const props = Astro.props;
 ---
 
-<div class={props.class}>
-    <MoonIcon
-        data-theme="toggle"
-        class="hidden dark:block size-9 rounded-full p-2 text-text-secondary border border-border/20 bg-bg-primary hover:bg-bg-secondary transition-colors duration-300"
-    />
-    <SunIcon
-        data-theme="toggle"
-        class="dark:hidden size-9 rounded-full p-2 text-text-secondary border border-border/20 bg-bg-primary hover:bg-bg-secondary transition-colors duration-300"
-    />
-</div>
+<button
+    type="button"
+    data-theme="toggle"
+    class:list={[
+        props.class,
+        "p-2 text-text-secondary border border-border/20 bg-bg-primary transition-colors duration-300 rounded-full",
+        "hover:bg-bg-secondary focus:bg-bg-secondary focus:ring-2 focus:ring-text-secondary",
+    ]}
+>
+    <MoonIcon class="hidden dark:block size-4" />
+    <SunIcon class="dark:hidden size-4" />
+</button>
 
 <script>
     // Switch CalMeetButton Theme

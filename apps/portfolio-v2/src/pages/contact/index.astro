@@ -5,6 +5,11 @@ import Button from "@/components/ui/Button.astro";
 import Input from "@/components/ui/Input.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
 import { SchemaMarkup } from "@/lib/utils";
+import Textarea from "@/components/ui/Textarea.astro";
+import SocialLink from "@/pages/contact/_SocialLink.astro";
+import LinkedinIcon from "@/assets/icons/LinkedIn.svg";
+import MailIcon from "@/assets/icons/Mail.svg";
+import TwitterIcon from "@/assets/icons/Twitter.svg";
 
 const title = "Contact";
 const description =
@@ -41,26 +46,31 @@ const seo = { title, keywords, description, open_graph, schema_markup };
     ]}
   >
     <h2
+      magic-fade="down"
+      animate-delay="0.3"
       class:list={[
-        "mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary magic-fade-down delay-300",
-        "text-4xl max-md:text-3xl",
+        "text-4xl mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-t from-text-primary to-text-secondary",
+        "max-md:text-3xl",
       ]}
     >
       How can I help you?
     </h2>
 
     <p
-      class="font-medium text-balance text-text-tertiary magic-fade-down delay-500"
+      magic-fade="down"
+      animate-delay="0.6"
+      class="font-medium text-balance text-text-tertiary"
     >
       I'm available for projects, consultations, and collaborations. Looking to
       start a new project or want a consult regarding your current project?
-    </p>
-    <p class="mt-2 font-medium text-text-tertiary magic-fade-down delay-500">
+      <br /><br />
       I usually reply within 24 hours.
     </p>
 
     <form
-      class="mt-8 grid grid-cols-2 gap-4 magic-fade-down delay-900"
+      magic-fade="down"
+      animate-delay="0.9"
+      class="mt-8 grid grid-cols-2 gap-4"
       data-submitted=""
     >
       <Input
@@ -89,27 +99,31 @@ const seo = { title, keywords, description, open_graph, schema_markup };
         wrapperClass="max-md:col-span-2"
       />
       <div class="group relative col-span-2">
-        <label for="details" class="mb-1 block font-medium text-text-primary">
-          Tell me about your project:
-        </label>
-        <textarea
-          id="details"
+        <Textarea
           name="details"
+          label="Tell me about your project:"
           placeholder="Feel free to write here..."
-          class="peer block h-64 w-full rounded-xl bg-bg-primary px-4 py-2 border border-border/20 placeholder:text-text-tertiary/60 group-hover:pb-24"
-        ></textarea>
+          class="h-64 rounded-xl peer"
+          wrapper={Fragment}
+        />
+        <!-- Unlock Lenis Scroll -->
+        <!-- SVG Blur for Scroll -->
+        <!-- Max. 10k Chars -->
         <!-- TODO: Handle responsiveness -->
         <div
           class:list={[
-            "hidden magic-fade absolute top-6 -right-[calc(60%+0.5rem)] text-pretty w-[60%] rounded-md border border-border/20 text-text-secondary px-3 py-2 text-sm starting:opacity-0 ease-in-out duration-300",
-            "md:group-focus:block md:peer-focus:block",
+            "hidden absolute top-6 -right-[calc(60%+0.5rem)] bg-bg-primary w-[60%] rounded-md border border-border/20 text-text-secondary px-3 py-2 text-sm",
+            "md:peer-focus:block",
+            "magic-fade starting:opacity-0 ease-in-out duration-300",
           ]}
         >
-          Share your vision and ideas. Include any relevant links to references,
-          prototypes, existing websites, or sources of inspiration. This will
-          help me to understand your project better.
+          Share your vision and ideas with as much detail as possible. Include
+          relevant links to references, prototypes, or documents. This will help
+          me to understand your project better.
         </div>
       </div>
+      <!-- Max. 25MB Total File Sizes and 10MB per file -->
+      <!--
       <Input
         name="attachments"
         type="tel"
@@ -117,32 +131,33 @@ const seo = { title, keywords, description, open_graph, schema_markup };
         placeholder="+91 9876543210"
         wrapperClass="max-md:col-span-2"
       />
+      -->
+      <!-- Inputs remove error as soon as valid input is detected, if dirty, show errors onFocusOut -->
+      <!-- Add Turnstile Captcha or Google Recaptcha -->
+      <!-- TODO: Response collected successfully. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three hours</span>. -->
+
+      <div class="mt-8 col-span-2">
+        <Button
+          type="submit"
+          variant="primary"
+          size="md"
+          class:list={["mx-auto"]}>Submit Inquiry</Button
+        >
+      </div>
     </form>
 
-    <!-- Add Turnstile Captcha or Google Recaptcha -->
-
-    <!-- TODO: Response collected successfully. Expect a reply within <span class="font-semibold underline underline-offset-4 decoration-dashed">three hours</span>. -->
-
-    <div class="mt-4 col-span-2">
-      <Button type="submit" variant="primary" size="md" class:list={["mx-auto"]}
-        >Submit Inquiry</Button
-      >
+    <div class="hidden">
+      <p>
+        Your message has been sent. Expect a reply within <span
+          id="eta-text"
+          class="font-semibold underline underline-offset-4 decoration-dashed"
+        >
+          twenty-four
+        </span> hours.
+      </p>
     </div>
-  </main>
 
-  <div>
-    <p>
-      Your message has been sent. Expect a reply within <span
-        id="eta-text"
-        class="font-semibold underline underline-offset-4 decoration-dashed"
-      >
-        twenty-four
-      </span> hours.
-    </p>
-  </div>
-
-  <div class="mt-16 text-text-tertiary magic-fade-down delay-1200">
-    <div>
+    <div magic-fade="down" animate-delay="1.2" class="mt-16 text-text-tertiary">
       <div class="mb-2">
         {"Prefer a more direct approach?  "}
         <CalMeetButton
@@ -151,26 +166,20 @@ const seo = { title, keywords, description, open_graph, schema_markup };
         />
         {"or"}
       </div>
-      <a
+      <SocialLink
+        icon={MailIcon}
         href={`mailto:${SOCIALS.email}`}
-        class="mx-0.5 font-medium hover:text-text-primary border border-border/20 bg-bg-primary rounded-md px-2 py-1"
-        >{SOCIALS.email}</a
-      >
-      <!-- <div class="mt-1"></div> -->
-      <a
-        href={SOCIALS.x}
-        class="font-medium hover:text-text-primary border border-border/20 rounded-md px-2 py-1 bg-bg-primary mr-2"
-      >
-        Twitter
-      </a>
-      <a
+        label={SOCIALS.email}
+        iconClass="fill-none text-current"
+      />
+      <SocialLink icon={TwitterIcon} href={SOCIALS.x} label="Twitter" />
+      <SocialLink
+        icon={LinkedinIcon}
         href={SOCIALS.linkedin}
-        class="font-medium hover:text-text-primary border border-border/20 rounded-md px-2 py-1 bg-bg-primary"
-      >
-        LinkedIn
-      </a>
+        label="LinkedIn"
+      />
     </div>
-  </div>
+  </main>
 </LandingLayout>
 
 <script>
@@ -192,19 +201,16 @@ const seo = { title, keywords, description, open_graph, schema_markup };
       button.disabled = false;
       button.textContent = "Submit Inquiry";
 
-      if (response.error) {
-        const { fields } = response.error;
-        const ids = Object.keys(fields);
-        for (const id of ids) {
-          const input = document.getElementById(id);
-          const error_div = document.querySelector(`[for="${id}"] + p`);
-          if (!input || !error_div) continue;
-          const error = "Required"; // fields[id][0];
-          input.setCustomValidity(error || "");
-          error_div.textContent = error || "";
-        }
-        return;
-      }
+      const fields = form.querySelectorAll("input, textarea");
+      fields.forEach((field) => {
+        const name = field.getAttribute("name");
+        const error = response.error?.fields?.[name]?.[0] ? "Required" : "";
+
+        const error_div = form.querySelector(`[for="${name}"] + p`);
+        if (!error_div) return;
+        error_div.textContent = error || "";
+        field.setCustomValidity(error || "");
+      });
 
       form.setAttribute("data-submitted", "true");
       const etaText = document.getElementById("eta-text");

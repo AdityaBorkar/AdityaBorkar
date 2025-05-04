@@ -7,8 +7,9 @@ const COOKIE_ACCEPTED = true;
 
 <button
     class:list={[
-        "fixed z-40 bottom-5 right-5 px-3 shadow-md py-3 rounded-full border border-border/20 bg-bg-primary text-text-secondary",
-        "md:bottom-8 md:right-8 md:px-6 md:z-50 md:hover:scale-110 md:hover:shadow-lg",
+        "fixed z-40 bottom-5 right-5 px-3 shadow-md py-3 rounded-full border border-border/20 bg-bg-primary text-text-secondary select-none",
+        "focus:ring-2 focus:ring-text-secondary hover:scale-110 focus:scale-110",
+        "md:bottom-8 md:right-8 md:px-6 md:z-50 md:hover:shadow-lg",
         !COOKIE_ACCEPTED && "!hidden",
     ]}
     onclick="document.getElementById('chat-dialog').showModal()"
@@ -17,4 +18,5 @@ const COOKIE_ACCEPTED = true;
     <span class="max-md:hidden font-semibold">Ask AI</span>
 </button>
 
+<!-- TODO: Open onmousedown -->
 <!-- <Chat client:only="react" /> -->

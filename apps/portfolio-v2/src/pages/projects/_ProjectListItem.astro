@@ -1,0 +1,228 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getImage } from "@/lib/assets";
+
+interface Props extends CollectionEntry<"projects"> {}
+
+const {
+    id,
+    data: { title, description, hero_image, tags, hero_tag },
+} = Astro.props;
+const src = (await getImage(hero_image)).default.src;
+---
+
+<script>
+    import { animate, stagger } from "motion";
+
+    // TODO: Animate on Focus, Solve Conflict on Focus
+    // TODO:
+
+    const image = document.getElementById(
+        "hero-image-placeholder",
+    ) as HTMLImageElement;
+    const items = document.querySelectorAll("[data-project-list-item]");
+    items.forEach((project) => {
+        const tagsList = project.querySelector("ul") as HTMLUListElement;
+        tagsList.style.height = "0px";
+        tagsList.style.overflow = "hidden";
+
+        const tagItems = Array.from(tagsList.querySelectorAll("li"));
+        tagItems.forEach((tag) => {
+            tag.style.opacity = "0";
+            tag.style.transform = "scale(0.95)";
+        });
+
+        // Handle mouseenter
+        project.addEventListener("mouseenter", () => {
+            const title = project.dataset.projectTitle;
+            const src = project.dataset.projectImage;
+
+            image.src = src;
+            image.alt = `Visual Representation of ${title}`;
+            animate(
+                image,
+                { filter: ["blur(0px)", "blur(6px)", "blur(0px)"] },
+                { duration: 0.5 },
+            );
+
+            // Make sure tagsList is measured at full height once
+            tagsList.style.position = "absolute";
+            tagsList.style.visibility = "hidden";
+            tagsList.style.height = "auto";
+
+            const fullHeight = tagsList.scrollHeight;
+
+            // Reset for animation
+            tagsList.style.position = "";
+            tagsList.style.visibility = "";
+            tagsList.style.height = "0px";
+
+            // Animate the container height
+            animate(
+                tagsList,
+                { height: [`0px`, `${fullHeight}px`] },
+                { duration: 0.3, easing: [0.16, 1, 0.3, 1] },
+            );
+
+            // Animate each tag with staggered delay
+            animate(
+                tagItems,
+                {
+                    opacity: [0, 1],
+                    scale: [0.95, 1],
+                    y: [8, 0],
+                },
+                {
+                    duration: 0.25,
+                    delay: stagger(0.03, { start: 0.1 }),
+                    easing: [0.34, 1.56, 0.64, 1],
+                },
+            );
+        });
+
+        // Handle mouseleave
+        project.addEventListener("mouseleave", () => {
+            // Animate tags out first
+            animate(
+                tagItems,
+                {
+                    opacity: 0,
+                    scale: 0.95,
+                    y: 8,
+                },
+                {
+                    duration: 0.2,
+                    delay: stagger(0.02, { from: "last" }),
+                    easing: "ease-in",
+                },
+            );
+
+            animate(
+                tagsList,
+                { height: "0px" },
+                {
+                    duration: 0.25,
+                    delay: 0.1,
+                    easing: [0.16, 1, 0.3, 1],
+                },
+            );
+        });
+    });
+</script>
+
+<a
+    data-project-list-item
+    data-project-title={title}
+    data-project-image={src}
+    href={`/projects/${id}`}
+    class:list={[
+        "group p-4 transition-all cursor-pointer relative",
+        "hover:bg-bg-primary focus:bg-bg-primary",
+    ]}
+>
+    <div class="flex flex-row items-center gap-x-4">
+        <div
+            hint-title={title}
+            class="text-base font-semibold text-text-primary"
+        >
+        </div>
+        <!-- {
+            hero_tag && (
+                <div
+                    class:list={[
+                        "uppercase text-xs py-1 px-2 rounded-full font-semibold",
+                        hero_tag === "featured" &&
+                            "text-yellow-700 bg-yellow-200 border border-yellow-700/50",
+                        hero_tag === "open-source" &&
+                            "text-green-700 bg-green-200 border border-green-700/50",
+                        hero_tag === "work-in-progress" &&
+                            "text-blue-700 bg-blue-200 border border-blue-700/50",
+                    ]}
+                >
+                    {hero_tag === "featured" && "Featured"}
+                    {hero_tag === "open-source" && "Open Source"}
+                    {hero_tag === "work-in-progress" && "Work in Progress"}
+                </div>
+            )
+        } -->
+        <div class="grow"></div>
+        <div hint-description={description} class="text-text-secondary/80">
+        </div>
+    </div>
+    <ul
+        data-tags-list
+        class:list={[
+            "mt-2 flex flex-row flex-wrap gap-1 invisible",
+            "md:gap-x-1 md:gap-y-2",
+        ]}
+    >
+        {
+            tags.map((tag) => (
+                <li class="rounded-full bg-bg-secondary px-2.5 py-1 text-xs text-text-tertiary">
+                    {tag}
+                </li>
+            ))
+        }
+    </ul>
+</a>
+
+<div class="w-full h-0.5 ml-auto bg-bg-primary">
+    <div class="w-full h-full bg-bg-primary ml-auto"></div>
+</div>
+
+<script>
+    import { animate, stagger } from "motion";
+    import { createScrambleText, animateScramble } from "@/lib/animations";
+
+    const titles = document.querySelectorAll(
+        "[hint-title]",
+    ) as NodeListOf<HTMLDivElement>;
+    const descriptions = document.querySelectorAll(
+        "[hint-description]",
+    ) as NodeListOf<HTMLDivElement>;
+
+    const divide_items = document.querySelectorAll(
+        "[data-project-list-item]+div",
+    );
+    const divide_items_2 = document.querySelectorAll(
+        "[data-project-list-item]+div>div",
+    );
+    const START_DELAY = 0.5;
+    animate(
+        divide_items,
+        {
+            opacity: [0, 1],
+            width: ["0%", "100%"],
+            backgroundColor: [
+                "var(--color-bg-primary)",
+                "var(--color-text-quaternary)",
+            ],
+        },
+        {
+            duration: 0.5,
+            delay: stagger(0.05, { startDelay: START_DELAY }),
+        },
+    );
+    animate(
+        divide_items_2,
+        {
+            opacity: [0, 1],
+            width: ["0%", "100%"],
+        },
+        {
+            duration: 0.8,
+            delay: stagger(0.05, { startDelay: START_DELAY + 0.5 }),
+        },
+    );
+
+    titles.forEach((element, index) => {
+        const text = element.getAttribute("hint-title") || "";
+        const spans = createScrambleText({ element, text });
+        animateScramble({ spans, text, delay: 0.8 + index * 0.2 });
+    });
+    // descriptions.forEach((element, index) => {
+    //     const text = element.getAttribute("hint-description") || "";
+    //     const spans = createScrambleText({ element, text });
+    //     animateScramble({ spans, text, delay: 0.4 + index * 0.2 });
+    // });
+</script>

@@ -8,6 +8,9 @@
 @theme {
 	--font-serif: var(--font-lora), serif;
 	--font-sans-serif: var(--font-inter), sans-serif;
+	--animate-marquee: marquee var(--duration) infinite linear;
+	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
 	--color-background: var(--color-neutral-200);
 	--color-bg-primary: var(--color-neutral-50);
 	--color-bg-secondary: var(--color-neutral-100);
@@ -53,43 +56,9 @@
 	button {
 		@apply transition-all duration-500;
 	}
-}
 
-@layer base {
-	/* CSS RESET */
-
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-	}
-
-	* {
-		margin: 0;
-	}
-
-	html {
-		scrollbar-gutter: stable;
-		font-family: var(--font-sans-serif);
-	}
-
-	a:active,
-	a:focus {
-		outline: none !important;
-		border: none !important;
-		text-decoration: none !important;
-		box-shadow: none !important;
-		-webkit-tap-highlight-color: transparent !important;
-		-webkit-user-select: none; /* Chrome/Safari */
-		-moz-user-select: none; /* Firefox */
-		-ms-user-select: none; /* IE10+ */
-		user-select: none;
-	}
-
-	a:focus,
-	textarea:focus,
-	input:focus {
-		outline: none;
+	a {
+		@apply cursor-pointer;
 	}
 
 	img,
@@ -97,27 +66,14 @@
 	video,
 	canvas,
 	svg {
-		display: block;
-		max-width: 100%;
-	}
-
-	a {
-		cursor: pointer;
+		@apply block max-w-full;
 	}
 
 	input,
 	button,
 	textarea,
 	select {
-		font: inherit;
-	}
-
-	a:focus,
-	input:focus,
-	button:focus,
-	textarea:focus,
-	select:focus {
-		outline: 2px solid transparent;
+		@apply font-[inherit];
 	}
 
 	p,
@@ -127,15 +83,15 @@
 	h4,
 	h5,
 	h6 {
-		overflow-wrap: break-word;
+		@apply break-words;
 	}
 
 	summary::-webkit-details-marker {
-		display: none;
+		@apply hidden;
 	}
 
 	summary::marker {
-		content: "";
+		@apply content-[''];
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -151,6 +107,18 @@
 			transition-delay: 1ms !important;
 		}
 	}
+}
+
+@layer base {
+	/* CSS RESET */
+
+	a:focus,
+	input:focus,
+	select:focus,
+	button:focus,
+	textarea:focus {
+		@apply outline-none;
+	}
 
 	body::-webkit-scrollbar {
 		/* required - the "base" of the bar - mostly for setting width */
@@ -162,28 +130,6 @@
 
 	body::-webkit-scrollbar-thumb {
 		/* the actual draggable element, the star of the show! */
-	}
-}
-
-@theme inline {
-	--animate-marquee: marquee var(--duration) infinite linear;
-	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-
-	@keyframes marquee {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(calc(-100% - var(--gap)));
-		}
-	}
-	@keyframes marquee-vertical {
-		from {
-			transform: translateY(0);
-		}
-		to {
-			transform: translateY(calc(-100% - var(--gap)));
-		}
 	}
 }
 
@@ -261,6 +207,24 @@
 	}
 }
 
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-100% - var(--gap)));
+	}
+}
+
+@keyframes marquee-vertical {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(calc(-100% - var(--gap)));
+	}
+}
+
 /* --animate-scroll: scroll 30s linear infinite;
   @keyframes scroll {
     0% {
@@ -321,7 +285,7 @@
     animation: shine 5s infinite ease-in-out;
 } */
 
-/* @utility magic-fade {
+@utility magic-fade {
 	@apply starting:blur-sm starting:opacity-0 duration-1500;
 }
 
@@ -335,7 +299,7 @@
 
 @utility magic-fade-right {
 	@apply starting:blur-sm starting:-translate-x-4 starting:opacity-0 duration-1000 ease-in-out;
-} */
+}
 
 @utility shiny-backdrop-effect {
 	@apply relative;

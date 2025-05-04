@@ -1,0 +1,21 @@
+---
+interface Props {
+    href: string;
+    label: string;
+    icon: any;
+    iconClass?: string;
+}
+
+const { href, label, icon: Icon, iconClass }: Props = Astro.props;
+---
+
+<a
+    href={href}
+    class:list={[
+        "mx-1 font-medium border border-border/20 bg-bg-primary rounded-md px-2 py-1",
+        "hover:text-text-primary focus:text-text-primary focus:border-border/40 focus:bg-bg-secondary hover:border-border/40 hover:bg-bg-secondary",
+    ]}
+>
+    <Icon class:list={["size-4 inline-block fill-current -mt-1", iconClass]} />
+    {label}
+</a>
