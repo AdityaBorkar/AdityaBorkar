@@ -1,0 +1,83 @@
+---
+import Icon from "@/components/ui/Icon.astro";
+
+const categories = [
+    { name: "All Projects", icon: "FolderCode" },
+    { name: "Artificial Intelligence", icon: "Robot" },
+    { name: "Full Stack Dev.", icon: "Stack" },
+    { name: "Backend Dev.", icon: "HardDrives" },
+    { name: "Frontend Dev.", icon: "MonitorMobile" },
+    { name: "Plugins & Extensions", icon: "PuzzlePiece" },
+    { name: "Dev Tooling", icon: "Hammer" },
+    { name: "Open Source", icon: "Heart" },
+];
+---
+
+<details id="filter-category-input" class="relative">
+    <summary
+        class="border border-border/10 rounded-full py-2.5 text-text-secondary bg-bg-primary px-4"
+    >
+        <Icon icon="Filter" class="-mt-0.5 mr-1 inline-block size-4" />
+        Filter by "Category"
+        <Icon icon="ChevronDown" class="ml-1 inline-block size-4" />
+    </summary>
+    <div
+        class="absolute top-12 z-10 left-0 w-full min-w-fit bg-bg-primary/50 border border-border/10 backdrop-blur-lg flex flex-col rounded-2xl divide-y divide-border/10"
+    >
+        {
+            categories.map((category) => (
+                <button
+                    type="button"
+                    toggle-project-category
+                    data-value={category.name}
+                    class="flex items-center py-2.5 px-5 whitespace-nowrap hover:bg-bg-secondary first:rounded-t-xl last:rounded-b-xl"
+                >
+                    <Icon icon={category.icon} class="block mr-3 size-4" />
+                    {category.name}
+                </button>
+            ))
+        }
+    </div>
+</details>
+
+<script>
+    import { animate } from "motion";
+
+    const filterCategoryInput = document.querySelector(
+        "#filter-category-input",
+    );
+    const options = document.querySelectorAll("[toggle-project-category]");
+    const projects = document.querySelectorAll(
+        "[project-list-item], [project-grid-item]",
+    );
+    options.forEach((option) => {
+        option.addEventListener("click", () => {
+            filterCategoryInput?.removeAttribute("open");
+            // @ts-expect-error
+            const category = option.dataset.value;
+            projects.forEach((project) => {
+                // @ts-expect-error
+                const categories = project.dataset.projectCategories || "";
+                const show =
+                    category === "All Projects" ||
+                    categories.includes(category);
+                animate(project, {
+                    display: show ? "block" : "none",
+                    // height: show ? "auto" : 0,
+                    opacity: show ? 1 : 0,
+                });
+                // @ts-expect-error
+                // project.style.display = show ? "block" : "none";
+                // Select all such projects and set h=0 / disappear & set others to h-auto and appear
+
+                // @ts-expect-error
+                if (project.dataset.projectImage) {
+                    const divideEl = project.nextElementSibling;
+                    console.log(divideEl);
+                    // @ts-expect-error
+                    divideEl.style.display = show ? "block" : "none";
+                }
+            });
+        });
+    });
+</script>

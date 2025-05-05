@@ -2,9 +2,9 @@
 title: Durgabari US
 description: A low-key full-stack website for a non-profit organization to manage their events and donations.
 hero_image: projects/durgabari-us.png
-hero_tag: 
+hero_tag:
 filter_category:
-  - Full Stack Development
+  - Full Stack Dev.
 tags:
   - Typescript
   - Next.js
@@ -18,13 +18,13 @@ links:
 timeline: < 1 month
 year: 2024
 benefits:
-  - 
+  -
     metric: 3
     label: Days Delivery
-  - 
+  -
     metric: 100%
     label: Handover
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 testimonial:
@@ -61,9 +61,9 @@ After completion of the project, I submitted a website report that advised the a
 ## Key Features Implemented
 
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Results
 

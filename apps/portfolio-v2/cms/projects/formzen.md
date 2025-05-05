@@ -4,7 +4,7 @@ description: Form Library that provides abstractions to make Tanstack Forms and 
 hero_image: projects/formzen.png
 hero_tag: open-source
 filter_category:
-  - Library
+  - Open Source
 tags:
   - Open Source
   - Library
@@ -18,13 +18,13 @@ links:
 timeline: < 1 month
 year: 2025
 benefits:
-  - 
+  -
     metric: NA
     label: Open Source
-  - 
+  -
     metric: 1k+
     label: Total Downloads
-  - 
+  -
     metric: 100%
     label: Monthly Visits
 ---

@@ -256,6 +256,7 @@ https://playground.rombo.co/
     - Reveal slant-slide-up animation on viewport enter of cards
     - Fade + slant-swipe-down apple-like animation on load for navbar
     - Fade + slant-swipe-up apple-like animation on load for page
+- Link Previews (Like Wikipedia)
 
 ---
 
@@ -280,3 +281,12 @@ https://icons8.com/icons/set/user-interface--style-fluency-systems-regular--os-w
 - https://developers.google.com/search/docs/appearance/google-discover
 - https://developers.google.com/search/docs/appearance/google-images
 - https://developers.google.com/search/docs/appearance/video
+
+## Upcoming Sections
+
+- Software / Hardware I Use
+- fitness.adityab.tech
+- photos.adityab.tech
+- library.adityab.tech - My notes, bookmarks, and docs
+- cook.adityab.tech - My recipes
+- lab.adityab.tech - Experiments in Digital World - Hardware, Software, CS

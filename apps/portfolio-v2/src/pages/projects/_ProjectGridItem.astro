@@ -9,12 +9,14 @@ interface Props extends CollectionEntry<"projects"> {
 
 const {
   id,
-  data: { title, description, hero_image, tags, hero_tag },
+  data: { title, description, hero_image, tags, hero_tag, filter_category },
   hideTags = false,
 } = Astro.props;
 ---
 
 <a
+  project-grid-item
+  data-project-categories={filter_category}
   href={`/projects/${id}`}
   class:list={[
     "group rounded-3xl border border-border/20 bg-bg-primary/50 p-4 transition-all cursor-pointer",

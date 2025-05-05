@@ -5,7 +5,7 @@ hero_image: projects/gem-finder.png
 hero_tag: featured
 filter_category:
   - Plugins & Extensions
-  - Full Stack Development
+  - Full Stack Dev.
 tags:
   - Google Chrome Extension
   - Web Scraping

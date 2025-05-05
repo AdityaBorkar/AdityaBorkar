@@ -4,7 +4,7 @@ description: A service that generates PDF documents for customers regarding thei
 hero_image: projects/europ-assistance.png
 hero_tag:
 filter_category:
-  - Backend Development
+  - Backend Dev.
 tags:
   - Node.js
   - Express.js

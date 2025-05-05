@@ -52,7 +52,7 @@ export function animateScramble(props: {
 	animate(
 		spans,
 		{
-			// opacity: [0, 1],
+			opacity: [0, 1],
 			width: 'auto',
 		},
 		{

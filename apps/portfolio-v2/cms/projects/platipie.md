@@ -4,10 +4,9 @@ description: SaaS Platform for creating, managing and developing E-commerce stor
 hero_image: projects/platipie.png
 hero_tag:
 filter_category:
-  - Full Stack Development
+  - Full Stack Dev.
   - Plugins & Extensions
   - Artificial Intelligence
-  - Platform Engineering
 tags:
   - "SaaS: Software-as-a-Service"
   - Vertical Platform

@@ -6,7 +6,7 @@ interface Props extends CollectionEntry<"projects"> {}
 
 const {
     id,
-    data: { title, description, hero_image, tags, hero_tag },
+    data: { title, description, hero_image, tags, hero_tag, filter_category },
 } = Astro.props;
 const src = (await getImage(hero_image)).default.src;
 ---
@@ -20,7 +20,7 @@ const src = (await getImage(hero_image)).default.src;
     const image = document.getElementById(
         "hero-image-placeholder",
     ) as HTMLImageElement;
-    const items = document.querySelectorAll("[data-project-list-item]");
+    const items = document.querySelectorAll("[project-list-item]");
     items.forEach((project) => {
         const tagsList = project.querySelector("ul") as HTMLUListElement;
         tagsList.style.height = "0px";
@@ -34,7 +34,9 @@ const src = (await getImage(hero_image)).default.src;
 
         // Handle mouseenter
         project.addEventListener("mouseenter", () => {
+            // @ts-expect-error
             const title = project.dataset.projectTitle;
+            // @ts-expect-error
             const src = project.dataset.projectImage;
 
             image.src = src;
@@ -61,7 +63,10 @@ const src = (await getImage(hero_image)).default.src;
             animate(
                 tagsList,
                 { height: [`0px`, `${fullHeight}px`] },
-                { duration: 0.3, easing: [0.16, 1, 0.3, 1] },
+                {
+                    duration: 0.3,
+                    // easing: [0.16, 1, 0.3, 1],
+                },
             );
 
             // Animate each tag with staggered delay
@@ -74,8 +79,8 @@ const src = (await getImage(hero_image)).default.src;
                 },
                 {
                     duration: 0.25,
-                    delay: stagger(0.03, { start: 0.1 }),
-                    easing: [0.34, 1.56, 0.64, 1],
+                    delay: stagger(0.03, { startDelay: 0.1 }),
+                    // easing: [0.34, 1.56, 0.64, 1],
                 },
             );
         });
@@ -93,7 +98,7 @@ const src = (await getImage(hero_image)).default.src;
                 {
                     duration: 0.2,
                     delay: stagger(0.02, { from: "last" }),
-                    easing: "ease-in",
+                    // easing: "ease-in",
                 },
             );
 
@@ -103,7 +108,7 @@ const src = (await getImage(hero_image)).default.src;
                 {
                     duration: 0.25,
                     delay: 0.1,
-                    easing: [0.16, 1, 0.3, 1],
+                    // easing: [0.16, 1, 0.3, 1],
                 },
             );
         });
@@ -111,7 +116,8 @@ const src = (await getImage(hero_image)).default.src;
 </script>
 
 <a
-    data-project-list-item
+    project-list-item
+    data-project-categories={filter_category}
     data-project-title={title}
     data-project-image={src}
     href={`/projects/${id}`}
@@ -126,7 +132,7 @@ const src = (await getImage(hero_image)).default.src;
             class="text-base font-semibold text-text-primary"
         >
         </div>
-        <!-- {
+        {
             hero_tag && (
                 <div
                     class:list={[
@@ -144,7 +150,7 @@ const src = (await getImage(hero_image)).default.src;
                     {hero_tag === "work-in-progress" && "Work in Progress"}
                 </div>
             )
-        } -->
+        }
         <div class="grow"></div>
         <div hint-description={description} class="text-text-secondary/80">
         </div>
@@ -166,7 +172,7 @@ const src = (await getImage(hero_image)).default.src;
     </ul>
 </a>
 
-<div class="w-full h-0.5 ml-auto bg-bg-primary">
+<div class="w-full h-0.5 ml-auto bg-bg-primary [~ ]">
     <div class="w-full h-full bg-bg-primary ml-auto"></div>
 </div>
 
@@ -174,19 +180,11 @@ const src = (await getImage(hero_image)).default.src;
     import { animate, stagger } from "motion";
     import { createScrambleText, animateScramble } from "@/lib/animations";
 
-    const titles = document.querySelectorAll(
-        "[hint-title]",
-    ) as NodeListOf<HTMLDivElement>;
-    const descriptions = document.querySelectorAll(
-        "[hint-description]",
-    ) as NodeListOf<HTMLDivElement>;
-
-    const divide_items = document.querySelectorAll(
-        "[data-project-list-item]+div",
-    );
+    const divide_items = document.querySelectorAll("[project-list-item]+div");
     const divide_items_2 = document.querySelectorAll(
-        "[data-project-list-item]+div>div",
+        "[project-list-item]+div>div",
     );
+
     const START_DELAY = 0.5;
     animate(
         divide_items,
@@ -215,14 +213,21 @@ const src = (await getImage(hero_image)).default.src;
         },
     );
 
+    const titles = document.querySelectorAll(
+        "[hint-title]",
+    ) as NodeListOf<HTMLDivElement>;
     titles.forEach((element, index) => {
         const text = element.getAttribute("hint-title") || "";
         const spans = createScrambleText({ element, text });
         animateScramble({ spans, text, delay: 0.8 + index * 0.2 });
     });
-    // descriptions.forEach((element, index) => {
-    //     const text = element.getAttribute("hint-description") || "";
-    //     const spans = createScrambleText({ element, text });
-    //     animateScramble({ spans, text, delay: 0.4 + index * 0.2 });
-    // });
+
+    const descriptions = document.querySelectorAll(
+        "[hint-description]",
+    ) as NodeListOf<HTMLDivElement>;
+    descriptions.forEach((element, index) => {
+        const text = element.getAttribute("hint-description") || "";
+        const spans = createScrambleText({ element, text });
+        animateScramble({ spans, text, delay: 0.4 + index * 0.2 });
+    });
 </script>

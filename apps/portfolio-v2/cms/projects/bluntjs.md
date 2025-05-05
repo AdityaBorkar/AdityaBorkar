@@ -5,7 +5,6 @@ hero_image: projects/bluntjs.png
 hero_tag: work-in-progress
 filter_category:
   - Dev Tooling
-  - Platform Engineering
 tags:
   - Open Source
   - React

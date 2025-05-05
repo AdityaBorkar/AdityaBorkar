@@ -4,9 +4,9 @@ description: A cloud-based solution for managing sports teams and events.
 hero_image: projects/steal-lottie.png
 hero_tag:
 filter_category:
-  - Full Stack Development
-  - Platform Engineering
-  - Library
+  - Full Stack Dev.
+  - Dev Tooling
+  - Open Source
 tags:
   - Cloud Computing
   - Sports Management

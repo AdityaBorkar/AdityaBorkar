@@ -25,8 +25,14 @@ interface Props {
         });
 
         press(link, (element) => {
-            animate(element, { scale: [1, 0.9, 1] }, { duration: 0.3 });
-            return;
+            animate(element, { marginTop: 12 }, { duration: 0.3 });
+            return (endEvent, info) => {
+                animate(
+                    element,
+                    { marginTop: info.success ? [12, 0, -28, 0] : [12, 0] },
+                    { duration: info.success ? 0.5 : 0.3 },
+                );
+            };
         });
 
         if (title) {
@@ -50,7 +56,10 @@ interface Props {
 <button
     type="button"
     data-href={Astro.props.href}
-    class="dock-link relative group/link bg-bg-primary origin-bottom p-2 size-10 rounded-full duration-0 hover:border-border/20 border border-border/10"
+    class:list={[
+        "dock-link relative group/link bg-bg-primary origin-bottom p-2 size-10 rounded-full duration-0 border select-none border-border/10",
+        "hover:border-border/20",
+    ]}
 >
     <div
         class:list={[

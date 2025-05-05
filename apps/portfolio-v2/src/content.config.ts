@@ -14,7 +14,17 @@ const projects = defineCollection({
 		hero_tag: z
 			.enum(['featured', 'open-source', 'work-in-progress'])
 			.nullable(),
-		filter_category: z.array(z.string()),
+		filter_category: z.array(
+			z.enum([
+				'Artificial Intelligence',
+				'Full Stack Dev.',
+				'Backend Dev.',
+				'Frontend Dev.',
+				'Plugins & Extensions',
+				'Dev Tooling',
+				'Open Source',
+			]),
+		),
 		tags: z.array(z.string()),
 		links: z.object({
 			preview: z.string().optional(),

@@ -1,0 +1,45 @@
+---
+import Icon from "@/components/ui/Icon.astro";
+---
+
+<div
+    project-toggle-view
+    data-active="List"
+    class="group flex flex-row bg-bg-primary border border-border/10 rounded-full"
+>
+    <div
+        data-value="List"
+        class:list={[
+            "py-2.5 text-text-secondary rounded-full font-medium px-4",
+            "group-data-[active='List']:bg-text-secondary group-data-[active='List']:text-bg-primary",
+        ]}
+    >
+        <Icon icon="List" class="-mt-0.5 inline-block size-4" />
+        <span class="group-data-[active='List']:inline-block hidden">List</span>
+    </div>
+    <div
+        data-value="Grid"
+        class:list={[
+            "py-2.5 text-text-secondary rounded-full font-medium px-4",
+            "group-data-[active='Grid']:bg-text-secondary group-data-[active='Grid']:text-bg-primary",
+        ]}
+    >
+        <Icon icon="Grid" class="-mt-0.5 inline-block size-4" />
+        <span class="group-data-[active='Grid']:inline-block hidden">Grid</span>
+    </div>
+</div>
+
+<script>
+    const toggleInput = document.querySelector("[project-toggle-view]");
+    const context = document.querySelector("#context-project-view");
+    if (toggleInput && context) {
+        toggleInput.childNodes.forEach((item) => {
+            item.addEventListener("click", () => {
+                // @ts-expect-error
+                toggleInput.dataset.active = item.dataset.value;
+                // @ts-expect-error
+                context.dataset.value = item.dataset.value;
+            });
+        });
+    }
+</script>

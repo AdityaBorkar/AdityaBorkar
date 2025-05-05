@@ -1,10 +1,12 @@
 # Inspirations
 
-- https://www.joshwcomeau.com/
-- https://www.cassandratang.com
-- https://www.nexxel.dev/
-- https://www.grujicic.com/
+- https://joshwcomeau.com/
+- https://cassandratang.com
+- https://nexxel.dev/
+- https://grujicic.com/
 - https://emilkowal.ski/
+- https://rauno.me/
+- https://antfu.me/
 
 - https://joshcollinsworth.com/
 - https://chrisnicholas.dev/

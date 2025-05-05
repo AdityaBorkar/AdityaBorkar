@@ -4,7 +4,7 @@ description: A portfolio highlighting my expertise, services offered, key projec
 hero_image: projects/portfolio-website.png
 hero_tag: open-source
 filter_category:
-  - Frontend Development
+  - Frontend Dev.
 tags:
   - TypeScript
   - Astro.js
@@ -22,13 +22,13 @@ links:
 timeline: < 1 month
 year: 2025
 benefits:
-  - 
+  -
     metric: "[Cool Img]"
     label: Website
-  - 
+  -
     metric: Happy
     label: Clients
-  - 
+  -
     metric: 100%
     label: Knowledge Transfer
 ---

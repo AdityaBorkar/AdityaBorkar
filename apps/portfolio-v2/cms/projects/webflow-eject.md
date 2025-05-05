@@ -4,8 +4,8 @@ description: A service that converts Webflow projects to Astro.js on click on "P
 hero_image: projects/webflow-eject.png
 hero_tag:
 filter_category:
-  - Library
-  - Frontend Development
+  - Plugins & Extensions
+  - Frontend Dev.
 tags:
   - TypeScript
   - MVP Development

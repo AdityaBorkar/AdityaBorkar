@@ -4,7 +4,7 @@ description: A mental health application providing resources and support.
 hero_image: projects/maanas.png
 hero_tag:
 filter_category:
-  - Full Stack Development
+  - Full Stack Dev.
   - Artificial Intelligence
 tags:
   - Mental Health

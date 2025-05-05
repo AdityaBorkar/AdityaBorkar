@@ -5,8 +5,6 @@ hero_image: projects/hooop-cloud.png
 hero_tag: open-source
 filter_category:
   - Dev Tooling
-  - Platform Engineering
-  - Library
 tags:
   - Dev Tooling
   - Platform Engineering
