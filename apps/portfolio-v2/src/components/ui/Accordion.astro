@@ -1,22 +1,26 @@
 ---
-import Icon from './Icon.astro';
+import Icon from "./Icon.astro";
 
 interface Props {
-	title: string;
-	name: string;
-	open?: boolean;
+    title: string;
+    name: string;
+    open?: boolean;
 }
 
 const { title, name, open } = Astro.props;
 ---
 
 <details
-    class="group border-b border-border/20 overflow-hidden"
+    class:list={[
+        "group border-b border-border/20 overflow-hidden ",
+        "hover:bg-bg-primary focus-within:bg-bg-primary",
+    ]}
     data-name={name}
     open={open}
 >
     <summary
-        class="relative block py-4 max-md:text-base text-xl font-semibold text-text-primary"
+        class="relative block py-4 px-6 max-md:text-base text-xl font-semibold text-text-primary"
+        ,
     >
         {title}
         <Icon
@@ -24,7 +28,7 @@ const { title, name, open } = Astro.props;
             class="absolute right-4 top-5 ml-2 group-open:rotate-180"
         />
     </summary>
-    <p class="pb-6 text-text-secondary">
+    <p class="pb-6 px-6 text-text-secondary">
         <slot />
     </p>
 </details>

@@ -27,7 +27,7 @@ const path = Astro.url.pathname;
             href="/"
             class:list={[
                 "py-2 px-2 font-bold flex flex-row items-center text-text-primary rounded-full",
-                "focus:bg-bg-secondary focus:ring-2 focus:ring-text-secondary",
+                "focus-visible:bg-bg-secondary focus-visible:ring-2 focus-visible:ring-text-secondary",
             ]}
         >
             <div
@@ -63,7 +63,7 @@ const path = Astro.url.pathname;
                         href={link}
                         class:list={[
                             "relative h-fit cursor-pointer rounded-full px-4 py-1 text-sm font-medium text-text-tertiary",
-                            "hover:text-text-secondary focus:text-text-secondary",
+                            "hover:text-text-secondary focus-visible:text-text-secondary",
                             path === link && "text-text-primary",
                             "lg:px-5",
                         ]}
@@ -109,7 +109,7 @@ const path = Astro.url.pathname;
             </script>
         </nav>
 
-        <Theme class:list={["md:absolute md:-right-14 md:top-1.5", ""]} />
+        <Theme class:list={["absolute -right-14 top-1.5", "max-md:hidden"]} />
     </div>
 
     <nav

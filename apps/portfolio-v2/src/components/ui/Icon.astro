@@ -1,5 +1,5 @@
 ---
-import { getSvg } from '@/lib/assets';
+import { getSvg } from "@/lib/assets";
 
 interface Props {
 	icon: string;
@@ -9,12 +9,12 @@ interface Props {
 const { icon, ...props } = Astro.props;
 
 let iconHTML = await getSvg(`icons/${icon}`);
-if (!iconHTML) throw new Error('Icon not found');
+if (!iconHTML) throw new Error("Icon not found");
 
 const propsString = Object.entries(props)
 	.map(([key, value]) => `${key}="${value}"`)
-	.join(' ');
-iconHTML = iconHTML.replace('<svg ', `<svg ${propsString} `);
+	.join(" ");
+iconHTML = iconHTML.replace("<svg ", `<svg ${propsString} `);
 ---
 
 <Fragment set:html={iconHTML} />

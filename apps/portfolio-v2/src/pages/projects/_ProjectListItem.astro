@@ -123,10 +123,10 @@ const src = (await getImage(hero_image)).default.src;
     href={`/projects/${id}`}
     class:list={[
         "group p-4 transition-all cursor-pointer relative",
-        "hover:bg-bg-primary focus:bg-bg-primary",
+        "hover:bg-bg-primary focus-visible:bg-bg-primary",
     ]}
 >
-    <div class="flex flex-row items-center gap-x-4">
+    <div class="flex flex-row max-md:flex-wrap items-center gap-x-4">
         <div
             hint-title={title}
             class="text-base font-semibold text-text-primary"
@@ -151,8 +151,11 @@ const src = (await getImage(hero_image)).default.src;
                 </div>
             )
         }
-        <div class="grow"></div>
-        <div hint-description={description} class="text-text-secondary/80">
+        <div class="grow max-md:w-full"></div>
+        <div
+            hint-description={description}
+            class="text-text-secondary/80 max-md:mt-2"
+        >
         </div>
     </div>
     <ul

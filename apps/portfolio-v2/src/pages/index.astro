@@ -1,66 +1,66 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import { HOMEPAGE, IS_AVAILABLE_NOW, SOCIALS } from 'cms/constants';
-import BentoDiv from '@/components/BentoDiv.astro';
-import BookCta from '@/components/sections/BookCta.astro';
-import TestimonialSection from '@/components/sections/Testimonials.astro';
-import ButtonLink from '@/components/ui/ButtonLink.astro';
-import Heading from '@/components/ui/Heading.astro';
-import Icon from '@/components/ui/Icon.astro';
-import InlineBold from '@/components/ui/InlineBold.astro';
-import Marquee from '@/components/ui/Marquee.astro';
-import Section from '@/components/ui/Section.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { getImage, SchemaMarkup } from '@/lib/utils';
-import ProjectCard from '@/pages/projects/_ProjectCard.astro';
-import ServiceCard from './home/_ServiceCard.astro';
-import Tag from './home/_Tag.astro';
-import ProductEngineeringDialog from './home/ProductEngineeringDialog.astro';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { HOMEPAGE, IS_AVAILABLE_NOW, SOCIALS } from "cms/constants";
+import BentoDiv from "@/components/BentoDiv.astro";
+import BookCta from "@/components/sections/BookCta.astro";
+import TestimonialSection from "@/components/sections/Testimonials.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Heading from "@/components/ui/Heading.astro";
+import Icon from "@/components/ui/Icon.astro";
+import InlineBold from "@/components/ui/InlineBold.astro";
+import Marquee from "@/components/ui/Marquee.astro";
+import Section from "@/components/ui/Section.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { getImage, SchemaMarkup } from "@/lib/utils";
+import ProjectCard from "@/pages/projects/_ProjectGridItem.astro";
+import ServiceCard from "./home/_ServiceCard.astro";
+import Tag from "./home/_Tag.astro";
+import ProductEngineeringDialog from "./home/ProductEngineeringDialog.astro";
 
 // const Mockups = await getCollection('mockups');
 // const Mockups1 = Mockups.slice(0, Mockups.length / 2);
 // const Mockups2 = Mockups.slice(Mockups.length / 2, Mockups.length);
 
-const TechStack1 = await getCollection('tech_stack_1');
-const TechStack2 = await getCollection('tech_stack_2');
-const TechStack3 = await getCollection('tech_stack_3');
+const TechStack1 = await getCollection("tech_stack_1");
+const TechStack2 = await getCollection("tech_stack_2");
+const TechStack3 = await getCollection("tech_stack_3");
 
 const GitHubDots = [];
 for (let i = 0; i < 150; i++) {
-	const random = Math.floor(Math.random() * 3);
-	GitHubDots.push(random);
+  const random = Math.floor(Math.random() * 3);
+  GitHubDots.push(random);
 }
 
-const Projects = (await getCollection('projects')).filter((project) =>
-	HOMEPAGE.PROJECTS.includes(project.data.title),
+const Projects = (await getCollection("projects")).filter((project) =>
+  HOMEPAGE.PROJECTS.includes(project.data.title),
 );
 
 // SEO:
 
-const title = 'Aditya Borkar - Expert Product Engineer';
+const title = "Aditya Borkar - Expert Product Engineer";
 const description =
-	'Showcasing the work of Aditya Borkar, a Mumbai-based product engineer and full-stack developer, specializing in web development, internal communications, and front-end development.';
+  "Showcasing the work of Aditya Borkar, a Mumbai-based product engineer and full-stack developer, specializing in web development, internal communications, and front-end development.";
 const keywords = [
-	'about',
-	'product engineer',
-	'full-stack developer',
-	'web development',
-	'user interface',
-	'user interaction',
-	'',
+  "about",
+  "product engineer",
+  "full-stack developer",
+  "web development",
+  "user interface",
+  "user interaction",
+  "",
 ];
 const schema_markup = [
-	SchemaMarkup.get('website'),
-	SchemaMarkup.get('business'),
-	SchemaMarkup.get('services'),
-	SchemaMarkup.get('work'),
-	SchemaMarkup.get('person'),
-	// SchemaMarkup.get("webpage/collection"),
+  SchemaMarkup.get("website"),
+  SchemaMarkup.get("business"),
+  SchemaMarkup.get("services"),
+  SchemaMarkup.get("work"),
+  SchemaMarkup.get("person"),
+  // SchemaMarkup.get("webpage/collection"),
 ];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
-const sustainability = { co2: 0.25, link: 'adityab-tech' };
+const sustainability = { co2: 0.25, link: "adityab-tech" };
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
@@ -119,29 +119,32 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
           "magic-fade-down delay-700",
         ]}
       >
-        <a target="_blank" href={SOCIALS.github}>
-          <Icon
-            icon="GitHub"
-            class="size-6 hover:fill-text-primary fill-text-quaternary"
-          />
+        <a
+          target="_blank"
+          href={SOCIALS.github}
+          class="hover:fill-text-primary fill-text-quaternary focus:fill-text-primary"
+        >
+          <Icon icon="GitHub" class="size-6" />
         </a>
-        <a target="_blank" href={SOCIALS.x}>
-          <Icon
-            icon="Twitter"
-            class="size-6 hover:fill-text-primary fill-text-quaternary"
-          />
+        <a
+          target="_blank"
+          href={SOCIALS.x}
+          class="hover:fill-text-primary fill-text-quaternary focus:fill-text-primary"
+        >
+          <Icon icon="Twitter" class="size-6" />
         </a>
-        <a target="_blank" href={SOCIALS.linkedin}>
-          <Icon
-            icon="LinkedIn"
-            class="size-6 hover:fill-text-primary fill-text-quaternary"
-          />
+        <a
+          target="_blank"
+          href={SOCIALS.linkedin}
+          class="hover:fill-text-primary fill-text-quaternary focus:fill-text-primary"
+        >
+          <Icon icon="LinkedIn" class="size-6" />
         </a>
-        <a href={`mailto:${SOCIALS.email}`} class="mt-0.5">
-          <Icon
-            icon="Mail"
-            class="size-5 hover:text-text-primary text-text-quaternary"
-          />
+        <a
+          href={`mailto:${SOCIALS.email}`}
+          class="mt-0.5 hover:text-text-primary text-text-quaternary focus:text-text-primary"
+        >
+          <Icon icon="Mail" class="size-5" />
         </a>
       </div>
 
@@ -268,10 +271,10 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
     </script>
   </Section> -->
 
-  <Heading icon="Smile" label="About">Brief About Adi,</Heading>
-  <Section class:list={["grid grid-cols-8 gap-4", "md:grid-cols-8"]}>
-    <BentoDiv label="Motivation" className="col-span-4 row-span-3">
-      <p class="text-base">
+  <Heading icon="Smile" label="About">Brief About Aditya</Heading>
+  <Section class:list={["grid grid-cols-2 gap-4", "max-md:grid-cols-1"]}>
+    <BentoDiv label="Motivation" className="row-span-3">
+      <p class="text-sm md:text-base text-text-secondary text-balance">
         <!-- IMPORTANT: HIGHLIGHT YOUR SPECIALIZATION HERE -->
         I became a programmer and product engineer because I'm passionate about harnessing
         the power of technology to solve real-world problems and make a meaningful
@@ -283,11 +286,18 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
       </p>
     </BentoDiv>
 
-    <BentoDiv label="Stats" className="col-span-4">
-      <div class="flex flex-row justify-between py-4 text-center text-sm">
+    <BentoDiv label="Stats" className="max-md:order-[-2]">
+      <div
+        class:list={[
+          "flex flex-row justify-between py-4 text-center text-sm",
+          "max-md:py-2",
+        ]}
+      >
         <div>
           <div class="mb-2 text-2xl font-semibold">3+</div>
-          Years of Expertise
+
+          <span class="hidden md:block">Years of Expertise</span>
+          <span class="md:hidden">YoE</span>
         </div>
         <div>
           <div class="mb-2 text-2xl font-semibold">20+</div>
@@ -314,12 +324,16 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
       </div>
     </BentoDiv>
 
-    <BentoDiv className="col-span-4 row-span-4">
-      PHOTO GALLERY
+    <BentoDiv label="Photo Gallery" className="row-span-4 max-md:order-[-1]">
+      <!-- <div class="" /> -->
+      <!-- <Icon /> -->
+      <!-- Chevron -->
+      <img class="aspect-video w-full rounded-lg bg-bg-primary" />
       <!-- OR Timelapse of me working on my desk with coffee from a picturesque place -->
+      <!-- Dots -->
     </BentoDiv>
 
-    <BentoDiv className="group relative col-span-4 row-span-2">
+    <BentoDiv label="GitHub" className="group relative row-span-2">
       <a
         target="_blank"
         href="https://github.com/AdityaBorkar"
@@ -342,7 +356,8 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
           GitHubDots.map((commits) => (
             <div
               class:list={[
-                "size-4 rounded",
+                "size-3 rounded-sm",
+                "md:size-4 md:rounded",
                 commits === 0 ? "bg-neutral-200" : "bg-green-800",
               ]}
               style={{
@@ -356,7 +371,7 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
 
     <!-- TODO: Highlight Accolades -->
 
-    <BentoDiv label="Tech Stack" className="relative col-span-8 row-span-5">
+    <BentoDiv label="Tech Stack" className="relative md:col-span-2 row-span-5">
       <Marquee class="mb-4" duration="30s" reverse>
         {
           Promise.all(
@@ -367,7 +382,7 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
                 /* @vite-ignore */
                 path
               );
-              return <Component class="h-8 mx-2" />;
+              return <Component class="h-8 mx-2 max-md:mx-1 max-md:h-5" />;
             }),
           )
         }
@@ -382,7 +397,7 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
                 /* @vite-ignore */
                 path
               );
-              return <Component class="h-8 mx-2" />;
+              return <Component class="h-8 mx-2  max-md:mx-1 max-md:h-5" />;
             }),
           )
         }
@@ -398,17 +413,23 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
                 path
               );
               // console.log({ Component });
-              return <Component class="mx-2 h-8" />;
+              return <Component class="mx-2 h-8  max-md:mx-1 max-md:h-5" />;
             }),
           )
         }
       </Marquee>
       <div
-        class="pointer-events-none absolute top-12 left-0 h-48 w-72 bg-gradient-to-r from-background via-background via-10%"
+        class:list={[
+          "pointer-events-none absolute top-12 left-0 h-48 w-72 bg-gradient-to-r from-background via-background via-10%",
+          "max-md:h-36 max-md:w-36",
+        ]}
       >
       </div>
       <div
-        class="pointer-events-none absolute top-12 right-0 h-48 w-72 bg-gradient-to-l from-background via-background via-10%"
+        class:list={[
+          "pointer-events-none absolute top-12 right-0 h-48 w-72 bg-gradient-to-l from-background via-background via-10%",
+          "max-md:h-36 max-md:w-36",
+        ]}
       >
       </div>
       <div class="mt-4 text-sm text-text-tertiary text-center">
@@ -426,7 +447,7 @@ const sustainability = { co2: 0.25, link: 'adityab-tech' };
           Product <br />
           Engineering
         </div>
-        <ProductEngineeringDialog />
+        <!-- <ProductEngineeringDialog /> -->
       </ServiceCard>
       <ServiceCard video="/assets/video/prototype-dev.webm">
         <div slot="title">

@@ -12,14 +12,14 @@ const { type = "button", classList, ...variantProps } = Astro.props;
 export const buttonVariants = cva(
 	[
 		"block w-fit select-none rounded-lg font-semibold text-background transition-all duration-300 active:scale-80",
-		"focus:ring-2 focus:ring-text-secondary focus:ring-offset-2 focus:ring-offset-background",
+		"focus-visible:ring-2 focus-visible:ring-text-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
 	],
 	{
 		variants: {
 			variant: {
 				primary: [
 					"bg-text-secondary/90 text-bg-primary active:bg-text-primary",
-					"hover:bg-text-secondary hover:text-bg-secondary focus:bg-text-secondary focus:text-bg-secondary",
+					"hover:bg-text-secondary hover:text-bg-secondary focus-visible:bg-text-secondary focus-visible:text-bg-secondary",
 				],
 				secondary:
 					"border border-border/20 bg-background text-text-primary hover:bg-text-secondary hover:text-bg-secondary",

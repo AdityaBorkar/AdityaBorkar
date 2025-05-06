@@ -5,28 +5,59 @@ interface Props {
     href: string;
     icon: string;
     title: string;
+    iconClass?: string;
 }
 ---
+
+<button
+    type="button"
+    dock-link
+    data-href={Astro.props.href}
+    class:list={[
+        "relative group/link bg-bg-tertiary/50 backdrop-blur-md origin-bottom p-2 size-10 rounded-full duration-0 border select-none border-border/10",
+        "hover:border-border/20 focus-visible:border-border/20 focus-visible:ring-2 focus-visible:ring-text-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary",
+        "data-active:after:block after:hidden after:size-1 after:bg-text-tertiary after:z-50 after:left-[calc(50%-2px)] after:absolute after:-bottom-2 after:rounded-full",
+    ]}
+>
+    <div
+        dock-tooltip
+        class:list={["w-[250%] absolute left-[-75%] -top-9", "opacity-0"]}
+    >
+        <div
+            class="w-fit bg-bg-primary text-xs shadow border border-border/20 whitespace-pre mx-auto text-text-secondary font-medium px-1.5 py-1 rounded-md"
+        >
+            {Astro.props.title}
+        </div>
+    </div>
+    <!-- @ts-expect-error -->
+    <Icon
+        icon={Astro.props.icon}
+        class:list={[
+            "size-full fill-text-tertiary group-hover/link:fill-text-secondary",
+            Astro.props.iconClass || "",
+        ]}
+    />
+</button>
 
 <script>
     import { hover, press } from "motion";
     import { animate } from "motion/mini";
 
-    const links = document.querySelectorAll(".dock-link");
-    links.forEach((link) => {
-        const title = link.querySelector(".title");
+    const TOP_OFFSET = 140;
 
+    const links = document.querySelectorAll("[dock-link]");
+    links.forEach((link) => {
         link.addEventListener("click", () => {
             // @ts-expect-error
             const element = document.querySelector(link.dataset.href);
-            const top = element?.offsetTop - 140;
+            const top = element?.offsetTop - TOP_OFFSET;
             window.scrollTo({ behavior: "smooth", top });
             animate(link, { scale: [1, 0.9, 1] }, { duration: 0.3 });
         });
 
         press(link, (element) => {
             animate(element, { marginTop: 12 }, { duration: 0.3 });
-            return (endEvent, info) => {
+            return (_, info) => {
                 animate(
                     element,
                     { marginTop: info.success ? [12, 0, -28, 0] : [12, 0] },
@@ -35,44 +66,17 @@ interface Props {
             };
         });
 
+        const title = link.querySelector("[dock-tooltip]");
         if (title) {
             hover(link, () => {
-                animate(
-                    title,
-                    { opacity: 1, y: 10, x: "-50%" },
-                    { duration: 0.3 },
-                );
+                animate(title, { opacity: 1, y: 10 }, { duration: 0.3 });
                 return () =>
                     animate(
                         title,
-                        { opacity: [1, 0.2, 0], y: 2, x: "-50%" },
+                        { opacity: [1, 0.2, 0], y: 2 },
                         { duration: 0.3 },
                     );
             });
         }
     });
 </script>
-
-<button
-    type="button"
-    data-href={Astro.props.href}
-    class:list={[
-        "dock-link relative group/link bg-bg-primary origin-bottom p-2 size-10 rounded-full duration-0 border select-none border-border/10",
-        "hover:border-border/20",
-    ]}
->
-    <div
-        class:list={[
-            // TODO: CENTER THIS
-            "title",
-            "absolute left-0 right-0 whitespace-pre -top-8 w-fit bg-text-primary text-bg-primary font-medium px-1.5 py-0.5 rounded",
-            "opacity-0",
-        ]}
-    >
-        {Astro.props.title}
-    </div>
-    <Icon
-        icon={Astro.props.icon}
-        class="size-full fill-text-quaternary group-hover/link:fill-text-primary"
-    />
-</button>

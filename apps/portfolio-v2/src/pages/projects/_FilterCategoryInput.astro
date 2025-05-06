@@ -22,7 +22,7 @@ const categories = [
         <Icon icon="ChevronDown" class="ml-1 inline-block size-4" />
     </summary>
     <div
-        class="absolute top-12 z-10 left-0 w-full min-w-fit bg-bg-primary/50 border border-border/10 backdrop-blur-lg flex flex-col rounded-2xl divide-y divide-border/10"
+        class="absolute z-50 top-12 z-10 left-0 w-full min-w-fit bg-bg-primary/50 border border-border/10 backdrop-blur-lg flex flex-col rounded-2xl divide-y divide-border/10"
     >
         {
             categories.map((category) => (
@@ -66,7 +66,7 @@ const categories = [
                     // height: show ? "auto" : 0,
                     opacity: show ? 1 : 0,
                 });
-                // @ts-expect-error
+
                 // project.style.display = show ? "block" : "none";
                 // Select all such projects and set h=0 / disappear & set others to h-auto and appear
 

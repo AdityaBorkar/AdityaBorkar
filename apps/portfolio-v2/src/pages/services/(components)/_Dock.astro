@@ -2,33 +2,38 @@
 import DockLink from "./_DockLink.astro";
 ---
 
-<!-- <div
-    id="dock-container"
-    class="fixed group bottom-0 left-[calc(50%-32rem)] h-24 w-full max-w-[64rem] z-30"
-> --><!-- /group-hover:translate-y-4 -->
 <div
-    id="dock"
-    class:list={[
-        "fixed bottom-36 left-[calc(50%-32rem)] z-30",
-        // left-[calc(50%-10rem)] hover:bottom-6 -bottom-6 z-50 translate-y-16 transition-all duration-300
-        "mx-auto h-16 border flex flex-row gap-4 px-4 justify-around border-border/20 bg-bg-primary shadow-lg rounded-full py-3 text-center w-[20rem]",
-        "max-md:bottom-6 max-md:justify-normal max-md:gap-4 max-md:px-4 w-fit",
-        "max-md:hidden",
-    ]}
+    class="pointer-events-none sticky bottom-8 left-[calc(50%-32rem)] z-50 w-[64rem]"
 >
-    <DockLink title="Scroll to top" href="#top" icon="ArrowUp" />
-    <DockLink title="Services" href="#services" icon="Flower" />
-    <DockLink title="Process" href="#process" icon="HandHeart" />
-    <DockLink title="Work" href="#work" icon="Briefcase" />
-    <DockLink title="Pricing" href="#pricing" icon="Currency" />
-    <DockLink title="Testimonials" href="#testimonials" icon="HandVictory" />
-    <DockLink title="FAQs" href="#faqs" icon="QuestionBubble" />
+    <div
+        id="dock"
+        class:list={[
+            "pointer-events-auto mx-auto h-15 border flex flex-row gap-2 px-2 justify-around border-border/20 bg-bg-primary shadow-lg rounded-full pt-2 pb-3 text-center w-[20rem]",
+            "max-md:hidden max-md:bottom-6 max-md:justify-normal max-md:gap-4 max-md:px-4 w-fit",
+            "translate-y-[96px]",
+        ]}
+    >
+        <DockLink title="Scroll to top" href="#top" icon="ArrowUp" />
+        <DockLink title="Services" href="#services" icon="Flower" />
+        <DockLink title="Process" href="#process" icon="HandHeart" />
+        <DockLink title="Work" href="#work" icon="Briefcase" />
+        <DockLink title="Pricing" href="#pricing" icon="Currency" />
+        <DockLink
+            title="Testimonials"
+            href="#testimonials"
+            icon="HandVictory"
+        />
+        <DockLink
+            title="FAQs"
+            href="#faqs"
+            icon="QuestionBubble"
+            iconClass="fill-transparent group-hover/link:fill-transparent group-hover/link:text-text-secondary text-text-tertiary"
+        />
+    </div>
 </div>
 
 <script>
     import { transform, frame, motionValue, animate } from "motion";
-
-    // TODO: FIX CLICK AND HOVER AROUND IT
 
     const dock = document.getElementById("dock");
     const items = Array.from(dock?.children || []);
@@ -59,7 +64,7 @@ import DockLink from "./_DockLink.astro";
             const distance = PointerX - x - width / 2;
             const y = yTransform(distance);
             const size = sizeTransform(distance);
-            const padding = paddingTransform(distance);
+            const padding = Math.ceil(paddingTransform(distance));
             animate(
                 item,
                 { width: size, height: size, y, padding },
@@ -68,5 +73,50 @@ import DockLink from "./_DockLink.astro";
         });
     }
 
-    // function DockHoverAnimation() {}
+    // ---
+
+    const DOCK_VISIBILITY_THRESHOLD = 400;
+    const BOTTOM_OFFSET = 250;
+    const links = dock?.querySelectorAll("button") || [];
+    const thresholds = Array.from(links).map((link) => {
+        const selector = link.dataset.href || "";
+        const element = document.querySelector(selector);
+        const { y } = element?.getBoundingClientRect() || { y: 0 };
+        return y;
+    });
+    thresholds.push(document.documentElement.scrollHeight);
+
+    const scrollY = motionValue(0);
+    window.addEventListener("scroll", () => {
+        scrollY.set(window.scrollY);
+    });
+    scrollY.on("change", () => {
+        frame.postRender(DockIndicator);
+    });
+
+    function DockIndicator() {
+        const _y = scrollY.get();
+        const y = _y + window.innerHeight - BOTTOM_OFFSET;
+
+        if (dock) {
+            if (_y < DOCK_VISIBILITY_THRESHOLD) {
+                animate(dock, { transform: "translateY(0px)" });
+            } else {
+                animate(dock, { transform: "translateY(-96px)" });
+            }
+        }
+
+        links?.forEach((link, index) => {
+            const minThreshold = thresholds[index];
+            const maxThreshold = thresholds[index + 1] || 0;
+            console.log(minThreshold, maxThreshold);
+            if (y >= minThreshold && y <= maxThreshold) {
+                link.setAttribute("data-active", "");
+            } else {
+                link.removeAttribute("data-active");
+            }
+        });
+    }
+
+    // GLOBAL TODO: Make animations work on viewport-resize
 </script>

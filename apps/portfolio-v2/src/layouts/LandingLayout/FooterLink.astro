@@ -13,7 +13,7 @@ const { href, openInNewTab = false, class: className } = Astro.props;
   target={openInNewTab ? "_blank" : undefined}
   class:list={[
     "mt-2 gap-1.5 flex flex-row items-center shrink-0 group/link text-text-secondary",
-    "focus:text-text-primary hover:text-text-primary focus:font-medium hover:font-medium",
+    "focus-visible:text-text-primary hover:text-text-primary focus-visible:font-medium hover:font-medium",
     "group-hover:text-text-tertiary",
     className,
   ]}
