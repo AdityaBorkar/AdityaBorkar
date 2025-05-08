@@ -5,6 +5,7 @@
 - Implement:
   - Automatic Signed Exchanges (SXGs)
 - SEO and HTML Head Metadata
+- Reduce Legal Terms Content to bare-minimum with ChatGPT
 
 ---
 
@@ -290,3 +291,19 @@ https://icons8.com/icons/set/user-interface--style-fluency-systems-regular--os-w
 - library.adityab.tech - My notes, bookmarks, and docs
 - cook.adityab.tech - My recipes
 - lab.adityab.tech - Experiments in Digital World - Hardware, Software, CS
+
+## Sustainability
+
+- https://cleancreatives.org/
+- https://www.creativesforclimate.co/
+- https://www.digitalcarbon.online/for-sustainability-leaders-and-agencies/
+
+- https://digitalbeacon.co/
+- https://www.digitalcarbon.online/lp/calculate-the-carbon-footprint-of-your-website/
+
+# Directory
+
+- hello@darkmodedesign.com Site Submission
+- land-book.com Site Submission
+
+

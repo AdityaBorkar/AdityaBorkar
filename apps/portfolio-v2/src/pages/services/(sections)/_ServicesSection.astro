@@ -1,17 +1,17 @@
 ---
-import Section from '@/components/ui/Section.astro';
-import Heading from '../(components)/_Heading.astro';
-import ServiceCard from '../(components)/_ServiceCard.astro';
+import Section from "@/components/ui/Section.astro";
+import Heading from "../(components)/_Heading.astro";
+import ServiceCard from "../(components)/_ServiceCard.astro";
 ---
 
 <Section id="services">
     <Heading
         label="Services"
         heading="What can we do for you?"
-        caption="I wear multiple hats and bring a versatile, cross-disciplinary approach to problem-solving.<br/>Share your problems and challenges — I'll handle the rest with precision and care."
+        caption="I wear multiple hats and bring a versatile, cross-disciplinary approach to problem-solving.<br class='max-md:hidden'/> Share your problems and challenges — I'll handle the rest with precision and care."
     />
 
-    <div class="grid grid-cols-3 gap-4">
+    <div class:list={["grid grid-cols-3 gap-4", "max-md:grid-cols-2"]}>
         <ServiceCard title="Product Engineering" />
         <ServiceCard title="MVP Development" />
         <ServiceCard title="Technical Consulting" />

@@ -12,7 +12,7 @@ export default defineConfig({
 	site: 'https://adityab.tech',
 	output: 'server',
 	adapter: cloudflare({
-		imageService: 'compile',
+		imageService: 'cloudflare',
 		platformProxy: { enabled: true },
 	}),
 	integrations: [react(), mdx(), sitemap()],

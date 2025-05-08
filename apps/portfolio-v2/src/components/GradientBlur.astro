@@ -1,75 +1,116 @@
 ---
-// .mask-gradient-1 {
-//     -webkit-mask-image: linear-gradient(#0000 0%,#000 12.5% 25%,#0000 37.5%);
-//     mask-image: linear-gradient(#0000,#000 12.5% 25%,#0000 37.5%)
-// }
+interface Props {
+    class: string;
+}
 
-// .mask-gradient-2 {
-//     -webkit-mask-image: linear-gradient(#0000 12.5%,#000 25% 37.5%,#0000 50%);
-//     mask-image: linear-gradient(#0000 12.5%,#000 25% 37.5%,#0000 50%)
-// }
-
-// .mask-gradient-3 {
-//     -webkit-mask-image: linear-gradient(#0000 25%,#000 37.5% 50%,#0000 62.5%);
-//     mask-image: linear-gradient(#0000 25%,#000 37.5% 50%,#0000 62.5%);
-// }
-
-// .mask-gradient-4 {
-//     -webkit-mask-image: linear-gradient(#0000 37.5%,#000 50% 62.5%,#0000 75%);
-//     mask-image: linear-gradient(#0000 37.5%,#000 50% 62.5%,#0000 75%)
-// }
-
-// .mask-gradient-5 {
-//     -webkit-mask-image: linear-gradient(#0000 50%,#000 62.5% 75%,#0000 87.5%);
-//     mask-image: linear-gradient(#0000 50%,#000 62.5% 75%,#0000 87.5%)
-// }
-
-// .mask-gradient-6 {
-//     -webkit-mask-image: linear-gradient(#0000 62.5%,#000 75% 87.5%,#0000 100%);
-//     mask-image: linear-gradient(#0000 62.5%,#000 75% 87.5%,#0000)
-// }
-
-// .mask-gradient-7 {
-//     -webkit-mask-image: linear-gradient(#0000 75%,#000 87.5% 100%);
-//     mask-image: linear-gradient(#0000 75%,#000 87.5% 100%)
-// }
-
-// .mask-gradient-8 {
-//     -webkit-mask-image: linear-gradient(#0000 87.5%,#000 100%);
-//     mask-image: linear-gradient(#0000 87.5%,#000)
+const { class: className }: Props = Astro.props;
 ---
 
-<div class="blur-container">
-    <div
-        class="mask-gradient-1 pointer-events-none fixed right-0 bottom-0 left-0 z-[1] h-12 backdrop-blur-[0.078125px] md:h-28"
-    >
-    </div>
-    <div
-        class="mask-gradient-2 pointer-events-none fixed right-0 bottom-0 left-0 z-[2] h-12 backdrop-blur-[0.15625px] md:h-24"
-    >
-    </div>
-    <div
-        class="mask-gradient-3 pointer-events-none fixed right-0 bottom-0 left-0 z-[3] h-12 backdrop-blur-[0.3125px] md:h-24"
-    >
-    </div>
-    <div
-        class="mask-gradient-4 pointer-events-none fixed right-0 bottom-0 left-0 z-[4] h-12 backdrop-blur-[0.625px] md:h-24"
-    >
-    </div>
-    <div
-        class="mask-gradient-5 pointer-events-none fixed right-0 bottom-0 left-0 z-[5] h-12 backdrop-blur-[1.25px] md:h-24"
-    >
-    </div>
-    <div
-        class="mask-gradient-6 pointer-events-none fixed right-0 bottom-0 left-0 z-[6] h-12 backdrop-blur-[2.5px] md:h-24"
-    >
-    </div>
-    <div
-        class="mask-gradient-7 pointer-events-none fixed right-0 bottom-0 left-0 z-[7] h-12 backdrop-blur-[5px] md:h-24"
-    >
-    </div>
-    <div
-        class="mask-gradient-8 pointer-events-none fixed right-0 bottom-0 left-0 z-[8] h-12 backdrop-blur-[10px] md:h-24"
-    >
-    </div>
+<style>
+    .gradient-blur {
+        z-index: 5;
+        pointer-events: none;
+    }
+    .gradient-blur > div,
+    .gradient-blur::before,
+    .gradient-blur::after {
+        position: absolute;
+        inset: 0;
+    }
+    .gradient-blur::before {
+        content: "";
+        z-index: 1;
+        backdrop-filter: blur(0.5px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 12.5%,
+            rgba(0, 0, 0, 1) 25%,
+            rgba(0, 0, 0, 0) 37.5%
+        );
+    }
+    .gradient-blur > div:nth-of-type(1) {
+        z-index: 2;
+        backdrop-filter: blur(1px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 12.5%,
+            rgba(0, 0, 0, 1) 25%,
+            rgba(0, 0, 0, 1) 37.5%,
+            rgba(0, 0, 0, 0) 50%
+        );
+    }
+    .gradient-blur > div:nth-of-type(2) {
+        z-index: 3;
+        backdrop-filter: blur(2px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 25%,
+            rgba(0, 0, 0, 1) 37.5%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) 62.5%
+        );
+    }
+    .gradient-blur > div:nth-of-type(3) {
+        z-index: 4;
+        backdrop-filter: blur(4px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 37.5%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 1) 62.5%,
+            rgba(0, 0, 0, 0) 75%
+        );
+    }
+    .gradient-blur > div:nth-of-type(4) {
+        z-index: 5;
+        backdrop-filter: blur(8px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 1) 62.5%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 87.5%
+        );
+    }
+    .gradient-blur > div:nth-of-type(5) {
+        z-index: 6;
+        backdrop-filter: blur(16px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 62.5%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 1) 87.5%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+    .gradient-blur > div:nth-of-type(6) {
+        z-index: 7;
+        backdrop-filter: blur(32px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 75%,
+            rgba(0, 0, 0, 1) 87.5%,
+            rgba(0, 0, 0, 1) 100%
+        );
+    }
+    .gradient-blur::after {
+        content: "";
+        z-index: 8;
+        backdrop-filter: blur(64px);
+        mask: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 87.5%,
+            rgba(0, 0, 0, 1) 100%
+        );
+    }
+</style>
+
+<div class:list={["gradient-blur", className]}>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
 </div>

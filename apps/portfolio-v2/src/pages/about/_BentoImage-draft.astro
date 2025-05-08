@@ -1,14 +1,14 @@
 ---
 // import { Image } from "astro:assets";
-import { getImage } from '@/lib/utils';
+import { getImage } from "@/lib/utils";
 
 // import BentoImageReact from "@/pages/about/_BentoImageReact";
 
 interface Props {
-	src: string;
-	alt?: string;
-	class?: string;
-	caption: string;
+  src: string;
+  alt?: string;
+  class?: string;
+  caption: string;
 }
 
 // TODO - Make bite-sized videos and play them on hover
@@ -71,7 +71,7 @@ console.log(img.default.src);
   />
   {
     /* <figcaption className='opacity-0 group-hover:opacity-100 rounded-xl absolute left-0 top-0 flex h-full w-full items-end bg-gradient-to-t from-black/75 via-black/10 to-transparent transition-opacity duration-500'>
-    <span className='group-hover:block hidden text-sm text-pretty text-white magic-fade-up px-4 py-2 duration-500'>
+    <span className='group-hover:block hidden text-sm text-pretty text-white px-4 py-2'>
     {caption}
     </span>
     </figcaption> */

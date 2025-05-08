@@ -1,17 +1,18 @@
 ---
 interface Props {
-	label: string;
-	class?: string;
-	heading?: string;
-	caption?: string;
+    label: string;
+    class?: string;
+    heading?: string;
+    caption?: string;
 }
 ---
 
 <div
     set:html={Astro.props.label}
     class:list={[
-        "mb-2 -ml-2 mt-32 w-fit text-sm  text-transparent bg-gradient-to-br from-amber-500 to-amber-600 border border-border/20 rounded-full font-semibold px-3 py-1 uppercase tracking-wider",
+        "mb-2 -ml-2 mt-32 w-fit text-sm  text-transparent bg-gradient-to-br from-amber-600 to-amber-800 border border-border/20 rounded-full font-semibold px-3 py-1.5 uppercase tracking-wider",
         "md:mb-4 !text-white",
+        "max-md:ml-0 max-md:mb-4 max-md:text-xs",
         // "bg-clip-text"
     ]}
 />
@@ -20,7 +21,7 @@ interface Props {
     set:html={Astro.props.heading}
     class:list={[
         "relative text-3xl text-left mb-6 font-bold text-text-primary",
-        "md:text-5xl max-md:px-6",
+        "md:text-5xl",
         Astro.props.class,
     ]}
 />
@@ -28,6 +29,7 @@ interface Props {
 <p
     set:html={Astro.props.caption}
     class:list={[
-        "mb-16 max-w-[48rem] text-balance text-base text-text-tertiary",
+        "mb-16 text-balance text-base text-text-tertiary",
+        "max-md:text-sm md:max-w-[48rem]",
     ]}
 />

@@ -19,3 +19,8 @@
 - https://loganliffick.com/blog
 - https://felixdorner.de/about
 - https://yannglt.com/
+
+- https://nicklewis.dev/
+- https://www.cedric.design/
+- https://land-book.com/submission-guidelines
+

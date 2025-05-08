@@ -15,11 +15,9 @@ const path = Astro.url.pathname;
 
 <header
     id="primary-header"
-    data-open=""
     class:list={[
-        "group/header rounded-3xl w-[80vw] max-w-[54rem] fixed top-4 z-50 mx-auto select-none mt-4 border border-border/10 pr-2 shadow-bg-tertiary/10 shadow-md backdrop-blur-lg",
-        "bg-bg-primary/50",
-        "md:top-8 md:w-[85vw] md:left-[calc(50%-27rem)] max-md:left-[10vw]",
+        "bg-bg-primary/50 rounded-3xl top-4 left-[15vw] w-[70vw] max-w-[54rem] fixed z-50 mx-auto select-none border border-border/10 shadow-bg-tertiary/10 shadow-md backdrop-blur-lg",
+        "md:top-8 md:w-[85vw] md:left-[calc(50%-27rem)]",
     ]}
 >
     <div class="flex flex-row items-center justify-between">
@@ -29,31 +27,27 @@ const path = Astro.url.pathname;
                 "py-2 px-2 font-bold flex flex-row items-center text-text-primary rounded-full",
                 "focus-visible:bg-bg-secondary focus-visible:ring-2 focus-visible:ring-text-secondary",
             ]}
+            onclick="(e)=>e.stopPropagation()"
         >
-            <div
+            <span
                 class="inline-block rounded-full border-2 border-border px-2 py-0 text-xl tracking-wider"
             >
                 A/B
-            </div>
-            <div class="ml-2 inline-block align-bottom text-2xl">Adi.</div>
+            </span>
+            <span class="ml-2 inline-block align-bottom text-2xl">Adi.</span>
         </a>
 
-        <div class="flex flex-row items-center gap-2 md:hidden">
-            <!-- TODO: Dynamic Island Effect -->
-            <Theme />
-            <MenuIcon
-                class="mr-2 block size-6"
-                data-toggle-element="#primary-header"
-            />
-        </div>
-
         <nav
-            class="relative z-20 hidden flex-row items-center md:flex"
             id="header-nav-wrapper"
+            class:list={[
+                "flex flex-row items-center order-last px-1",
+                "max-md:hidden",
+            ]}
         >
             <div
                 data-header-shadow
-                class="absolute right-0 -top-1 -z-10 h-9 w-20 rounded-full bg-bg-tertiary opacity-0 duration-300"
+                transition:persist
+                class="absolute left-0 top-1 -z-10 h-10 w-0 rounded-full bg-bg-tertiary opacity-0 duration-300"
             >
             </div>
             {
@@ -72,82 +66,158 @@ const path = Astro.url.pathname;
                     </a>
                 ))
             }
-            <script>
-                const ShadowRef = document.querySelector(
-                    "[data-header-shadow]",
-                ) as HTMLElement;
-                document
-                    .querySelectorAll("[data-header-link]")
-                    .forEach((element) => {
-                        element.addEventListener("focus", (e) => {
-                            const target = e.target as HTMLElement;
-                            if (!ShadowRef) return;
-                            ShadowRef.style.opacity = "1";
-                            ShadowRef.style.left = `${target.offsetLeft}px`;
-                            ShadowRef.style.width = `${target.offsetWidth}px`;
-                        });
-                        element.addEventListener("blur", (e) => {
-                            if (!ShadowRef) return;
-                            ShadowRef.style.opacity = "0";
-                        });
-                        element.addEventListener("mouseover", (e) => {
-                            const target = e.target as HTMLElement;
-                            if (!ShadowRef) return;
-                            ShadowRef.style.opacity = "1";
-                            ShadowRef.style.left = `${target.offsetLeft}px`;
-                            ShadowRef.style.width = `${target.offsetWidth}px`;
-                        });
-                    });
-                document
-                    .querySelector("#header-nav-wrapper")
-                    ?.addEventListener("mouseleave", () => {
-                        if (!ShadowRef) return;
-                        ShadowRef.style.right = "-20rem";
-                        ShadowRef.style.opacity = "0";
-                        // TODO: Reset to selected route
-                    });
-            </script>
         </nav>
 
-        <Theme class:list={["absolute -right-14 top-1.5", "max-md:hidden"]} />
+        <div class="grow py-2.5" toggle-header tabindex="-1">&nbsp;</div>
+
+        <div class="flex flex-row items-center py-1 gap-2 rounded-full">
+            <Theme class:list={["md:absolute md:-right-14 md:top-1.5"]} />
+            <MenuIcon
+                toggle-header
+                class:list={["block size-10 pr-4", "md:hidden"]}
+            />
+        </div>
     </div>
 
     <nav
+        id="primary-header-mobile-nav"
         class:list={[
-            "hidden group-data-[open=true]/header:flex flex-col items-center justify-around",
-            "md:hidden lg:gap-2",
+            "overflow-hidden h-0 flex gap-4 flex-col items-center justify-around",
+            "md:hidden",
         ]}
     >
-        <div class="flex flex-col my-[20%] justify-between items-center gap-4">
-            {
-                NavItems.map(({ link, label }) => (
-                    <a
-                        href={link}
-                        class:list={[
-                            "relative h-fit cursor-pointer rounded-full px-4 py-1 font-medium text-text-secondary hover:text-text-primary",
-                            path === link && "text-text-primary",
-                            path === link &&
-                                "before:absolute before:-bottom-2.5 before:left-[10%] before:w-4/5 before:h-[3px] before:rounded-[4px] before:bg-gradient-to-r before:from-transparent before:via-emerald-300 before:to-transparent",
-                            "text-lg",
-                        ]}
-                    >
-                        {label}
-                    </a>
-                ))
-            }
-        </div>
+        {
+            NavItems.map(({ link, label }) => (
+                <a
+                    href={link}
+                    class:list={[
+                        "text-lg relative h-fit cursor-pointer rounded-full px-4 py-1 font-medium text-text-tertiary",
+                        "first:mt-12 last:mb-12",
+                        path === link && "text-text-primary",
+                    ]}
+                >
+                    {label}
+                </a>
+            ))
+        }
     </nav>
-
-    <script is:inline>
-        const toggleElement = document.querySelector("[data-toggle-element]");
-        toggleElement.addEventListener("click", () => {
-            const target = document.querySelector(
-                toggleElement.dataset.toggleElement,
-            );
-            if (!target) return;
-            console.log({ target: target.dataset.open });
-            const isOpen = target.dataset.open === "true";
-            target.dataset.open = isOpen ? "false" : "true";
-        });
-    </script>
 </header>
+
+<script>
+    import { animate, hover } from "motion";
+
+    const duration = 0.1;
+
+    document.addEventListener("astro:page-load", () => {
+        const shadow = document.querySelector(
+            "[data-header-shadow]",
+        ) as HTMLDivElement;
+        const animateStart = (left: number, width: number) =>
+            animate(
+                shadow,
+                { opacity: 1, left, width, scaleY: [1, 0.5, 1] },
+                { duration },
+            );
+        const animateEnd = () => animate(shadow, { opacity: 0 }, { duration });
+
+        const links = document.querySelectorAll(
+            "[data-header-link]",
+        ) as NodeListOf<HTMLDivElement>;
+        links.forEach((link) => {
+            hover(link, () => {
+                const { offsetLeft, offsetWidth } = link;
+                animateStart(offsetLeft, offsetWidth);
+                return () => animateEnd();
+            });
+            link.addEventListener("focus", (e) => {
+                const { offsetLeft, offsetWidth } = e.target as HTMLElement;
+                animateStart(offsetLeft, offsetWidth);
+            });
+            link.addEventListener("blur", () => animateEnd());
+        });
+
+        const wrapper = document.querySelector("#header-nav-wrapper");
+        wrapper?.addEventListener("mouseleave", () => animateEnd());
+    });
+</script>
+
+<script>
+    import { animate, press, stagger } from "motion";
+
+    const duration = 0.3;
+    const springAnimation = {
+        type: "spring",
+        stiffness: 110,
+        damping: 12,
+    } as const;
+
+    document.addEventListener("astro:page-load", () => {
+        const header = document.querySelector(
+            "#primary-header",
+        ) as HTMLDivElement;
+        const nav = document.querySelector(
+            "#primary-header-mobile-nav",
+        ) as HTMLDivElement;
+        const navItems = nav?.querySelectorAll("a");
+        const navHeight = `${nav?.scrollHeight}px`;
+        nav.style.height = "0px";
+
+        const animateStart = () => {
+            animate(
+                header,
+                { scale: 1, width: "90vw", left: "5vw" },
+                { duration, ...springAnimation },
+            );
+            animate(
+                nav,
+                { height: navHeight },
+                { duration, ...springAnimation },
+            );
+            animate(
+                navItems,
+                {
+                    opacity: [0, 1],
+                    filter: ["blur(0px)", "blur(10px)", "blur(0px)"],
+                },
+                { duration, delay: stagger(0.02) },
+            );
+        };
+        const animateEnd = () => {
+            animate(
+                header,
+                { scale: 1, width: "70vw", left: "15vw" },
+                { duration },
+            );
+            animate(nav, { height: 0 }, { duration });
+            animate(
+                navItems,
+                {
+                    opacity: [1, 0],
+                    filter: ["blur(0px)", "blur(10px)", "blur(0px)"],
+                },
+                { duration, delay: stagger(0.02) },
+            );
+        };
+
+        const triggerToggleElement = document.querySelectorAll(
+            "[toggle-header]",
+        ) as NodeListOf<HTMLDivElement>;
+        triggerToggleElement.forEach((element) => {
+            press(element, (_, e) => {
+                console.log({ e });
+                if (!window.isMobile) return;
+
+                animate(header, { scale: 0.9 }, { duration });
+                return () => {
+                    if (header.dataset.open) {
+                        header.removeAttribute("data-open");
+                        animateEnd();
+                    } else {
+                        header.setAttribute("data-open", "true");
+                        animateStart();
+                    }
+                };
+            });
+        });
+    });
+</script>

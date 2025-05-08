@@ -60,6 +60,7 @@ export const prerender = true;
 <LandingLayout {...seo} sustainability={sustainability}>
   <!-- Breadcrumb -->
   <div
+    animate-fade
     class:list={[
       "flex mx-auto max-w-[64rem] flex-row gap-2 text-sm pt-12 text-text-tertiary ",
       "max-md:px-4 md:pt-24",
@@ -84,11 +85,17 @@ export const prerender = true;
     ]}
   >
     <div>
-      <h1 class:list={["mb-4 text-left text-3xl font-bold", "md:text-5xl"]}>
+      <h1
+        animate-fade
+        class:list={["mb-4 text-left text-3xl font-bold", "md:text-5xl"]}
+      >
         {title}
       </h1>
 
-      <p class:list={["text-left text-sm text-text-tertiary", "md:text-base"]}>
+      <p
+        animate-fade
+        class:list={["text-left text-sm text-text-tertiary", "md:text-base"]}
+      >
         {description}
       </p>
     </div>
@@ -96,14 +103,16 @@ export const prerender = true;
 
     <div class="max-md:contents">
       <Image
+        animate-fade
         src={getImage(hero_image)}
         alt={title}
         class:list={[
           "mt-4 aspect-video rounded-xl border border-border/10 object-cover",
-          "md:my-8",
+          "md:mb-12",
         ]}
       />
       <div
+      animate-fade
         class:list={[
           "order-2 max-md:mt-8 leading-snug prose prose-neutral min-w-full dark:prose-invert",
           "md:order-1",
@@ -113,7 +122,7 @@ export const prerender = true;
       </div>
     </div>
 
-    <div class="">
+    <div animate-fade>
       <div
         class:list={[
           "mt-4 flex flex-col gap-4 text-text-tertiary font-normal",

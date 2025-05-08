@@ -30,10 +30,14 @@ const projects = await getCollection("projects");
 
 <LandingLayout {...seo} sustainability={sustainability}>
   <Section>
-    <h1 class:list={["pt-16 text-3xl font-bold", "md:pt-36 md:text-5xl"]}>
+    <h1
+      animate-fade
+      class:list={["pt-16 text-3xl font-bold", "md:pt-36 md:text-5xl"]}
+    >
       Selected Projects
     </h1>
     <p
+      animate-fade
       class:list={[
         "mt-8 text-sm text-text-tertiary text-balance leading-relaxed",
         "md:mt-10 md:max-w-[60%] md:text-base",
@@ -50,6 +54,7 @@ const projects = await getCollection("projects");
     </p>
 
     <div
+      animate-fade
       class:list={[
         "mt-12 flex items-center justify-between flex-row gap-4",
         "md:mt-16",
@@ -62,15 +67,10 @@ const projects = await getCollection("projects");
 
     <div id="context-project-view" class="peer/project-view" data-value="List">
     </div>
-    <div
-      id="context-project-category"
-      class="peer/project-category"
-      data-value=""
-    >
-    </div>
 
     <div
       id="project-card-wrapper"
+      animate-fade
       class:list={[
         "mt-4 py-8 grid md:grid-cols-2 grid-cols-1 gap-12",
         "peer-data-[value='List']/project-view:hidden",

@@ -1,8 +1,8 @@
 ---
 interface Props {
-	tag: string;
-	title: string;
-	class?: string;
+    tag: string;
+    title: string;
+    class?: string;
 }
 ---
 
@@ -23,6 +23,7 @@ interface Props {
     class:list={[
         "process-phase-card",
         "sticky top-[15vh] border border-border/10 rounded-2xl p-8 max-w-[44rem] mx-auto bg-bg-primary",
+        "",
         Astro.props.class,
     ]}
 >

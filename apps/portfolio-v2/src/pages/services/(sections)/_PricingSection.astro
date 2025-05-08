@@ -1,8 +1,8 @@
 ---
-import { PRICING } from 'cms/constants';
-import Section from '@/components/ui/Section.astro';
-import PricingCard from '@/pages/services/(components)/_PricingCard.astro';
-import Heading from '../(components)/_Heading.astro';
+import { PRICING } from "cms/constants";
+import Section from "@/components/ui/Section.astro";
+import PricingCard from "@/pages/services/(components)/_PricingCard.astro";
+import Heading from "../(components)/_Heading.astro";
 
 const Benefits = [
 	// {
@@ -42,102 +42,95 @@ const Benefits = [
 	//     svg: "/assets/illustrations/3d-chatbot-head.webm",
 	// },
 	{
-		title: 'Unlimited Revisions',
+		title: "Unlimited Revisions",
 	},
 	{
-		title: '24-hour support response time',
+		title: "24-hour support response time",
 	},
 	{
-		title: 'Private communication channel',
+		title: "Private communication channel",
 	},
 	{
-		title: 'Bespoke, Responsive-first Design',
+		title: "Bespoke, Responsive-first Design",
 	},
 	{
-		title: 'Secure, Privacy, Reliable and Scalable',
+		title: "Secure, Privacy, Reliable and Scalable",
 	},
 	{
-		title: 'Fast Load Times and Performant',
+		title: "Fast Load Times and Performant",
 	},
 	{
-		title: 'ROI driven focus',
+		title: "ROI driven focus",
 	},
 	{
-		title: 'Single Point of Contact',
+		title: "Single Point of Contact",
 	},
 	{
-		title: 'On-Time Delivery with 100% Satisfaction',
+		title: "On-Time Delivery with 100% Satisfaction",
 	},
 	{
-		title: 'Web Apps and SaaS Development',
+		title: "Web Apps and SaaS Development",
 	},
 	{
-		title: 'AI Apps development',
+		title: "AI Apps development",
 	},
 	{
-		title: 'Professional Integrations',
+		title: "Professional Integrations",
 	},
 	{
-		title: 'Search Engine Optimization',
+		title: "Search Engine Optimization",
 	},
 	{
-		title: 'CMS integration',
+		title: "CMS integration",
 	},
 	{
-		title: 'Design + Development',
+		title: "Design + Development",
 	},
 ];
 ---
 
 <Section id="pricing">
-    <Heading
-        label="Pricing"
-        heading="How much does it cost?"
-        caption="We offer flexible and transparent pricing options to suit your project needs. Our pricing is based on the complexity of the project, the timeline, and the resources required."
-    />
+	<Heading
+		label="Pricing"
+		heading="How much does it cost?"
+		caption="We offer flexible and transparent pricing options to suit your project needs. Our pricing is based on the complexity of the project, the timeline, and the resources required."
+	/>
 
-    <div
-        class:list={[
-            "grid gap-4",
-            "md:grid-cols-[auto_22rem] max-md:grid-cols-2",
-        ]}
-    >
-        <div
-            class:list={[
-                "row-span-3 rounded-2xl bg-bg-primary/50 border border-border/10 px-8 py-6",
-                "max-md:col-span-2",
-            ]}
-        >
-            <div
-                class:list={[
-                    "grid grid-cols-2 gap-y-4 text-text-primary",
-                    "max-md:grid-cols-2",
-                ]}
-            >
-                {
-                    Benefits.map((benefit) => (
-                        <div>
-                            <div set:html={benefit.title} />
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
+	<div
+		class:list={[
+			"grid gap-4",
+			"md:grid-cols-[auto_22rem] max-md:grid-cols-2",
+		]}
+	>
+		<div
+			class:list={[
+				"row-span-3 rounded-2xl bg-bg-primary/50 border border-border/10 px-8 py-6",
+				"max-md:col-span-2",
+			]}
+		>
+			<div class:list={["grid grid-cols-2 gap-y-4 text-text-primary"]}>
+				{
+					Benefits.map((benefit) => (
+						<div>
+							<div set:html={benefit.title} />
+						</div>
+					))
+				}
+			</div>
+		</div>
 
-        <PricingCard title="Hourly Rate" price={PRICING.HOURLY} />
-        <PricingCard title="Monthly Retainer" price={PRICING.MONTHLY} />
+		<PricingCard title="Hourly Rate" price={PRICING.HOURLY} />
+		<PricingCard title="Monthly Retainer" price={PRICING.MONTHLY} />
 
-        <div>
-            <ul
-                class:list={[
-                    "text-text-quaternary ml-6 mb-8 *:pt-1 list-disc",
-                    "max-md:text-xs",
-                ]}
-            >
-                <li>Billed on milestones, hourly, or fixed price basis.</li>
-                <li>We support payments in multiple currencies.</li>
-                <li>We request for 50% upfront payment.</li>
-            </ul>
-        </div>
-    </div>
+		<ul
+			class:list={[
+				"text-text-quaternary ml-6 mb-8 *:pt-1 list-disc",
+				"max-md:text-xs max-md:col-span-2",
+			]}
+		>
+			<li>Billed on milestones, hourly, or fixed price basis.</li>
+			<li>We support payments in multiple currencies.</li>
+			<li>We request for 50% upfront payment.</li>
+		</ul>
+	</div>
 </Section>

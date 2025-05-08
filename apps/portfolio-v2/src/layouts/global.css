@@ -48,13 +48,6 @@
 	html {
 		scrollbar-gutter: stable;
 		scroll-behavior: smooth;
-		/* scrollbar-color: ; */
-		/* scrollbar-track-color: ; */
-	}
-
-	a,
-	button {
-		@apply transition-all duration-500;
 	}
 
 	a {
@@ -174,110 +167,5 @@
 	}
 	to {
 		transform: translateY(calc(-100% - var(--gap)));
-	}
-}
-
-/* --animate-scroll: scroll 30s linear infinite;
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-33.33%);
-    }
-  } */
-
-/* --animate-blur: blur 10s linear infinite;
-  @keyframes blur {
-    0% {
-      filter: blur(0px);
-    }
-    100% {
-      filter: blur(10px);
-    }
-  } */
-
-/* @keyframes apple-wobble {
-    0% {
-        transform: rotate(1deg);
-        animation-timing-function: ease-in;
-    }
-
-    50% {
-        transform: rotate(-1.5deg);
-        animation-timing-function: ease-out;
-    }
-} */
-
-/* @keyframes shine {
-    0% {
-        @apply left-[-150px];
-    }
-
-    30% {
-        @apply left-[100%];
-    }
-
-    100% {
-        @apply left-[100%];
-    }
-}
-
-.shine-effect {
-    clip-path: border-box;
-}
-
-.shine-effect:before {
-    @apply top-0 -left-[150px] absolute w-[150px] h-full;
-    content: '';
-    background-image: linear-gradient(120deg,
-            rgba(255, 255, 255, 0) 30%,
-            rgba(255, 255, 255, .5),
-            rgba(255, 255, 255, 0) 70%);
-    animation: shine 5s infinite ease-in-out;
-} */
-
-@utility magic-fade {
-	@apply starting:blur-sm starting:opacity-0 duration-1500;
-}
-
-@utility magic-fade-up {
-	@apply starting:blur-sm starting:translate-y-4 starting:opacity-0 duration-1500 ease-in-out;
-}
-
-@utility magic-fade-down {
-	@apply starting:blur-sm starting:-translate-y-4 starting:opacity-0 duration-1000 ease-in-out;
-}
-
-@utility magic-fade-right {
-	@apply starting:blur-sm starting:-translate-x-4 starting:opacity-0 duration-1000 ease-in-out;
-}
-
-@utility shiny-backdrop-effect {
-	@apply relative;
-	@apply hover:after:opacity-100 after:opacity-0 after:transition-opacity after:duration-200;
-	@apply after:content-[''] after:absolute after:w-32 after:h-32 after:bg-radial after:from-white/20 after:to-transparent;
-	@apply after:top-[calc(var(--y,0)*1px-50px)] after:left-[calc(var(--x,0)*1px-50px)] after:pointer-events-none;
-}
-
-@utility effect-shine {
-	-webkit-mask-image: linear-gradient(
-		-75deg,
-		rgba(0, 0, 0, 0.7) 30%,
-		#000 50%,
-		rgba(0, 0, 0, 0.7) 70%
-	);
-	-webkit-mask-size: 200%;
-	animation: shine 2s infinite;
-	animation-delay: 300ms;
-}
-
-@-webkit-keyframes shine {
-	from {
-		-webkit-mask-position: 150%;
-	}
-
-	to {
-		-webkit-mask-position: -50%;
 	}
 }

@@ -26,17 +26,13 @@ const {
 export const partial = true;
 ---
 
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Accept-CH" content="Width, Downlink, Sec-CH-UA" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="sitemap" href="/sitemap-index.xml" />
-        <!--
-        themeColor	false	"#000000"	Browser theme color.
-        colorScheme	false	"light"	Preferred color scheme.
-        -->
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords?.join(", ")} />
@@ -46,6 +42,35 @@ export const partial = true;
             is:inline
         />
         <!-- Open Graph -->
+        <meta property="og:url" content="https://meta.com" />
+        <meta property="og:title" content="The Rock" />
+        <meta property="og:type" content="video.movie" />
+
+        <meta
+            property="og:url"
+            content="https://www.imdb.com/title/tt0117500/"
+        />
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:alt" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <!-- twitter:creator -->
+        <!-- twitter:site -->
+        <meta property="twitter:domain" content="meta.com" />
+        <meta property="twitter:url" content="https://meta.com" />
+        <meta name="twitter:title" content="Error | Meta Store" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:image" content="<generated>" />
+        <meta name="twitter:image:alt" content="<generated>" />
+        <meta name="twitter:image:type" content="<generated>" />
+        <meta name="twitter:image:width" content="<generated>" />
+        <meta name="twitter:image:height" content="<generated>" />
+        <!-- og:description - A one to two sentence description of your object. -->
+        <!-- og:locale - The locale these tags are marked up in. Of the format language_TERRITORY. Default is en_US. -->
+        <!-- og:site_name - If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb". -->
+
         <!--
         facebook.image	false	"/facebook.png"	Facebook share image.
         facebook.url	false	"https://astro.build"	Page URL.
@@ -54,9 +79,9 @@ export const partial = true;
         twitter.site	false	"@"	Twitter handle of publishing site.
         twitter.card	false	"summary"	Format of Twitter share card. See all types here.
         -->
-        <ClientRouter />
-        <Font cssVariable="--font-lora" preload />
         <Font cssVariable="--font-inter" preload />
+        <Font cssVariable="--font-lora" preload />
+        <ClientRouter />
         <script data-astro-rerun type="module" is:inline>
             const doc = document.documentElement;
             window
@@ -75,16 +100,35 @@ export const partial = true;
                 (window.matchMedia("(prefers-color-scheme: dark)").matches
                     ? "dark"
                     : "light");
-            doc.classList.toggle(theme);
+            console.log({ theme });
+            doc.classList.toggle("dark", theme === "dark");
 
             document.body.style.visibility = "visible";
             document.body.style.opacity = "1";
         </script>
     </head>
     <body
-        class="text-sm font-normal leading-normal antialiased relative min-h-screen cursor-default bg-background text-text-secondary font-sans-serif"
+        class="text-sm font-normal leading-normal antialiased relative min-h-screen cursor-default bg-background text-text-secondary font-sans-serif invisible opacity-0"
         style="text-rendering: optimizeLegibility; -webkit-text-size-adjust: 100%; scroll-behavior: smooth;"
     >
+        <script>
+            declare global {
+                interface Window {
+                    isMobile: boolean;
+                }
+            }
+
+            function determineMobile() {
+                window.isMobile = window.innerWidth < 768;
+            }
+
+            // Observe:
+            window.addEventListener("resize", determineMobile);
+
+            // Initialize:
+            determineMobile();
+        </script>
+
         <slot />
 
         <CookiePopup />

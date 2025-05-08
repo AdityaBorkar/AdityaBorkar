@@ -76,21 +76,20 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
         "md:size-80",
       ]}
     >
+      <!-- TODO: FADE DELAY -->
       <Image
-        class:list={[
-          "h-full w-full -scale-x-100 rounded-2xl object-cover",
-          "magic-fade-right",
-        ]}
+        animate-fade="right"
+        class:list={["h-full w-full -scale-x-100 rounded-2xl object-cover"]}
         src={getImage("profile.png")}
         alt=""
       />
     </div>
     <div class:list={["mt-4 w-[100%]", "lg:-mt-8"]}>
       <div
+        animate-fade
         class:list={[
           "text-2xl font-bold bg-clip-text leading-normal text-transparent from-text-primary to-text-quaternary bg-gradient-to-br",
           "md:text-4xl",
-          "magic-fade-down delay-300",
         ]}
       >
         Product Engineer.
@@ -100,12 +99,7 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
         <!-- AI Engineer -->
       </div>
 
-      <div
-        class:list={[
-          "mt-4 text-xs flex flex-row gap-2",
-          "magic-fade-down delay-500",
-        ]}
-      >
+      <div animate-fade class:list={["mt-4 text-xs flex flex-row gap-2"]}>
         <Tag href="https://ossacc.com/" label="oss/acc" />
         <Tag
           href="https://en.wikipedia.org/wiki/Effective_altruism"
@@ -114,9 +108,9 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       </div>
 
       <div
+        animate-fade
         class:list={[
           "mt-4 flex flex-row items-center gap-4 text-text-tertiary",
-          "magic-fade-down delay-700",
         ]}
       >
         <a
@@ -149,10 +143,10 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       </div>
 
       <p
+        animate-fade
         class:list={[
           "text-balance leading-relaxed text-text-tertiary",
           "mt-8 md:mt-12 text-sm md:text-lg",
-          "magic-fade-down delay-1000",
         ]}
       >
         {"I'm Aditya, an "}
@@ -180,11 +174,8 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       </p>
 
       <div
-        class:list={[
-          "mt-8 flex flex-row gap-4 ",
-          "md:mt-16 md:gap-8",
-          "magic-fade-down delay-1100",
-        ]}
+        animate-fade
+        class:list={["mt-8 flex flex-row gap-4 ", "md:mt-16 md:gap-8"]}
       >
         <ButtonLink variant="primary" size="lg" href="/contact">
           Enquire / Contact
@@ -195,9 +186,9 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       </div>
 
       <div
+        animate-fade
         class:list={[
           "mt-6 w-fit px-4 flex flex-row gap-2 items-center text-center text-sm text-text-secondary",
-          "magic-fade-down delay-1200",
         ]}
       >
         <div
@@ -227,7 +218,7 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       id="mockups-1"
       direction="right"
       duration="30s"
-      class:list={["my-2", "md:my-8", "magic-fade-up delay-2000"]}
+      class:list={["my-2", "md:my-8", ""]}
     >
       {
         Mockups1.map(({ data: { img, id } }) => (
@@ -239,7 +230,7 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       id="mockups-2"
       direction="left"
       duration="30s"
-      class:list={["my-2", "md:my-8", "magic-fade-up delay-2200"]}
+      class:list={["my-2", "md:my-8", ""]}
     >
       {
         Mockups2.map(async ({ data: { img, id } }) => (

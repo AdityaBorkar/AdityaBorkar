@@ -1,24 +1,25 @@
 ---
-import Section from '@/components/ui/Section.astro';
-import LandingLayout from '@/layouts/LandingLayout/index.astro';
-import { SchemaMarkup } from '@/lib/utils';
-import CookiePolicy from './_cookie-policy.mdx';
-import PrivacyPolicy from './_privacy-policy.mdx';
-import TermsOfService from './_terms-of-service.mdx';
+import Section from "@/components/ui/Section.astro";
+import LandingLayout from "@/layouts/LandingLayout/index.astro";
+import { SchemaMarkup } from "@/lib/utils";
+import CookiePolicy from "./_cookie-policy.mdx";
+import PrivacyPolicy from "./_privacy-policy.mdx";
+import TermsOfService from "./_terms-of-service.mdx";
 
-const title = 'Legal Terms';
-const description = 'Legal Terms';
-const keywords = ['legal', 'terms'];
-const schema_markup = [SchemaMarkup.get('webpage/page')];
+const title = "Legal Terms";
+const description = "Legal Terms";
+const keywords = ["legal", "terms"];
+const schema_markup = [SchemaMarkup.get("webpage/page")];
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
-	co2: 0.25,
-	link: 'adityab-tech',
+  co2: 0.25,
+  link: "adityab-tech",
 };
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
+  <!--
   <Section
     class:list={[
       "pt-24",
@@ -46,8 +47,10 @@ const sustainability = {
       </a>
     </div>
   </Section>
+  -->
 
   <div
+    animate-fade
     class:list={[
       "prose dark:prose-invert py-16 min-h-screen mx-auto max-w-[48rem]",
       "bg-background", // ? FIX FOR BACKDROP BLUR

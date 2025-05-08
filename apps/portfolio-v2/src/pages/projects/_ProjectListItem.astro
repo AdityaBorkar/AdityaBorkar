@@ -188,7 +188,7 @@ const src = (await getImage(hero_image)).default.src;
         "[project-list-item]+div>div",
     );
 
-    const START_DELAY = 0.5;
+    const START_DELAY = 1.5;
     animate(
         divide_items,
         {
@@ -216,14 +216,7 @@ const src = (await getImage(hero_image)).default.src;
         },
     );
 
-    const titles = document.querySelectorAll(
-        "[hint-title]",
-    ) as NodeListOf<HTMLDivElement>;
-    titles.forEach((element, index) => {
-        const text = element.getAttribute("hint-title") || "";
-        const spans = createScrambleText({ element, text });
-        animateScramble({ spans, text, delay: 0.8 + index * 0.2 });
-    });
+    const START_DELAY_TEXT = 1.5;
 
     const descriptions = document.querySelectorAll(
         "[hint-description]",
@@ -231,6 +224,19 @@ const src = (await getImage(hero_image)).default.src;
     descriptions.forEach((element, index) => {
         const text = element.getAttribute("hint-description") || "";
         const spans = createScrambleText({ element, text });
-        animateScramble({ spans, text, delay: 0.4 + index * 0.2 });
+        const STAGGER = index * 0.2;
+        const delay = START_DELAY_TEXT + STAGGER;
+        animateScramble({ spans, text, delay });
+    });
+
+    const titles = document.querySelectorAll(
+        "[hint-title]",
+    ) as NodeListOf<HTMLDivElement>;
+    titles.forEach((element, index) => {
+        const text = element.getAttribute("hint-title") || "";
+        const spans = createScrambleText({ element, text });
+        const STAGGER = index * 0.2;
+        const delay = 0.3 + START_DELAY_TEXT + STAGGER;
+        animateScramble({ spans, text, delay });
     });
 </script>

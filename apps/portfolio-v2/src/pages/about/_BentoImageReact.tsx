@@ -60,7 +60,7 @@ export default function BentoImageReact({ alt, src, caption }: Props) {
 				onClick={() => setOpen(!isOpen)}
 				className="absolute top-0 left-0 flex h-full w-full items-end rounded-xl bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-500"
 			>
-				<span className="magic-fade-up hidden text-pretty px-4 py-2 text-sm text-white duration-500 group-hover:block">
+				<span className="hidden text-pretty px-4 py-2 text-sm text-white duration-500 group-hover:block">
 					{caption}
 				</span>
 			</motion.figcaption>

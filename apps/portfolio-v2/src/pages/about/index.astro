@@ -68,6 +68,8 @@ const schema_markup = [
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = { co2: 0.25, link: "adityab-tech" };
+
+// TODO: Animate first bento grid
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
@@ -78,7 +80,8 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
     ]}
   >
     <div
-      class="mb-8 flex flex-col justify-between md:items-center md:flex-row magic-fade-down delay-300"
+      animate-fade
+      class="mb-8 flex flex-col justify-between md:items-center md:flex-row"
     >
       <h2 class="text-2xl font-semibold">
         <!-- TODO: Animate: Wave Effect -->
@@ -103,7 +106,7 @@ const sustainability = { co2: 0.25, link: "adityab-tech" };
       </ButtonLink>
     </div>
 
-    <Paragraph class="magic-fade-down delay-500">
+    <Paragraph animate-fade>
       I engineer interfaces, products, and systems, from early concepts to
       full-fledged products, by partnering closely with designers, engineering
       peers and customers. I have done a bit of everything from web design, UX,

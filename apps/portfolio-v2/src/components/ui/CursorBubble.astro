@@ -9,8 +9,7 @@ const { text, fillColor } = Astro.props;
 ---
 
 <script>
-  import { animate } from "motion/mini";
-  import { spring } from "motion";
+  import { animate } from "motion";
 
   for (const bubble of document.querySelectorAll("[data-figma-cursor")) {
     bubble.addEventListener("mouseover", () => {
@@ -25,7 +24,7 @@ const { text, fillColor } = Astro.props;
       animate(
         bubble,
         { top: `${randomTop}%`, left: `${randomLeft}%` },
-        { duration: 0.6, type: spring, bounce: 0.3 },
+        { duration: 0.6, type: "spring", bounce: 0.3 },
       );
     });
   }

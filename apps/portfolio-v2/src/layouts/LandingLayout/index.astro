@@ -12,6 +12,7 @@ import FooterLink from "./FooterLink.astro";
 import GenerativeArt from "./GenerativeArt.astro";
 import Navbar from "./Navbar.astro";
 import FooterLinkHeading from "@/layouts/LandingLayout/FooterLinkHeading.astro";
+import GradientBlur from "@/components/GradientBlur.astro";
 
 interface Props extends ComponentProps<typeof RootLayout> {
   sustainability?: {
@@ -23,22 +24,46 @@ interface Props extends ComponentProps<typeof RootLayout> {
 const { sustainability, ...seo } = Astro.props;
 ---
 
-<script>
-  import { animate } from "motion/mini";
+<style is:global>
+  [animate-fade] {
+    opacity: 0;
+  }
+</style>
 
-  document.querySelectorAll("[magic-fade]").forEach((element) => {
-    const type = element.getAttribute("magic-fade");
-    const delay = parseFloat(element.getAttribute("animate-delay") || "0");
-    animate(
-      element,
-      {
-        filter: ["blur(10px)", "blur(0px)"],
-        opacity: [0, 1],
-        translate: [type === "down" ? "0px 16px" : "0px -16px", "0px 0px"],
-      },
-      { duration: 0.6, ease: "easeOut", delay },
-    );
+<script>
+  import { animate } from "motion";
+
+  const TRANSITION_TRANSLATE = {
+    down: "0px 16px",
+    up: "0px -16px",
+    right: "16px 0px",
+    left: "-16px 0px",
+  };
+
+  document.addEventListener("astro:page-load", () => {
+    const elements = document.querySelectorAll("[animate-fade]");
+    elements.forEach((element, index) => {
+      const type = element.getAttribute("animate-fade") || "down";
+      const delay =
+        parseFloat(element.getAttribute("animate-delay") || "0") ||
+        0.3 + index * 0.3;
+      animate(
+        element,
+        {
+          opacity: [0, 1],
+          filter: ["blur(10px)", "blur(0px)"],
+          // @ts-expect-error
+          translate: [TRANSITION_TRANSLATE[type] || "0px 0px", "0"],
+        },
+        { ease: "easeOut", duration: 0.5, delay },
+      );
+    });
   });
+
+  // inView
+  //         initial="hidden"
+  // animate={isInView ? "visible" : "hidden"}
+  //       exit="hidden"
 </script>
 
 <RootLayout {...seo}>
@@ -50,10 +75,7 @@ const { sustainability, ...seo } = Astro.props;
 
   <slot />
 
-  <div
-    class="fixed bottom-0 left-0 right-0 w-full h-32 z-40 bg-gradient-to-t from-background via-background/90 via-25% to-transparent pointer-events-none"
-  >
-  </div>
+  <GradientBlur class="fixed inset-0 top-auto h-[15%]" />
 
   <footer class="max-md:px-[5vw] relative z-30 bg-background">
     <div
