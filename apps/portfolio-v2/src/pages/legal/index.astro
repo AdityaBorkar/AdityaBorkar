@@ -1,5 +1,4 @@
 ---
-import Section from "@/components/ui/Section.astro";
 import LandingLayout from "@/layouts/LandingLayout/index.astro";
 import { SchemaMarkup } from "@/lib/utils";
 import CookiePolicy from "./_cookie-policy.mdx";
@@ -9,7 +8,7 @@ import TermsOfService from "./_terms-of-service.mdx";
 const title = "Legal Terms";
 const description = "Legal Terms";
 const keywords = ["legal", "terms"];
-const schema_markup = [SchemaMarkup.get("webpage/page")];
+const schema_markup = await Promise.all([SchemaMarkup.get("webpage/page")]);
 const open_graph = {};
 const seo = { title, description, keywords, schema_markup, open_graph };
 const sustainability = {
@@ -19,40 +18,10 @@ const sustainability = {
 ---
 
 <LandingLayout {...seo} sustainability={sustainability}>
-  <!--
-  <Section
-    class:list={[
-      "pt-24",
-      "bg-background", // ? FIX FOR BACKDROP BLUR
-    ]}
-  >
-    <div class="flex flex-row mx-auto w-fit gap-4">
-      <a
-        href="#privacy-policy"
-        class="font-medium py-2 px-6 rounded-lg bg-bg-primary"
-      >
-        Privacy Policy
-      </a>
-      <a
-        href="#terms-of-service"
-        class="font-medium py-2 px-6 rounded-lg bg-bg-primary"
-      >
-        Terms of Service
-      </a>
-      <a
-        href="#cookie-policy"
-        class="font-medium py-2 px-6 rounded-lg bg-bg-primary"
-      >
-        Cookie Policy
-      </a>
-    </div>
-  </Section>
-  -->
-
   <div
     animate-fade
     class:list={[
-      "prose dark:prose-invert py-16 min-h-screen mx-auto max-w-[48rem]",
+      "prose dark:prose-invert py-16 min-h-screen mx-auto max-w-[48rem] prose-p:leading-normal",
       "bg-background", // ? FIX FOR BACKDROP BLUR
     ]}
   >
@@ -60,7 +29,7 @@ const sustainability = {
       <PrivacyPolicy />
     </main>
     <main id="terms-of-service">
-      <TermsOfService />
+      <TermsOfService id="ok" />
     </main>
     <main id="cookie-policy">
       <CookiePolicy />

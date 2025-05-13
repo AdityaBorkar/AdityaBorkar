@@ -11,7 +11,7 @@ export const SOCIALS = {
 	discord: 'adityab.tech',
 	x: 'https://x.com/adityab_tech',
 	github: 'https://github.com/AdityaBorkar',
-	linkedin: 'https://linkedin.com/in/adityab_tech',
+	linkedin: 'www.linkedin.com/in/adityab-tech',
 	strava: 'https://strava.com/athletes/aditya-borkar',
 };
 

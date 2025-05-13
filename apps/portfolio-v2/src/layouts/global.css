@@ -49,7 +49,9 @@
 		scrollbar-gutter: stable;
 		scroll-behavior: smooth;
 	}
+}
 
+@layer base {
 	a {
 		@apply cursor-pointer;
 	}
@@ -100,10 +102,6 @@
 			transition-delay: 1ms !important;
 		}
 	}
-}
-
-@layer base {
-	/* CSS RESET */
 
 	a:focus,
 	input:focus,
@@ -168,4 +166,21 @@
 	to {
 		transform: translateY(calc(-100% - var(--gap)));
 	}
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		background-color: transparent;
+	}
+	50% {
+		background-color: var(--color-emerald-700);
+	}
+}
+
+.container__cursor {
+	position: absolute;
+	width: 2px;
+	background-color: var(--color-emerald-700);
+	animation: blink 1s infinite;
 }

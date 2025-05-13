@@ -2,7 +2,8 @@
 interface Props {
     href: string;
     label: string;
-    icon: any;
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    icon: ((_props: astroHTML.JSX.SVGAttributes) => any) & ImageMetadata;
     iconClass?: string;
 }
 

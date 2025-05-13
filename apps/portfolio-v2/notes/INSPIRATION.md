@@ -24,3 +24,5 @@
 - https://www.cedric.design/
 - https://land-book.com/submission-guidelines
 
+- https://www.sj.land/
+
